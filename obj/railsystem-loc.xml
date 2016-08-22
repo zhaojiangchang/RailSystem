@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<Locations >
+  <Project>
+    <vfs_file />
+    <file_marker column=" 16" line=" 67" >
+      <vfs_project>C:\Users\JackyChang\Documents\GitHub\RailSystem\railsystem.gpr</vfs_project>
+      <vfs_file>C:\Users\JackyChang\Documents\GitHub\RailSystem\src\main.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 55" line=" 109" >
+      <vfs_project>C:\Users\JackyChang\Documents\GitHub\RailSystem\railsystem.gpr</vfs_project>
+      <vfs_file>C:\Users\JackyChang\Documents\GitHub\RailSystem\src\_test\scenarios\RailSystems-test.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 18" line=" 6" >
+      <vfs_project>C:\Users\JackyChang\Documents\GitHub\RailSystem\railsystem.gpr</vfs_project>
+      <vfs_file>C:\Users\JackyChang\Documents\GitHub\RailSystem\src\RailSystems.adb</vfs_file>
+    </file_marker>
+    <file_marker current="true" column=" 1" line=" 1" >
+      <vfs_project>C:\Users\JackyChang\Documents\GitHub\RailSystem\railsystem.gpr</vfs_project>
+      <vfs_file>C:\Users\JackyChang\Documents\GitHub\RailSystem\src\Tracks.ads</vfs_file>
+    </file_marker>
+  </Project>
+</Locations>

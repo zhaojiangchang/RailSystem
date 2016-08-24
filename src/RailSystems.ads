@@ -6,7 +6,7 @@ with LIST;
 with TYPES;
 package RailSystems
 --  is
-with SPARK_Mode is
+with SPARK_Mode=>On is
   tn : Trains.Train;
    package LIST_TRAINS is new LIST
      ( DATA_TYPE => Trains.Train,

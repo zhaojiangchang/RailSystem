@@ -1,4 +1,4 @@
-package body Tracks with SPARK_Mode is
+package body Tracks with SPARK_Mode=>On is
 
    -----------------------------
    -- setOriginAndDestination --

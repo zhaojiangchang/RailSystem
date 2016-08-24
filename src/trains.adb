@@ -1,4 +1,4 @@
-package body Trains with SPARK_Mode is
+package body Trains with SPARK_Mode=>On is
 
    ------------------
    -- SET_LOCATION --

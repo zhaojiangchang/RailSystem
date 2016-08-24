@@ -3,7 +3,7 @@ with list;
 with TYPES;
 package Stations
 --  is
-with SPARK_Mode is
+with SPARK_Mode=>On is
 
 
      tk : Tracks.Track;

@@ -1,7 +1,7 @@
 with ada.Text_IO; use Ada.Text_IO;
 with Ada.Exceptions;
 
-package body RailSystems with SPARK_Mode is
+package body RailSystems with SPARK_Mode=>On is
    use all type TYPES.MAX_SIZE;
    --------------
    -- addTrack --

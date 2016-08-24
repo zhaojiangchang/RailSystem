@@ -1,7 +1,7 @@
 with TYPES;
 package Trains
 --  is
-with SPARK_Mode is
+with SPARK_Mode=>On is
    type Train is
       record
          ID: TYPES.MAX_SIZE;

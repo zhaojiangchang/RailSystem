@@ -7,7 +7,7 @@ with sPrint; use sPrint;
 with Ada.Text_IO; use Ada.Text_IO;
 procedure Main is
    rail_system: RailSystems.RailSystem;
-   intArray: TYPES.trackIDsArray;
+   intArrayOfTracks: TYPES.trackIDsArray;
    currentLocaiton: TYPES.Location_Type;
 begin
    --  Insert code here.
@@ -31,31 +31,25 @@ begin
    RailSystems.addStation(rail_system, 3,TYPES.UpperHutt);
    Put_Line("total stations size: "& RailSystems.LIST_STATIONS.GET_SIZE(rail_system.All_Stations)'Image);
 
-   intArray:=(1=>1,others =>0);
+   intArrayOfTracks:=(1=>1,others =>0);
 
-   RailSystems.addIncomingTracksForStation(rail_system, 3, intArray);
-   RailSystems.addOutgoingTracksForStation(rail_system, 3, intArray);
---
-   intArray:=(1=>2,others =>0);
-   RailSystems.addIncomingTracksForStation(rail_system, 2, intArray);
-   RailSystems.addOutgoingTracksForStation(rail_system, 2, intArray);
+   RailSystems.addIncomingOutgoingTracksForStation(rail_system, 1, intArrayOfTracks, "Incoming");
+   RailSystems.addIncomingOutgoingTracksForStation(rail_system, 1, intArrayOfTracks, "Outgoing");
+   --
+   intArrayOfTracks:=(1=>2,others =>0);
+   RailSystems.addIncomingOutgoingTracksForStation(rail_system, 2, intArrayOfTracks, "Incoming");
+   RailSystems.addIncomingOutgoingTracksForStation(rail_system, 2, intArrayOfTracks, "Outgoing");
 
-   intArray:=(1=>1, 2=>2, 3=>3,others =>0);
-   RailSystems.addIncomingTracksForStation(rail_system, 1, intArray);
-   RailSystems.addOutgoingTracksForStation(rail_system, 1, intArray);
-
-
-
-   --     intArray:=(1=>3,others =>0);
-   --     RailSystems.addIncomingTracksForStation(rail_system, 3, intArray);
-   --     RailSystems.addOutgoingTracksForStation(rail_system, 3, intArray);
-   --     intArray:=(1=>2,others =>0);
-   --     RailSystems.addIncomingTracksForStation(rail_system, 3, intArray);
-   --     RailSystems.addOutgoingTracksForStation(rail_system, 3, intArray);
+   intArrayOfTracks:=(1=>1, 2=>2, 3=>3,others =>0);
+   RailSystems.addIncomingOutgoingTracksForStation(rail_system, 3, intArrayOfTracks, "Incoming");
+   RailSystems.addIncomingOutgoingTracksForStation(rail_system, 3, intArrayOfTracks, "Outgoing");
 
    Put_Line("station 1 incoming tracks size: "&  Stations.LIST_TRACKS.GET_SIZE(RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(rail_system.All_Stations,1).Incoming)'Image);
    Put_Line("station 2 incoming tracks size: "&  Stations.LIST_TRACKS.GET_SIZE(RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(rail_system.All_Stations,2).Incoming)'Image);
    Put_Line("station 3 incoming tracks size: "&  Stations.LIST_TRACKS.GET_SIZE(RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(rail_system.All_Stations,3).Incoming)'Image);
+   Put_Line("station 1 outgoing tracks size: "&  Stations.LIST_TRACKS.GET_SIZE(RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(rail_system.All_Stations,1).Outgoing)'Image);
+   Put_Line("station 2 outgoing tracks size: "&  Stations.LIST_TRACKS.GET_SIZE(RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(rail_system.All_Stations,2).Outgoing)'Image);
+   Put_Line("station 3 outgoing tracks size: "&  Stations.LIST_TRACKS.GET_SIZE(RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(rail_system.All_Stations,3).Outgoing)'Image);
 
 
 

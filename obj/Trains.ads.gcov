@@ -1,0 +1,15 @@
+        -:    0:Source:C:/Users/JackyChang/Desktop/RailSystem/src/Trains.ads
+        -:    0:Programs:41
+        -:    1:with TYPES;
+        -:    2:package Trains
+        -:    3:--  is
+        -:    4:with SPARK_Mode is
+    #####:    5:   type Train is
+        -:    6:      record
+        -:    7:         ID: TYPES.MAX_SIZE;
+        -:    8:         Location: Integer;
+        -:    9:   end record;
+        -:   10:
+        -:   11:   procedure SET_LOCATION(train_r: in out Train; ID: in TYPES.MAX_SIZE; location: in Integer);
+        -:   12:
+        -:   13:end Trains;

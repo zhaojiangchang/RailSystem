@@ -1,0 +1,40 @@
+        -:    0:Source:C:/Users/JackyChang/Desktop/RailSystem/src/RailSystems.ads
+        -:    0:Programs:41
+        -:    1:with Trains;
+        -:    2:with Stations;
+        -:    3:with Tracks;
+        -:    4:with sPrint;
+        -:    5:with LIST;
+        -:    6:with TYPES;
+        2:    7:package RailSystems
+        -:    8:--  is
+        -:    9:with SPARK_Mode is
+        -:   10:  tn : Trains.Train;
+        -:   11:   package LIST_TRAINS is new LIST
+        -:   12:     ( DATA_TYPE => Trains.Train,
+        -:   13:       SIZE_TYPE => TYPES.MAX_SIZE,
+        -:   14:       NO_FOUND => tn);
+        -:   15:
+        2:   16:   sn : Stations.Station;
+        -:   17:   package LIST_STATIONS is new LIST
+        -:   18:     ( DATA_TYPE => Stations.Station,
+        -:   19:       SIZE_TYPE => TYPES.MAX_SIZE,
+        -:   20:       NO_FOUND => sn);
+        -:   21:
+        -:   22:
+        8:   23:   type RailSystem is
+        -:   24:      record
+        2:   25:         All_Trains: LIST_TRAINS.LIST_PTR:= new LIST_TRAINS.LIST;
+        2:   26:         All_Stations: LIST_STATIONS.LIST_PTR:= new LIST_STATIONS.LIST;
+        2:   27:         All_Tracks: Stations.LIST_TRACKS.LIST_PTR:= new Stations.LIST_TRACKS.LIST;
+        -:   28:      end record;
+        -:   29:
+        -:   30:   procedure addTrack(r_system: in out RailSystem; ID: in TYPES.MAX_SIZE; Origin: in TYPES.Origin_Type; Destination: in TYPES.Destination_Type);
+        -:   31:   procedure addTrain (r_system: in out RailSystem; ID: in TYPES.MAX_SIZE; location: in Integer);
+        -:   32:   procedure addStation(r_system: in out RailSystem; StationID: in TYPES.MAX_SIZE; Location: TYPES.Station_Locations);
+        -:   33:   procedure setStation(r_system: in out RailSystem; StationID: in TYPES.MAX_SIZE; station: in Stations.Station);
+        -:   34:   procedure addIncomingOutgoingTracksForStation(r_system: in out RailSystem; StationID: in TYPES.MAX_SIZE; trackIds: in TYPES.trackIDsArray;
+        -:   35:                                        IOSwitch: in String);
+        -:   36:--     procedure addOutgoingTracksForStation(r_system: in out RailSystem; StationID: in TYPES.MAX_SIZE; trackIds: in TYPES.trackIDsArray);
+        -:   37:
+        2:   38:end RailSystems;

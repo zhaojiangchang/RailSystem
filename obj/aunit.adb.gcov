@@ -1,0 +1,100 @@
+        -:    0:Source:C:/GNAT/2016/include/aunit/aunit.adb
+        -:    0:Programs:41
+        -:    1:------------------------------------------------------------------------------
+        -:    2:--                                                                          --
+        -:    3:--                         GNAT COMPILER COMPONENTS                         --
+        -:    4:--                                                                          --
+        -:    5:--                                A U N I T                                 --
+        -:    6:--                                                                          --
+        -:    7:--                                 B o d y                                  --
+        -:    8:--                                                                          --
+        -:    9:--                                                                          --
+        -:   10:--                       Copyright (C) 2008-2011, AdaCore                   --
+        -:   11:--                                                                          --
+        -:   12:-- GNAT is free software;  you can  redistribute it  and/or modify it under --
+        -:   13:-- terms of the  GNU General Public License as published  by the Free Soft- --
+        -:   14:-- ware  Foundation;  either version 3,  or (at your option) any later ver- --
+        -:   15:-- sion.  GNAT is distributed in the hope that it will be useful, but WITH- --
+        -:   16:-- OUT ANY WARRANTY;  without even the  implied warranty of MERCHANTABILITY --
+        -:   17:-- or FITNESS FOR A PARTICULAR PURPOSE.                                     --
+        -:   18:--                                                                          --
+        -:   19:--                                                                          --
+        -:   20:--                                                                          --
+        -:   21:--                                                                          --
+        -:   22:--                                                                          --
+        -:   23:-- You should have received a copy of the GNU General Public License and    --
+        -:   24:-- a copy of the GCC Runtime Library Exception along with this program;     --
+        -:   25:-- see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see    --
+        -:   26:-- <http://www.gnu.org/licenses/>.                                          --
+        -:   27:--                                                                          --
+        -:   28:-- GNAT is maintained by AdaCore (http://www.adacore.com)                   --
+        -:   29:--                                                                          --
+        -:   30:------------------------------------------------------------------------------
+        -:   31:
+        -:   32:with Ada.Unchecked_Conversion;
+        -:   33:with System.Storage_Elements;  use System.Storage_Elements;
+        -:   34:with AUnit.Memory;             use AUnit.Memory;
+        -:   35:
+        -:   36:package body AUnit is
+        -:   37:
+    #####:   38:   type Bounds is record
+        -:   39:      First : Natural;
+        -:   40:      Last  : Natural;
+        -:   41:   end record;
+        -:   42:   type Bounds_Access is access all Bounds;
+        -:   43:
+       20:   44:   type Fat_Pointer is record
+        -:   45:      Address       : System.Address;
+        -:   46:      Bound_Address : Bounds_Access;
+        -:   47:   end record;
+        -:   48:   pragma Pack (Fat_Pointer);
+        -:   49:
+        -:   50:   -------------------
+        -:   51:   -- Message_Alloc --
+        -:   52:   -------------------
+        -:   53:
+       20:   54:   function Message_Alloc (Length : Natural) return Message_String is
+        -:   55:      function To_Message is new Ada.Unchecked_Conversion
+        -:   56:        (Fat_Pointer, Message_String);
+        -:   57:      function To_Bounds_Access is new Ada.Unchecked_Conversion
+        -:   58:        (System.Address, Bounds_Access);
+        -:   59:      function To_Address is new Ada.Unchecked_Conversion
+        -:   60:        (Bounds_Access, System.Address);
+       20:   61:      Ret : Fat_Pointer;
+        -:   62:   begin
+       20:   63:      Ret.Bound_Address := To_Bounds_Access
+       20:   64:        (AUnit.Memory.AUnit_Alloc
+       20:   65:           (size_t (Length + (Bounds'Object_Size / 8))));
+       20:   66:      Ret.Bound_Address.First := 1;
+       20:   67:      Ret.Bound_Address.Last := Length;
+       40:   68:      Ret.Address := To_Address (Ret.Bound_Address) + (Bounds'Size / 8);
+       40:   69:      return To_Message (Ret);
+       20:   70:   end Message_Alloc;
+        -:   71:
+        -:   72:   ------------------
+        -:   73:   -- Message_Free --
+        -:   74:   ------------------
+        -:   75:
+    #####:   76:   procedure Message_Free (Msg : in out Message_String) is
+        -:   77:   begin
+    #####:   78:      if Msg /= null then
+    #####:   79:         AUnit.Memory.AUnit_Free (Msg.all'Address);
+    #####:   80:         Msg := null;
+        -:   81:      end if;
+    #####:   82:   end Message_Free;
+        -:   83:
+        -:   84:   ------------
+        -:   85:   -- Format --
+        -:   86:   ------------
+        -:   87:
+       20:   88:   function Format (S : String) return Message_String is
+       20:   89:      Ptr : constant Message_String := Message_Alloc (S'Length);
+        -:   90:   begin
+      526:   91:      for J in S'Range loop
+      506:   92:         Ptr (J - S'First + 1) := S (J);
+      486:   93:      end loop;
+        -:   94:
+       20:   95:      return Ptr;
+        -:   96:   end Format;
+        -:   97:
+        -:   98:end AUnit;

@@ -1,0 +1,53 @@
+        -:    0:Source:C:/Users/JackyChang/Desktop/RailSystem/src/stations.adb
+        -:    0:Programs:41
+        -:    1:with sPrint;
+        -:    2:package body Stations with SPARK_Mode is
+        -:    3:   -----------------------
+        -:    4:   -- Add_IncomingTrack --
+        -:    5:   -----------------------
+        -:    6:
+    #####:    7:   procedure Add_IncomingTrack
+        -:    8:     (Station_r: in out Station;
+        -:    9:      track_r: in Tracks.Track)
+        -:   10:   is
+        -:   11:   begin
+    #####:   12:      null;
+    #####:   13:   end Add_IncomingTrack;
+        -:   14:
+        -:   15:   -----------------------
+        -:   16:   -- Add_OutgoingTrack --
+        -:   17:   -----------------------
+        -:   18:
+    #####:   19:   procedure Add_OutgoingTrack
+        -:   20:     (Station_r: in out Station;
+        -:   21:      track_r: in Tracks.Track)
+        -:   22:   is
+        -:   23:   begin
+    #####:   24:    null;
+    #####:   25:   end Add_OutgoingTrack;
+        -:   26:
+        -:   27:   --------------------------
+        -:   28:   -- Remove_IncomingTrack --
+        -:   29:   --------------------------
+        -:   30:
+    #####:   31:   procedure Remove_IncomingTrack
+        -:   32:     (Station_r: in out Station;
+        -:   33:      track_r: in Tracks.Track)
+        -:   34:   is
+        -:   35:   begin
+    #####:   36:   null;
+    #####:   37:   end Remove_IncomingTrack;
+        -:   38:
+        -:   39:   --------------------------
+        -:   40:   -- Remove_OutgoingTrack --
+        -:   41:   --------------------------
+        -:   42:
+    #####:   43:   procedure Remove_OutgoingTrack
+        -:   44:     (Station_r: in out Station;
+        -:   45:      track_r: in Tracks.Track)
+        -:   46:   is
+        -:   47:   begin
+    #####:   48:   null;
+    #####:   49:   end Remove_OutgoingTrack;
+        -:   50:
+        -:   51:end Stations;

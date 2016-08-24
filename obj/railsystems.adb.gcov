@@ -1,0 +1,172 @@
+        -:    0:Source:C:/Users/JackyChang/Desktop/RailSystem/src/railsystems.adb
+        -:    0:Programs:41
+        -:    1:with ada.Text_IO; use Ada.Text_IO;
+        -:    2:with Ada.Exceptions;
+        -:    3:
+        -:    4:package body RailSystems with SPARK_Mode is
+        -:    5:   use all type TYPES.MAX_SIZE;
+        -:    6:   --------------
+        -:    7:   -- addTrack --
+        -:    8:   --------------
+        -:    9:
+       14:   10:   procedure addTrack
+        -:   11:     (r_system: in out RailSystem; ID: in TYPES.MAX_SIZE; Origin: in TYPES.Origin_Type; Destination: in TYPES.Destination_Type)
+        -:   12:   is
+       14:   13:      track: Tracks.Track;
+        -:   14:
+        -:   15:   begin
+       14:   16:      track.ID:=ID;
+       14:   17:      track.Origin:= Origin;
+       14:   18:      track.Destination:= Destination;
+       14:   19:      Stations.LIST_TRACKS.APPEND(r_system.All_Tracks,track, ID);
+       14:   20:   end addTrack;
+        -:   21:
+        -:   22:   --------------
+        -:   23:   -- addTrain --
+        -:   24:   --------------
+        -:   25:
+       14:   26:   procedure addTrain (r_system: in out RailSystem;
+        -:   27:                       ID: in TYPES.MAX_SIZE;
+        -:   28:                       location: in Integer)
+        -:   29:   is
+        -:   30:      train_t: Trains.Train;
+        -:   31:   begin
+       14:   32:      train_t.ID := ID;
+       14:   33:      train_t.Location := location;
+       14:   34:      LIST_TRAINS.APPEND(r_system.All_Trains, train_t,ID);
+       14:   35:   end addTrain;
+        -:   36:
+        -:   37:   ----------------
+        -:   38:   -- addStation --
+        -:   39:   ----------------
+        -:   40:
+       14:   41:   procedure addStation
+        -:   42:     (r_system: in out RailSystem;
+        -:   43:--        stationsList: in out LIST_STATIONS.LIST_PTR;
+        -:   44:      StationID: in TYPES.MAX_SIZE;
+        -:   45:      Location: in TYPES.Station_Locations)
+        -:   46:   is
+       14:   47:      station_t: Stations.Station;
+       14:   48:      Incoming: Stations.LIST_TRACKS.LIST_PTR;
+       14:   49:      Outgoing: Stations.LIST_TRACKS.LIST_PTR;
+        -:   50:   begin
+       14:   51:      Incoming := new Stations.LIST_TRACKS.LIST;
+       14:   52:      Outgoing := new Stations.LIST_TRACKS.LIST;
+       14:   53:      station_t.ID := StationID;
+       14:   54:      station_t.Incoming := Incoming;
+       14:   55:      station_t.Outgoing := Outgoing;
+       14:   56:      LIST_STATIONS.APPEND(r_system.All_Stations, station_t,StationID);
+        -:   57:--        r_system.All_Stations:= stationsList;
+       14:   58:   end addStation;
+        -:   59:
+        -:   60:
+       20:   61:   procedure setStation(r_system: in out RailSystem;
+        -:   62:                        StationID: in TYPES.MAX_SIZE;
+        -:   63:                        station: in Stations.Station)
+        -:   64:   is
+        -:   65:   begin
+       20:   66:      LIST_STATIONS.REPLACE_BY_ID(r_system.All_Stations,StationID,station);
+       20:   67:   end setStation;
+        -:   68:
+       28:   69:   procedure addIncomingOutgoingTracksForStation(r_system: in out RailSystem;
+        -:   70:                                         StationID: in TYPES.MAX_SIZE;
+        -:   71:                                         trackIds: in TYPES.trackIDsArray;
+        -:   72:                                        IOSwitch: in String)
+        -:   73:   is
+       28:   74:      temp: Stations.Station;
+       28:   75:      NotFindTrackIdException : Exception;
+       28:   76:      AlreadyAddTrackException : Exception;
+       28:   77:      StationIDNotExistException: Exception;
+        -:   78:   begin
+       28:   79:      temp:= LIST_STATIONS.GET_ELEMENT_BY_ID(r_system.All_Stations, StationID);
+       28:   80:      if temp.ID /= 0 then
+     2026:   81:         for i in 1..trackIds'Last loop
+     2006:   82:            if trackIds(i) >0 then
+       34:   83:               if Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(r_system.All_Tracks, trackIds(i)).id > 0 then
+       32:   84:                  if IOSwitch = "Incoming" then
+       30:   85:                     if Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(temp.Incoming, trackIds(i)).id  =0 then
+        -:   86:
+       14:   87:                        Stations.LIST_TRACKS.APPEND(temp.Incoming, Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(r_system.All_Tracks,trackIds(i)),trackIds(i) );
+        -:   88:
+        -:   89:                     else
+        2:   90:                        Put_Line("track already exist in the income tracks");
+        2:   91:                        Raise AlreadyAddTrackException;
+        -:   92:                     end if;
+       16:   93:                  elsif IOSwitch = "Outgoing" then
+       16:   94:                      if Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(temp.Outgoing, trackIds(i)).id  =0 then
+        -:   95:
+       14:   96:                        Stations.LIST_TRACKS.APPEND(temp.Outgoing, Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(r_system.All_Tracks,trackIds(i)),trackIds(i) );
+        -:   97:
+        -:   98:                     else
+        2:   99:                        Put_Line("track already exist in the outgoing tracks");
+        2:  100:                        Raise AlreadyAddTrackException;
+        -:  101:                     end if;
+        -:  102:                  end if;
+        -:  103:
+        -:  104:
+        -:  105:
+        -:  106:
+        -:  107:               else
+        2:  108:                  Put_Line("track id not exist");
+        2:  109:                  Raise NotFindTrackIdException;
+        -:  110:               end if;
+        -:  111:            end if;
+        -:  112:
+     2000:  113:         end loop;
+        2:  114:      elsif temp.ID = 0 then
+        2:  115:         Put_Line("station id not exist");
+        2:  116:         Raise StationIDNotExistException;
+        -:  117:      end if;
+        -:  118:
+       20:  119:      setStation(r_system,StationID,temp);
+        -:  120:
+        -:  121:
+        -:  122:
+       20:  123:   end addIncomingOutgoingTracksForStation;
+        -:  124:
+        -:  125:--   procedure addOutgoingTracksForStation(r_system: in out RailSystem;
+        -:  126:--                                           StationID: in TYPES.MAX_SIZE;
+        -:  127:--                                           trackIds: in TYPES.trackIDsArray)
+        -:  128:--     is
+        -:  129:--        temp: Stations.Station;
+        -:  130:--        NotFindTrackIdException : Exception;
+        -:  131:--        AlreadyAddTrackException : Exception;
+        -:  132:--        IncrectTrackIDException: Exception;
+        -:  133:--        StationIDNotExistException: Exception;
+        -:  134:--     begin
+        -:  135:--        temp:= LIST_STATIONS.GET_ELEMENT_BY_ID(r_system.All_Stations, StationID);
+        -:  136:--        if temp.ID /= 0 then
+        -:  137:--           for i in 1..trackIds'Last loop
+        -:  138:--              if trackIds(i) >0 then
+        -:  139:--                 if Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(r_system.All_Tracks, trackIds(i)).id > 0 then
+        -:  140:--                    if Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(temp.Outgoing, trackIds(i)).id  =0 then
+        -:  141:--
+        -:  142:--                       Stations.LIST_TRACKS.APPEND(temp.Outgoing, Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(r_system.All_Tracks,trackIds(i)),trackIds(i) );
+        -:  143:--
+        -:  144:--                    else
+        -:  145:--                       Put_Line("track already exist in the income tracks");
+        -:  146:--                       Raise AlreadyAddTrackException;
+        -:  147:--                    end if;
+        -:  148:--
+        -:  149:--
+        -:  150:--                 else
+        -:  151:--                    Put_Line("track id not exist");
+        -:  152:--                    Raise NotFindTrackIdException;
+        -:  153:--                 end if;
+        -:  154:--              elsif trackIds(i)<0 or trackIds(i)>100 then
+        -:  155:--                 Put_Line("increat track id should > 0 and < 100");
+        -:  156:--                 Raise IncrectTrackIDException;
+        -:  157:--              end if;
+        -:  158:--
+        -:  159:--           end loop;
+        -:  160:--        elsif temp.ID = 0 then
+        -:  161:--           Raise StationIDNotExistException;
+        -:  162:--        end if;
+        -:  163:--
+        -:  164:--        setStation(r_system,StationID,temp);
+        -:  165:--
+        -:  166:--
+        -:  167:--
+        -:  168:--     end addOutgoingTracksForStation;
+        -:  169:
+        -:  170:end RailSystems;

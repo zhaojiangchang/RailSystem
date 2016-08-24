@@ -1,0 +1,113 @@
+        -:    0:Source:C:/Users/JackyChang/Desktop/RailSystem/src/List.ads
+        -:    0:Programs:41
+        -:    1:
+        -:    2:--  Simple Linked List support
+        -:    3:
+        -:    4:--  This package provides an implementation of a linked list to
+        -:    5:--  store any data type. The list provides with common functions
+        -:    6:--  for retrieving and storing elements in the list.
+        -:    7:
+        -:    8:--  To use the list first (after instantiating the package) create a
+        -:    9:--  variable of type LIST_PTR and then use the new operator.
+        -:   10:--
+        -:   11:--      var1 : LIST_PTR;
+        -:   12:--  	var1 := new LIST;
+        -:   13:--
+        -:   14:--  After that you can begin using the list methods to insert, remove
+        -:   15:--  or modify its content.
+        -:   16:
+        -:   17:
+        -:   18:
+        -:   19:generic
+        -:   20:
+        -:   21:	type DATA_TYPE is PRIVATE;
+        -:   22:	type SIZE_TYPE is range <>;
+        6:   23:	NO_FOUND: DATA_TYPE;
+        -:   24:
+        -:   25:package LIST is
+        -:   26:
+        -:   27:   --  DATA_TYPE specifies the type of the data that will be stored in
+        -:   28:   --  the list while SIZE_TYPE is a integer range that specifies the
+        -:   29:   --  values of the index to acess the list.
+        -:   30:
+        -:   31:   --  NO_FOUND will be returned if a search method is called and no
+        -:   32:   --  element matched it.
+        -:   33:
+        -:   34:
+        6:   35:   OUT_OF_BOUNDS: exception;
+        -:   36:   --  Raised when accesing elements outside the valid range of the list
+        -:   37:
+        -:   38:   type CELL is private ;
+        -:   39:   --  Private type for a Cell
+        -:   40:
+        -:   41:   type LIST is private ;
+        -:   42:   --  Private type for a List
+        -:   43:
+        -:   44:   type LIST_PTR is access LIST;
+        -:   45:   --  Access Type that represent a instance of a list
+        -:   46:   type CELL_PTR is access CELL;
+        -:   47:
+        -:   48:   ---------------------
+        -:   49:   -- Methods of LIST --
+        -:   50:   ---------------------
+        -:   51:
+        -:   52:   function GET_FIRST ( A: LIST_PTR ) return DATA_TYPE;
+        -:   53:   --  Returns the first element of the list. Could be null
+        -:   54:
+        -:   55:   function GET_LAST ( A: LIST_PTR ) return DATA_TYPE;
+        -:   56:   --  Returns the last element of the list
+        -:   57:
+        -:   58:   function GET_SIZE ( A: LIST_PTR ) return SIZE_TYPE;
+        -:   59:   --  Returns the current size of the list, which is 0 if empty
+        -:   60:
+        -:   61:   function GET_ELEMENT( A: LIST_PTR ; LOCATION: SIZE_TYPE ) return DATA_TYPE;
+        -:   62:   --  Returns an element at the specified LOCATION.
+        -:   63:   --  If the element don't exist it returns NO_FOUND. Don't raise OUT_OF_BOUNDS
+        -:   64:   function GET_ELEMENT_BY_ID( A: LIST_PTR ; ID: SIZE_TYPE ) return DATA_TYPE;
+        -:   65:   function GET_CELL( A: LIST_PTR ;LOCATION: SIZE_TYPE ) return CELL_PTR;
+        -:   66:
+        -:   67:
+        -:   68:   procedure APPEND ( A: in out  LIST_PTR ; D: in DATA_TYPE; ID: in SIZE_TYPE  );
+        -:   69:   --  Add the new element at the back of the list and increments the list size
+        -:   70:
+        -:   71:   procedure APPEND_TO_FIRST ( A: in out  LIST_PTR ; D: in DATA_TYPE; ID: in SIZE_TYPE  );
+        -:   72:   --  Add the new element at the first of the list and increments the list size
+        -:   73:
+        -:   74:   procedure DELETE_ALL (A: in out LIST_PTR );
+        -:   75:   --  Empty the list and put its size to 0
+        -:   76:
+        -:   77:   procedure SWAP( A: LIST_PTR; FIRST: SIZE_TYPE; SECOND: SIZE_TYPE);
+        -:   78:   --  Interchange elements inside the list.
+        -:   79:   --  If the first and second positions are out of bound then
+        -:   80:   --  OUT_OF_BOUNDS is raised.
+        -:   81:
+        -:   82:   procedure REPLACE( A: LIST_PTR; LOCATION: SIZE_TYPE; NEWVALUE: DATA_TYPE );
+        -:   83:   --  Replace an element inside the list with a new value in the specified
+        -:   84:   --  location.
+        -:   85:   --  If location is out of bounds then OUT_OF_BOUNDS is raised.
+        -:   86:   procedure REPLACE_BY_ID( A: LIST_PTR; ID: SIZE_TYPE; NEWVALUE: DATA_TYPE );
+        -:   87:   --  Replace an element inside the list with a new value in the specified
+        -:   88:   --  location.
+        -:   89:   --  If location is out of bounds then OUT_OF_BOUNDS is raised.
+        -:   90:
+        -:   91:private
+        -:   92:
+        -:   93:   --  Access type for cell ptrs.
+        -:   94:
+        -:   95:   -- Cell implementation
+       70:   96:   type CELL is
+        -:   97:      record
+        -:   98:         NEXT: CELL_PTR:= null;
+       56:   99:         DATA: DATA_TYPE;
+        -:  100:         ID: SIZE_TYPE;
+        -:  101:      end record;
+        -:  102:
+        -:  103:   -- List implementation
+       34:  104:   type LIST is
+        -:  105:      record
+        -:  106:         SIZE: SIZE_TYPE := 0;
+        -:  107:         FIRST:  CELL_PTR:= null;
+        -:  108:         LAST:   CELL_PTR:= null;
+        -:  109:      end record;
+        -:  110:
+        -:  111:end LIST;

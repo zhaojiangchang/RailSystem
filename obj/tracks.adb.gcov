@@ -1,0 +1,19 @@
+        -:    0:Source:C:/Users/JackyChang/Desktop/RailSystem/src/tracks.adb
+        -:    0:Programs:41
+        -:    1:package body Tracks with SPARK_Mode is
+        -:    2:
+        -:    3:   -----------------------------
+        -:    4:   -- setOriginAndDestination --
+        -:    5:   -----------------------------
+        -:    6:
+    #####:    7:   procedure setOriginAndDestination
+        -:    8:     (track_r: in out Track;
+        -:    9:      O: in TYPES.Origin_Type;
+        -:   10:      D: in  TYPES.Destination_Type)
+        -:   11:   is
+        -:   12:   begin
+        -:   13:      --  Generated stub: replace with real body!
+    #####:   14:     null;
+    #####:   15:   end setOriginAndDestination;
+        -:   16:
+        -:   17:end Tracks;

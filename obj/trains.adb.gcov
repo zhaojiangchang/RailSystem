@@ -1,0 +1,18 @@
+        -:    0:Source:C:/Users/JackyChang/Desktop/RailSystem/src/trains.adb
+        -:    0:Programs:41
+        -:    1:package body Trains with SPARK_Mode is
+        -:    2:
+        -:    3:   ------------------
+        -:    4:   -- SET_LOCATION --
+        -:    5:   ------------------
+        -:    6:
+    #####:    7:   procedure SET_LOCATION
+        -:    8:     (train_r: in out Train;
+        -:    9:      ID: in TYPES.MAX_SIZE;
+        -:   10:      location: in Integer)
+        -:   11:   is
+        -:   12:   begin
+    #####:   13:    train_r.Location := location;
+    #####:   14:   end SET_LOCATION;
+        -:   15:
+        -:   16:end Trains;

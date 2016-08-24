@@ -1,0 +1,350 @@
+        -:    0:Source:C:/GNAT/2016/include/aunit/aunit-test_results.adb
+        -:    0:Programs:41
+        -:    1:------------------------------------------------------------------------------
+        -:    2:--                                                                          --
+        -:    3:--                         GNAT COMPILER COMPONENTS                         --
+        -:    4:--                                                                          --
+        -:    5:--                    A U N I T . T E S T _ R E S U L T S                   --
+        -:    6:--                                                                          --
+        -:    7:--                                 B o d y                                  --
+        -:    8:--                                                                          --
+        -:    9:--                                                                          --
+        -:   10:--                       Copyright (C) 2000-2011, AdaCore                   --
+        -:   11:--                                                                          --
+        -:   12:-- GNAT is free software;  you can  redistribute it  and/or modify it under --
+        -:   13:-- terms of the  GNU General Public License as published  by the Free Soft- --
+        -:   14:-- ware  Foundation;  either version 3,  or (at your option) any later ver- --
+        -:   15:-- sion.  GNAT is distributed in the hope that it will be useful, but WITH- --
+        -:   16:-- OUT ANY WARRANTY;  without even the  implied warranty of MERCHANTABILITY --
+        -:   17:-- or FITNESS FOR A PARTICULAR PURPOSE.                                     --
+        -:   18:--                                                                          --
+        -:   19:--                                                                          --
+        -:   20:--                                                                          --
+        -:   21:--                                                                          --
+        -:   22:--                                                                          --
+        -:   23:-- You should have received a copy of the GNU General Public License and    --
+        -:   24:-- a copy of the GCC Runtime Library Exception along with this program;     --
+        -:   25:-- see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see    --
+        -:   26:-- <http://www.gnu.org/licenses/>.                                          --
+        -:   27:--                                                                          --
+        -:   28:-- GNAT is maintained by AdaCore (http://www.adacore.com)                   --
+        -:   29:--                                                                          --
+        -:   30:------------------------------------------------------------------------------
+        -:   31:
+        -:   32:with AUnit.Memory.Utils;
+        -:   33:
+        -:   34:--  Record test results.
+        -:   35:
+        -:   36:package body AUnit.Test_Results is
+        -:   37:
+        -:   38:   -----------------------
+        -:   39:   -- Local Subprograms --
+        -:   40:   -----------------------
+        -:   41:
+        -:   42:   function Alloc_Failure is new AUnit.Memory.Utils.Gen_Alloc
+        -:   43:     (Test_Failure, Test_Failure_Access);
+        -:   44:
+        -:   45:   function Alloc_Error is new AUnit.Memory.Utils.Gen_Alloc
+        -:   46:     (Test_Error, Test_Error_Access);
+        -:   47:
+        -:   48:   E_Count : Count_Type;
+        -:   49:   F_Count : Count_Type;
+        -:   50:   S_Count : Count_Type;
+        -:   51:
+        -:   52:   procedure Iterate_Error (Position : Result_Lists.Cursor);
+        -:   53:   procedure Iterate_Failure (Position : Result_Lists.Cursor);
+        -:   54:   procedure Iterate_Success (Position : Result_Lists.Cursor);
+        -:   55:
+        -:   56:   function Is_Error (Position : Result_Lists.Cursor) return Boolean;
+        -:   57:   function Is_Failure (Position : Result_Lists.Cursor) return Boolean;
+        -:   58:   function Is_Success (Position : Result_Lists.Cursor) return Boolean;
+        -:   59:
+        -:   60:   generic
+        -:   61:      with function Test (Position : Result_Lists.Cursor) return Boolean;
+        -:   62:   procedure Gen_Extract (R : in out Result;
+        -:   63:                          E : in out Result_Lists.List);
+        -:   64:
+        -:   65:   -------------------
+        -:   66:   -- Iterate_Error --
+        -:   67:   -------------------
+        -:   68:
+       10:   69:   procedure Iterate_Error (Position : Result_Lists.Cursor) is
+        -:   70:   begin
+       10:   71:      if Result_Lists.Element (Position).Error /= null then
+    #####:   72:         E_Count := E_Count + 1;
+        -:   73:      end if;
+       10:   74:   end Iterate_Error;
+        -:   75:
+        -:   76:   ---------------------
+        -:   77:   -- Iterate_Failure --
+        -:   78:   ---------------------
+        -:   79:
+       10:   80:   procedure Iterate_Failure (Position : Result_Lists.Cursor) is
+        -:   81:   begin
+       10:   82:      if Result_Lists.Element (Position).Failure /= null then
+    #####:   83:         F_Count := F_Count + 1;
+        -:   84:      end if;
+       10:   85:   end Iterate_Failure;
+        -:   86:
+        -:   87:   ---------------------
+        -:   88:   -- Iterate_Success --
+        -:   89:   ---------------------
+        -:   90:
+       10:   91:   procedure Iterate_Success (Position : Result_Lists.Cursor) is
+        -:   92:   begin
+       10:   93:      if Result_Lists.Element (Position).Error = null
+       10:   94:        and then Result_Lists.Element (Position).Failure = null
+        -:   95:      then
+       10:   96:         S_Count := S_Count + 1;
+        -:   97:      end if;
+       10:   98:   end Iterate_Success;
+        -:   99:
+        -:  100:   -----------------
+        -:  101:   -- Gen_Extract --
+        -:  102:   -----------------
+        -:  103:
+        6:  104:   procedure Gen_Extract
+        -:  105:     (R : in out Result;
+        -:  106:      E : in out Result_Lists.List)
+        -:  107:   is
+        6:  108:      C : Result_Lists.Cursor;
+        6:  109:      Prev : Result_Lists.Cursor;
+        -:  110:      use Result_Lists;
+        -:  111:   begin
+        6:  112:      C := First (R.Result_List);
+        6:  113:      Prev := No_Element;
+        -:  114:
+       16:  115:      while Has_Element (C) loop
+       10:  116:         if Test (C) then
+       10:  117:            Splice (Target   => E,
+        -:  118:                    Before   => No_Element,
+        -:  119:                    Source   => R.Result_List,
+        -:  120:                    Position => C);
+        -:  121:
+       10:  122:            if Prev = No_Element then
+       10:  123:               C := First (R.Result_List);
+        -:  124:            else
+    #####:  125:               C := Next (Prev);
+        -:  126:            end if;
+        -:  127:         else
+    #####:  128:            Prev := C;
+    #####:  129:            Next (C);
+        -:  130:         end if;
+       10:  131:      end loop;
+        6:  132:   end Gen_Extract;
+        -:  133:
+        -:  134:   --------------
+        -:  135:   -- Is_Error --
+        -:  136:   --------------
+        -:  137:
+       10:  138:   function Is_Error (Position : Result_Lists.Cursor) return Boolean is
+        -:  139:   begin
+       20:  140:      return Result_Lists.Element (Position).Error /= null;
+       10:  141:   end Is_Error;
+        -:  142:
+        -:  143:   ----------------
+        -:  144:   -- Is_Failure --
+        -:  145:   ----------------
+        -:  146:
+       10:  147:   function Is_Failure (Position : Result_Lists.Cursor) return Boolean is
+        -:  148:   begin
+       20:  149:      return Result_Lists.Element (Position).Failure /= null;
+       10:  150:   end Is_Failure;
+        -:  151:
+        -:  152:   ----------------
+        -:  153:   -- Is_Success --
+        -:  154:   ----------------
+        -:  155:
+       10:  156:   function Is_Success (Position : Result_Lists.Cursor) return Boolean is
+        -:  157:   begin
+       10:  158:      return not Is_Error (Position) and then not Is_Failure (Position);
+        -:  159:   end Is_Success;
+        -:  160:
+        -:  161:   ---------------
+        -:  162:   -- Add_Error --
+        -:  163:   ---------------
+        -:  164:
+    #####:  165:   procedure Add_Error
+        -:  166:     (R            : in out Result;
+        -:  167:      Test_Name    : Message_String;
+        -:  168:      Routine_Name : Message_String;
+        -:  169:      Error        : Test_Error;
+        -:  170:      Elapsed      : Time)
+        -:  171:   is
+    #####:  172:      Val : constant Test_Result := (Test_Name, Routine_Name,
+        -:  173:                                     Failure => null,
+    #####:  174:                                     Error   => Alloc_Error,
+        -:  175:                                     Elapsed => Elapsed);
+        -:  176:      use Result_Lists;
+        -:  177:   begin
+        -:  178:
+    #####:  179:      Val.Error.all := Error;
+    #####:  180:      Append (R.Result_List, Val);
+    #####:  181:   end Add_Error;
+        -:  182:
+        -:  183:   -----------------
+        -:  184:   -- Add_Failure --
+        -:  185:   -----------------
+        -:  186:
+    #####:  187:   procedure Add_Failure
+        -:  188:     (R            : in out Result;
+        -:  189:      Test_Name    : Message_String;
+        -:  190:      Routine_Name : Message_String;
+        -:  191:      Failure      : Test_Failure;
+        -:  192:      Elapsed      : Time) is
+        -:  193:
+    #####:  194:      Val : constant Test_Result := (Test_Name, Routine_Name,
+    #####:  195:                                     Failure => Alloc_Failure,
+        -:  196:                                     Error   => null,
+        -:  197:                                     Elapsed => Elapsed);
+        -:  198:      use Result_Lists;
+        -:  199:   begin
+        -:  200:
+    #####:  201:      Val.Failure.all := Failure;
+    #####:  202:      Append (R.Result_List, Val);
+    #####:  203:   end Add_Failure;
+        -:  204:
+        -:  205:   -----------------
+        -:  206:   -- Add_Success --
+        -:  207:   -----------------
+        -:  208:
+       10:  209:   procedure Add_Success
+        -:  210:     (R                       : in out Result;
+        -:  211:      Test_Name               : Message_String;
+        -:  212:      Routine_Name            : Message_String;
+        -:  213:      Elapsed                 : Time) is
+        -:  214:
+       10:  215:      Val : constant Test_Result :=
+        -:  216:              (Test_Name, Routine_Name, null, null, Elapsed);
+        -:  217:      use Result_Lists;
+        -:  218:
+        -:  219:   begin
+       10:  220:      Append (R.Result_List, Val);
+       10:  221:   end Add_Success;
+        -:  222:
+        -:  223:   -----------------
+        -:  224:   -- Set_Elapsed --
+        -:  225:   -----------------
+        -:  226:
+    #####:  227:   procedure Set_Elapsed (R : in out Result;
+        -:  228:                          T : Time_Measure.Time) is
+        -:  229:   begin
+    #####:  230:      R.Elapsed_Time := T;
+    #####:  231:   end Set_Elapsed;
+        -:  232:
+        -:  233:   -----------------
+        -:  234:   -- Error_Count --
+        -:  235:   -----------------
+        -:  236:
+        2:  237:   function Error_Count (R : Result) return Count_Type is
+        -:  238:      use Result_Lists;
+        -:  239:   begin
+        2:  240:      E_Count := 0;
+        2:  241:      Iterate (R.Result_List, Iterate_Error'Access);
+        2:  242:      return E_Count;
+        -:  243:   end Error_Count;
+        -:  244:
+        -:  245:   ------------
+        -:  246:   -- Errors --
+        -:  247:   ------------
+        -:  248:
+        2:  249:   procedure Errors (R : in out Result;
+        -:  250:                     E : in out Result_Lists.List) is
+        -:  251:      procedure Extract is new Gen_Extract (Is_Error);
+        -:  252:   begin
+        2:  253:      Extract (R, E);
+        2:  254:   end Errors;
+        -:  255:
+        -:  256:   -------------------
+        -:  257:   -- Failure_Count --
+        -:  258:   -------------------
+        -:  259:
+        2:  260:   function Failure_Count (R : Result) return Count_Type is
+        -:  261:      use Result_Lists;
+        -:  262:   begin
+        2:  263:      F_Count := 0;
+        2:  264:      Iterate (R.Result_List, Iterate_Failure'Access);
+        2:  265:      return F_Count;
+        -:  266:   end Failure_Count;
+        -:  267:
+        -:  268:   --------------
+        -:  269:   -- Failures --
+        -:  270:   --------------
+        -:  271:
+        2:  272:   procedure Failures (R : in out Result;
+        -:  273:                       F : in out Result_Lists.List) is
+        -:  274:      procedure Extract is new Gen_Extract (Is_Failure);
+        -:  275:   begin
+        2:  276:      Extract (R, F);
+        2:  277:   end Failures;
+        -:  278:
+        -:  279:   -------------
+        -:  280:   -- Elapsed --
+        -:  281:   -------------
+        -:  282:
+        2:  283:   function Elapsed (R : Result) return Time_Measure.Time is
+        -:  284:   begin
+        2:  285:      return R.Elapsed_Time;
+        -:  286:   end Elapsed;
+        -:  287:
+        -:  288:   ----------------
+        -:  289:   -- Start_Test --
+        -:  290:   ----------------
+        -:  291:
+       10:  292:   procedure Start_Test (R : in out Result; Subtest_Count : Count_Type) is
+        -:  293:   begin
+       10:  294:      R.Tests_Run := R.Tests_Run + Subtest_Count;
+       10:  295:   end Start_Test;
+        -:  296:
+        -:  297:   -------------------
+        -:  298:   -- Success_Count --
+        -:  299:   -------------------
+        -:  300:
+        2:  301:   function Success_Count (R : Result)  return Count_Type is
+        -:  302:   begin
+        2:  303:      S_Count := 0;
+        2:  304:      Result_Lists.Iterate (R.Result_List, Iterate_Success'Access);
+        2:  305:      return S_Count;
+        -:  306:   end Success_Count;
+        -:  307:
+        -:  308:   ---------------
+        -:  309:   -- Successes --
+        -:  310:   ---------------
+        -:  311:
+        2:  312:   procedure Successes (R : in out Result;
+        -:  313:                        S : in out Result_Lists.List) is
+        -:  314:      procedure Extract is new Gen_Extract (Is_Success);
+        -:  315:   begin
+        2:  316:      Extract (R, S);
+        2:  317:   end Successes;
+        -:  318:
+        -:  319:   ----------------
+        -:  320:   -- Successful --
+        -:  321:   ----------------
+        -:  322:
+    #####:  323:   function Successful (R : Result) return Boolean is
+        -:  324:   begin
+    #####:  325:      return Success_Count (R) = Test_Count (R);
+        -:  326:   end Successful;
+        -:  327:
+        -:  328:   ----------------
+        -:  329:   -- Test_Count --
+        -:  330:   ----------------
+        -:  331:
+        2:  332:   function Test_Count (R : Result) return Ada_Containers.Count_Type is
+        -:  333:   begin
+        2:  334:      return R.Tests_Run;
+        -:  335:   end Test_Count;
+        -:  336:
+        -:  337:   -----------
+        -:  338:   -- Clear --
+        -:  339:   -----------
+        -:  340:
+        2:  341:   procedure Clear (R : in out Result) is
+        -:  342:   begin
+        2:  343:      R.Tests_Run    := 0;
+        2:  344:      R.Elapsed_Time := Time_Measure.Null_Time;
+        2:  345:      Result_Lists.Clear (R.Result_List);
+        2:  346:   end Clear;
+        -:  347:
+        -:  348:end AUnit.Test_Results;

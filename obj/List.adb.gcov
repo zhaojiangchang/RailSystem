@@ -1,0 +1,346 @@
+        -:    0:Source:C:/Users/JackyChang/Desktop/RailSystem/src/List.adb
+        -:    0:Programs:41
+        -:    1:
+        -:    2:-- The list is implemented using the CELL_PTR access type
+        -:    3:-- of the CELL type. a Cell contatins the data of the user
+        -:    4:-- and a link to the next CELL (which is null if is the last
+        -:    5:-- element of the list).
+        -:    6:with ada.Text_IO;
+        -:    7:use ada.Text_IO;
+        -:    8:
+        -:    9:package body LIST is
+        -:   10:
+        -:   11:   -----------------------
+        -:   12:   -- Local Subprograms --
+        -:   13:   -----------------------
+        -:   14:
+        -:   15:   ---------------
+        -:   16:   -- GET_FIRST --
+        -:   17:   ---------------
+        -:   18:
+    #####:   19:   function GET_FIRST( A: LIST_PTR )
+        -:   20:                      return DATA_TYPE
+        -:   21:   is
+        -:   22:   begin
+    #####:   23:      return A.FIRST.DATA;
+        -:   24:   end GET_FIRST;
+        -:   25:
+        -:   26:
+        -:   27:   ---------------
+        -:   28:   -- GET_LAST  --
+        -:   29:   ---------------
+        -:   30:
+    #####:   31:   function GET_LAST ( A: LIST_PTR )
+        -:   32:                      return DATA_TYPE
+        -:   33:   is
+        -:   34:   begin
+    #####:   35:      return A.LAST.DATA;
+        -:   36:   end GET_LAST;
+        -:   37:
+        -:   38:
+        -:   39:   ---------------
+        -:   40:   -- GET_SIZE  --
+        -:   41:   ---------------
+        -:   42:
+       96:   43:   function GET_SIZE ( A: LIST_PTR )
+        -:   44:                      return SIZE_TYPE
+        -:   45:   is
+        -:   46:   begin
+       96:   47:      return A.SIZE;
+        -:   48:   end GET_SIZE;
+        -:   49:
+        -:   50:
+        -:   51:   ---------------
+        -:   52:   -- APPEND    --
+        -:   53:   ---------------
+        -:   54:
+       70:   55:   procedure APPEND ( A: in out LIST_PTR; D: in DATA_TYPE; ID: in SIZE_TYPE  )
+        -:   56:   is
+       70:   57:      TEMP1 : CELL_PTR;
+        -:   58:   begin
+        -:   59:
+        -:   60:      -- create a new cell to store the new element
+       70:   61:      TEMP1 := new CELL;
+       70:   62:      TEMP1.DATA := D;
+       70:   63:      TEMP1.ID:=ID;
+        -:   64:      -- append the new cell making it the last cell
+       70:   65:      if  A.SIZE = 0 then
+       50:   66:         A.FIRST := TEMP1;
+       50:   67:         A.LAST := TEMP1;
+       50:   68:         A.SIZE := 1;
+        -:   69:      else
+       20:   70:         A.LAST.NEXT := TEMP1;
+       20:   71:         A.LAST := TEMP1;
+       20:   72:         A.SIZE := A.SIZE + 1;
+        -:   73:      end if;
+        -:   74:
+       70:   75:   end APPEND;
+        -:   76:
+        -:   77:   ---------------
+        -:   78:   -- APPEND  TO FIRST  --
+        -:   79:   ---------------
+        -:   80:
+    #####:   81:   procedure APPEND_TO_FIRST ( A: in out  LIST_PTR ; D: in DATA_TYPE; ID: in SIZE_TYPE )
+        -:   82:   is
+    #####:   83:      TEMP1_CELL : CELL_PTR;
+    #####:   84:      TEMP2_LIST : LIST_PTR;
+        -:   85:      size: SIZE_TYPE;
+    #####:   86:      TEMP3_CELL: CELL_PTR;
+        -:   87:   begin
+    #####:   88:      size:= A.SIZE;
+    #####:   89:      Put_Line("a size: " & A.SIZE'Image);
+        -:   90:      -- create a new cell to store the new element
+    #####:   91:      TEMP1_CELL := new CELL;
+    #####:   92:      TEMP1_CELL.DATA := D;
+    #####:   93:      TEMP1_CELL.ID:= ID;
+        -:   94:
+        -:   95:      -- append the new cell making it the last cell
+    #####:   96:      if  A.SIZE = 0 then
+    #####:   97:         A.FIRST := TEMP1_CELL;
+    #####:   98:         A.LAST := TEMP1_CELL;
+    #####:   99:         A.SIZE := 1;
+        -:  100:      else
+    #####:  101:         TEMP2_LIST:= new LIST;
+    #####:  102:         APPEND(TEMP2_LIST,D, ID);
+        -:  103:--           TEMP2_LIST.FIRST :=TEMP1_CELL;
+        -:  104:--           TEMP2_LIST.FIRST.NEXT:= A.FIRST;
+        -:  105:--           TEMP2_LIST.SIZE := TEMP2_LIST.SIZE+1;
+    #####:  106:         for i in 1..size loop
+    #####:  107:            TEMP3_CELL := GET_CELL(A,i);
+    #####:  108:            if TEMP3_CELL /= null then
+    #####:  109:               APPEND(TEMP2_LIST, TEMP3_CELL.DATA, TEMP3_CELL.ID);
+        -:  110:            end if;
+    #####:  111:         end loop;
+    #####:  112:        A:=TEMP2_LIST;
+        -:  113:      end if;
+        -:  114:
+    #####:  115:   end APPEND_TO_FIRST;
+        -:  116:
+        -:  117:
+        -:  118:   ---------------
+        -:  119:   -- DELETE    --
+        -:  120:   ---------------
+        -:  121:
+       30:  122:   procedure DELETE_ALL (A: in out LIST_PTR )
+        -:  123:   is
+        -:  124:   begin
+        -:  125:      -- Set size to 0
+       30:  126:      A.SIZE := 0;
+        -:  127:
+       30:  128:      A.FIRST := null;
+       30:  129:      A.LAST := null;
+        -:  130:
+       30:  131:   end DELETE_ALL;
+        -:  132:
+        -:  133:
+        -:  134:   -----------------
+        -:  135:   -- GET_ELEMENT --
+        -:  136:   -----------------
+        -:  137:
+    #####:  138:   function GET_ELEMENT( A: LIST_PTR ;LOCATION: SIZE_TYPE )
+        -:  139:                        return DATA_TYPE
+        -:  140:   is
+    #####:  141:      COUNT: SIZE_TYPE:=0;
+    #####:  142:      TEMP : CELL_PTR:= null;
+        -:  143:   begin
+        -:  144:
+        -:  145:
+    #####:  146:      if  A.SIZE = 0 or LOCATION <= 0  or LOCATION >A.SIZE then
+        -:  147:
+        -:  148:         -- If element is not in the list at this location
+    #####:  149:         return NO_FOUND;
+        -:  150:
+        -:  151:      else
+    #####:  152:         TEMP := A.FIRST;
+        -:  153:
+    #####:  154:         while TEMP /=  null loop
+        -:  155:
+    #####:  156:            COUNT := COUNT +1;
+        -:  157:
+    #####:  158:            if  COUNT = LOCATION then
+        -:  159:               -- if the location match return the data.
+    #####:  160:               return TEMP.DATA;
+        -:  161:            end if;
+        -:  162:
+    #####:  163:            TEMP := TEMP.NEXT;
+        -:  164:
+    #####:  165:         end loop;
+        -:  166:
+    #####:  167:         return NO_FOUND;
+        -:  168:      end if;
+        -:  169:
+        -:  170:   end GET_ELEMENT;
+        -:  171:
+        -:  172:   -----------------
+        -:  173:   -- GET_CELL --
+        -:  174:   -----------------
+        -:  175:
+    #####:  176:   function GET_CELL( A: LIST_PTR ;LOCATION: SIZE_TYPE )
+        -:  177:                        return CELL_PTR
+        -:  178:   is
+    #####:  179:      COUNT: SIZE_TYPE:=0;
+    #####:  180:      TEMP : CELL_PTR:= null;
+        -:  181:   begin
+        -:  182:
+        -:  183:
+    #####:  184:      if  A.SIZE = 0 or LOCATION <= 0  or LOCATION >A.SIZE then
+        -:  185:
+        -:  186:         -- If element is not in the list at this location
+    #####:  187:         return null;
+        -:  188:
+        -:  189:      else
+    #####:  190:         TEMP := A.FIRST;
+        -:  191:
+    #####:  192:         while TEMP /=  null loop
+        -:  193:
+    #####:  194:            COUNT := COUNT +1;
+        -:  195:
+    #####:  196:            if  COUNT = LOCATION then
+        -:  197:               -- if the location match return the data.
+    #####:  198:               return TEMP;
+        -:  199:            end if;
+        -:  200:
+    #####:  201:            TEMP := TEMP.NEXT;
+        -:  202:
+    #####:  203:         end loop;
+        -:  204:
+    #####:  205:         return null;
+        -:  206:      end if;
+        -:  207:
+        -:  208:   end GET_CELL;
+        -:  209:
+        -:  210:   ----------------------
+        -:  211:   -- GET_ELEMENT_BY_ID--
+        -:  212:   ----------------------
+        -:  213:
+      146:  214:   function GET_ELEMENT_BY_ID( A: LIST_PTR ;ID: SIZE_TYPE )
+        -:  215:                        return DATA_TYPE
+        -:  216:   is
+      146:  217:      COUNT: SIZE_TYPE:=0;
+      146:  218:      TEMP : CELL_PTR:= null;
+        -:  219:   begin
+        -:  220:
+        -:  221:
+      146:  222:      if  A.SIZE = 0 or ID <= 0  or ID >A.SIZE then
+        -:  223:
+        -:  224:         -- If element is not in the list at this location
+       32:  225:         return NO_FOUND;
+        -:  226:
+        -:  227:      else
+      114:  228:         TEMP := A.FIRST;
+        -:  229:
+      182:  230:         while TEMP /=  null loop
+        -:  231:
+        -:  232:
+      182:  233:            if  TEMP.ID = ID then
+      114:  234:               return TEMP.DATA;
+        -:  235:            end if;
+        -:  236:
+       68:  237:            TEMP := TEMP.NEXT;
+        -:  238:
+       68:  239:         end loop;
+        -:  240:
+    #####:  241:         return NO_FOUND;
+        -:  242:      end if;
+        -:  243:
+        -:  244:   end GET_ELEMENT_BY_ID;
+        -:  245:
+        -:  246:
+        -:  247:   ----------
+        -:  248:   -- SWAP --
+        -:  249:   ----------
+        -:  250:
+    #####:  251:   procedure SWAP( A: LIST_PTR; FIRST: SIZE_TYPE; SECOND: SIZE_TYPE)
+        -:  252:   is
+    #####:  253:      TEMPA,TEMPB: DATA_TYPE ;
+        -:  254:   begin
+    #####:  255:      if A.SIZE = 0 or FIRST <=0 or SECOND >A.SIZE or FIRST >A.SIZE or SECOND <=0 then
+        -:  256:         -- If the index to find the element is out of bounds raise the exception
+    #####:  257:         raise OUT_OF_BOUNDS;
+        -:  258:      end if;
+        -:  259:
+    #####:  260:      if FIRST = SECOND then
+        -:  261:         -- If first is equal to seconde then there is no need to swap!
+    #####:  262:         return;
+        -:  263:      end if;
+        -:  264:
+        -:  265:      -- Get the data at specified positions
+    #####:  266:      TEMPA:= GET_ELEMENT( A, FIRST);
+    #####:  267:      TEMPB:= GET_ELEMENT( A, SECOND);
+        -:  268:
+        -:  269:      -- Swap them
+    #####:  270:      REPLACE( A, FIRST, TEMPB);
+    #####:  271:      REPLACE( A, SECOND,TEMPA);
+        -:  272:
+    #####:  273:   end SWAP;
+        -:  274:
+        -:  275:
+        -:  276:   -------------
+        -:  277:   -- REPLACE --
+        -:  278:   -------------
+        -:  279:
+    #####:  280:   procedure REPLACE (A: LIST_PTR; LOCATION: SIZE_TYPE; NEWVALUE: DATA_TYPE )
+        -:  281:   is
+    #####:  282:      COUNT: SIZE_TYPE:=0;
+    #####:  283:      TEMP : CELL_PTR:= null;
+        -:  284:   begin
+    #####:  285:      if  A.SIZE = 0 or LOCATION <= 0 or LOCATION > A.SIZE then
+        -:  286:         -- If the index of the element don't exist raise exception
+    #####:  287:         raise OUT_OF_BOUNDS;
+        -:  288:      else
+    #####:  289:         TEMP := A.FIRST;
+        -:  290:
+    #####:  291:         while TEMP /=  null loop
+        -:  292:
+    #####:  293:            COUNT := COUNT +1;
+        -:  294:
+    #####:  295:            if  COUNT = LOCATION then
+        -:  296:               -- Replace the data of the cell with new value
+    #####:  297:               TEMP.DATA := NEWVALUE;
+    #####:  298:               return;
+        -:  299:            end if;
+        -:  300:
+    #####:  301:            TEMP := TEMP.NEXT;
+        -:  302:
+    #####:  303:         end loop;
+        -:  304:
+    #####:  305:         raise OUT_OF_BOUNDS;
+        -:  306:      end if;
+        -:  307:
+        -:  308:   end REPLACE;
+        -:  309:
+        -:  310:
+        -:  311:   -------------
+        -:  312:   -- REPLACE_BY_ID --
+        -:  313:   -------------
+        -:  314:
+       20:  315:   procedure REPLACE_BY_ID (A: LIST_PTR; ID: SIZE_TYPE; NEWVALUE: DATA_TYPE )
+        -:  316:   is
+       20:  317:      COUNT: SIZE_TYPE:=0;
+       20:  318:      TEMP : CELL_PTR:= null;
+        -:  319:   begin
+       20:  320:      if  A.SIZE = 0 or ID <= 0 or ID > A.SIZE then
+        -:  321:         -- If the index of the element don't exist raise exception
+    #####:  322:         raise OUT_OF_BOUNDS;
+        -:  323:      else
+       20:  324:         TEMP := A.FIRST;
+        -:  325:
+       32:  326:         while TEMP /=  null loop
+        -:  327:
+       32:  328:            COUNT := COUNT +1;
+        -:  329:
+       32:  330:            if  COUNT = ID then
+        -:  331:               -- Replace the data of the cell with new value
+       20:  332:               TEMP.DATA := NEWVALUE;
+       40:  333:               return;
+        -:  334:            end if;
+        -:  335:
+       12:  336:            TEMP := TEMP.NEXT;
+        -:  337:
+       12:  338:         end loop;
+        -:  339:
+    #####:  340:         raise OUT_OF_BOUNDS;
+        -:  341:      end if;
+        -:  342:
+        -:  343:   end REPLACE_BY_ID;
+        -:  344:end LIST;

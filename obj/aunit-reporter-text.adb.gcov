@@ -1,0 +1,280 @@
+        -:    0:Source:C:/GNAT/2016/include/aunit/aunit-reporter-text.adb
+        -:    0:Programs:41
+        -:    1:------------------------------------------------------------------------------
+        -:    2:--                                                                          --
+        -:    3:--                         GNAT COMPILER COMPONENTS                         --
+        -:    4:--                                                                          --
+        -:    5:--                   A U N I T . R E P O R T E R . T E X T                  --
+        -:    6:--                                                                          --
+        -:    7:--                                 B o d y                                  --
+        -:    8:--                                                                          --
+        -:    9:--                                                                          --
+        -:   10:--                       Copyright (C) 2000-2013, AdaCore                   --
+        -:   11:--                                                                          --
+        -:   12:-- GNAT is free software;  you can  redistribute it  and/or modify it under --
+        -:   13:-- terms of the  GNU General Public License as published  by the Free Soft- --
+        -:   14:-- ware  Foundation;  either version 3,  or (at your option) any later ver- --
+        -:   15:-- sion.  GNAT is distributed in the hope that it will be useful, but WITH- --
+        -:   16:-- OUT ANY WARRANTY;  without even the  implied warranty of MERCHANTABILITY --
+        -:   17:-- or FITNESS FOR A PARTICULAR PURPOSE.                                     --
+        -:   18:--                                                                          --
+        -:   19:--                                                                          --
+        -:   20:--                                                                          --
+        -:   21:--                                                                          --
+        -:   22:--                                                                          --
+        -:   23:-- You should have received a copy of the GNU General Public License and    --
+        -:   24:-- a copy of the GCC Runtime Library Exception along with this program;     --
+        -:   25:-- see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see    --
+        -:   26:-- <http://www.gnu.org/licenses/>.                                          --
+        -:   27:--                                                                          --
+        -:   28:-- GNAT is maintained by AdaCore (http://www.adacore.com)                   --
+        -:   29:--                                                                          --
+        -:   30:------------------------------------------------------------------------------
+        -:   31:
+        -:   32:with GNAT.IO;            use GNAT.IO;
+        -:   33:with AUnit.Time_Measure; use AUnit.Time_Measure;
+        -:   34:
+        -:   35:--  Very simple reporter to console
+        -:   36:package body AUnit.Reporter.Text is
+        -:   37:
+        -:   38:   procedure Indent (N : Natural);
+        -:   39:   --  Print N indentations to output
+        -:   40:
+        -:   41:   procedure Dump_Result_List (L : Result_Lists.List; Prefix : String);
+        -:   42:   --  Dump a result list
+        -:   43:
+        -:   44:   procedure Put_Measure is new Gen_Put_Measure;
+        -:   45:   --  Output elapsed time
+        -:   46:
+        -:   47:   procedure Report_Test (Test : Test_Result; Prefix : String);
+        -:   48:   --  Report a single assertion failure or unexpected exception
+        -:   49:
+        -:   50:   generic
+        -:   51:      with procedure Get (R : in out Result; L : in out Result_Lists.List);
+        -:   52:      Label : String;
+        -:   53:      Color : String;
+        -:   54:   procedure Report_Tests
+        -:   55:      (Engine : Text_Reporter;
+        -:   56:       R      : in out Result'Class);
+        -:   57:   --  Report a series of tests
+        -:   58:
+        -:   59:   ANSI_Def    : constant String := ASCII.ESC & "[0m";
+        -:   60:   ANSI_Green  : constant String := ASCII.ESC & "[32m";
+        -:   61:   ANSI_Purple : constant String := ASCII.ESC & "[35m";
+        -:   62:   ANSI_Red    : constant String := ASCII.ESC & "[31m";
+        -:   63:
+        -:   64:   -------------------------
+        -:   65:   -- Set_Use_ANSI_Colors --
+        -:   66:   -------------------------
+        -:   67:
+    #####:   68:   procedure Set_Use_ANSI_Colors
+        -:   69:     (Engine : in out Text_Reporter;
+        -:   70:      Value  : Boolean) is
+        -:   71:   begin
+    #####:   72:      Engine.Use_ANSI := Value;
+    #####:   73:   end Set_Use_ANSI_Colors;
+        -:   74:
+        -:   75:   ------------
+        -:   76:   -- Indent --
+        -:   77:   ------------
+        -:   78:
+    #####:   79:   procedure Indent (N : Natural) is
+        -:   80:   begin
+    #####:   81:      for J in 1 .. N loop
+    #####:   82:         Put ("    ");
+    #####:   83:      end loop;
+    #####:   84:   end Indent;
+        -:   85:
+        -:   86:   ----------------------
+        -:   87:   -- Dump_Result_List --
+        -:   88:   ----------------------
+        -:   89:
+        6:   90:   procedure Dump_Result_List (L : Result_Lists.List; Prefix : String) is
+        -:   91:
+        -:   92:      use Result_Lists;
+        -:   93:
+        6:   94:      C : Cursor := First (L);
+        -:   95:   begin
+        6:   96:      if Has_Element (C) then
+        2:   97:         New_Line;
+        -:   98:      end if;
+        -:   99:
+        -:  100:      --  Note: can't use Iterate because it violates restriction
+        -:  101:      --  No_Implicit_Dynamic_Code
+        -:  102:
+       16:  103:      while Has_Element (C) loop
+       10:  104:         Report_Test (Element (C), Prefix);
+       10:  105:         Next (C);
+       10:  106:      end loop;
+        6:  107:   end Dump_Result_List;
+        -:  108:
+        -:  109:   ---------
+        -:  110:   -- Get --
+        -:  111:   ---------
+        -:  112:
+        6:  113:   procedure Report_Tests
+        -:  114:      (Engine : Text_Reporter;
+        -:  115:       R      : in out Result'Class)
+        -:  116:   is
+        6:  117:      S : Result_Lists.List;
+        -:  118:   begin
+        6:  119:      Get (Result (R), S);
+        6:  120:      if Engine.Use_ANSI then
+    #####:  121:         Put (Color);
+        -:  122:      end if;
+        -:  123:
+        6:  124:      Dump_Result_List (S, Label);
+        -:  125:
+        6:  126:      if Engine.Use_ANSI then
+    #####:  127:         Put (ANSI_Def);
+        -:  128:      end if;
+        6:  129:   end Report_Tests;
+        -:  130:
+        -:  131:   ---------------------
+        -:  132:   -- Report_OK_Tests --
+        -:  133:   ---------------------
+        -:  134:
+        2:  135:   procedure Report_OK_Tests
+        -:  136:      (Engine : Text_Reporter;
+        -:  137:       R      : in out Result'Class)
+        -:  138:   is
+        -:  139:      procedure Internal is new Report_Tests (Successes, "OK", ANSI_Green);
+        -:  140:   begin
+        2:  141:      Internal (Engine, R);
+        2:  142:   end Report_OK_Tests;
+        -:  143:
+        2:  144:   procedure Report_Fail_Tests
+        -:  145:      (Engine : Text_Reporter;
+        -:  146:       R      : in out Result'Class)
+        -:  147:   is
+        -:  148:      procedure Internal is new Report_Tests (Failures, "FAIL", ANSI_Purple);
+        -:  149:   begin
+        2:  150:      Internal (Engine, R);
+        2:  151:   end Report_Fail_Tests;
+        -:  152:
+        2:  153:   procedure Report_Error_Tests
+        -:  154:      (Engine : Text_Reporter;
+        -:  155:       R      : in out Result'Class)
+        -:  156:   is
+        -:  157:      procedure Internal is new Report_Tests (Errors, "ERROR", ANSI_Red);
+        -:  158:   begin
+        2:  159:      Internal (Engine, R);
+        2:  160:   end Report_Error_Tests;
+        -:  161:
+        -:  162:   ------------
+        -:  163:   -- Report --
+        -:  164:   ------------
+        -:  165:
+        2:  166:   procedure Report
+        -:  167:     (Engine  : Text_Reporter;
+        -:  168:      R       : in out Result'Class;
+        -:  169:      Options : AUnit_Options := Default_Options)
+        -:  170:   is
+        2:  171:      S_Count : constant Integer := Integer (Success_Count (R));
+        2:  172:      F_Count : constant Integer := Integer (Failure_Count (R));
+        2:  173:      E_Count : constant Integer := Integer (Error_Count (R));
+        -:  174:      T : AUnit_Duration;
+        -:  175:   begin
+        -:  176:
+        2:  177:      if Options.Report_Successes then
+        2:  178:         Report_OK_Tests    (Text_Reporter'Class (Engine), R);
+        -:  179:      end if;
+        -:  180:
+        2:  181:      Report_Fail_Tests  (Text_Reporter'Class (Engine), R);
+        2:  182:      Report_Error_Tests (Text_Reporter'Class (Engine), R);
+        -:  183:
+        2:  184:      New_Line;
+        2:  185:      Put ("Total Tests Run:   ");
+        2:  186:      Put (Integer (Test_Count (R)));
+        2:  187:      New_Line;
+        2:  188:      Put ("Successful Tests:  ");
+        2:  189:      Put (S_Count);
+        2:  190:      New_Line;
+        2:  191:      Put ("Failed Assertions: ");
+        2:  192:      Put (F_Count);
+        2:  193:      New_Line;
+        2:  194:      Put ("Unexpected Errors: ");
+        2:  195:      Put (E_Count);
+        2:  196:      New_Line;
+        -:  197:
+        2:  198:      if Elapsed (R) /= Time_Measure.Null_Time then
+    #####:  199:         T := Get_Measure (Elapsed (R));
+        -:  200:
+    #####:  201:         Put ("Cumulative Time: ");
+    #####:  202:         Put_Measure (T);
+    #####:  203:         Put_Line (" seconds");
+        -:  204:      end if;
+        2:  205:   end Report;
+        -:  206:
+        -:  207:   -----------------
+        -:  208:   -- Report_Test --
+        -:  209:   -----------------
+        -:  210:
+       10:  211:   procedure Report_Test (Test : Test_Result; Prefix : String) is
+        -:  212:      T : AUnit_Duration;
+        -:  213:   begin
+       10:  214:      Put (Prefix);
+       10:  215:      Put (" ");
+       10:  216:      Put (Test.Test_Name.all);
+        -:  217:
+       10:  218:      if Test.Routine_Name /= null then
+       10:  219:         Put (" : ");
+       10:  220:         Put (Test.Routine_Name.all);
+        -:  221:      end if;
+        -:  222:
+       10:  223:      if Test.Elapsed /= Time_Measure.Null_Time then
+    #####:  224:         Put (" (in ");
+    #####:  225:         T := Get_Measure (Test.Elapsed);
+    #####:  226:         Put_Measure (T);
+    #####:  227:         Put (")");
+        -:  228:      end if;
+        -:  229:
+       10:  230:      New_Line;
+        -:  231:
+       10:  232:      if Test.Failure /= null then
+    #####:  233:         Indent (1);
+    #####:  234:         Put_Line (Test.Failure.Message.all);
+    #####:  235:         Indent (1);
+    #####:  236:         Put ("at ");
+    #####:  237:         Put (Test.Failure.Source_Name.all);
+    #####:  238:         Put (":");
+    #####:  239:         Put (Test.Failure.Line);
+    #####:  240:         New_Line;
+        -:  241:
+       10:  242:      elsif Test.Error /= null then
+    #####:  243:         Indent (1);
+    #####:  244:         Put_Line (Test.Error.Exception_Name.all);
+        -:  245:
+    #####:  246:         if Test.Error.Exception_Message /= null then
+    #####:  247:            Indent (1);
+    #####:  248:            Put      ("Exception Message: ");
+    #####:  249:            Put_Line (Test.Error.Exception_Message.all);
+        -:  250:         end if;
+        -:  251:
+    #####:  252:         if Test.Error.Traceback /= null then
+    #####:  253:            Indent (1);
+    #####:  254:            Put_Line ("Traceback:");
+        -:  255:
+        -:  256:            declare
+    #####:  257:               From, To : Natural := Test.Error.Traceback'First;
+        -:  258:            begin
+    #####:  259:               while From <= Test.Error.Traceback'Last loop
+    #####:  260:                  To := From;
+    #####:  261:                  while To <= Test.Error.Traceback'Last
+    #####:  262:                    and then Test.Error.Traceback (To) /= ASCII.LF
+        -:  263:                  loop
+    #####:  264:                     To := To + 1;
+    #####:  265:                  end loop;
+        -:  266:
+    #####:  267:                  Indent (2);
+    #####:  268:                  Put_Line (Test.Error.Traceback (From .. To - 1));
+    #####:  269:                  From := To + 1;
+    #####:  270:               end loop;
+        -:  271:            end;
+        -:  272:         end if;
+        -:  273:
+    #####:  274:         New_Line;
+        -:  275:      end if;
+       10:  276:   end Report_Test;
+        -:  277:
+        -:  278:end AUnit.Reporter.Text;

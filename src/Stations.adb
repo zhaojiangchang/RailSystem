@@ -1,5 +1,5 @@
 with sPrint;
-package body Stations is
+package body Stations with SPARK_Mode is
    -----------------------
    -- Add_IncomingTrack --
    -----------------------

@@ -1,0 +1,177 @@
+        -:    0:Source:C:/GNAT/2016/include/aunit/aunit-time_measure.adb
+        -:    0:Programs:41
+        -:    1:------------------------------------------------------------------------------
+        -:    2:--                                                                          --
+        -:    3:--                         GNAT COMPILER COMPONENTS                         --
+        -:    4:--                                                                          --
+        -:    5:--                     A U N I T . T I M E _ M E A S U R E                  --
+        -:    6:--                                                                          --
+        -:    7:--                                 B o d y                                  --
+        -:    8:--                                                                          --
+        -:    9:--                                                                          --
+        -:   10:--                    Copyright (C) 2006-2014, AdaCore                      --
+        -:   11:--                                                                          --
+        -:   12:-- GNAT is free software;  you can  redistribute it  and/or modify it under --
+        -:   13:-- terms of the  GNU General Public License as published  by the Free Soft- --
+        -:   14:-- ware  Foundation;  either version 3,  or (at your option) any later ver- --
+        -:   15:-- sion.  GNAT is distributed in the hope that it will be useful, but WITH- --
+        -:   16:-- OUT ANY WARRANTY;  without even the  implied warranty of MERCHANTABILITY --
+        -:   17:-- or FITNESS FOR A PARTICULAR PURPOSE.                                     --
+        -:   18:--                                                                          --
+        -:   19:--                                                                          --
+        -:   20:--                                                                          --
+        -:   21:--                                                                          --
+        -:   22:--                                                                          --
+        -:   23:-- You should have received a copy of the GNU General Public License and    --
+        -:   24:-- a copy of the GCC Runtime Library Exception along with this program;     --
+        -:   25:-- see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see    --
+        -:   26:-- <http://www.gnu.org/licenses/>.                                          --
+        -:   27:--                                                                          --
+        -:   28:-- GNAT is maintained by AdaCore (http://www.adacore.com)                   --
+        -:   29:--                                                                          --
+        -:   30:------------------------------------------------------------------------------
+        -:   31:
+        -:   32:package body AUnit.Time_Measure is
+        -:   33:
+        -:   34:   -------------------
+        -:   35:   -- Start_Measure --
+        -:   36:   -------------------
+        -:   37:
+    #####:   38:   procedure Start_Measure (T : in out Time) is
+        -:   39:   begin
+    #####:   40:      T.Start := Ada.Calendar.Clock;
+    #####:   41:   end Start_Measure;
+        -:   42:
+        -:   43:   ------------------
+        -:   44:   -- Stop_Measure --
+        -:   45:   ------------------
+        -:   46:
+    #####:   47:   procedure Stop_Measure (T : in out Time) is
+        -:   48:   begin
+    #####:   49:      T.Stop := Ada.Calendar.Clock;
+    #####:   50:   end Stop_Measure;
+        -:   51:
+        -:   52:   -----------------
+        -:   53:   -- Get_Measure --
+        -:   54:   -----------------
+        -:   55:
+    #####:   56:   function Get_Measure (T : Time) return AUnit_Duration is
+        -:   57:      use type Ada.Calendar.Time;
+        -:   58:   begin
+    #####:   59:      return AUnit_Duration (T.Stop - T.Start);
+        -:   60:   end Get_Measure;
+        -:   61:
+        -:   62:   ---------------------
+        -:   63:   -- Gen_Put_Measure --
+        -:   64:   ---------------------
+        -:   65:
+    #####:   66:   procedure Gen_Put_Measure (Measure : AUnit_Duration) is
+    #####:   67:      H, M, S  : Integer := 0;
+    #####:   68:      T        : Duration := Duration (Measure);
+        -:   69:      Force    : Boolean;
+        -:   70:
+        -:   71:      procedure Put (N : Integer; Length : Integer);
+        -:   72:      --  Put N using at least Length digits.
+        -:   73:
+    #####:   74:      procedure Put (N : Integer; Length : Integer) is
+        -:   75:      begin
+    #####:   76:         for Dig in reverse 1 .. Length - 1 loop
+    #####:   77:            if N < 10**Dig then
+    #####:   78:               Put ("0");
+        -:   79:            else
+    #####:   80:               exit;
+        -:   81:            end if;
+    #####:   82:         end loop;
+        -:   83:
+    #####:   84:         Put (N);
+    #####:   85:      end Put;
+        -:   86:
+        -:   87:   begin
+        -:   88:      --  Calculate the number of hours, minutes and seconds
+    #####:   89:      while T >= 3600.0 loop
+    #####:   90:         H := H + 1;
+    #####:   91:         T := T - 3600.0;
+    #####:   92:      end loop;
+        -:   93:
+    #####:   94:      while T >= 60.0 loop
+    #####:   95:         M := M + 1;
+    #####:   96:         T := T - 60.0;
+    #####:   97:      end loop;
+        -:   98:
+    #####:   99:      while T >= 1.0 loop
+    #####:  100:         S := S + 1;
+    #####:  101:         T := T - 1.0;
+    #####:  102:      end loop;
+        -:  103:
+        -:  104:      --  Now display the result
+    #####:  105:      Force := False;
+        -:  106:
+    #####:  107:      if H > 0 then
+    #####:  108:         Put (H);
+    #####:  109:         Put ("h");
+    #####:  110:         Force := True;
+        -:  111:      end if;
+        -:  112:
+    #####:  113:      if M > 0 or else Force then
+    #####:  114:         if not Force then
+    #####:  115:            Put (M);
+        -:  116:         else
+        -:  117:            --  In case some output is already done, then we force a 2 digits
+        -:  118:            --  output so that the output is normalized.
+    #####:  119:            Put (M, 2);
+        -:  120:         end if;
+        -:  121:
+    #####:  122:         Put ("min. ");
+    #####:  123:         Force := True;
+        -:  124:      end if;
+        -:  125:
+    #####:  126:      if not Force then
+    #####:  127:         Put (S);
+        -:  128:      else
+    #####:  129:         Put (S, 2);
+        -:  130:      end if;
+        -:  131:
+    #####:  132:      Put (".");
+    #####:  133:      Put (Integer (T * 1_000_000.0), 6);
+    #####:  134:      Put (" sec.");
+    #####:  135:   end Gen_Put_Measure;
+        -:  136:
+        -:  137:   --------------------------------
+        -:  138:   -- Gen_Put_Measure_In_Seconds --
+        -:  139:   --------------------------------
+        -:  140:
+        -:  141:   procedure Gen_Put_Measure_In_Seconds (Measure : AUnit_Duration) is
+        -:  142:      S  : Integer := 0;
+        -:  143:      T  : Duration := Duration (Measure);
+        -:  144:
+        -:  145:      procedure Put (N : Integer; Length : Integer);
+        -:  146:      --  Put N using at least Length digits.
+        -:  147:
+        -:  148:      procedure Put (N : Integer; Length : Integer) is
+        -:  149:      begin
+        -:  150:         for Dig in reverse 1 .. Length - 1 loop
+        -:  151:            if N < 10**Dig then
+        -:  152:               Put ("0");
+        -:  153:            else
+        -:  154:               exit;
+        -:  155:            end if;
+        -:  156:         end loop;
+        -:  157:
+        -:  158:         Put (N);
+        -:  159:      end Put;
+        -:  160:
+        -:  161:   begin
+        -:  162:
+        -:  163:      while T >= 1.0 loop
+        -:  164:         S := S + 1;
+        -:  165:         T := T - 1.0;
+        -:  166:      end loop;
+        -:  167:
+        -:  168:      Put (S);
+        -:  169:
+        -:  170:      Put (".");
+        -:  171:      Put (Integer (T * 1_000_000.0), 9);
+        -:  172:      Put ("s");
+        -:  173:   end Gen_Put_Measure_In_Seconds;
+        -:  174:
+        -:  175:end AUnit.Time_Measure;

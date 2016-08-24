@@ -1,15 +1,13 @@
-with Stations;
+with TYPES;
 package Trains
+--  is
 with SPARK_Mode is
-   type Location_State_Type is (L_Track, L_Station, L_Non);
-   type Location_Type is array ( Location_State_Type ) of Integer;
-
    type Train is
       record
-         ID: Positive;
+         ID: TYPES.MAX_SIZE;
          Location: Integer;
    end record;
 
-   procedure SET_LOCATION(train_r: in out Train; ID: in Positive; location: in Integer);
+   procedure SET_LOCATION(train_r: in out Train; ID: in TYPES.MAX_SIZE; location: in Integer);
 
 end Trains;

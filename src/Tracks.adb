@@ -1,4 +1,4 @@
-package body Tracks is
+package body Tracks with SPARK_Mode is
 
    -----------------------------
    -- setOriginAndDestination --
@@ -6,8 +6,8 @@ package body Tracks is
 
    procedure setOriginAndDestination
      (track_r: in out Track;
-      O: in Origin_Type;
-      D: in Destination_Type)
+      O: in TYPES.Origin_Type;
+      D: in  TYPES.Destination_Type)
    is
    begin
       --  Generated stub: replace with real body!

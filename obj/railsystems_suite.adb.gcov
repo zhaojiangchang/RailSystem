@@ -1,0 +1,20 @@
+        -:    0:Source:C:/Users/JackyChang/Desktop/RailSystem/src/_test/harness/railsystems_suite.adb
+        -:    0:Programs:41
+        -:    1:with RailSystems.Test;
+        -:    2:
+        4:    3:package body RailSystems_Suite is
+        -:    4:
+        -:    5:   use AUnit.Test_Suites;
+        -:    6:
+        2:    7:   function Suite return AUnit.Test_Suites.Access_Test_Suite is
+        -:    8:
+        4:    9:      TS_Ptr : constant Access_Test_Suite := new Test_Suite;
+        -:   10:   begin
+        -:   11:
+        4:   12:      TS_Ptr.Add_Test (new RailSystems.Test.TC) ;
+        -:   13:
+        2:   14:      return TS_Ptr;
+        -:   15:
+        -:   16:   end Suite;
+        -:   17:
+        2:   18:end RailSystems_Suite;

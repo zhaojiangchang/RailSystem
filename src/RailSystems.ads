@@ -27,12 +27,13 @@ with SPARK_Mode=>On is
          All_Tracks: Stations.LIST_TRACKS.LIST_PTR:= new Stations.LIST_TRACKS.LIST;
       end record;
 
-   procedure addTrack(r_system: in out RailSystem; ID: in TYPES.MAX_SIZE; Origin: in TYPES.Origin_Type; Destination: in TYPES.Destination_Type);
-   procedure addTrain (r_system: in out RailSystem; ID: in TYPES.MAX_SIZE; location: in Integer);
+   --procedure
+   procedure addTrack(r_system: in out RailSystem; ID: in TYPES.MAX_SIZE; Origin: in TYPES.Station_Locations; Destination: in TYPES.Station_Locations);
    procedure addStation(r_system: in out RailSystem; StationID: in TYPES.MAX_SIZE; Location: TYPES.Station_Locations);
-   procedure setStation(r_system: in out RailSystem; StationID: in TYPES.MAX_SIZE; station: in Stations.Station);
-   procedure addIncomingOutgoingTracksForStation(r_system: in out RailSystem; StationID: in TYPES.MAX_SIZE; trackIds: in TYPES.trackIDsArray;
-                                        IOSwitch: in String);
---     procedure addOutgoingTracksForStation(r_system: in out RailSystem; StationID: in TYPES.MAX_SIZE; trackIds: in TYPES.trackIDsArray);
+   procedure replaceStation(r_system: in out RailSystem; StationID: in TYPES.MAX_SIZE; station: in Stations.Station);
+   procedure addIncomingOutgoingTracksForStation(r_system: in out RailSystem);
+   procedure setTrainLocation(r_system: in out RailSystem; train: in out Trains.Train;LocationName: in  String; LocationID: in TYPES.MAX_SIZE);
 
+   --function
+   function addTrain (r_system: in out RailSystem; ID: in TYPES.MAX_SIZE) return Trains.Train;
 end RailSystems;

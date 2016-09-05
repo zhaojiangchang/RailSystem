@@ -16,7 +16,8 @@ with SPARK_Mode=>On is
    type Station is
       record
          ID: TYPES.MAX_SIZE:=0;
-         Location: TYPES.Station_Locations;
+         Location: TYPES.Station_Locations :=TYPES.No;
+         Train: TYPES.MAX_SIZE:=0;
          Incoming: LIST_TRACKS.LIST_PTR;
          Outgoing: LIST_TRACKS.LIST_PTR;
       end record;

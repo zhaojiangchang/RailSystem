@@ -35,7 +35,7 @@ package ada_main is
    pragma Export (C, main, "main");
 
    type Version_32 is mod 2 ** 32;
-   u00001 : constant Version_32 := 16#e3c99427#;
+   u00001 : constant Version_32 := 16#a709a151#;
    pragma Export (C, u00001, "mainB");
    u00002 : constant Version_32 := 16#b6df930e#;
    pragma Export (C, u00002, "system__standard_libraryB");
@@ -245,38 +245,40 @@ package ada_main is
    pragma Export (C, u00104, "system__stringsS");
    u00105 : constant Version_32 := 16#d03a0a90#;
    pragma Export (C, u00105, "system__file_control_blockS");
-   u00106 : constant Version_32 := 16#fd6e3db8#;
+   u00106 : constant Version_32 := 16#b627159a#;
    pragma Export (C, u00106, "railsystemsB");
-   u00107 : constant Version_32 := 16#ea6fa526#;
+   u00107 : constant Version_32 := 16#d638307c#;
    pragma Export (C, u00107, "railsystemsS");
-   u00108 : constant Version_32 := 16#09485e8f#;
+   u00108 : constant Version_32 := 16#7bfd81f3#;
    pragma Export (C, u00108, "listB");
-   u00109 : constant Version_32 := 16#076ee0a0#;
+   u00109 : constant Version_32 := 16#e7578cd9#;
    pragma Export (C, u00109, "listS");
    u00110 : constant Version_32 := 16#61c174a3#;
    pragma Export (C, u00110, "sprintB");
    u00111 : constant Version_32 := 16#16a9d7b0#;
    pragma Export (C, u00111, "sprintS");
-   u00112 : constant Version_32 := 16#72aabe20#;
+   u00112 : constant Version_32 := 16#b71b1ef2#;
    pragma Export (C, u00112, "stationsB");
-   u00113 : constant Version_32 := 16#8d1d7d15#;
+   u00113 : constant Version_32 := 16#edbe97ba#;
    pragma Export (C, u00113, "stationsS");
-   u00114 : constant Version_32 := 16#e28df422#;
-   pragma Export (C, u00114, "tracksB");
-   u00115 : constant Version_32 := 16#d96c07c0#;
-   pragma Export (C, u00115, "tracksS");
-   u00116 : constant Version_32 := 16#9cb7cecd#;
-   pragma Export (C, u00116, "trainsB");
-   u00117 : constant Version_32 := 16#6e5f8960#;
-   pragma Export (C, u00117, "trainsS");
-   u00118 : constant Version_32 := 16#fd83e873#;
-   pragma Export (C, u00118, "system__concat_2B");
-   u00119 : constant Version_32 := 16#2f0547e8#;
-   pragma Export (C, u00119, "system__concat_2S");
-   u00120 : constant Version_32 := 16#ee101ba4#;
-   pragma Export (C, u00120, "system__memoryB");
-   u00121 : constant Version_32 := 16#74d8f60c#;
-   pragma Export (C, u00121, "system__memoryS");
+   u00114 : constant Version_32 := 16#fd83e873#;
+   pragma Export (C, u00114, "system__concat_2B");
+   u00115 : constant Version_32 := 16#2f0547e8#;
+   pragma Export (C, u00115, "system__concat_2S");
+   u00116 : constant Version_32 := 16#7f71bbca#;
+   pragma Export (C, u00116, "tracksB");
+   u00117 : constant Version_32 := 16#b9cf3547#;
+   pragma Export (C, u00117, "tracksS");
+   u00118 : constant Version_32 := 16#8d2ea8e9#;
+   pragma Export (C, u00118, "typesS");
+   u00119 : constant Version_32 := 16#7f169e3a#;
+   pragma Export (C, u00119, "trainsB");
+   u00120 : constant Version_32 := 16#5ad64764#;
+   pragma Export (C, u00120, "trainsS");
+   u00121 : constant Version_32 := 16#ee101ba4#;
+   pragma Export (C, u00121, "system__memoryB");
+   u00122 : constant Version_32 := 16#74d8f60c#;
+   pragma Export (C, u00122, "system__memoryS");
    --  BEGIN ELABORATION ORDER
    --  ada%s
    --  ada.characters%s
@@ -390,6 +392,7 @@ package ada_main is
    --  list%b
    --  sprint%s
    --  sprint%b
+   --  types%s
    --  tracks%s
    --  tracks%b
    --  stations%s

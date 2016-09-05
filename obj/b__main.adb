@@ -29,9 +29,9 @@ package body ada_main is
    E092 : Short_Integer; pragma Import (Ada, E092, "ada__text_io_E");
    E109 : Short_Integer; pragma Import (Ada, E109, "list_E");
    E111 : Short_Integer; pragma Import (Ada, E111, "sprint_E");
-   E115 : Short_Integer; pragma Import (Ada, E115, "tracks_E");
+   E117 : Short_Integer; pragma Import (Ada, E117, "tracks_E");
    E113 : Short_Integer; pragma Import (Ada, E113, "stations_E");
-   E117 : Short_Integer; pragma Import (Ada, E117, "trains_E");
+   E120 : Short_Integer; pragma Import (Ada, E120, "trains_E");
    E107 : Short_Integer; pragma Import (Ada, E107, "railsystems_E");
 
    Local_Priority_Specific_Dispatching : constant String := "";
@@ -191,10 +191,10 @@ package body ada_main is
       E092 := E092 + 1;
       E109 := E109 + 1;
       E111 := E111 + 1;
-      E115 := E115 + 1;
+      E117 := E117 + 1;
       Stations'Elab_Spec;
       E113 := E113 + 1;
-      E117 := E117 + 1;
+      E120 := E120 + 1;
       RAILSYSTEMS'ELAB_SPEC;
       E107 := E107 + 1;
    end adainit;
@@ -232,15 +232,16 @@ package body ada_main is
    end;
 
 --  BEGIN Object file/option list
-   --   C:\Users\JackyChang\Documents\GitHub\RailSystem\obj\List.o
-   --   C:\Users\JackyChang\Documents\GitHub\RailSystem\obj\sPrint.o
-   --   C:\Users\JackyChang\Documents\GitHub\RailSystem\obj\Tracks.o
-   --   C:\Users\JackyChang\Documents\GitHub\RailSystem\obj\Stations.o
-   --   C:\Users\JackyChang\Documents\GitHub\RailSystem\obj\trains.o
-   --   C:\Users\JackyChang\Documents\GitHub\RailSystem\obj\RailSystems.o
-   --   C:\Users\JackyChang\Documents\GitHub\RailSystem\obj\main.o
-   --   -LC:\Users\JackyChang\Documents\GitHub\RailSystem\obj\
-   --   -LC:\Users\JackyChang\Documents\GitHub\RailSystem\obj\
+   --   C:\Users\JackyChang\Desktop\RailSystem\obj\List.o
+   --   C:\Users\JackyChang\Desktop\RailSystem\obj\sPrint.o
+   --   C:\Users\JackyChang\Desktop\RailSystem\obj\types.o
+   --   C:\Users\JackyChang\Desktop\RailSystem\obj\Tracks.o
+   --   C:\Users\JackyChang\Desktop\RailSystem\obj\Stations.o
+   --   C:\Users\JackyChang\Desktop\RailSystem\obj\trains.o
+   --   C:\Users\JackyChang\Desktop\RailSystem\obj\RailSystems.o
+   --   C:\Users\JackyChang\Desktop\RailSystem\obj\main.o
+   --   -LC:\Users\JackyChang\Desktop\RailSystem\obj\
+   --   -LC:\Users\JackyChang\Desktop\RailSystem\obj\
    --   -LC:/gnat/2016/lib/gcc/i686-pc-mingw32/4.9.4/adalib/
    --   -static
    --   -lgnat

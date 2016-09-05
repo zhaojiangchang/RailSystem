@@ -7,7 +7,7 @@ package body Trains with SPARK_Mode=>On is
    procedure SET_LOCATION
      (train_r: in out Train;
       ID: in TYPES.MAX_SIZE;
-      location: in Integer)
+      location: in Train_Location)
    is
    begin
     train_r.Location := location;

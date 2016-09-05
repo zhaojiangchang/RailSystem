@@ -7,10 +7,10 @@ with SPARK_Mode=>On is
    type Track is
       record
          ID: TYPES.MAX_SIZE := 0;
-         Origin:TYPES.Origin_Type:=TYPES.No;
-         Destination:TYPES.Destination_Type:=TYPES.No;
+         Origin:TYPES.Station_Locations:=TYPES.No;
+         Destination:TYPES.Station_Locations:=TYPES.No;
    end record;
 
-   procedure setOriginAndDestination (track_r: in out Track; O: in TYPES.Origin_Type; D: in TYPES.Destination_Type);
+   procedure setOriginAndDestination (track_r: in out Track; O: in TYPES.Station_Locations; D: in TYPES.Station_Locations);
 
 end Tracks;

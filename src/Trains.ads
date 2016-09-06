@@ -16,7 +16,8 @@ with SPARK_Mode=>On is
       record
          ID: TYPES.MAX_SIZE;
          Location: Train_Location;
-         Destination: Stations.Station;
+         Origin: TYPES.Station_Locations:=TYPES.No;
+         Destination: TYPES.Station_Locations:=TYPES.No;
       end record;
 
    procedure SET_LOCATION(train_r: in out Train; ID: in TYPES.MAX_SIZE; location: in Train_Location);

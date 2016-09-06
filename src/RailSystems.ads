@@ -31,9 +31,9 @@ with SPARK_Mode=>On is
    procedure addTrack(r_system: in out RailSystem; ID: in TYPES.MAX_SIZE; Origin: in TYPES.Station_Locations; Destination: in TYPES.Station_Locations);
    procedure addStation(r_system: in out RailSystem; StationID: in TYPES.MAX_SIZE; Location: TYPES.Station_Locations);
    procedure replaceStation(r_system: in out RailSystem; StationID: in TYPES.MAX_SIZE; station: in Stations.Station);
-   procedure addIncomingOutgoingTracksForStation(r_system: in out RailSystem);
+   procedure addIncomingOutgoingTracksForEachStation(r_system: in out RailSystem);
    procedure setTrainLocation(r_system: in out RailSystem; train: in out Trains.Train;LocationName: in  String; LocationID: in TYPES.MAX_SIZE);
-
+   procedure go(r_system: in out RailSystem; train: in out Trains.Train; Origin: in TYPES.Station_Locations; Destionation: in TYPES.Station_Locations);
    --function
    function addTrain (r_system: in out RailSystem; ID: in TYPES.MAX_SIZE) return Trains.Train;
 end RailSystems;

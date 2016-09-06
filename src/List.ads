@@ -48,6 +48,7 @@ package LIST is
    ---------------------
    -- Methods of LIST --
    ---------------------
+   function CONTAINS ( A: LIST_PTR; D: in DATA_TYPE) return Boolean;
 
    function GET_FIRST ( A: LIST_PTR ) return DATA_TYPE;
    --  Returns the first element of the list. Could be null

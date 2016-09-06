@@ -4,6 +4,19 @@ with Ada.Exceptions;
 package body RailSystems with SPARK_Mode=>On is
    use all type TYPES.MAX_SIZE;
    use all type TYPES.Station_Locations;
+   --------------------
+   -- Go (For train) --
+   --------------------
+
+   procedure go(r_system: in out RailSystem;
+                train: in out Trains.Train;
+                Origin: in TYPES.Station_Locations;
+                Destionation: in TYPES.Station_Locations)
+   is
+   begin
+
+      null;
+   end go;
 
    --------------
    -- addTrack --
@@ -15,14 +28,26 @@ package body RailSystems with SPARK_Mode=>On is
       track: Tracks.Track;
       OriginExist: Boolean;
       DestinationExist: Boolean;
+      sizeTracks: TYPES.MAX_SIZE;
       Origin_equal_Destination_Exception : Exception;
       Track_Already_Add_Exception: Exception;
       ID_Out_Of_Range_Exception: Exception;
       Origin_Not_Exist_Exception: Exception;
       Destination_Not_Exist_Exception: Exception;
       Origin_Destination_Not_Station_Location_Exception: Exception;
+      Track_Already_Used_Exception: Exception;
 
    begin
+      sizeTracks:= Stations.LIST_TRACKS.GET_SIZE(r_system.All_Tracks);
+      for j in 1 ..sizeTracks loop
+         track:= Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(r_system.All_Tracks, j);
+         if track.Origin = Origin and track.Destination = Destination then
+            Put_Line("ADD TRACK: track already exist");
+            Raise Track_Already_Add_Exception;
+         end if;
+      end loop;
+
+
       if Origin = TYPES.No or Destination = TYPES.No then
          Put_Line("Origin or Destionation has to be a Station location");
          Raise Origin_Destination_Not_Station_Location_Exception;
@@ -34,8 +59,8 @@ package body RailSystems with SPARK_Mode=>On is
       end if;
 
       if Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(r_system.All_Tracks, ID).id > 0 then
-         Put_Line("ADD TRACK: track already exist");
-         Raise Track_Already_Add_Exception;
+         Put_Line("ADD TRACK: track ID already used");
+         Raise Track_Already_Used_Exception;
       end if;
 
       if ID <1 or ID>100 then
@@ -78,11 +103,9 @@ package body RailSystems with SPARK_Mode=>On is
    is
       train_t: Trains.Train;
       train_location: Trains.Train_Location;
-      Station: Stations.Station;
    begin
       train_t.ID := ID;
       train_t.Location:= train_location;
-      train_t.Destination:= Station;
       LIST_TRAINS.APPEND(r_system.All_Trains, train_t,ID);
       return train_t;
    end addTrain;
@@ -126,6 +149,7 @@ package body RailSystems with SPARK_Mode=>On is
       station_t.ID := StationID;
       station_t.Incoming := Incoming;
       station_t.Outgoing := Outgoing;
+      station_t.Location := Location;
       LIST_STATIONS.APPEND(r_system.All_Stations, station_t,StationID);
 
    end addStation;
@@ -203,46 +227,73 @@ package body RailSystems with SPARK_Mode=>On is
    -- addIncomingOutgoingTracksForStation --
    -----------------------------------------
    --TODO: add income and outgoing tracks
-   procedure addIncomingOutgoingTracksForStation(r_system: in out RailSystem)
+   procedure addIncomingOutgoingTracksForEachStation(r_system: in out RailSystem)
    is
-      temp: Stations.Station;
+      tempStation: Stations.Station;
+      tempTrack: Tracks.Track;
       NotFindTrackIdException : Exception;
       AlreadyAddTrackException : Exception;
       StationIDNotExistException: Exception;
+      sizeStations: TYPES.MAX_SIZE;
+      sizeTracks: TYPES.MAX_SIZE;
    begin
-      temp:= LIST_STATIONS.GET_ELEMENT_BY_ID(r_system.All_Stations, StationID);
-      if temp.ID /= 0 then
+      sizeStations:=LIST_STATIONS.GET_SIZE(r_system.All_Stations);
+      sizeTracks:= Stations.LIST_TRACKS.GET_SIZE(r_system.All_Tracks);
 
-         for i in 1..trackIds'Last loop
-            if trackIds(i) >0 then
-               if Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(r_system.All_Tracks, trackIds(i)).id > 0 then
-                  if IOSwitch = "Incoming" then
-                     if Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(temp.Incoming, trackIds(i)).id  =0 then
-                        Stations.LIST_TRACKS.APPEND(temp.Incoming, Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(r_system.All_Tracks,trackIds(i)),trackIds(i) );
-                     else
-                        Put_Line("track already exist in the income tracks");
-                        Raise AlreadyAddTrackException;
-                     end if;
-                  elsif IOSwitch = "Outgoing" then
-                      if Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(temp.Outgoing, trackIds(i)).id  =0 then
-                        Stations.LIST_TRACKS.APPEND(temp.Outgoing, Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(r_system.All_Tracks,trackIds(i)),trackIds(i) );
-                     else
-                        Put_Line("track already exist in the outgoing tracks");
-                        Raise AlreadyAddTrackException;
-                     end if;
-                  end if;
-               else
-                  Put_Line("track id not exist");
-                  Raise NotFindTrackIdException;
+      for i in 1 .. sizeStations loop
+         tempStation:= LIST_STATIONS.GET_ELEMENT_BY_ID(r_system.All_Stations, i);
+         for j in 1 ..sizeTracks loop
+            tempTrack:= Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(r_system.All_Tracks, j);
+
+            if tempTrack.Origin = tempStation.Location then
+               if Stations.LIST_TRACKS.CONTAINS(tempStation.Outgoing, tempTrack) = False then
+                  Stations.LIST_TRACKS.APPEND(tempStation.Outgoing, tempTrack, tempTrack.ID);
+               end if;
+
+            elsif tempTrack.Destination = tempStation.Location then
+               if Stations.LIST_TRACKS.CONTAINS(tempStation.Incoming, tempTrack) = False then
+                  Stations.LIST_TRACKS.APPEND(tempStation.Incoming, tempTrack, tempTrack.ID);
                end if;
             end if;
 
          end loop;
-      elsif temp.ID = 0 then
-         Put_Line("station id not exist");
-         Raise StationIDNotExistException;
-      end if;
-      replaceStation(r_system,StationID,temp);
-   end addIncomingOutgoingTracksForStation;
+
+         replaceStation(r_system,tempStation.ID,tempStation);
+
+      end loop;
+      --        temp:= LIST_STATIONS.GET_ELEMENT_BY_ID(r_system.All_Stations, StationID);
+      --        if temp.ID /= 0 then
+      --
+      --           for i in 1..trackIds'Last loop
+      --              if trackIds(i) >0 then
+--                 if Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(r_system.All_Tracks, trackIds(i)).id > 0 then
+--                    if IOSwitch = "Incoming" then
+--                       if Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(temp.Incoming, trackIds(i)).id  =0 then
+--                          Stations.LIST_TRACKS.APPEND(temp.Incoming, Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(r_system.All_Tracks,trackIds(i)),trackIds(i) );
+--                       else
+--                          Put_Line("track already exist in the income tracks");
+--                          Raise AlreadyAddTrackException;
+--                       end if;
+--                    elsif IOSwitch = "Outgoing" then
+--                        if Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(temp.Outgoing, trackIds(i)).id  =0 then
+--                          Stations.LIST_TRACKS.APPEND(temp.Outgoing, Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(r_system.All_Tracks,trackIds(i)),trackIds(i) );
+--                       else
+--                          Put_Line("track already exist in the outgoing tracks");
+--                          Raise AlreadyAddTrackException;
+--                       end if;
+--                    end if;
+--                 else
+--                    Put_Line("track id not exist");
+--                    Raise NotFindTrackIdException;
+--                 end if;
+--              end if;
+--
+--           end loop;
+--        elsif temp.ID = 0 then
+--           Put_Line("station id not exist");
+--           Raise StationIDNotExistException;
+--        end if;
+--        replaceStation(r_system,StationID,temp);
+   end addIncomingOutgoingTracksForEachStation;
 
 end RailSystems;

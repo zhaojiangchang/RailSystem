@@ -11,6 +11,27 @@ package body LIST is
    -----------------------
    -- Local Subprograms --
    -----------------------
+   ---------------
+   -- CONTAINS --
+   ---------------
+   function CONTAINS (A: LIST_PTR; D: DATA_TYPE) return Boolean
+   is
+      size: SIZE_TYPE;
+      CELL: CELL_PTR;
+   begin
+      size:= A.SIZE;
+
+      for i in 1 .. size loop
+         CELL := GET_CELL(A,i);
+         if CELL.DATA = D then
+            return True;
+         end if;
+      end loop;
+      return False;
+   end CONTAINS;
+
+
+
 
    ---------------
    -- GET_FIRST --

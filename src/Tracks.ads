@@ -10,6 +10,8 @@ with SPARK_Mode=>On is
          Origin:TYPES.Station_Locations:=TYPES.No;
          Destination:TYPES.Station_Locations:=TYPES.No;
          TrainID: Natural:=0;
+         TracksLineOrigin: TYPES.Station_Locations:=TYPES.No;
+         TracksLineDestination: TYPES.Station_Locations:=TYPES.No;
    end record;
 
 --     procedure setOriginAndDestination (track_r: in out Track; O: in TYPES.Station_Locations; D: in TYPES.Station_Locations);

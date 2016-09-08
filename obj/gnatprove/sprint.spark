@@ -11,6 +11,16 @@
       "spark": "no"
     },
     {
+      "name": "sPrint.Print_Natural",
+      "sloc": [
+        {
+          "file": "sprint.ads",
+          "line": 3
+        }
+      ],
+      "spark": "no"
+    },
+    {
       "name": "sPrint",
       "sloc": [
         {

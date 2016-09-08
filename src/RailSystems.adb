@@ -1,6 +1,7 @@
 with sPrint;
 use sPrint;
 with Ada.Exceptions;
+with Ada.Text_IO; use Ada.Text_IO;
 
 package body RailSystems with SPARK_Mode=>On is
    use all type TYPES.MAX_SIZE;
@@ -34,7 +35,8 @@ package body RailSystems with SPARK_Mode=>On is
    procedure go(r_system: in RailSystem; train: in out Trains.Train)
    is
    begin
-            pragma Warnings(Off, r_system);
+      pragma Warnings(Off, r_system);
+
 null;
    end go;
 
@@ -42,30 +44,39 @@ null;
    -- Prepare Train --
    --------------------
    procedure prepareTrain(r_system: in RailSystem;
-                         train: in out Trains.Train;
-                         Origin: in TYPES.Station_Locations;
-                         Destionation: in TYPES.Station_Locations)
+                          train: in out Trains.Train;
+                          Origin: in TYPES.Station_Locations;
+                          Destionation: in TYPES.Station_Locations;
+                          StartTime: in TYPES.TimeTable)
 
    is
       Origin_Should_Not_Equals_No: Exception;
       Destionation_Should_Not_Equals_No: Exception;
+      Already_Train_At_Station: Exception;
 
    begin
+
+
       if Origin = TYPES.No then
-         Print("Go: Origin should not be TYPES.No");
+         Print("PREPARE TRAIN: Origin should not be TYPES.No");
          raise Origin_Should_Not_Equals_No;
       elsif Destionation = TYPES.No then
-         Print("Go: Destionation should not be TYPES.No");
+         Print("PREPARE TRAIN: Destionation should not be TYPES.No");
          raise Destionation_Should_Not_Equals_No;
       end if;
-
+      train.Location.Station:= getStationByName(r_system, Origin);
+      if train.Location.Station.TrainID /=0 then
+         Print("PREPARE TRAIN: Destionation should not be TYPES.No");
+         raise Already_Train_At_Station;
+      end if;
+      train.Location.Station.TrainID:=train.ID;
       train.Origin := Origin;
       train.Destination := Destionation;
       train.State:=TYPES.Open;
+      train.Start_Run_Time:=StartTime;
       train.Location.currentLocation:="Station";
 
-      train.Location.Station:= getStationByName(r_system, Origin);
-      train.Location.Station.TrainID:=train.ID;
+
 
       train.Location.Track := getTrackByName(r_system, Origin);
       train.Location.Track.TrainID :=0;
@@ -139,8 +150,12 @@ null;
    -- addTrack --
    --------------
 
-   procedure addTrack
-     (r_system: in out RailSystem; ID: in Natural; Origin: in TYPES.Station_Locations; Destination: in TYPES.Station_Locations)
+   procedure addTrack(r_system: in out RailSystem;
+                      ID: in Natural;
+                      Origin: in TYPES.Station_Locations;
+                      Destination: in TYPES.Station_Locations;
+                      LineOrigin: in TYPES.Station_Locations;
+                      LineDestination: in TYPES.Station_Locations)
    is
       track: Tracks.Track;
       OriginExist: Boolean;
@@ -153,6 +168,7 @@ null;
       Destination_Not_Exist_Exception: Exception;
       Origin_Destination_Not_Station_Location_Exception: Exception;
       Track_Already_Used_Exception: Exception;
+      Tracks_Line_Origin_Destination_Equal_Exception: Exception;
 
    begin
       --        Tracks.Init(track);
@@ -169,12 +185,12 @@ null;
                Raise Track_Already_Add_Exception;
             end if;
          end loop;
-      else
-         print("ADD TRACK: tracks size = 0 (add first track)");
+--        else
+--           print("ADD TRACK: tracks size = 0 (add first track)");
       end if;
 
 
-      if Origin = TYPES.No or Destination = TYPES.No then
+      if Origin = TYPES.No or Destination = TYPES.No or LineOrigin = TYPES.No or LineDestination = TYPES.No then
          Print("Origin or Destionation has to be a Station location");
          Raise Origin_Destination_Not_Station_Location_Exception;
       end if;
@@ -182,6 +198,11 @@ null;
       if Origin = Destination then
          Print("ADD TRACK: track Origin should not equals Destination");
          Raise Origin_equal_Destination_Exception;
+      end if;
+
+      if LineDestination = LineOrigin then
+         Print("ADD TRACK: Tracks line origin should not equals tracks line destination");
+         Raise Tracks_Line_Origin_Destination_Equal_Exception;
       end if;
 
       if Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(r_system.All_Tracks, ID).id >= 1 then
@@ -216,6 +237,8 @@ null;
       track.ID:=ID;
       track.Origin:= Origin;
       track.Destination:= Destination;
+      track.TracksLineOrigin:= LineOrigin;
+      track.TracksLineDestination:=LineDestination;
       Stations.LIST_TRACKS.APPEND(r_system.All_Tracks,track, ID);
    end addTrack;
 
@@ -380,42 +403,55 @@ null;
    -----------------------------------------
    -- addIncomingOutgoingTracksForStation --
    -----------------------------------------
-   --TODO: add income and outgoing tracks
    procedure addIncomingOutgoingTracksForEachStation(r_system: in out RailSystem)
    is
       tempStation: Stations.Station;
       tempTrack: Tracks.Track;
+      od_record: TYPES.ODRecord;
+      size: Natural;
+      found: Boolean;
       NotFindTrackIdException : Exception;
       AlreadyAddTrackException : Exception;
       StationIDNotExistException: Exception;
-   begin
---        Stations.Init(tempStation);
---        Tracks.Init(tempTrack);
 
+   begin
 
       for i in 1 .. LIST_STATIONS.GET_SIZE(r_system.All_Stations) loop
          tempStation:= LIST_STATIONS.GET_ELEMENT_BY_ID(r_system.All_Stations, i);
 
          for j in 1 ..Stations.LIST_TRACKS.GET_SIZE(r_system.All_Tracks) loop
             tempTrack:= Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(r_system.All_Tracks, j);
-
             if tempTrack.Origin = tempStation.Location then
                if Stations.LIST_TRACKS.CONTAINS(tempStation.Outgoing, tempTrack) = False then
+
                   Stations.LIST_TRACKS.APPEND(tempStation.Outgoing, tempTrack, tempTrack.ID);
-
-
+                  od_record.Origin:= tempTrack.TracksLineOrigin;
+                  od_record.Destination:=TempTrack.TracksLineDestination;
+                  size:=TYPES.LIST_OD.GET_SIZE(tempStation.TracksLineOriginAndDestination);
+                  if size<1 then
+                     TYPES.LIST_OD.APPEND(tempStation.TracksLineOriginAndDestination, od_record,1);
+                  elsif size>0 then
+                     found:=False;
+                     for w in 1 .. size loop
+                        if (TYPES.LIST_OD.GET_ELEMENT(tempStation.TracksLineOriginAndDestination,w).Origin = od_record.Origin
+                            and  TYPES.LIST_OD.GET_ELEMENT(tempStation.TracksLineOriginAndDestination,w).Destination = od_record.Destination)
+                          or (TYPES.LIST_OD.GET_ELEMENT(tempStation.TracksLineOriginAndDestination,w).Origin = od_record.Destination
+                              and  TYPES.LIST_OD.GET_ELEMENT(tempStation.TracksLineOriginAndDestination,w).Destination = od_record.Origin) then
+                           found:=True;
+                        end if;
+                     end loop;
+                     if found = False then
+                        TYPES.LIST_OD.APPEND(tempStation.TracksLineOriginAndDestination, od_record,1);
+                     end if;
+                  end if;
                end if;
-
             elsif tempTrack.Destination = tempStation.Location then
                if Stations.LIST_TRACKS.CONTAINS(tempStation.Incoming, tempTrack) = False then
                   Stations.LIST_TRACKS.APPEND(tempStation.Incoming, tempTrack, tempTrack.ID);
                end if;
             end if;
-
          end loop;
-
          replaceStation(r_system,tempStation.ID,tempStation);
-
       end loop;
    end addIncomingOutgoingTracksForEachStation;
 

@@ -21,7 +21,7 @@ with SPARK_Mode=>On is
          TrainID: Natural:=0;
          Incoming: LIST_TRACKS.LIST_PTR(MAX_SIZE =>100);
          Outgoing: LIST_TRACKS.LIST_PTR(MAX_SIZE =>100);
-
+         TracksLineOriginAndDestination: TYPES.LIST_OD.LIST_PTR(MAX_SIZE =>100);
       end record;
 --     procedure Init(station_r: in out Station);
    --     procedure Add_IncomingTrack(Station_r: in out Station; track_r: in Tracks.Track);

@@ -185,7 +185,7 @@ null;
                Raise Track_Already_Add_Exception;
             end if;
          end loop;
-      else
+--        else
 --           print("ADD TRACK: tracks size = 0 (add first track)");
       end if;
 

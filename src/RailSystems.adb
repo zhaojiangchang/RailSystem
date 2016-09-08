@@ -1,34 +1,151 @@
-with ada.Text_IO; use Ada.Text_IO;
+with sPrint;
+use sPrint;
 with Ada.Exceptions;
 
 package body RailSystems with SPARK_Mode=>On is
    use all type TYPES.MAX_SIZE;
    use all type TYPES.Station_Locations;
+
+
+
+
+   procedure Init(r_system: in out RailSystem)
+   is
+   begin
+      RailSystems.LIST_TRAINS.Init(r_system.All_Trains);
+      RailSystems.LIST_STATIONS.Init(r_system.All_Stations);
+      Stations.LIST_TRACKS.Init(r_system.All_Tracks);
+   end Init;
+
+
+--     procedure InitTrack
+--       (track_r: in out Tracks.Track)
+--     is
+--     begin
+--        track_r.ID:=0;
+--        track_r.Origin:= TYPES.No;
+--        track_r.Destination:=TYPES.No;
+--        track_r.TrainID:=0;
+--     end InitTrack;
+
    --------------------
    -- Go (For train) --
    --------------------
-
-   procedure go(r_system: in out RailSystem;
-                train: in out Trains.Train;
-                Origin: in TYPES.Station_Locations;
-                Destionation: in TYPES.Station_Locations)
+   procedure go(r_system: in RailSystem; train: in out Trains.Train)
    is
    begin
-
-      null;
+            pragma Warnings(Off, r_system);
+null;
    end go;
+
+   --------------------
+   -- Prepare Train --
+   --------------------
+   procedure prepareTrain(r_system: in RailSystem;
+                         train: in out Trains.Train;
+                         Origin: in TYPES.Station_Locations;
+                         Destionation: in TYPES.Station_Locations)
+
+   is
+      Origin_Should_Not_Equals_No: Exception;
+      Destionation_Should_Not_Equals_No: Exception;
+
+   begin
+      if Origin = TYPES.No then
+         Print("Go: Origin should not be TYPES.No");
+         raise Origin_Should_Not_Equals_No;
+      elsif Destionation = TYPES.No then
+         Print("Go: Destionation should not be TYPES.No");
+         raise Destionation_Should_Not_Equals_No;
+      end if;
+
+      train.Origin := Origin;
+      train.Destination := Destionation;
+      train.State:=TYPES.Open;
+      train.Location.currentLocation:="Station";
+
+      train.Location.Station:= getStationByName(r_system, Origin);
+      train.Location.Station.TrainID:=train.ID;
+
+      train.Location.Track := getTrackByName(r_system, Origin);
+      train.Location.Track.TrainID :=0;
+      null;
+   end prepareTrain;
+
+
+   --------------------
+   -- update Train --
+   --------------------
+   procedure updateTrain(r_system: in RailSystem;
+                         train: in out Trains.Train)
+
+   is
+      pragma Warnings(Off, r_system);
+
+
+   begin
+      null;
+   end updateTrain;
+   ---------------------------------
+   -- get station by station name --
+   ---------------------------------
+
+   function getStationByName(r_system: in RailSystem;
+                             Origin: in TYPES.Station_Locations)
+                             return Stations.Station
+   is
+      temp: Stations.Station;
+--        l: Stations.LIST_TRACKS.LIST_PTR(MAX_SIZE =>100);
+--        inTracks:Stations.LIST_TRACKS.LIST_PTR(MAX_SIZE =>100);
+--        outTracks: Stations.LIST_TRACKS.LIST_PTR(MAX_SIZE =>100);
+   begin
+      --        Stations.Init(temp);
+      pragma Warnings(Off, temp);
+--        Stations.LIST_TRACKS.Init(inTracks);
+--        Stations.LIST_TRACKS.Init(outTracks);
+      for i in 1 .. RailSystems.LIST_STATIONS.GET_SIZE(r_system.All_Stations) loop
+         if RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(r_system.All_Stations, i).Location = Origin then
+            return RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(r_system.All_Stations, i);
+         end if;
+      end loop;
+      return temp;
+   end getStationByName;
+
+   ---------------------------------
+   -- get track by station name --
+   ---------------------------------
+
+   function getTrackByName(r_system: in RailSystem;
+                             Origin: in TYPES.Station_Locations)
+                             return Tracks.Track
+   is
+      temp: Tracks.Track;
+   begin
+      --        InitTrack(temp);
+      temp.ID:=0;
+      temp.Origin:= TYPES.No;
+      temp.Destination:=TYPES.No;
+      temp.TrainID:=0;
+      for i in 1 .. Stations.LIST_TRACKS.GET_SIZE(r_system.All_Tracks) loop
+         if Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(r_system.All_Tracks, i).Origin = Origin then
+            return Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(r_system.All_Tracks, i);
+         end if;
+      end loop;
+      return temp;
+   end getTrackByName;
+
 
    --------------
    -- addTrack --
    --------------
 
    procedure addTrack
-     (r_system: in out RailSystem; ID: in TYPES.MAX_SIZE; Origin: in TYPES.Station_Locations; Destination: in TYPES.Station_Locations)
+     (r_system: in out RailSystem; ID: in Natural; Origin: in TYPES.Station_Locations; Destination: in TYPES.Station_Locations)
    is
       track: Tracks.Track;
       OriginExist: Boolean;
       DestinationExist: Boolean;
-      sizeTracks: TYPES.MAX_SIZE;
+      sizeTracks: Natural;
       Origin_equal_Destination_Exception : Exception;
       Track_Already_Add_Exception: Exception;
       ID_Out_Of_Range_Exception: Exception;
@@ -38,33 +155,42 @@ package body RailSystems with SPARK_Mode=>On is
       Track_Already_Used_Exception: Exception;
 
    begin
+      --        Tracks.Init(track);
+--        track.ID:=0;
+--        track.Origin:= TYPES.No;
+--        track.Destination:=TYPES.No;
+--        track.TrainID:=0;
       sizeTracks:= Stations.LIST_TRACKS.GET_SIZE(r_system.All_Tracks);
-      for j in 1 ..sizeTracks loop
-         track:= Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(r_system.All_Tracks, j);
-         if track.Origin = Origin and track.Destination = Destination then
-            Put_Line("ADD TRACK: track already exist");
-            Raise Track_Already_Add_Exception;
-         end if;
-      end loop;
+      if sizeTracks > 0 then
+         for j in 1 ..sizeTracks loop
+            track:= Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(r_system.All_Tracks, j);
+            if track.Origin = Origin and track.Destination = Destination then
+               print("ADD TRACK: track already exist");
+               Raise Track_Already_Add_Exception;
+            end if;
+         end loop;
+      else
+         print("ADD TRACK: tracks size = 0 (add first track)");
+      end if;
 
 
       if Origin = TYPES.No or Destination = TYPES.No then
-         Put_Line("Origin or Destionation has to be a Station location");
+         Print("Origin or Destionation has to be a Station location");
          Raise Origin_Destination_Not_Station_Location_Exception;
       end if;
 
       if Origin = Destination then
-         Put_Line("ADD TRACK: track Origin should not equals Destination");
+         Print("ADD TRACK: track Origin should not equals Destination");
          Raise Origin_equal_Destination_Exception;
       end if;
 
-      if Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(r_system.All_Tracks, ID).id > 0 then
-         Put_Line("ADD TRACK: track ID already used");
+      if Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(r_system.All_Tracks, ID).id >= 1 then
+         Print("ADD TRACK: track ID already used");
          Raise Track_Already_Used_Exception;
       end if;
 
       if ID <1 or ID>100 then
-         Put_Line("ADD TRACK: ID should between 1 and Max_Size");
+         Print("ADD TRACK: ID should between 1 and Max_Size");
          Raise ID_Out_Of_Range_Exception;
       end if;
       OriginExist := false;
@@ -79,11 +205,11 @@ package body RailSystems with SPARK_Mode=>On is
 
       end loop;
       if OriginExist = false then
-         Put_Line("ADD TRACK: Origin Not Exist Exception");
+         Print("ADD TRACK: Origin Not Exist Exception");
          Raise Origin_Not_Exist_Exception;
       end if;
       if DestinationExist = false then
-         Put_Line("ADD TRACK: Destination Not Exist Exception");
+         Print("ADD TRACK: Destination Not Exist Exception");
          Raise Destination_Not_Exist_Exception;
       end if;
 
@@ -97,18 +223,37 @@ package body RailSystems with SPARK_Mode=>On is
    -- addTrain --
    --------------
 
-   function addTrain (r_system: in out RailSystem;
-                      ID: in TYPES.MAX_SIZE)
-     return Trains.Train
+   procedure addTrain (r_system: in out RailSystem;
+                      ID: in Natural)
    is
-      train_t: Trains.Train;
-      train_location: Trains.Train_Location;
+      train: Trains.Train;
+
    begin
-      train_t.ID := ID;
-      train_t.Location:= train_location;
-      LIST_TRAINS.APPEND(r_system.All_Trains, train_t,ID);
-      return train_t;
+      train.ID := ID;
+      LIST_TRAINS.APPEND(r_system.All_Trains, train,ID);
    end addTrain;
+
+   ---------------------
+   -- get train by id --
+   ---------------------
+   function getTrainById(r_system: in RailSystem; ID: in Natural)
+                         return Trains.Train
+   is
+      ID_Out_Of_Range_Exception: Exception;
+      train: Trains.train;
+   begin
+      if ID < 1 or ID > RailSystems.LIST_TRAINS.GET_SIZE(r_system.All_Trains) then
+         Print("GET TRAIN BY ID: id out of range");
+         Raise ID_Out_Of_Range_Exception;
+      end if;
+
+      for i in 1 ..  RailSystems.LIST_TRAINS.GET_SIZE(r_system.All_Trains) loop
+         train:= RailSystems.LIST_TRAINS.GET_ELEMENT_BY_ID(r_system.All_Trains, ID);
+         return train;
+      end loop;
+
+      return train;
+   end getTrainById;
 
    ----------------
    -- addStation --
@@ -116,17 +261,16 @@ package body RailSystems with SPARK_Mode=>On is
 
    procedure addStation
      (r_system: in out RailSystem;
-      StationID: in TYPES.MAX_SIZE;
+      StationID: in Natural;
       Location: in TYPES.Station_Locations)
    is
       station_t: Stations.Station;
-      Incoming: Stations.LIST_TRACKS.LIST_PTR;
-      Outgoing: Stations.LIST_TRACKS.LIST_PTR;
       LocationExist: Boolean;
       tempStation: Stations.Station;
       Station_Already_Exist_Exception: Exception;
       Location_Not_Exist_Exception: Exception;
    begin
+--        Stations.Init(station_t);
       LocationExist := False;
        for l in TYPES.No .. TYPES.Johnsonville loop
          if l = Location then
@@ -134,21 +278,18 @@ package body RailSystems with SPARK_Mode=>On is
          end if;
       end loop;
       if LocationExist = false then
-         Put_Line("ADD STATION: Station Location Not Exist Exception");
+         Print("ADD STATION: Station Location Not Exist Exception");
          Raise Location_Not_Exist_Exception;
       end if;
 
       tempStation:= LIST_STATIONS.GET_ELEMENT_BY_ID(r_system.All_Stations, StationID);
       if tempStation.ID /= 0 then
-         Put_Line("ADD STATION: station already exist");
+         Print("ADD STATION: station already exist");
          Raise Station_Already_Exist_Exception;
       end if;
 
-      Incoming := new Stations.LIST_TRACKS.LIST;
-      Outgoing := new Stations.LIST_TRACKS.LIST;
+
       station_t.ID := StationID;
-      station_t.Incoming := Incoming;
-      station_t.Outgoing := Outgoing;
       station_t.Location := Location;
       LIST_STATIONS.APPEND(r_system.All_Stations, station_t,StationID);
 
@@ -159,40 +300,53 @@ package body RailSystems with SPARK_Mode=>On is
    -- set Train current Location --
    --------------------------------
 
-   procedure setTrainLocation(r_system: in out RailSystem;
+   procedure setTrainLocation(r_system: in RailSystem;
                               train: in out Trains.Train;
                               LocationName: in  String;
-                              LocationID: in TYPES.MAX_SIZE)
+                              LocationID: in Natural)
    is
       Location_Name_Exception: Exception;
       Station_Not_Exist_Exception: Exception;
       Track_Not_Exist_Exception: Exception;
+      Train_Already_On_Track_Exception: Exception;
+      Train_Already_On_Station_Exception: Exception;
       tempStation: Stations.Station;
       tempTrack: Tracks.Track;
       Location: Trains.Train_Location;
    begin
+      tempTrack.TrainID:=0;
 
+      --        Stations.Init(tempStation);
+      tempStation.ID:=0;
+      tempStation.TrainID:=0;
+      tempStation.Location:=TYPES.No;
       if LocationName = "Track" then
          tempTrack:= Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(r_system.All_Tracks, LocationID);
-          if tempTrack.ID /= 0 then
+         if tempTrack.TrainID /=0 then
+            Print("SET TRAIN LOCATION: there is a train already on the track");
+            Raise Train_Already_On_Track_Exception;
+         elsif tempTrack.ID /= 0 then
             Location.Track := tempTrack;
             Location.Station := tempStation;
             Location.currentLocation:= "Track  ";
             train.Location := Location;
          else
-            Put_Line("SET TRAIN LOCATION: track not exist");
-         Raise Track_Not_Exist_Exception;
+            Print("SET TRAIN LOCATION: track not exist");
+            Raise Track_Not_Exist_Exception;
          end if;
 
       elsif LocationName = "Station" then
          tempStation:= LIST_STATIONS.GET_ELEMENT_BY_ID(r_system.All_Stations, LocationID);
-         if tempStation.ID /= 0 then
+         if tempStation.TrainID /= 0 then
+            Print("SET TRAIN LOCATION: there is a train already on the station");
+            Raise Train_Already_On_Station_Exception;
+         elsif tempStation.ID /= 0 then
             Location.Station := tempStation;
             Location.Track := tempTrack;
             Location.currentLocation:= "Station";
             train.Location := Location;
          else
-            Put_Line("SET TRAIN LOCATION: station not exist");
+            Print("SET TRAIN LOCATION: station not exist");
          Raise Station_Not_Exist_Exception;
          end if;
 
@@ -202,7 +356,7 @@ package body RailSystems with SPARK_Mode=>On is
          Location.currentLocation:= "None   ";
          train.Location:= Location;
       else
-         Put_Line("SET TRAIN LOCATION: location name should be Track or Station");
+         Print("SET TRAIN LOCATION: location name should be Track or Station");
          Raise Location_Name_Exception;
       end if;
 
@@ -215,7 +369,7 @@ package body RailSystems with SPARK_Mode=>On is
    --for addIncomingOutgoingTracksForStation---
    --------------------------------------------
    procedure replaceStation(r_system: in out RailSystem;
-                        StationID: in TYPES.MAX_SIZE;
+                        StationID: in Natural;
                         station: in Stations.Station)
    is
    begin
@@ -234,20 +388,22 @@ package body RailSystems with SPARK_Mode=>On is
       NotFindTrackIdException : Exception;
       AlreadyAddTrackException : Exception;
       StationIDNotExistException: Exception;
-      sizeStations: TYPES.MAX_SIZE;
-      sizeTracks: TYPES.MAX_SIZE;
    begin
-      sizeStations:=LIST_STATIONS.GET_SIZE(r_system.All_Stations);
-      sizeTracks:= Stations.LIST_TRACKS.GET_SIZE(r_system.All_Tracks);
+--        Stations.Init(tempStation);
+--        Tracks.Init(tempTrack);
 
-      for i in 1 .. sizeStations loop
+
+      for i in 1 .. LIST_STATIONS.GET_SIZE(r_system.All_Stations) loop
          tempStation:= LIST_STATIONS.GET_ELEMENT_BY_ID(r_system.All_Stations, i);
-         for j in 1 ..sizeTracks loop
+
+         for j in 1 ..Stations.LIST_TRACKS.GET_SIZE(r_system.All_Tracks) loop
             tempTrack:= Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(r_system.All_Tracks, j);
 
             if tempTrack.Origin = tempStation.Location then
                if Stations.LIST_TRACKS.CONTAINS(tempStation.Outgoing, tempTrack) = False then
                   Stations.LIST_TRACKS.APPEND(tempStation.Outgoing, tempTrack, tempTrack.ID);
+
+
                end if;
 
             elsif tempTrack.Destination = tempStation.Location then
@@ -261,39 +417,6 @@ package body RailSystems with SPARK_Mode=>On is
          replaceStation(r_system,tempStation.ID,tempStation);
 
       end loop;
-      --        temp:= LIST_STATIONS.GET_ELEMENT_BY_ID(r_system.All_Stations, StationID);
-      --        if temp.ID /= 0 then
-      --
-      --           for i in 1..trackIds'Last loop
-      --              if trackIds(i) >0 then
---                 if Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(r_system.All_Tracks, trackIds(i)).id > 0 then
---                    if IOSwitch = "Incoming" then
---                       if Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(temp.Incoming, trackIds(i)).id  =0 then
---                          Stations.LIST_TRACKS.APPEND(temp.Incoming, Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(r_system.All_Tracks,trackIds(i)),trackIds(i) );
---                       else
---                          Put_Line("track already exist in the income tracks");
---                          Raise AlreadyAddTrackException;
---                       end if;
---                    elsif IOSwitch = "Outgoing" then
---                        if Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(temp.Outgoing, trackIds(i)).id  =0 then
---                          Stations.LIST_TRACKS.APPEND(temp.Outgoing, Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(r_system.All_Tracks,trackIds(i)),trackIds(i) );
---                       else
---                          Put_Line("track already exist in the outgoing tracks");
---                          Raise AlreadyAddTrackException;
---                       end if;
---                    end if;
---                 else
---                    Put_Line("track id not exist");
---                    Raise NotFindTrackIdException;
---                 end if;
---              end if;
---
---           end loop;
---        elsif temp.ID = 0 then
---           Put_Line("station id not exist");
---           Raise StationIDNotExistException;
---        end if;
---        replaceStation(r_system,StationID,temp);
    end addIncomingOutgoingTracksForEachStation;
 
 end RailSystems;

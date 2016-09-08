@@ -1,0 +1,4 @@
+railsystems.ads:40:42: warning: "train" is not modified, could be IN[#0]
+railsystems.ads:40:42: warning: unused variable "train"[#1]
+railsystems.ads:42:51: warning: "train" is not modified, could be IN[#2]
+railsystems.ads:42:51: warning: unused variable "train"[#3]

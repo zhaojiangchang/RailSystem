@@ -1,0 +1,18 @@
+{
+  "spark": [
+    {
+      "name": "TYPES",
+      "sloc": [
+        {
+          "file": "types.ads",
+          "line": 2
+        }
+      ],
+      "spark": "no"
+    }
+  ],
+  "flow": [
+  ],
+  "assumptions": [
+  ]
+}

@@ -36,6 +36,7 @@ package body RailSystems with SPARK_Mode=>On is
    procedure go(r_system: in out RailSystem; train: in out Trains.Train)
      with SPARK_Mode =>Off
    is
+--        Trains: Trains.Train;
       tempTrack: Tracks.Track;
       tempStationLocation: TYPES.Station_Locations;
       task type My_Printer_Task is
@@ -45,7 +46,7 @@ package body RailSystems with SPARK_Mode=>On is
          use Ada.Calendar; -- for the "-" and "+" operations on Time
          Start_Time : Ada.Calendar.Time;
          Next_Cycle : Ada.Calendar.Time;
-         Period     : constant Duration  := 5.0;
+         Period     : constant Duration  := 2.0;
       begin
          pragma Warnings(Off, r_system);
 
@@ -57,10 +58,14 @@ package body RailSystems with SPARK_Mode=>On is
             -- so the printing does not depend of the time needed to do the elapsed
             -- time calculation
 
-            delay 2.0; -- like a long operation, takes time......
+            delay 1.0; -- like a long operation, takes time......
             -- This pattern assumes the each cycle last less than Period
                        -- If you cannot ensure that, you should consider improving
                        -- the pattern or reduce the computation load of each cycle
+--              train:=getTrainById(r_system,trainID);
+
+            Put_Line("Train ID:  "&train.ID'Image);
+
 
             if train.Location.currentLocation = "Station" then
                if train.Location.Station.Location =train.Destination then
@@ -69,11 +74,8 @@ package body RailSystems with SPARK_Mode=>On is
                   train.Destination:= tempStationLocation;
                end if;
                train.Location.currentLocation := "Track  ";
-               Put_Line("aa:    "&train.Location.currentLocation);
-               Print_Natural("---",Stations.LIST_TRACKS.GET_SIZE(LIST_STATIONS.GET_ELEMENT_BY_ID(r_system.All_Stations,train.Location.Station.ID).Outgoing));
                for i in 1 .. Stations.LIST_TRACKS.GET_SIZE(LIST_STATIONS.GET_ELEMENT_BY_ID(r_system.All_Stations,train.Location.Station.ID).Outgoing) loop
                   tempTrack:= Stations.LIST_TRACKS.GET_ELEMENT(RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(r_system.All_Stations,train.Location.Station.ID).Outgoing, i);
-                  Print_Natural("trainID: ",tempTrack.TrainID);
                   if tempTrack.TracksLineDestination = train.Destination then
                      if tempTrack.TrainID = 0 then
                         train.Location.Track:= tempTrack;
@@ -82,7 +84,11 @@ package body RailSystems with SPARK_Mode=>On is
                         train.State:=TYPES.Move;
                         train.Location.Track.TrainID:=train.ID;
                         replaceTrain(r_system,train.ID,train);
-                        Print_Natural("current location track: ",train.Location.Track.ID);
+                        Put_Line("Train state:  "& train.State'Image);
+                        Put_Line("Train current location:  "& train.Location.currentLocation);
+                        Print_Natural("Current track: ",train.Location.Track.ID);
+                        Put_Line("Track from:  "& tempTrack.Origin'Image&" to "& tempTrack.Destination'Image);
+                        Print("");
                      else
                         Print("GO: Can not move, Other train on the track");
                      end if;
@@ -93,14 +99,16 @@ package body RailSystems with SPARK_Mode=>On is
 
             elsif train.Location.currentLocation = "Track  " then
                train.Location.currentLocation:= "Station";
-               Put_Line("bb:    "&train.Location.currentLocation);
-               train.Location.Station:= getStationByName(r_system, tempTrack.Destination);
+               train.Location.Station:= getStationByName(r_system, train.Location.Track.Destination);
                train.State:=TYPES.Stop;
                train.Location.Track.ID:=0;
                train.Location.Track.TrainID:=0;
                train.Location.Station.TrainID:= train.ID;
                replaceTrain(r_system,train.ID,train);
+               Put_Line("Train state:  "& train.State'Image);
+               Put_Line("current location station id:  "& train.Location.Station.ID'Image);
                Put_Line("current location station:  "& train.Location.Station.Location'Image);
+               Print("");
             end if;
 
 
@@ -112,7 +120,7 @@ package body RailSystems with SPARK_Mode=>On is
 
       Printer : My_Printer_Task;
    begin
-      delay 30.0; -- You can do your 'real work' here.
+      delay 60.0; -- You can do your 'real work' here.
       -- Unclean way to terminate a task, you should consider improve it for a
       -- real world scenario
       abort Printer;
@@ -241,7 +249,7 @@ package body RailSystems with SPARK_Mode=>On is
    ---------------------------------
 
    function getStationByName(r_system: in RailSystem;
-                             Location: in TYPES.Station_Locations)
+                             stationLocation: in TYPES.Station_Locations)
                                    return Stations.Station
    is
       temp: Stations.Station;
@@ -254,7 +262,8 @@ package body RailSystems with SPARK_Mode=>On is
       --        Stations.LIST_TRACKS.Init(inTracks);
       --        Stations.LIST_TRACKS.Init(outTracks);
       for i in 1 .. RailSystems.LIST_STATIONS.GET_SIZE(r_system.All_Stations) loop
-         if RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(r_system.All_Stations, i).Location = Location then
+
+         if RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(r_system.All_Stations, i).Location = stationLocation then
             return RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(r_system.All_Stations, i);
          end if;
       end loop;

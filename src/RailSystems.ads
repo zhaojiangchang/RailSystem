@@ -43,7 +43,7 @@ with SPARK_Mode=>On is
    procedure updateTrain(r_system: in RailSystem; train: in out Trains.Train);
 --     procedure search(r_system: in RailSystem; train: in Trains.Train);
    --function
-   function getStationByName(r_system: in RailSystem; Location: in TYPES.Station_Locations) return Stations.Station;
+   function getStationByName(r_system: in RailSystem; stationLocation: in TYPES.Station_Locations) return Stations.Station;
    function getTrackByName(r_system: in RailSystem; Origin: in TYPES.Station_Locations) return Tracks.Track;
    function getTrainById(r_system: in RailSystem; ID: in Natural) return Trains.Train;
 end RailSystems;

@@ -43,14 +43,14 @@ begin
    RailSystems.addTrack(rail_system,  6, TYPES.Ngaio, TYPES.Khandallah, TYPES.Wellington, TYPES.Johnsonville);
    RailSystems.addTrack(rail_system,  7, TYPES.Khandallah, TYPES.Johnsonville, TYPES.Wellington, TYPES.Johnsonville);
 
-   RailSystems.addTrack(rail_system,  8, TYPES.Petone, TYPES.Wellington, TYPES.Wellington, TYPES.UpperHutt);
-   RailSystems.addTrack(rail_system,  9, TYPES.LowerHutt, TYPES.Petone, TYPES.Wellington, TYPES.UpperHutt);
-   RailSystems.addTrack(rail_system,  10, TYPES.UpperHutt, TYPES.LowerHutt, TYPES.Wellington, TYPES.UpperHutt);
+   RailSystems.addTrack(rail_system,  8, TYPES.Petone, TYPES.Wellington, TYPES.UpperHutt, TYPES.Wellington);
+   RailSystems.addTrack(rail_system,  9, TYPES.LowerHutt, TYPES.Petone, TYPES.UpperHutt, TYPES.Wellington);
+   RailSystems.addTrack(rail_system,  10, TYPES.UpperHutt, TYPES.LowerHutt, TYPES.UpperHutt, TYPES.Wellington);
 
-   RailSystems.addTrack(rail_system,  11, TYPES.CroftonDowns, TYPES.Wellington, TYPES.Wellington, TYPES.Johnsonville);
-   RailSystems.addTrack(rail_system,  12, TYPES.Ngaio, TYPES.CroftonDowns, TYPES.Wellington, TYPES.Johnsonville);
-   RailSystems.addTrack(rail_system,  13, TYPES.Khandallah, TYPES.Ngaio, TYPES.Wellington, TYPES.Johnsonville);
-   RailSystems.addTrack(rail_system,  14, TYPES.Johnsonville, TYPES.Khandallah, TYPES.Wellington, TYPES.Johnsonville);
+   RailSystems.addTrack(rail_system,  11, TYPES.CroftonDowns, TYPES.Wellington, TYPES.Johnsonville, TYPES.Wellington);
+   RailSystems.addTrack(rail_system,  12, TYPES.Ngaio, TYPES.CroftonDowns, TYPES.Johnsonville, TYPES.Wellington);
+   RailSystems.addTrack(rail_system,  13, TYPES.Khandallah, TYPES.Ngaio, TYPES.Johnsonville, TYPES.Wellington);
+   RailSystems.addTrack(rail_system,  14, TYPES.Johnsonville, TYPES.Khandallah, TYPES.Johnsonville, TYPES.Wellington);
 
    print("total tracks size: "&Stations.LIST_TRACKS.GET_SIZE(rail_system.All_Tracks)'Image);
 

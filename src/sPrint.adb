@@ -8,4 +8,10 @@ package body sPrint is
          Put_Line(s);
       end if;
    end Print;
+
+   procedure Print_Natural(s: in String; n: in Natural)
+   is
+   begin
+      Put_Line(s &":  "& n'Image);
+   end Print_Natural;
 end sPrint;

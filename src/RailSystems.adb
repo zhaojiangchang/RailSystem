@@ -34,6 +34,7 @@ package body RailSystems with SPARK_Mode=>On is
    procedure go(r_system: in RailSystem; train: in out Trains.Train)
    is
    begin
+            pragma Warnings(Off, r_system);
 null;
    end go;
 
@@ -79,6 +80,7 @@ null;
                          train: in out Trains.Train)
 
    is
+      pragma Warnings(Off, r_system);
 
 
    begin
@@ -168,7 +170,7 @@ null;
             end if;
          end loop;
       else
-         print("ADD TRACK: tracks size = 0");
+         print("ADD TRACK: tracks size = 0 (add first track)");
       end if;
 
 
@@ -379,7 +381,7 @@ null;
    -- addIncomingOutgoingTracksForStation --
    -----------------------------------------
    --TODO: add income and outgoing tracks
-   procedure addIncomingOutgoingTracksForEachStation(r_system: in RailSystem)
+   procedure addIncomingOutgoingTracksForEachStation(r_system: in out RailSystem)
    is
       tempStation: Stations.Station;
       tempTrack: Tracks.Track;
@@ -393,12 +395,15 @@ null;
 
       for i in 1 .. LIST_STATIONS.GET_SIZE(r_system.All_Stations) loop
          tempStation:= LIST_STATIONS.GET_ELEMENT_BY_ID(r_system.All_Stations, i);
+
          for j in 1 ..Stations.LIST_TRACKS.GET_SIZE(r_system.All_Tracks) loop
             tempTrack:= Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(r_system.All_Tracks, j);
 
             if tempTrack.Origin = tempStation.Location then
                if Stations.LIST_TRACKS.CONTAINS(tempStation.Outgoing, tempTrack) = False then
                   Stations.LIST_TRACKS.APPEND(tempStation.Outgoing, tempTrack, tempTrack.ID);
+
+
                end if;
 
             elsif tempTrack.Destination = tempStation.Location then
@@ -409,7 +414,7 @@ null;
 
          end loop;
 
---           replaceStation(r_system,tempStation.ID,tempStation);
+         replaceStation(r_system,tempStation.ID,tempStation);
 
       end loop;
    end addIncomingOutgoingTracksForEachStation;

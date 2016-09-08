@@ -42,7 +42,7 @@ begin
    RailSystems.addTrack(rail_system,  6, TYPES.Ngaio, TYPES.Khandallah);
    RailSystems.addTrack(rail_system,  7, TYPES.Khandallah, TYPES.Johnsonville);
 
-     RailSystems.addTrack(rail_system, 8, TYPES.Petone, TYPES.Wellington);
+   RailSystems.addTrack(rail_system, 8, TYPES.Petone, TYPES.Wellington);
    RailSystems.addTrack(rail_system,  9, TYPES.LowerHutt, TYPES.Petone);
    RailSystems.addTrack(rail_system,  10, TYPES.UpperHutt, TYPES.LowerHutt);
 
@@ -67,7 +67,7 @@ begin
    RailSystems.addIncomingOutgoingTracksForEachStation(rail_system);
    size:= RailSystems.LIST_STATIONS.GET_SIZE(rail_system.All_Stations);
    for i in 1 .. size loop
-      print("station "& i'Image);
+      print("station ID: "& i'Image &"  Location: "& RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(rail_system.All_Stations,i).Location'Image);
       print("incoming tracks size: "&  Stations.LIST_TRACKS.GET_SIZE(RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(rail_system.All_Stations,i).Incoming)'Image);
       print("outgoing tracks size: "&  Stations.LIST_TRACKS.GET_SIZE(RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(rail_system.All_Stations,i).Outgoing)'Image);
       print("");
@@ -75,8 +75,9 @@ begin
 
 
    --prepare train to start
---     RailSystems.prepareTrain(rail_system, trainA, Types.Wellington, Types.UpperHutt);
---     RailSystems.go(rail_system, trainA);
-
+   RailSystems.prepareTrain(rail_system, trainA, Types.Wellington, Types.UpperHutt);
+   RailSystems.go(rail_system, trainA);
+   Print(trainA.Origin'Image);
+   Print(trainA.ID'Image);
 
 end Main;

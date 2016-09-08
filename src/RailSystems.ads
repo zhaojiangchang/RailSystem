@@ -29,13 +29,13 @@ with SPARK_Mode=>On is
       end record;
 
    --procedure
---     procedure InitTrack(track_r: in out Tracks.Track);
+   --     procedure InitTrack(track_r: in out Tracks.Track);
    procedure Init(r_system: in out RailSystem);
    procedure addTrain (r_system: in out RailSystem; ID: in Natural);
    procedure addTrack(r_system: in out RailSystem; ID: in Natural; Origin: in TYPES.Station_Locations; Destination: in TYPES.Station_Locations);
    procedure addStation(r_system: in out RailSystem; StationID: in Natural; Location: TYPES.Station_Locations);
    procedure replaceStation(r_system: in out RailSystem; StationID: in Natural; station: in Stations.Station);
-   procedure addIncomingOutgoingTracksForEachStation(r_system: in RailSystem);
+   procedure addIncomingOutgoingTracksForEachStation(r_system: in out RailSystem);
    procedure setTrainLocation(r_system: in RailSystem; train: in out Trains.Train;LocationName: in  String; LocationID: in Natural);
    procedure go(r_system: in RailSystem; train: in out Trains.Train);
    procedure prepareTrain(r_system: in RailSystem; train: in out Trains.Train; Origin: in TYPES.Station_Locations; Destionation: in TYPES.Station_Locations);

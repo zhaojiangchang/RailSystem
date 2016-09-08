@@ -16,14 +16,12 @@ package body LIST is
    ---------------
    function CONTAINS (A: LIST_PTR; D: DATA_TYPE) return Boolean
    is
-      size: SIZE_TYPE;
-      CELL: CELL_PTR;
+      size: Natural;
    begin
       size:= A.SIZE;
 
       for i in 1 .. size loop
-         CELL := GET_CELL(A,i);
-         if CELL.DATA = D then
+         if A.ELEMENTS(i).DATA = D then
             return True;
          end if;
       end loop;
@@ -41,7 +39,7 @@ package body LIST is
                       return DATA_TYPE
    is
    begin
-      return A.FIRST.DATA;
+      return A.ELEMENTS(1).DATA;
    end GET_FIRST;
 
 
@@ -53,7 +51,7 @@ package body LIST is
                       return DATA_TYPE
    is
    begin
-      return A.LAST.DATA;
+      return A.ELEMENTS(A.SIZE).DATA;
    end GET_LAST;
 
 
@@ -62,76 +60,52 @@ package body LIST is
    ---------------
 
    function GET_SIZE ( A: LIST_PTR )
-                      return SIZE_TYPE
+                      return Natural
    is
    begin
       return A.SIZE;
    end GET_SIZE;
 
-
+   ---------------
+   -- FULL  --
+   ---------------
+   function FULL ( A : in LIST_PTR) return Boolean is
+   begin
+      return A.SIZE = A.MAX_SIZE;
+   end FULL;
    ---------------
    -- APPEND    --
    ---------------
 
-   procedure APPEND ( A: in out LIST_PTR; D: in DATA_TYPE; ID: in SIZE_TYPE  )
+   procedure APPEND ( A: in out LIST_PTR; D: in DATA_TYPE; ID: in Natural)
    is
-      TEMP1 : CELL_PTR;
    begin
 
       -- create a new cell to store the new element
-      TEMP1 := new CELL;
-      TEMP1.DATA := D;
-      TEMP1.ID:=ID;
-      -- append the new cell making it the last cell
-      if  A.SIZE = 0 then
-         A.FIRST := TEMP1;
-         A.LAST := TEMP1;
-         A.SIZE := 1;
-      else
-         A.LAST.NEXT := TEMP1;
-         A.LAST := TEMP1;
-         A.SIZE := A.SIZE + 1;
+      if not FULL(A) then
+         A.SIZE:= A.SIZE +1;
+         A.ELEMENTS(A.SIZE).DATA := D;
+         A.ELEMENTS(A.SIZE).ID:= ID;
       end if;
-
    end APPEND;
 
    ---------------
    -- APPEND  TO FIRST  --
    ---------------
 
-   procedure APPEND_TO_FIRST ( A: in out  LIST_PTR ; D: in DATA_TYPE; ID: in SIZE_TYPE )
+   procedure APPEND_TO_FIRST ( A: in out  LIST_PTR ; D: in DATA_TYPE; ID: in Natural)
    is
-      TEMP1_CELL : CELL_PTR;
-      TEMP2_LIST : LIST_PTR;
-      size: SIZE_TYPE;
-      TEMP3_CELL: CELL_PTR;
+--        size: Natural;
    begin
-      size:= A.SIZE;
-      Put_Line("a size: " & A.SIZE'Image);
-      -- create a new cell to store the new element
-      TEMP1_CELL := new CELL;
-      TEMP1_CELL.DATA := D;
-      TEMP1_CELL.ID:= ID;
-
-      -- append the new cell making it the last cell
-      if  A.SIZE = 0 then
-         A.FIRST := TEMP1_CELL;
-         A.LAST := TEMP1_CELL;
-         A.SIZE := 1;
-      else
-         TEMP2_LIST:= new LIST;
-         APPEND(TEMP2_LIST,D, ID);
---           TEMP2_LIST.FIRST :=TEMP1_CELL;
---           TEMP2_LIST.FIRST.NEXT:= A.FIRST;
---           TEMP2_LIST.SIZE := TEMP2_LIST.SIZE+1;
-         for i in 1..size loop
-            TEMP3_CELL := GET_CELL(A,i);
-            if TEMP3_CELL /= null then
-               APPEND(TEMP2_LIST, TEMP3_CELL.DATA, TEMP3_CELL.ID);
-            end if;
+      A.SIZE:= A.SIZE +1;
+      if not FULL(A) then
+         for i in reverse 2 .. A.SIZE loop
+            A.ELEMENTS(i) :=  A.ELEMENTS(i-1);
          end loop;
-        A:=TEMP2_LIST;
+         A.ELEMENTS(1).DATA := D;
+         A.ELEMENTS(1).ID:= ID;
       end if;
+
 
    end APPEND_TO_FIRST;
 
@@ -145,9 +119,7 @@ package body LIST is
    begin
       -- Set size to 0
       A.SIZE := 0;
-
-      A.FIRST := null;
-      A.LAST := null;
+      A.HEAD := 1;
 
    end DELETE_ALL;
 
@@ -156,11 +128,9 @@ package body LIST is
    -- GET_ELEMENT --
    -----------------
 
-   function GET_ELEMENT( A: LIST_PTR ;LOCATION: SIZE_TYPE )
+   function GET_ELEMENT( A: LIST_PTR ;LOCATION: Natural )
                         return DATA_TYPE
    is
-      COUNT: SIZE_TYPE:=0;
-      TEMP : CELL_PTR:= null;
    begin
 
 
@@ -170,73 +140,41 @@ package body LIST is
          return NO_FOUND;
 
       else
-         TEMP := A.FIRST;
-
-         while TEMP /=  null loop
-
-            COUNT := COUNT +1;
-
-            if  COUNT = LOCATION then
-               -- if the location match return the data.
-               return TEMP.DATA;
-            end if;
-
-            TEMP := TEMP.NEXT;
-
-         end loop;
-
-         return NO_FOUND;
+         return A.ELEMENTS(LOCATION).DATA;
       end if;
 
    end GET_ELEMENT;
 
-   -----------------
-   -- GET_CELL --
-   -----------------
+   ------------------------
+   -- GET_ELEMENT_Record --
+   ------------------------
 
-   function GET_CELL( A: LIST_PTR ;LOCATION: SIZE_TYPE )
-                        return CELL_PTR
+   function GET_ELEMENT_RECORD( A: LIST_PTR ;LOCATION: Natural )
+                        return DATA
    is
-      COUNT: SIZE_TYPE:=0;
-      TEMP : CELL_PTR:= null;
+      D: DATA;
    begin
+      D.ID:=0;
 
 
       if  A.SIZE = 0 or LOCATION <= 0  or LOCATION >A.SIZE then
 
          -- If element is not in the list at this location
-         return null;
+         return D;
 
       else
-         TEMP := A.FIRST;
-
-         while TEMP /=  null loop
-
-            COUNT := COUNT +1;
-
-            if  COUNT = LOCATION then
-               -- if the location match return the data.
-               return TEMP;
-            end if;
-
-            TEMP := TEMP.NEXT;
-
-         end loop;
-
-         return null;
+         return A.ELEMENTS(LOCATION);
       end if;
 
-   end GET_CELL;
+   end GET_ELEMENT_RECORD;
 
    ----------------------
    -- GET_ELEMENT_BY_ID--
    ----------------------
 
-   function GET_ELEMENT_BY_ID( A: LIST_PTR ;ID: SIZE_TYPE )
+   function GET_ELEMENT_BY_ID( A: LIST_PTR ;ID: Natural )
                         return DATA_TYPE
    is
-      COUNT: SIZE_TYPE:=0;
-      TEMP : CELL_PTR:= null;
    begin
 
 
@@ -246,32 +184,25 @@ package body LIST is
          return NO_FOUND;
 
       else
-         TEMP := A.FIRST;
 
-         while TEMP /=  null loop
-
-
-            if  TEMP.ID = ID then
-               return TEMP.DATA;
+         for i in 1 .. A.SIZE loop
+            if A.ELEMENTS(i).ID = ID then
+               return A.ELEMENTS(i).DATA;
             end if;
-
-            TEMP := TEMP.NEXT;
-
          end loop;
-
          return NO_FOUND;
       end if;
 
    end GET_ELEMENT_BY_ID;
 
 
-   ----------
-   -- SWAP --
-   ----------
-
-   procedure SWAP( A: LIST_PTR; FIRST: SIZE_TYPE; SECOND: SIZE_TYPE)
+--     ----------
+--     -- SWAP --
+--     ----------
+--
+   procedure SWAP( A: in out LIST_PTR; FIRST: Natural; SECOND: Natural)
    is
-      TEMPA,TEMPB: DATA_TYPE ;
+      TEMPA,TEMPB: DATA ;
    begin
       if A.SIZE = 0 or FIRST <=0 or SECOND >A.SIZE or FIRST >A.SIZE or SECOND <=0 then
          -- If the index to find the element is out of bounds raise the exception
@@ -284,8 +215,8 @@ package body LIST is
       end if;
 
       -- Get the data at specified positions
-      TEMPA:= GET_ELEMENT( A, FIRST);
-      TEMPB:= GET_ELEMENT( A, SECOND);
+      TEMPA:= GET_ELEMENT_RECORD( A, FIRST);
+      TEMPB:= GET_ELEMENT_RECORD( A, SECOND);
 
       -- Swap them
       REPLACE( A, FIRST, TEMPB);
@@ -293,37 +224,19 @@ package body LIST is
 
    end SWAP;
 
-
-   -------------
-   -- REPLACE --
-   -------------
-
-   procedure REPLACE (A: LIST_PTR; LOCATION: SIZE_TYPE; NEWVALUE: DATA_TYPE )
+--
+--     -------------
+--     -- REPLACE --
+--     -------------
+--
+   procedure REPLACE (A: in out LIST_PTR; LOCATION: Natural; NEWVALUE: DATA )
    is
-      COUNT: SIZE_TYPE:=0;
-      TEMP : CELL_PTR:= null;
    begin
       if  A.SIZE = 0 or LOCATION <= 0 or LOCATION > A.SIZE then
          -- If the index of the element don't exist raise exception
          raise OUT_OF_BOUNDS;
       else
-         TEMP := A.FIRST;
-
-         while TEMP /=  null loop
-
-            COUNT := COUNT +1;
-
-            if  COUNT = LOCATION then
-               -- Replace the data of the cell with new value
-               TEMP.DATA := NEWVALUE;
-               return;
-            end if;
-
-            TEMP := TEMP.NEXT;
-
-         end loop;
-
-         raise OUT_OF_BOUNDS;
+         A.ELEMENTS(LOCATION):= NEWVALUE;
       end if;
 
    end REPLACE;
@@ -333,33 +246,32 @@ package body LIST is
    -- REPLACE_BY_ID --
    -------------
 
-   procedure REPLACE_BY_ID (A: LIST_PTR; ID: SIZE_TYPE; NEWVALUE: DATA_TYPE )
+   procedure REPLACE_BY_ID (A: in out LIST_PTR; ID: Natural; NEWVALUE: DATA_TYPE )
    is
-      COUNT: SIZE_TYPE:=0;
-      TEMP : CELL_PTR:= null;
    begin
       if  A.SIZE = 0 or ID <= 0 or ID > A.SIZE then
          -- If the index of the element don't exist raise exception
          raise OUT_OF_BOUNDS;
       else
-         TEMP := A.FIRST;
-
-         while TEMP /=  null loop
-
-            COUNT := COUNT +1;
-
-            if  COUNT = ID then
-               -- Replace the data of the cell with new value
-               TEMP.DATA := NEWVALUE;
+         for i in 1 .. A.SIZE loop
+            if A.ELEMENTS(i).ID = ID then
+               A.ELEMENTS(i).DATA := NEWVALUE;
                return;
             end if;
-
-            TEMP := TEMP.NEXT;
-
          end loop;
-
          raise OUT_OF_BOUNDS;
       end if;
 
    end REPLACE_BY_ID;
+
+
+   procedure Init (A : in out LIST_PTR) is
+   begin
+      A.Head := 1;
+      A.Size := 0;
+      for i in 1.. A.SIZE loop
+         A.ELEMENTS(i).ID:=0;
+      end loop;
+
+   end Init;
 end LIST;

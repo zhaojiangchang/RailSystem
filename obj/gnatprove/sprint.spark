@@ -1,0 +1,28 @@
+{
+  "spark": [
+    {
+      "name": "sPrint.Print",
+      "sloc": [
+        {
+          "file": "sprint.ads",
+          "line": 2
+        }
+      ],
+      "spark": "no"
+    },
+    {
+      "name": "sPrint",
+      "sloc": [
+        {
+          "file": "sprint.ads",
+          "line": 1
+        }
+      ],
+      "spark": "no"
+    }
+  ],
+  "flow": [
+  ],
+  "assumptions": [
+  ]
+}

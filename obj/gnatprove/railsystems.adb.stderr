@@ -1,4 +1,3 @@
-railsystems.ads:40:42: warning: "train" is not modified, could be IN[#2]
-railsystems.ads:40:42: warning: unused variable "train"[#3]
-railsystems.ads:42:51: warning: "train" is not modified, could be IN[#0]
-railsystems.ads:42:51: warning: unused variable "train"[#1]
+railsystems.adb:103:21: attribute "Img" is not permitted in SPARK
+railsystems.adb:103:51: attribute "Img" is not permitted in SPARK
+railsystems.adb:103:81: attribute "Img" is not permitted in SPARK

@@ -13,6 +13,7 @@ procedure Main is
    timeTable: TYPES.TimeTable:=TYPES.S8;
 
    size: Positive;
+   tempSize: Positive;
 begin
    RailSystems.Init(rail_system);
    RailSystems.addTrain(rail_system, 1);
@@ -68,8 +69,27 @@ begin
    size:= RailSystems.LIST_STATIONS.GET_SIZE(rail_system.All_Stations);
    for i in 1 .. size loop
       print("station ID: "& i'Image &"  Location: "& RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(rail_system.All_Stations,i).Location'Image);
-      print("incoming tracks size: "&  Stations.LIST_TRACKS.GET_SIZE(RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(rail_system.All_Stations,i).Incoming)'Image);
-      print("outgoing tracks size: "&  Stations.LIST_TRACKS.GET_SIZE(RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(rail_system.All_Stations,i).Outgoing)'Image);
+      tempSize:=TYPES.LIST_OD.GET_SIZE(RailSystems.LIST_STATIONS.GET_ELEMENT(rail_system.All_Stations, i).TracksLineOriginAndDestination);
+      for j in 1 .. tempSize loop
+          print("    Route Line Between: "& Stations.LIST_TRACKS.GET_ELEMENT(RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(rail_system.All_Stations,i).Incoming,j).TracksLineOrigin'Image &
+              " and "&Stations.LIST_TRACKS.GET_ELEMENT(RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(rail_system.All_Stations,i).Incoming,j).TracksLineDestination'Image);
+      end loop;
+
+     print("");
+      print("    incoming tracks size: "&  Stations.LIST_TRACKS.GET_SIZE(RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(rail_system.All_Stations,i).Incoming)'Image);
+      for income in 1..  Stations.LIST_TRACKS.GET_SIZE(RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(rail_system.All_Stations,i).Incoming) loop
+         Print("      Track id: "& Stations.LIST_TRACKS.GET_ELEMENT(RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(rail_system.All_Stations,i).Incoming, income).ID'Image&
+                 "  Between: "&Stations.LIST_TRACKS.GET_ELEMENT(RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(rail_system.All_Stations,i).Incoming, income).Origin'Image&
+                 " and "&Stations.LIST_TRACKS.GET_ELEMENT(RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(rail_system.All_Stations,i).Incoming, income).Destination'Image);
+      end loop;
+       print("");
+      print("    outgoing tracks size: "&  Stations.LIST_TRACKS.GET_SIZE(RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(rail_system.All_Stations,i).Outgoing)'Image);
+      for outgo in 1..  Stations.LIST_TRACKS.GET_SIZE(RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(rail_system.All_Stations,i).Outgoing) loop
+           Print("      Track id: "& Stations.LIST_TRACKS.GET_ELEMENT(RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(rail_system.All_Stations,i).Outgoing, outgo).ID'Image&
+                 "  Between: "&Stations.LIST_TRACKS.GET_ELEMENT(RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(rail_system.All_Stations,i).Outgoing, outgo).Origin'Image&
+                 " and "&Stations.LIST_TRACKS.GET_ELEMENT(RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(rail_system.All_Stations,i).Outgoing, outgo).Destination'Image);
+      end loop;
+      print("");
       print("");
    end loop;
 

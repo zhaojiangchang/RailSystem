@@ -19,7 +19,7 @@ Total                           335    335 (100%)          .          .         
 Analyzed 7 units
 in unit main, 0 subprograms and packages out of 1 analyzed
   Main at main.adb:8 skipped
-in unit railsystems, 46 subprograms and packages out of 46 analyzed
+in unit railsystems, 45 subprograms and packages out of 46 analyzed
   RailSystems at railsystems.ads:8 flow analyzed (0 errors and 0 warnings)
   RailSystems.Init at railsystems.ads:33 flow analyzed (0 errors and 0 warnings)
   RailSystems.LIST_STATIONS at railsystems.ads:18 flow analyzed (0 errors and 0 warnings)
@@ -61,9 +61,7 @@ in unit railsystems, 46 subprograms and packages out of 46 analyzed
   RailSystems.getStationByName at railsystems.ads:45 flow analyzed (0 errors and 0 warnings)
   RailSystems.getTrackByName at railsystems.ads:46 flow analyzed (0 errors and 0 warnings)
   RailSystems.getTrainById at railsystems.ads:47 flow analyzed (0 errors and 0 warnings)
-  RailSystems.go at railsystems.ads:40 flow analyzed (0 errors and 2 warnings)
-   suppressed messages:
-    railsystems.ads:40:17: 
+  RailSystems.go at railsystems.ads:40 skipped
   RailSystems.prepareTrain at railsystems.ads:41 flow analyzed (0 errors and 0 warnings)
   RailSystems.replaceStation at railsystems.ads:37 flow analyzed (0 errors and 0 warnings)
   RailSystems.setTrainLocation at railsystems.ads:39 flow analyzed (0 errors and 0 warnings)

@@ -9,9 +9,7 @@ package TYPES is
 --     type Location_Type is array ( Location_State_Type ) of Integer;
 
    type Station_Locations is (No, LowerHutt, UpperHutt, Petone, Wellington, Khandallah, CroftonDowns, Ngaio, Johnsonville);
-   type Tracks_Line_1 is (Wellington, Johnsonville);
-   type Tracks_Line_2 is (Wellington, UpperHutt);
-   type trackIDsArray is array( MAX_SIZE ) of TYPES.MAX_SIZE;
+
    -- 8 means 8.00 clock and 22 mians 22.00 clock
    type TimeTable is(S8,S9,S10,S11,S12,S13,S14,S15,S16,S17,S18,S19,S20,S21,S22);
 

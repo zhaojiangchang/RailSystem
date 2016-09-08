@@ -101,7 +101,10 @@ begin
 
    --parameter: rail system, train, From, To, Start run time at 8am
    RailSystems.prepareTrain(rail_system, trainA, Types.Wellington, Types.UpperHutt, TYPES.S8);
+   RailSystems.prepareTrain(rail_system, trainB, Types.Wellington, Types.Johnsonville, TYPES.S8);
+   RailSystems.prepareTrain(rail_system, trainC, Types.UpperHutt, Types.Wellington, TYPES.S8);
    RailSystems.go(rail_system, trainA);
+
    Print(trainA.Origin'Image);
    Print(trainA.ID'Image);
 

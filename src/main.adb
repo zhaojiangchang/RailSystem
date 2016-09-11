@@ -100,12 +100,27 @@ begin
    --prepare train to start
 
    --parameter: rail system, train, From, To, Start run time at 8am
+   --set TrainA from Wellington to Upper Hutt
    RailSystems.prepareTrain(rail_system, trainA, Types.Wellington, Types.UpperHutt, TYPES.S8);
+   --set TrainB from Wellington to Johnsonville
    RailSystems.prepareTrain(rail_system, trainB, Types.Wellington, Types.Johnsonville, TYPES.S8);
+   --set TrainC from Upper Hutt to Wellington
    RailSystems.prepareTrain(rail_system, trainC, Types.UpperHutt, Types.Wellington, TYPES.S8);
+   --Train A start run;
+   Print("Train A start Run: From Wellington to Upper Hutt");
    RailSystems.go(rail_system, trainA);
-
-   Print(trainA.Origin'Image);
-   Print(trainA.ID'Image);
-
+   Print("");
+   Print("");
+   Print("");
+   Print("Train B start Run: From Wellington to Johnsonville");
+   RailSystems.go(rail_system, trainB);
+   Print("");
+   Print("");
+   Print("");
+   Print("test Collide, will through exception - Train A stopped at Track 9(Lower hutt to Petone)");
+   Print("Train C start Run: From Upper hutt to Wellington");
+   RailSystems.go(rail_system, trainC);
+   Print("");
+   Print("");
+   Print("");
 end Main;

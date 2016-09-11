@@ -36,14 +36,15 @@ with SPARK_Mode=>On is
    procedure addStation(r_system: in out RailSystem; StationID: in Natural; Location: TYPES.Station_Locations);
    procedure replaceStation(r_system: in out RailSystem; StationID: in Natural; station: in Stations.Station);
    procedure replaceTrain(r_system: in out RailSystem; TrainID: in Natural; train: in Trains.Train);
+    procedure replaceTrack(r_system: in out RailSystem; TrackID: in Natural;track: in Tracks.Track);
    procedure addIncomingOutgoingTracksForEachStation(r_system: in out RailSystem);
    procedure setTrainLocation(r_system: in RailSystem; train: in out Trains.Train;LocationName: in  String; LocationID: in Natural);
-   procedure go(r_system: in out RailSystem; train: in out Trains.Train)with SPARK_Mode => Off;
+   procedure go(r_system: in out RailSystem; train: in out Trains.Train)with SPARK_Mode => On;
    procedure prepareTrain(r_system: in RailSystem; train: in out Trains.Train; Origin: in TYPES.Station_Locations; Destionation: in TYPES.Station_Locations; StartTime: in TYPES.TimeTable);
    procedure updateTrain(r_system: in RailSystem; train: in out Trains.Train);
 --     procedure search(r_system: in RailSystem; train: in Trains.Train);
    --function
    function getStationByName(r_system: in RailSystem; stationLocation: in TYPES.Station_Locations) return Stations.Station;
-   function getTrackByName(r_system: in RailSystem; Origin: in TYPES.Station_Locations) return Tracks.Track;
+   function getTrackByName(r_system: in RailSystem; Origin: in TYPES.Station_Locations; Destination: in TYPES.Station_Locations) return Tracks.Track;
    function getTrainById(r_system: in RailSystem; ID: in Natural) return Trains.Train;
 end RailSystems;

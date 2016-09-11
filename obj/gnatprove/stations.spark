@@ -251,7 +251,7 @@
           }
         ]
       },
-      "tracefile": "stations__flow__48.trace",
+      "tracefile": "stations__flow__83.trace",
       "how_proved": "flow"
     },
     {
@@ -269,7 +269,7 @@
           }
         ]
       },
-      "tracefile": "stations__flow__270.trace",
+      "tracefile": "stations__flow__281.trace",
       "how_proved": "flow"
     },
     {
@@ -287,7 +287,7 @@
           }
         ]
       },
-      "tracefile": "stations__flow__270.trace",
+      "tracefile": "stations__flow__281.trace",
       "how_proved": "flow"
     },
     {
@@ -305,7 +305,7 @@
           }
         ]
       },
-      "tracefile": "stations__flow__270.trace",
+      "tracefile": "stations__flow__281.trace",
       "how_proved": "flow"
     },
     {
@@ -323,7 +323,7 @@
           }
         ]
       },
-      "tracefile": "stations__flow__270.trace",
+      "tracefile": "stations__flow__281.trace",
       "how_proved": "flow"
     },
     {
@@ -341,7 +341,7 @@
           }
         ]
       },
-      "tracefile": "stations__flow__270.trace",
+      "tracefile": "stations__flow__281.trace",
       "how_proved": "flow"
     },
     {
@@ -359,7 +359,7 @@
           }
         ]
       },
-      "tracefile": "stations__flow__270.trace",
+      "tracefile": "stations__flow__281.trace",
       "how_proved": "flow"
     },
     {
@@ -381,7 +381,7 @@
           }
         ]
       },
-      "tracefile": "stations__flow__436.trace",
+      "tracefile": "stations__flow__471.trace",
       "how_proved": "flow"
     },
     {
@@ -403,7 +403,7 @@
           }
         ]
       },
-      "tracefile": "stations__flow__436.trace",
+      "tracefile": "stations__flow__471.trace",
       "how_proved": "flow"
     },
     {
@@ -425,7 +425,7 @@
           }
         ]
       },
-      "tracefile": "stations__flow__436.trace",
+      "tracefile": "stations__flow__471.trace",
       "how_proved": "flow"
     },
     {
@@ -447,7 +447,7 @@
           }
         ]
       },
-      "tracefile": "stations__flow__436.trace",
+      "tracefile": "stations__flow__471.trace",
       "how_proved": "flow"
     },
     {
@@ -469,7 +469,7 @@
           }
         ]
       },
-      "tracefile": "stations__flow__436.trace",
+      "tracefile": "stations__flow__471.trace",
       "how_proved": "flow"
     },
     {
@@ -491,7 +491,7 @@
           }
         ]
       },
-      "tracefile": "stations__flow__436.trace",
+      "tracefile": "stations__flow__471.trace",
       "how_proved": "flow"
     },
     {
@@ -513,7 +513,7 @@
           }
         ]
       },
-      "tracefile": "stations__flow__436.trace",
+      "tracefile": "stations__flow__471.trace",
       "how_proved": "flow"
     },
     {
@@ -535,7 +535,7 @@
           }
         ]
       },
-      "tracefile": "stations__flow__645.trace",
+      "tracefile": "stations__flow__680.trace",
       "how_proved": "flow"
     },
     {
@@ -557,7 +557,7 @@
           }
         ]
       },
-      "tracefile": "stations__flow__645.trace",
+      "tracefile": "stations__flow__680.trace",
       "how_proved": "flow"
     },
     {
@@ -579,7 +579,7 @@
           }
         ]
       },
-      "tracefile": "stations__flow__645.trace",
+      "tracefile": "stations__flow__680.trace",
       "how_proved": "flow"
     },
     {
@@ -601,7 +601,7 @@
           }
         ]
       },
-      "tracefile": "stations__flow__645.trace",
+      "tracefile": "stations__flow__680.trace",
       "how_proved": "flow"
     },
     {
@@ -623,7 +623,7 @@
           }
         ]
       },
-      "tracefile": "stations__flow__645.trace",
+      "tracefile": "stations__flow__680.trace",
       "how_proved": "flow"
     },
     {
@@ -645,7 +645,7 @@
           }
         ]
       },
-      "tracefile": "stations__flow__645.trace",
+      "tracefile": "stations__flow__680.trace",
       "how_proved": "flow"
     },
     {
@@ -667,7 +667,7 @@
           }
         ]
       },
-      "tracefile": "stations__flow__645.trace",
+      "tracefile": "stations__flow__680.trace",
       "how_proved": "flow"
     },
     {
@@ -689,7 +689,7 @@
           }
         ]
       },
-      "tracefile": "stations__flow__645.trace",
+      "tracefile": "stations__flow__680.trace",
       "how_proved": "flow"
     },
     {
@@ -711,7 +711,7 @@
           }
         ]
       },
-      "tracefile": "stations__flow__645.trace",
+      "tracefile": "stations__flow__680.trace",
       "how_proved": "flow"
     },
     {
@@ -733,7 +733,7 @@
           }
         ]
       },
-      "tracefile": "stations__flow__645.trace",
+      "tracefile": "stations__flow__680.trace",
       "how_proved": "flow"
     },
     {
@@ -755,7 +755,7 @@
           }
         ]
       },
-      "tracefile": "stations__flow__645.trace",
+      "tracefile": "stations__flow__680.trace",
       "how_proved": "flow"
     },
     {
@@ -777,7 +777,7 @@
           }
         ]
       },
-      "tracefile": "stations__flow__645.trace",
+      "tracefile": "stations__flow__680.trace",
       "how_proved": "flow"
     },
     {
@@ -799,7 +799,7 @@
           }
         ]
       },
-      "tracefile": "stations__flow__645.trace",
+      "tracefile": "stations__flow__680.trace",
       "how_proved": "flow"
     },
     {
@@ -821,11 +821,171 @@
           }
         ]
       },
-      "tracefile": "stations__flow__645.trace",
+      "tracefile": "stations__flow__680.trace",
       "how_proved": "flow"
     }
   ],
   "assumptions": [
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "Stations.LIST_TRACKS.GET_ELEMENT_RECORD",
+          "sloc": [
+            {
+              "file": "list.adb",
+              "line": 152
+            },
+            {
+              "file": "stations.ads",
+              "line": 10
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "Stations.LIST_TRACKS.REPLACE_BY_ID",
+          "sloc": [
+            {
+              "file": "list.ads",
+              "line": 82
+            },
+            {
+              "file": "stations.ads",
+              "line": 10
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "Stations.LIST_TRACKS.GET_ELEMENT",
+          "sloc": [
+            {
+              "file": "list.ads",
+              "line": 57
+            },
+            {
+              "file": "stations.ads",
+              "line": 10
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "Stations.LIST_TRACKS.DELETE_ALL",
+          "sloc": [
+            {
+              "file": "list.ads",
+              "line": 70
+            },
+            {
+              "file": "stations.ads",
+              "line": 10
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "Stations.LIST_TRACKS.GET_ELEMENT_BY_ID",
+          "sloc": [
+            {
+              "file": "list.ads",
+              "line": 60
+            },
+            {
+              "file": "stations.ads",
+              "line": 10
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "Stations.LIST_TRACKS.GET_LAST",
+          "sloc": [
+            {
+              "file": "list.ads",
+              "line": 51
+            },
+            {
+              "file": "stations.ads",
+              "line": 10
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "Stations.LIST_TRACKS.REPLACE",
+          "sloc": [
+            {
+              "file": "list.ads",
+              "line": 78
+            },
+            {
+              "file": "stations.ads",
+              "line": 10
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "Stations.LIST_TRACKS.FULL",
+          "sloc": [
+            {
+              "file": "list.ads",
+              "line": 62
+            },
+            {
+              "file": "stations.ads",
+              "line": 10
+            }
+          ]
+        }
+      }
+    },
     {
       "assumptions": [
         {
@@ -1021,166 +1181,6 @@
             {
               "file": "list.ads",
               "line": 48
-            },
-            {
-              "file": "stations.ads",
-              "line": 10
-            }
-          ]
-        }
-      }
-    },
-    {
-      "assumptions": [
-      ],
-      "claim": {
-        "predicate": "CLAIM_EFFECTS",
-        "arg": {
-          "name": "Stations.LIST_TRACKS.GET_ELEMENT_RECORD",
-          "sloc": [
-            {
-              "file": "list.adb",
-              "line": 152
-            },
-            {
-              "file": "stations.ads",
-              "line": 10
-            }
-          ]
-        }
-      }
-    },
-    {
-      "assumptions": [
-      ],
-      "claim": {
-        "predicate": "CLAIM_EFFECTS",
-        "arg": {
-          "name": "Stations.LIST_TRACKS.REPLACE_BY_ID",
-          "sloc": [
-            {
-              "file": "list.ads",
-              "line": 82
-            },
-            {
-              "file": "stations.ads",
-              "line": 10
-            }
-          ]
-        }
-      }
-    },
-    {
-      "assumptions": [
-      ],
-      "claim": {
-        "predicate": "CLAIM_EFFECTS",
-        "arg": {
-          "name": "Stations.LIST_TRACKS.GET_ELEMENT",
-          "sloc": [
-            {
-              "file": "list.ads",
-              "line": 57
-            },
-            {
-              "file": "stations.ads",
-              "line": 10
-            }
-          ]
-        }
-      }
-    },
-    {
-      "assumptions": [
-      ],
-      "claim": {
-        "predicate": "CLAIM_EFFECTS",
-        "arg": {
-          "name": "Stations.LIST_TRACKS.DELETE_ALL",
-          "sloc": [
-            {
-              "file": "list.ads",
-              "line": 70
-            },
-            {
-              "file": "stations.ads",
-              "line": 10
-            }
-          ]
-        }
-      }
-    },
-    {
-      "assumptions": [
-      ],
-      "claim": {
-        "predicate": "CLAIM_EFFECTS",
-        "arg": {
-          "name": "Stations.LIST_TRACKS.GET_ELEMENT_BY_ID",
-          "sloc": [
-            {
-              "file": "list.ads",
-              "line": 60
-            },
-            {
-              "file": "stations.ads",
-              "line": 10
-            }
-          ]
-        }
-      }
-    },
-    {
-      "assumptions": [
-      ],
-      "claim": {
-        "predicate": "CLAIM_EFFECTS",
-        "arg": {
-          "name": "Stations.LIST_TRACKS.GET_LAST",
-          "sloc": [
-            {
-              "file": "list.ads",
-              "line": 51
-            },
-            {
-              "file": "stations.ads",
-              "line": 10
-            }
-          ]
-        }
-      }
-    },
-    {
-      "assumptions": [
-      ],
-      "claim": {
-        "predicate": "CLAIM_EFFECTS",
-        "arg": {
-          "name": "Stations.LIST_TRACKS.REPLACE",
-          "sloc": [
-            {
-              "file": "list.ads",
-              "line": 78
-            },
-            {
-              "file": "stations.ads",
-              "line": 10
-            }
-          ]
-        }
-      }
-    },
-    {
-      "assumptions": [
-      ],
-      "claim": {
-        "predicate": "CLAIM_EFFECTS",
-        "arg": {
-          "name": "Stations.LIST_TRACKS.FULL",
-          "sloc": [
-            {
-              "file": "list.ads",
-              "line": 62
             },
             {
               "file": "stations.ads",

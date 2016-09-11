@@ -6,20 +6,20 @@ SPARK Analysis results        Total          Flow   Interval   CodePeer   Prover
 --------------------------------------------------------------------------------------------------------
 Data Dependencies                 .             .          .          .         .           .          .
 Flow Dependencies                 .             .          .          .         .           .          .
-Initialization                  335           335          .          .         .           .          .
+Initialization                  349           349          .          .         .           .          .
 Non-Aliasing                      .             .          .          .         .           .          .
 Run-time Checks                   .             .          .          .         .           .          .
 Assertions                        .             .          .          .         .           .          .
 Functional Contracts              .             .          .          .         .           .          .
 LSP Verification                  .             .          .          .         .           .          .
 --------------------------------------------------------------------------------------------------------
-Total                           335    335 (100%)          .          .         .           .          .
+Total                           349    349 (100%)          .          .         .           .          .
 
 
 Analyzed 7 units
 in unit main, 0 subprograms and packages out of 1 analyzed
   Main at main.adb:8 skipped
-in unit railsystems, 45 subprograms and packages out of 46 analyzed
+in unit railsystems, 46 subprograms and packages out of 47 analyzed
   RailSystems at railsystems.ads:8 flow analyzed (0 errors and 0 warnings)
   RailSystems.Init at railsystems.ads:33 flow analyzed (0 errors and 0 warnings)
   RailSystems.LIST_STATIONS at railsystems.ads:18 flow analyzed (0 errors and 0 warnings)
@@ -54,20 +54,21 @@ in unit railsystems, 45 subprograms and packages out of 46 analyzed
   RailSystems.LIST_TRAINS.REPLACE at list.ads:78, instantiated at railsystems.ads:12 flow analyzed (0 errors and 0 warnings)
   RailSystems.LIST_TRAINS.REPLACE_BY_ID at list.ads:82, instantiated at railsystems.ads:12 flow analyzed (0 errors and 0 warnings)
   RailSystems.LIST_TRAINS.SWAP at list.ads:73, instantiated at railsystems.ads:12 flow analyzed (0 errors and 0 warnings)
-  RailSystems.addIncomingOutgoingTracksForEachStation at railsystems.ads:38 flow analyzed (0 errors and 0 warnings)
+  RailSystems.addIncomingOutgoingTracksForEachStation at railsystems.ads:39 flow analyzed (0 errors and 0 warnings)
   RailSystems.addStation at railsystems.ads:36 flow analyzed (0 errors and 0 warnings)
   RailSystems.addTrack at railsystems.ads:35 flow analyzed (0 errors and 0 warnings)
   RailSystems.addTrain at railsystems.ads:34 flow analyzed (0 errors and 0 warnings)
-  RailSystems.getStationByName at railsystems.ads:45 flow analyzed (0 errors and 0 warnings)
-  RailSystems.getTrackByName at railsystems.ads:46 flow analyzed (0 errors and 0 warnings)
-  RailSystems.getTrainById at railsystems.ads:47 flow analyzed (0 errors and 0 warnings)
-  RailSystems.go at railsystems.ads:40 skipped
-  RailSystems.prepareTrain at railsystems.ads:41 flow analyzed (0 errors and 0 warnings)
+  RailSystems.getStationByName at railsystems.ads:46 flow analyzed (0 errors and 0 warnings)
+  RailSystems.getTrackByName at railsystems.ads:47 flow analyzed (0 errors and 0 warnings)
+  RailSystems.getTrainById at railsystems.ads:48 flow analyzed (0 errors and 0 warnings)
+  RailSystems.go at railsystems.ads:41 skipped
+  RailSystems.prepareTrain at railsystems.ads:42 flow analyzed (0 errors and 1 warnings)
   RailSystems.replaceStation at railsystems.ads:37 flow analyzed (0 errors and 0 warnings)
-  RailSystems.setTrainLocation at railsystems.ads:39 flow analyzed (0 errors and 0 warnings)
-  RailSystems.updateTrain at railsystems.ads:42 flow analyzed (0 errors and 2 warnings)
+  RailSystems.replaceTrain at railsystems.ads:38 flow analyzed (0 errors and 0 warnings)
+  RailSystems.setTrainLocation at railsystems.ads:40 flow analyzed (0 errors and 0 warnings)
+  RailSystems.updateTrain at railsystems.ads:43 flow analyzed (0 errors and 2 warnings)
    suppressed messages:
-    railsystems.ads:42:26: 
+    railsystems.ads:43:26: 
 in unit sprint, 0 subprograms and packages out of 3 analyzed
   sPrint at sprint.ads:1 skipped
   sPrint.Print at sprint.ads:2 skipped
@@ -96,19 +97,19 @@ in unit trains, 1 subprograms and packages out of 1 analyzed
   Trains at trains.ads:4 flow analyzed (0 errors and 0 warnings)
 in unit types, 0 subprograms and packages out of 17 analyzed
   TYPES at types.ads:2 skipped
-  TYPES.LIST_OD at types.ads:23 skipped
-  TYPES.LIST_OD.APPEND at list.ads:64, instantiated at types.ads:23 skipped
-  TYPES.LIST_OD.APPEND_TO_FIRST at list.ads:67, instantiated at types.ads:23 skipped
-  TYPES.LIST_OD.CONTAINS at list.ads:46, instantiated at types.ads:23 skipped
-  TYPES.LIST_OD.DELETE_ALL at list.ads:70, instantiated at types.ads:23 skipped
-  TYPES.LIST_OD.FULL at list.ads:62, instantiated at types.ads:23 skipped
-  TYPES.LIST_OD.GET_ELEMENT at list.ads:57, instantiated at types.ads:23 skipped
-  TYPES.LIST_OD.GET_ELEMENT_BY_ID at list.ads:60, instantiated at types.ads:23 skipped
-  TYPES.LIST_OD.GET_ELEMENT_RECORD at list.adb:152, instantiated at types.ads:23 skipped
-  TYPES.LIST_OD.GET_FIRST at list.ads:48, instantiated at types.ads:23 skipped
-  TYPES.LIST_OD.GET_LAST at list.ads:51, instantiated at types.ads:23 skipped
-  TYPES.LIST_OD.GET_SIZE at list.ads:54, instantiated at types.ads:23 skipped
-  TYPES.LIST_OD.Init at list.ads:86, instantiated at types.ads:23 skipped
-  TYPES.LIST_OD.REPLACE at list.ads:78, instantiated at types.ads:23 skipped
-  TYPES.LIST_OD.REPLACE_BY_ID at list.ads:82, instantiated at types.ads:23 skipped
-  TYPES.LIST_OD.SWAP at list.ads:73, instantiated at types.ads:23 skipped
+  TYPES.LIST_OD at types.ads:21 skipped
+  TYPES.LIST_OD.APPEND at list.ads:64, instantiated at types.ads:21 skipped
+  TYPES.LIST_OD.APPEND_TO_FIRST at list.ads:67, instantiated at types.ads:21 skipped
+  TYPES.LIST_OD.CONTAINS at list.ads:46, instantiated at types.ads:21 skipped
+  TYPES.LIST_OD.DELETE_ALL at list.ads:70, instantiated at types.ads:21 skipped
+  TYPES.LIST_OD.FULL at list.ads:62, instantiated at types.ads:21 skipped
+  TYPES.LIST_OD.GET_ELEMENT at list.ads:57, instantiated at types.ads:21 skipped
+  TYPES.LIST_OD.GET_ELEMENT_BY_ID at list.ads:60, instantiated at types.ads:21 skipped
+  TYPES.LIST_OD.GET_ELEMENT_RECORD at list.adb:152, instantiated at types.ads:21 skipped
+  TYPES.LIST_OD.GET_FIRST at list.ads:48, instantiated at types.ads:21 skipped
+  TYPES.LIST_OD.GET_LAST at list.ads:51, instantiated at types.ads:21 skipped
+  TYPES.LIST_OD.GET_SIZE at list.ads:54, instantiated at types.ads:21 skipped
+  TYPES.LIST_OD.Init at list.ads:86, instantiated at types.ads:21 skipped
+  TYPES.LIST_OD.REPLACE at list.ads:78, instantiated at types.ads:21 skipped
+  TYPES.LIST_OD.REPLACE_BY_ID at list.ads:82, instantiated at types.ads:21 skipped
+  TYPES.LIST_OD.SWAP at list.ads:73, instantiated at types.ads:21 skipped

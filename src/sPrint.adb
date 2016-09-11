@@ -14,4 +14,21 @@ package body sPrint is
    begin
       Put_Line(s &":  "& n'Image);
    end Print_Natural;
+
+
+   procedure Print_Train_State(s: in String; n: in TYPES.Train_State)
+   is
+   begin
+      Put_Line(s &":  "& n'Image);
+
+   end Print_Train_State;
+
+
+   procedure Print_Station_Locations(s: in String; n: in TYPES.Station_Locations)
+   is
+   begin
+      Put_Line(s &":  "& n'Image);
+   end Print_Station_Locations;
+
+
 end sPrint;

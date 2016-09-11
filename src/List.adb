@@ -93,21 +93,21 @@ package body LIST is
    -- APPEND  TO FIRST  --
    ---------------
 
-   procedure APPEND_TO_FIRST ( A: in out  LIST_PTR ; D: in DATA_TYPE; ID: in Natural)
-   is
---        size: Natural;
-   begin
-      A.SIZE:= A.SIZE +1;
-      if not FULL(A) then
-         for i in reverse 2 .. A.SIZE loop
-            A.ELEMENTS(i) :=  A.ELEMENTS(i-1);
-         end loop;
-         A.ELEMENTS(1).DATA := D;
-         A.ELEMENTS(1).ID:= ID;
-      end if;
-
-
-   end APPEND_TO_FIRST;
+--     procedure APPEND_TO_FIRST ( A: in out  LIST_PTR ; D: in DATA_TYPE; ID: in Natural)
+--     is
+--  --        size: Natural;
+--     begin
+--        A.SIZE:= A.SIZE +1;
+--        if not FULL(A) then
+--           for i in reverse 2 .. A.SIZE loop
+--              A.ELEMENTS(i) :=  A.ELEMENTS(i-1);
+--           end loop;
+--           A.ELEMENTS(1).DATA := D;
+--           A.ELEMENTS(1).ID:= ID;
+--        end if;
+--
+--
+--     end APPEND_TO_FIRST;
 
 
    ---------------

@@ -8,18 +8,18 @@
         -:    6:with SPARK_Mode=>On is
         1:    7:   inTracks:Stations.LIST_TRACKS.LIST_PTR(MAX_SIZE =>100);
         1:    8:   outTracks:Stations.LIST_TRACKS.LIST_PTR(MAX_SIZE =>100);
-      130:    9:   type Train_Location is
+      138:    9:   type Train_Location is
         -:   10:      record
         -:   11:         currentLocation:String(1..7):="None   ";
         -:   12:         None: String(1..4):="None";
-      130:   13:         Track: Tracks.Track;
-      130:   14:         Station: Stations.Station;
+      138:   13:         Track: Tracks.Track;
+      138:   14:         Station: Stations.Station;
         -:   15:      end record;
         -:   16:
-      250:   17:   type Train is
+      260:   17:   type Train is
         -:   18:      record
         -:   19:         ID: Natural:=0;
-      125:   20:         Location: Train_Location;
+      130:   20:         Location: Train_Location;
         -:   21:         Origin: TYPES.Station_Locations:=TYPES.No;
         -:   22:         Destination: TYPES.Station_Locations:=TYPES.No;
         -:   23:         State: TYPES.Train_State:=TYPES.Close;

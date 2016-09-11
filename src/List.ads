@@ -64,7 +64,7 @@ package LIST is
    procedure APPEND ( A: in out  LIST_PTR ; D: in DATA_TYPE; ID: in Natural  );
    --  Add the new element at the back of the list and increments the list size
 
-   procedure APPEND_TO_FIRST ( A: in out  LIST_PTR ; D: in DATA_TYPE; ID: in Natural);
+--     procedure APPEND_TO_FIRST ( A: in out  LIST_PTR ; D: in DATA_TYPE; ID: in Natural);
    --  Add the new element at the first of the list and increments the list size
 
    procedure DELETE_ALL (A: in out LIST_PTR );

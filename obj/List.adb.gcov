@@ -61,69 +61,69 @@
         -:   59:   -- GET_SIZE  --
         -:   60:   ---------------
         -:   61:
-      276:   62:   function GET_SIZE ( A: LIST_PTR )
+      330:   62:   function GET_SIZE ( A: LIST_PTR )
         -:   63:                      return Natural
         -:   64:   is
         -:   65:   begin
-      276:   66:      return A.SIZE;
+      330:   66:      return A.SIZE;
         -:   67:   end GET_SIZE;
         -:   68:
         -:   69:   ---------------
         -:   70:   -- FULL  --
         -:   71:   ---------------
-       84:   72:   function FULL ( A : in LIST_PTR) return Boolean is
+       92:   72:   function FULL ( A : in LIST_PTR) return Boolean is
         -:   73:   begin
-       84:   74:      return A.SIZE = A.MAX_SIZE;
+       92:   74:      return A.SIZE = A.MAX_SIZE;
         -:   75:   end FULL;
         -:   76:   ---------------
         -:   77:   -- APPEND    --
         -:   78:   ---------------
         -:   79:
-       84:   80:   procedure APPEND ( A: in out LIST_PTR; D: in DATA_TYPE; ID: in Natural)
+       92:   80:   procedure APPEND ( A: in out LIST_PTR; D: in DATA_TYPE; ID: in Natural)
         -:   81:   is
         -:   82:   begin
         -:   83:
         -:   84:      -- create a new cell to store the new element
-       84:   85:      if not FULL(A) then
-       84:   86:         A.SIZE:= A.SIZE +1;
-       84:   87:         A.ELEMENTS(A.SIZE).DATA := D;
-       84:   88:         A.ELEMENTS(A.SIZE).ID:= ID;
+       92:   85:      if not FULL(A) then
+       92:   86:         A.SIZE:= A.SIZE +1;
+       92:   87:         A.ELEMENTS(A.SIZE).DATA := D;
+       92:   88:         A.ELEMENTS(A.SIZE).ID:= ID;
         -:   89:      end if;
-       84:   90:   end APPEND;
+       92:   90:   end APPEND;
         -:   91:
         -:   92:   ---------------
         -:   93:   -- APPEND  TO FIRST  --
         -:   94:   ---------------
         -:   95:
-    #####:   96:   procedure APPEND_TO_FIRST ( A: in out  LIST_PTR ; D: in DATA_TYPE; ID: in Natural)
-        -:   97:   is
-        -:   98:--        size: Natural;
-        -:   99:   begin
-    #####:  100:      A.SIZE:= A.SIZE +1;
-    #####:  101:      if not FULL(A) then
-    #####:  102:         for i in reverse 2 .. A.SIZE loop
-    #####:  103:            A.ELEMENTS(i) :=  A.ELEMENTS(i-1);
-    #####:  104:         end loop;
-    #####:  105:         A.ELEMENTS(1).DATA := D;
-    #####:  106:         A.ELEMENTS(1).ID:= ID;
-        -:  107:      end if;
-        -:  108:
-        -:  109:
-    #####:  110:   end APPEND_TO_FIRST;
+        -:   96:--     procedure APPEND_TO_FIRST ( A: in out  LIST_PTR ; D: in DATA_TYPE; ID: in Natural)
+        -:   97:--     is
+        -:   98:--  --        size: Natural;
+        -:   99:--     begin
+        -:  100:--        A.SIZE:= A.SIZE +1;
+        -:  101:--        if not FULL(A) then
+        -:  102:--           for i in reverse 2 .. A.SIZE loop
+        -:  103:--              A.ELEMENTS(i) :=  A.ELEMENTS(i-1);
+        -:  104:--           end loop;
+        -:  105:--           A.ELEMENTS(1).DATA := D;
+        -:  106:--           A.ELEMENTS(1).ID:= ID;
+        -:  107:--        end if;
+        -:  108:--
+        -:  109:--
+        -:  110:--     end APPEND_TO_FIRST;
         -:  111:
         -:  112:
         -:  113:   ---------------
         -:  114:   -- DELETE    --
         -:  115:   ---------------
         -:  116:
-       16:  117:   procedure DELETE_ALL (A: in out LIST_PTR )
+       24:  117:   procedure DELETE_ALL (A: in out LIST_PTR )
         -:  118:   is
         -:  119:   begin
         -:  120:      -- Set size to 0
-       16:  121:      A.SIZE := 0;
-       16:  122:      A.HEAD := 1;
+       24:  121:      A.SIZE := 0;
+       24:  122:      A.HEAD := 1;
         -:  123:
-       16:  124:   end DELETE_ALL;
+       24:  124:   end DELETE_ALL;
         -:  125:
         -:  126:
         -:  127:   -----------------
@@ -183,13 +183,13 @@
       288:  181:      if  A.SIZE = 0 or ID <= 0  or ID >A.SIZE then
         -:  182:
         -:  183:         -- If element is not in the list at this location
-       39:  184:         return NO_FOUND;
+       41:  184:         return NO_FOUND;
         -:  185:
         -:  186:      else
         -:  187:
-      249:  188:         for i in 1 .. A.SIZE loop
-     1403:  189:            if A.ELEMENTS(i).ID = ID then
-      249:  190:               return A.ELEMENTS(i).DATA;
+      247:  188:         for i in 1 .. A.SIZE loop
+     1401:  189:            if A.ELEMENTS(i).ID = ID then
+      247:  190:               return A.ELEMENTS(i).DATA;
         -:  191:            end if;
      1154:  192:         end loop;
     #####:  193:         return NO_FOUND;
@@ -267,13 +267,13 @@
         -:  265:   end REPLACE_BY_ID;
         -:  266:
         -:  267:
-      185:  268:   procedure Init (A : in out LIST_PTR) is
+      225:  268:   procedure Init (A : in out LIST_PTR) is
         -:  269:   begin
-      185:  270:      A.Head := 1;
-      185:  271:      A.Size := 0;
-      185:  272:      for i in 1.. A.SIZE loop
+      225:  270:      A.Head := 1;
+      225:  271:      A.Size := 0;
+      225:  272:      for i in 1.. A.SIZE loop
     #####:  273:         A.ELEMENTS(i).ID:=0;
     #####:  274:      end loop;
         -:  275:
-      185:  276:   end Init;
+      225:  276:   end Init;
         -:  277:end LIST;

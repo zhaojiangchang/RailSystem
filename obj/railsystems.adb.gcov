@@ -14,13 +14,13 @@
         -:   12:
         -:   13:
         -:   14:
-       74:   15:   procedure Init(r_system: in out RailSystem)
+       90:   15:   procedure Init(r_system: in out RailSystem)
         -:   16:   is
         -:   17:   begin
-       74:   18:      RailSystems.LIST_TRAINS.Init(r_system.All_Trains);
-       74:   19:      RailSystems.LIST_STATIONS.Init(r_system.All_Stations);
-       74:   20:      Stations.LIST_TRACKS.Init(r_system.All_Tracks);
-       74:   21:   end Init;
+       90:   18:      RailSystems.LIST_TRAINS.Init(r_system.All_Trains);
+       90:   19:      RailSystems.LIST_STATIONS.Init(r_system.All_Stations);
+       90:   20:      Stations.LIST_TRACKS.Init(r_system.All_Tracks);
+       90:   21:   end Init;
         -:   22:
         -:   23:
         -:   24:   --     procedure InitTrack
@@ -397,56 +397,56 @@
         -:  395:   -- addTrain --
         -:  396:   --------------
         -:  397:
-       14:  398:   procedure addTrain (r_system: in out RailSystem;
+       20:  398:   procedure addTrain (r_system: in out RailSystem;
         -:  399:                       ID: in Natural)
         -:  400:   is
-       14:  401:      train: Trains.Train;
-       14:  402:      ID_Out_Of_Range_Exception: Exception;
+       20:  401:      train: Trains.Train;
+       20:  402:      ID_Out_Of_Range_Exception: Exception;
         -:  403:
         -:  404:   begin
-       14:  405:      if ID <1 or ID>100 then
+       20:  405:      if ID <1 or ID>100 then
         4:  406:         Print("ADD TRAIN: ID should between 1 and 100");
         4:  407:         Raise ID_Out_Of_Range_Exception;
         -:  408:      end if;
-       10:  409:      train.ID := ID;
-       10:  410:      LIST_TRAINS.APPEND(r_system.All_Trains, train,ID);
-       10:  411:   end addTrain;
+       16:  409:      train.ID := ID;
+       16:  410:      LIST_TRAINS.APPEND(r_system.All_Trains, train,ID);
+       16:  411:   end addTrain;
         -:  412:
         -:  413:   ---------------------
         -:  414:   -- get train by id --
         -:  415:   ---------------------
-       14:  416:   function getTrainById(r_system: in RailSystem; ID: in Natural)
+       10:  416:   function getTrainById(r_system: in RailSystem; ID: in Natural)
         -:  417:                         return Trains.Train
         -:  418:   is
-       14:  419:      Get_Train_By_ID_ID_Out_Of_Range_Exception: Exception;
-       14:  420:      train: Trains.train;
+       10:  419:      Get_Train_By_ID_ID_Out_Of_Range_Exception: Exception;
+       10:  420:      train: Trains.train;
         -:  421:   begin
-       14:  422:      if ID < 1 or ID > RailSystems.LIST_TRAINS.GET_SIZE(r_system.All_Trains) then
+       10:  422:      if ID < 1 or ID > RailSystems.LIST_TRAINS.GET_SIZE(r_system.All_Trains) then
         4:  423:         Print("GET TRAIN BY ID: id out of range");
         4:  424:         Raise Get_Train_By_ID_ID_Out_Of_Range_Exception;
         -:  425:      end if;
         -:  426:
-       10:  427:      train:= RailSystems.LIST_TRAINS.GET_ELEMENT_BY_ID(r_system.All_Trains, ID);
-       20:  428:      return train;
-       14:  429:   end getTrainById;
+        6:  427:      train:= RailSystems.LIST_TRAINS.GET_ELEMENT_BY_ID(r_system.All_Trains, ID);
+       12:  428:      return train;
+       10:  429:   end getTrainById;
         -:  430:
         -:  431:   ----------------
         -:  432:   -- addStation --
         -:  433:   ----------------
         -:  434:
-       26:  435:   procedure addStation
+       30:  435:   procedure addStation
         -:  436:     (r_system: in out RailSystem;
         -:  437:      StationID: in Natural;
         -:  438:      Location: in TYPES.Station_Locations)
         -:  439:   is
-       26:  440:      station_t: Stations.Station;
-       26:  441:      tempStation: Stations.Station;
+       30:  440:      station_t: Stations.Station;
+       30:  441:      tempStation: Stations.Station;
         -:  442:      --        LocationExist: Boolean;
-       26:  443:      tempStation2: Stations.Station;
-       26:  444:      Station_Already_Exist_Exception: Exception;
+       30:  443:      tempStation2: Stations.Station;
+       30:  444:      Station_Already_Exist_Exception: Exception;
         -:  445:--        Location_Not_Exist_Exception: Exception;
-       26:  446:      Station_ID_Already_Exist_Exception: Exception;
-       26:  447:      Add_Station_ID_Out_Of_Range_Exception: Exception;
+       30:  446:      Station_ID_Already_Exist_Exception: Exception;
+       30:  447:      Add_Station_ID_Out_Of_Range_Exception: Exception;
         -:  448:   begin
         -:  449:      --        Stations.Init(station_t);
         -:  450:      --        LocationExist := False;
@@ -460,17 +460,17 @@
         -:  458:      --           Raise Location_Not_Exist_Exception;
         -:  459:      --        end if;
         -:  460:
-       26:  461:      if StationID < 1 or StationID > 100 then
+       30:  461:      if StationID < 1 or StationID > 100 then
         4:  462:         Print("ADD STATION: id out of range");
         4:  463:         Raise Add_Station_ID_Out_Of_Range_Exception;
         -:  464:      end if;
-       22:  465:      tempStation2:= LIST_STATIONS.GET_ELEMENT_BY_ID(r_system.All_Stations, StationID);
-       22:  466:      if tempStation2.ID /= 0 then
-    #####:  467:         Print("ADD STATION: station id already exist");
-    #####:  468:         Raise Station_ID_Already_Exist_Exception;
+       26:  465:      tempStation2:= LIST_STATIONS.GET_ELEMENT_BY_ID(r_system.All_Stations, StationID);
+       26:  466:      if tempStation2.ID /= 0 then
+        2:  467:         Print("ADD STATION: station id already exist");
+        2:  468:         Raise Station_ID_Already_Exist_Exception;
         -:  469:      end if;
         -:  470:
-       22:  471:      for i in 1 .. LIST_STATIONS.GET_SIZE(r_system.All_Stations) loop
+       24:  471:      for i in 1 .. LIST_STATIONS.GET_SIZE(r_system.All_Stations) loop
        58:  472:         tempStation:= LIST_STATIONS.GET_ELEMENT(r_system.All_Stations,i);
        58:  473:         if tempStation.Location = Location then
         2:  474:            Print("ADD STATION: station already exist");
@@ -481,157 +481,163 @@
         -:  479:
         -:  480:
         -:  481:
-       20:  482:   station_t.ID := StationID;
-       20:  483:   station_t.Location := Location;
-       20:  484:   LIST_STATIONS.APPEND(r_system.All_Stations, station_t,StationID);
+       22:  482:   station_t.ID := StationID;
+       22:  483:   station_t.Location := Location;
+       22:  484:   LIST_STATIONS.APPEND(r_system.All_Stations, station_t,StationID);
         -:  485:
-       20:  486:   end addStation;
+       22:  486:   end addStation;
         -:  487:
         -:  488:
         -:  489:   --------------------------------
         -:  490:   -- set Train current Location --
         -:  491:   --------------------------------
         -:  492:
-       10:  493:   procedure setTrainLocation(r_system: in RailSystem;
+       16:  493:   procedure setTrainLocation(r_system: in RailSystem;
         -:  494:                              train: in out Trains.Train;
         -:  495:                              LocationName: in  String;
         -:  496:                              LocationID: in Natural)
         -:  497:   is
-       10:  498:      Location_Name_Exception: Exception;
-       10:  499:      Station_Not_Exist_Exception: Exception;
-       10:  500:      Track_Not_Exist_Exception: Exception;
-       10:  501:      Train_Already_On_Track_Exception: Exception;
-       10:  502:      Train_Already_On_Station_Exception: Exception;
-       10:  503:      tempStation: Stations.Station;
-       10:  504:      tempTrack: Tracks.Track;
-       10:  505:      Location: Trains.Train_Location;
-        -:  506:   begin
-       10:  507:      tempTrack.TrainID:=0;
-        -:  508:
-        -:  509:      --        Stations.Init(tempStation);
-       10:  510:      tempStation.ID:=0;
-       10:  511:      tempStation.TrainID:=0;
-       10:  512:      tempStation.Location:=TYPES.No;
-       10:  513:      if LocationName = "Track" then
-    #####:  514:         tempTrack:= Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(r_system.All_Tracks, LocationID);
-    #####:  515:         if tempTrack.TrainID /=0 then
-    #####:  516:            Print("SET TRAIN LOCATION: there is a train already on the track");
-    #####:  517:            Raise Train_Already_On_Track_Exception;
-    #####:  518:         elsif tempTrack.ID /= 0 then
-    #####:  519:            Location.Track := tempTrack;
-    #####:  520:            Location.Station := tempStation;
-    #####:  521:            Location.currentLocation:= "Track  ";
-    #####:  522:            train.Location := Location;
-        -:  523:         else
-    #####:  524:            Print("SET TRAIN LOCATION: track not exist");
-    #####:  525:            Raise Track_Not_Exist_Exception;
-        -:  526:         end if;
-        -:  527:
-       10:  528:      elsif LocationName = "Station" then
-    #####:  529:         tempStation:= LIST_STATIONS.GET_ELEMENT_BY_ID(r_system.All_Stations, LocationID);
-    #####:  530:         if tempStation.TrainID /= 0 then
-    #####:  531:            Print("SET TRAIN LOCATION: there is a train already on the station");
-    #####:  532:            Raise Train_Already_On_Station_Exception;
-    #####:  533:         elsif tempStation.ID /= 0 then
-    #####:  534:            Location.Station := tempStation;
-    #####:  535:            Location.Track := tempTrack;
-    #####:  536:            Location.currentLocation:= "Station";
-    #####:  537:            train.Location := Location;
-        -:  538:         else
-    #####:  539:            Print("SET TRAIN LOCATION: station not exist");
-    #####:  540:            Raise Station_Not_Exist_Exception;
-        -:  541:         end if;
-        -:  542:
-       10:  543:      elsif LocationName = "None" then
-       10:  544:         Location.Station := tempStation;
-       10:  545:         Location.Track := tempTrack;
-       10:  546:         Location.currentLocation:= "None   ";
-       10:  547:         train.Location:= Location;
-        -:  548:      else
-    #####:  549:         Print("SET TRAIN LOCATION: location name should be Track or Station");
-    #####:  550:         Raise Location_Name_Exception;
-        -:  551:      end if;
-        -:  552:
-        -:  553:
-        -:  554:
-       10:  555:   end setTrainLocation;
-        -:  556:
-        -:  557:   --------------------------------------------
-        -:  558:   -- replace Track ---------------------------
-        -:  559:   --------------------------------------------
-    #####:  560:   procedure replaceTrack(r_system: in out RailSystem;
-        -:  561:                            TrackID: in Natural;
-        -:  562:                            track: in Tracks.Track)
-        -:  563:   is
-        -:  564:   begin
-    #####:  565:      Stations.LIST_TRACKS.REPLACE_BY_ID(r_system.All_Tracks,TrackID,track);
-    #####:  566:   end replaceTrack;
-        -:  567:
-        -:  568:   --------------------------------------------
-        -:  569:   -- replace Station -------------------------
-        -:  570:   --------------------------------------------
-       16:  571:   procedure replaceStation(r_system: in out RailSystem;
-        -:  572:                            StationID: in Natural;
-        -:  573:                            station: in Stations.Station)
-        -:  574:   is
-        -:  575:   begin
-       16:  576:      LIST_STATIONS.REPLACE_BY_ID(r_system.All_Stations,StationID,station);
-       16:  577:   end replaceStation;
-        -:  578:
-        -:  579:
-        -:  580:   -----------------------------------------
-        -:  581:   -- addIncomingOutgoingTracksForStation --
-        -:  582:   -----------------------------------------
-        2:  583:   procedure addIncomingOutgoingTracksForEachStation(r_system: in out RailSystem)
-        -:  584:   is
-        2:  585:      tempStation: Stations.Station;
-        2:  586:      tempTrack: Tracks.Track;
-        2:  587:      od_record: TYPES.ODRecord;
-        -:  588:      size: Natural;
-        -:  589:      found: Boolean;
-        2:  590:      NotFindTrackIdException : Exception;
-        2:  591:      AlreadyAddTrackException : Exception;
-        2:  592:      StationIDNotExistException: Exception;
-        -:  593:
-        -:  594:   begin
-        -:  595:
-        2:  596:      for i in 1 .. LIST_STATIONS.GET_SIZE(r_system.All_Stations) loop
-       16:  597:         tempStation:= LIST_STATIONS.GET_ELEMENT_BY_ID(r_system.All_Stations, i);
-        -:  598:
-       16:  599:         for j in 1 ..Stations.LIST_TRACKS.GET_SIZE(r_system.All_Tracks) loop
-      224:  600:            tempTrack:= Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(r_system.All_Tracks, j);
-      224:  601:            if tempTrack.Origin = tempStation.Location then
-       28:  602:               if Stations.LIST_TRACKS.CONTAINS(tempStation.Outgoing, tempTrack) = False then
-        -:  603:
-       28:  604:                  Stations.LIST_TRACKS.APPEND(tempStation.Outgoing, tempTrack, tempTrack.ID);
-       28:  605:                  od_record.Origin:= tempTrack.TracksLineOrigin;
-       28:  606:                  od_record.Destination:=TempTrack.TracksLineDestination;
-       28:  607:                  size:=TYPES.LIST_OD.GET_SIZE(tempStation.TracksLineOriginAndDestination);
-       28:  608:                  if size<1 then
-       16:  609:                     TYPES.LIST_OD.APPEND(tempStation.TracksLineOriginAndDestination, od_record,1);
-        -:  610:                  elsif size>0 then
-       12:  611:                     found:=False;
-       12:  612:                     for w in 1 .. size loop
-       12:  613:                        if (TYPES.LIST_OD.GET_ELEMENT(tempStation.TracksLineOriginAndDestination,w).Origin = od_record.Origin
-       12:  614:                            and  TYPES.LIST_OD.GET_ELEMENT(tempStation.TracksLineOriginAndDestination,w).Destination = od_record.Destination)
-       24:  615:                          or (TYPES.LIST_OD.GET_ELEMENT(tempStation.TracksLineOriginAndDestination,w).Origin = od_record.Destination
-       12:  616:                              and  TYPES.LIST_OD.GET_ELEMENT(tempStation.TracksLineOriginAndDestination,w).Destination = od_record.Origin) then
-       10:  617:                           found:=True;
-        -:  618:                        end if;
-       12:  619:                     end loop;
-       12:  620:                     if found = False then
-        2:  621:                        TYPES.LIST_OD.APPEND(tempStation.TracksLineOriginAndDestination, od_record,1);
-        -:  622:                     end if;
-        -:  623:                  end if;
-        -:  624:               end if;
-      196:  625:            elsif tempTrack.Destination = tempStation.Location then
-       28:  626:               if Stations.LIST_TRACKS.CONTAINS(tempStation.Incoming, tempTrack) = False then
-       28:  627:                  Stations.LIST_TRACKS.APPEND(tempStation.Incoming, tempTrack, tempTrack.ID);
-        -:  628:               end if;
-        -:  629:            end if;
-      224:  630:         end loop;
-       16:  631:         replaceStation(r_system,tempStation.ID,tempStation);
-       16:  632:      end loop;
-        2:  633:   end addIncomingOutgoingTracksForEachStation;
-        -:  634:
-        -:  635:end RailSystems;
+       16:  498:      Location_Name_Exception: Exception;
+       16:  499:      Station_Not_Exist_Exception: Exception;
+       16:  500:      Track_Not_Exist_Exception: Exception;
+       16:  501:      Train_Already_On_Track_Exception: Exception;
+       16:  502:      Train_Already_On_Station_Exception: Exception;
+       16:  503:      Set_Train_Location_LocationID_Out_Of_Range_Exception: Exception;
+       16:  504:      tempStation: Stations.Station;
+       16:  505:      tempTrack: Tracks.Track;
+       16:  506:      Location: Trains.Train_Location;
+        -:  507:   begin
+       16:  508:      tempTrack.TrainID:=0;
+        -:  509:
+        -:  510:      --        Stations.Init(tempStation);
+       16:  511:      tempStation.ID:=0;
+       16:  512:      tempStation.TrainID:=0;
+       16:  513:      tempStation.Location:=TYPES.No;
+       16:  514:       if LocationID < 1 or LocationID > LIST_TRAINS.GET_SIZE(r_system.All_Trains) then
+        6:  515:         Print("SET TRAIN LOCATION: id out of range");
+        6:  516:         Raise Set_Train_Location_LocationID_Out_Of_Range_Exception;
+        -:  517:      end if;
+        -:  518:
+       10:  519:      if LocationName = "Track" then
+    #####:  520:         tempTrack:= Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(r_system.All_Tracks, LocationID);
+    #####:  521:         if tempTrack.TrainID /=0 then
+    #####:  522:            Print("SET TRAIN LOCATION: there is a train already on the track");
+    #####:  523:            Raise Train_Already_On_Track_Exception;
+    #####:  524:         elsif tempTrack.ID /= 0 then
+    #####:  525:            Location.Track := tempTrack;
+    #####:  526:            Location.Station := tempStation;
+    #####:  527:            Location.currentLocation:= "Track  ";
+    #####:  528:            train.Location := Location;
+        -:  529:         else
+    #####:  530:            Print("SET TRAIN LOCATION: track not exist");
+    #####:  531:            Raise Track_Not_Exist_Exception;
+        -:  532:         end if;
+        -:  533:
+       10:  534:      elsif LocationName = "Station" then
+    #####:  535:         tempStation:= LIST_STATIONS.GET_ELEMENT_BY_ID(r_system.All_Stations, LocationID);
+    #####:  536:         if tempStation.TrainID /= 0 then
+    #####:  537:            Print("SET TRAIN LOCATION: there is a train already on the station");
+    #####:  538:            Raise Train_Already_On_Station_Exception;
+    #####:  539:         elsif tempStation.ID /= 0 then
+    #####:  540:            Location.Station := tempStation;
+    #####:  541:            Location.Track := tempTrack;
+    #####:  542:            Location.currentLocation:= "Station";
+    #####:  543:            train.Location := Location;
+        -:  544:         else
+    #####:  545:            Print("SET TRAIN LOCATION: station not exist");
+    #####:  546:            Raise Station_Not_Exist_Exception;
+        -:  547:         end if;
+        -:  548:
+       10:  549:      elsif LocationName = "None" then
+       10:  550:         Location.Station := tempStation;
+       10:  551:         Location.Track := tempTrack;
+       10:  552:         Location.currentLocation:= "None   ";
+       10:  553:         train.Location:= Location;
+        -:  554:      else
+    #####:  555:         Print("SET TRAIN LOCATION: location name should be Track or Station");
+    #####:  556:         Raise Location_Name_Exception;
+        -:  557:      end if;
+        -:  558:
+        -:  559:
+        -:  560:
+       10:  561:   end setTrainLocation;
+        -:  562:
+        -:  563:   --------------------------------------------
+        -:  564:   -- replace Track ---------------------------
+        -:  565:   --------------------------------------------
+    #####:  566:   procedure replaceTrack(r_system: in out RailSystem;
+        -:  567:                            TrackID: in Natural;
+        -:  568:                            track: in Tracks.Track)
+        -:  569:   is
+        -:  570:   begin
+    #####:  571:      Stations.LIST_TRACKS.REPLACE_BY_ID(r_system.All_Tracks,TrackID,track);
+    #####:  572:   end replaceTrack;
+        -:  573:
+        -:  574:   --------------------------------------------
+        -:  575:   -- replace Station -------------------------
+        -:  576:   --------------------------------------------
+       16:  577:   procedure replaceStation(r_system: in out RailSystem;
+        -:  578:                            StationID: in Natural;
+        -:  579:                            station: in Stations.Station)
+        -:  580:   is
+        -:  581:   begin
+       16:  582:      LIST_STATIONS.REPLACE_BY_ID(r_system.All_Stations,StationID,station);
+       16:  583:   end replaceStation;
+        -:  584:
+        -:  585:
+        -:  586:   -----------------------------------------
+        -:  587:   -- addIncomingOutgoingTracksForStation --
+        -:  588:   -----------------------------------------
+        2:  589:   procedure addIncomingOutgoingTracksForEachStation(r_system: in out RailSystem)
+        -:  590:   is
+        2:  591:      tempStation: Stations.Station;
+        2:  592:      tempTrack: Tracks.Track;
+        2:  593:      od_record: TYPES.ODRecord;
+        -:  594:      size: Natural;
+        -:  595:      found: Boolean;
+        2:  596:      NotFindTrackIdException : Exception;
+        2:  597:      AlreadyAddTrackException : Exception;
+        2:  598:      StationIDNotExistException: Exception;
+        -:  599:
+        -:  600:   begin
+        -:  601:
+        2:  602:      for i in 1 .. LIST_STATIONS.GET_SIZE(r_system.All_Stations) loop
+       16:  603:         tempStation:= LIST_STATIONS.GET_ELEMENT_BY_ID(r_system.All_Stations, i);
+        -:  604:
+       16:  605:         for j in 1 ..Stations.LIST_TRACKS.GET_SIZE(r_system.All_Tracks) loop
+      224:  606:            tempTrack:= Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(r_system.All_Tracks, j);
+      224:  607:            if tempTrack.Origin = tempStation.Location then
+       28:  608:               if Stations.LIST_TRACKS.CONTAINS(tempStation.Outgoing, tempTrack) = False then
+        -:  609:
+       28:  610:                  Stations.LIST_TRACKS.APPEND(tempStation.Outgoing, tempTrack, tempTrack.ID);
+       28:  611:                  od_record.Origin:= tempTrack.TracksLineOrigin;
+       28:  612:                  od_record.Destination:=TempTrack.TracksLineDestination;
+       28:  613:                  size:=TYPES.LIST_OD.GET_SIZE(tempStation.TracksLineOriginAndDestination);
+       28:  614:                  if size<1 then
+       16:  615:                     TYPES.LIST_OD.APPEND(tempStation.TracksLineOriginAndDestination, od_record,1);
+        -:  616:                  elsif size>0 then
+       12:  617:                     found:=False;
+       12:  618:                     for w in 1 .. size loop
+       12:  619:                        if (TYPES.LIST_OD.GET_ELEMENT(tempStation.TracksLineOriginAndDestination,w).Origin = od_record.Origin
+       12:  620:                            and  TYPES.LIST_OD.GET_ELEMENT(tempStation.TracksLineOriginAndDestination,w).Destination = od_record.Destination)
+       24:  621:                          or (TYPES.LIST_OD.GET_ELEMENT(tempStation.TracksLineOriginAndDestination,w).Origin = od_record.Destination
+       12:  622:                              and  TYPES.LIST_OD.GET_ELEMENT(tempStation.TracksLineOriginAndDestination,w).Destination = od_record.Origin) then
+       10:  623:                           found:=True;
+        -:  624:                        end if;
+       12:  625:                     end loop;
+       12:  626:                     if found = False then
+        2:  627:                        TYPES.LIST_OD.APPEND(tempStation.TracksLineOriginAndDestination, od_record,1);
+        -:  628:                     end if;
+        -:  629:                  end if;
+        -:  630:               end if;
+      196:  631:            elsif tempTrack.Destination = tempStation.Location then
+       28:  632:               if Stations.LIST_TRACKS.CONTAINS(tempStation.Incoming, tempTrack) = False then
+       28:  633:                  Stations.LIST_TRACKS.APPEND(tempStation.Incoming, tempTrack, tempTrack.ID);
+        -:  634:               end if;
+        -:  635:            end if;
+      224:  636:         end loop;
+       16:  637:         replaceStation(r_system,tempStation.ID,tempStation);
+       16:  638:      end loop;
+        2:  639:   end addIncomingOutgoingTracksForEachStation;
+        -:  640:
+        -:  641:end RailSystems;

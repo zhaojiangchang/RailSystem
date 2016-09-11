@@ -1,5 +1,5 @@
         -:    0:Source:C:/GNAT/2016/include/aunit/aunit-simple_test_cases.adb
-        -:    0:Programs:41
+        -:    0:Programs:38
         -:    1:------------------------------------------------------------------------------
         -:    2:--                                                                          --
         -:    3:--                         GNAT COMPILER COMPONENTS                         --
@@ -88,28 +88,28 @@
         -:   86:   -- Run --
         -:   87:   ---------
         -:   88:
-       10:   89:   procedure Run
+       36:   89:   procedure Run
         -:   90:     (Test    : access Test_Case;
         -:   91:      Options :        AUnit_Options;
         -:   92:      R       : in out Result'Class;
         -:   93:      Outcome :    out Status)
         -:   94:   is
-       10:   95:      Old : constant Test_Access := AUnit.Assertions.Current_Test;
+       36:   95:      Old : constant Test_Access := AUnit.Assertions.Current_Test;
         -:   96:   begin
-       10:   97:      Outcome := Success;
-       10:   98:      if Options.Filter = null
+       36:   97:      Outcome := Success;
+       36:   98:      if Options.Filter = null
     #####:   99:        or else Is_Active (Options.Filter.all, Test.all)
         -:  100:      then
-       10:  101:         AUnit.Assertions.Set_Current_Test (Test_Access (Test));
-       10:  102:         Init_Test (Test.all);
-       10:  103:         Start_Test (R, 1);
+       36:  101:         AUnit.Assertions.Set_Current_Test (Test_Access (Test));
+       36:  102:         Init_Test (Test.all);
+       36:  103:         Start_Test (R, 1);
         -:  104:
         -:  105:         --  Run test routine
-       10:  106:         Set_Up (Test_Case'Class (Test.all));
-       10:  107:         Run_Routine (Test, Options, R, Outcome);
-       10:  108:         Tear_Down (Test_Case'Class (Test.all));
-       10:  109:         AUnit.Assertions.Set_Current_Test (Old);
+       36:  106:         Set_Up (Test_Case'Class (Test.all));
+       36:  107:         Run_Routine (Test, Options, R, Outcome);
+       36:  108:         Tear_Down (Test_Case'Class (Test.all));
+       36:  109:         AUnit.Assertions.Set_Current_Test (Old);
         -:  110:      end if;
-       10:  111:   end Run;
+       36:  111:   end Run;
         -:  112:
         -:  113:end AUnit.Simple_Test_Cases;

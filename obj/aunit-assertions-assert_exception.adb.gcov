@@ -1,5 +1,5 @@
         -:    0:Source:C:/GNAT/2016/include/aunit/aunit-assertions-assert_exception.adb
-        -:    0:Programs:41
+        -:    0:Programs:38
         -:    1:------------------------------------------------------------------------------
         -:    2:--                                                                          --
         -:    3:--                         GNAT COMPILER COMPONENTS                         --
@@ -34,7 +34,7 @@
         -:   32:--  Version for run-time libraries that support exception handling
         -:   33:
         -:   34:separate (AUnit.Assertions)
-        8:   35:procedure Assert_Exception
+       28:   35:procedure Assert_Exception
         -:   36:  (Proc    : Throwing_Exception_Proc;
         -:   37:   Message : String;
         -:   38:   Source  : String := GNAT.Source_Info.File;
@@ -42,10 +42,10 @@
         -:   40:is
         -:   41:begin
         -:   42:   begin
-        8:   43:      Proc.all;
+       28:   43:      Proc.all;
         -:   44:   exception
-       16:   45:      when others =>
-        8:   46:         return;
+       56:   45:      when others =>
+       28:   46:         return;
         -:   47:   end;
         -:   48:
         -:   49:   --  No exception raised: register the failure message

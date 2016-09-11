@@ -1,5 +1,5 @@
         -:    0:Source:C:/gnat/2016/lib/gcc/i686-pc-mingw32/4.9.4/adainclude/s-stoele.adb
-        -:    0:Programs:41
+        -:    0:Programs:38
         -:    1:------------------------------------------------------------------------------
         -:    2:--                                                                          --
         -:    3:--                         GNAT COMPILER COMPONENTS                         --
@@ -69,7 +69,7 @@
         -:   67:
         -:   68:   function To_Integer (Value : Address) return Integer_Address is
         -:   69:   begin
-       40:   70:      return Integer_Address (Value);
+      144:   70:      return Integer_Address (Value);
         -:   71:   end To_Integer;
         -:   72:
         -:   73:   --  Address arithmetic
@@ -80,8 +80,8 @@
         -:   78:
         -:   79:   function "+" (Left : Address; Right : Storage_Offset) return Address is
         -:   80:   begin
-       20:   81:      return Storage_Elements.To_Address
-       40:   82:        (To_Integer (Left) + To_Integer (To_Address (Right)));
+       72:   81:      return Storage_Elements.To_Address
+      144:   82:        (To_Integer (Left) + To_Integer (To_Address (Right)));
         -:   83:   end "+";
         -:   84:
         -:   85:   function "+" (Left : Storage_Offset; Right : Address) return Address is

@@ -1,5 +1,5 @@
         -:    0:Source:C:/GNAT/2016/include/aunit/aunit.adb
-        -:    0:Programs:41
+        -:    0:Programs:38
         -:    1:------------------------------------------------------------------------------
         -:    2:--                                                                          --
         -:    3:--                         GNAT COMPILER COMPONENTS                         --
@@ -43,7 +43,7 @@
         -:   41:   end record;
         -:   42:   type Bounds_Access is access all Bounds;
         -:   43:
-       20:   44:   type Fat_Pointer is record
+       72:   44:   type Fat_Pointer is record
         -:   45:      Address       : System.Address;
         -:   46:      Bound_Address : Bounds_Access;
         -:   47:   end record;
@@ -53,23 +53,23 @@
         -:   51:   -- Message_Alloc --
         -:   52:   -------------------
         -:   53:
-       20:   54:   function Message_Alloc (Length : Natural) return Message_String is
+       72:   54:   function Message_Alloc (Length : Natural) return Message_String is
         -:   55:      function To_Message is new Ada.Unchecked_Conversion
         -:   56:        (Fat_Pointer, Message_String);
         -:   57:      function To_Bounds_Access is new Ada.Unchecked_Conversion
         -:   58:        (System.Address, Bounds_Access);
         -:   59:      function To_Address is new Ada.Unchecked_Conversion
         -:   60:        (Bounds_Access, System.Address);
-       20:   61:      Ret : Fat_Pointer;
+       72:   61:      Ret : Fat_Pointer;
         -:   62:   begin
-       20:   63:      Ret.Bound_Address := To_Bounds_Access
-       20:   64:        (AUnit.Memory.AUnit_Alloc
-       20:   65:           (size_t (Length + (Bounds'Object_Size / 8))));
-       20:   66:      Ret.Bound_Address.First := 1;
-       20:   67:      Ret.Bound_Address.Last := Length;
-       40:   68:      Ret.Address := To_Address (Ret.Bound_Address) + (Bounds'Size / 8);
-       40:   69:      return To_Message (Ret);
-       20:   70:   end Message_Alloc;
+       72:   63:      Ret.Bound_Address := To_Bounds_Access
+       72:   64:        (AUnit.Memory.AUnit_Alloc
+       72:   65:           (size_t (Length + (Bounds'Object_Size / 8))));
+       72:   66:      Ret.Bound_Address.First := 1;
+       72:   67:      Ret.Bound_Address.Last := Length;
+      144:   68:      Ret.Address := To_Address (Ret.Bound_Address) + (Bounds'Size / 8);
+      144:   69:      return To_Message (Ret);
+       72:   70:   end Message_Alloc;
         -:   71:
         -:   72:   ------------------
         -:   73:   -- Message_Free --
@@ -87,14 +87,14 @@
         -:   85:   -- Format --
         -:   86:   ------------
         -:   87:
-       20:   88:   function Format (S : String) return Message_String is
-       20:   89:      Ptr : constant Message_String := Message_Alloc (S'Length);
+       72:   88:   function Format (S : String) return Message_String is
+       72:   89:      Ptr : constant Message_String := Message_Alloc (S'Length);
         -:   90:   begin
-      526:   91:      for J in S'Range loop
-      506:   92:         Ptr (J - S'First + 1) := S (J);
-      486:   93:      end loop;
+     2382:   91:      for J in S'Range loop
+     2310:   92:         Ptr (J - S'First + 1) := S (J);
+     2238:   93:      end loop;
         -:   94:
-       20:   95:      return Ptr;
+       72:   95:      return Ptr;
         -:   96:   end Format;
         -:   97:
         -:   98:end AUnit;

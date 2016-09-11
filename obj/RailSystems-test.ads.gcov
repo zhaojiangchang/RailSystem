@@ -1,20 +1,21 @@
         -:    0:Source:C:/Users/JackyChang/Desktop/RailSystem/src/_test/scenarios/RailSystems-test.ads
-        -:    0:Programs:41
+        -:    0:Programs:38
         -:    1:with AUnit;
         -:    2:with AUnit.Test_Cases;
-        -:    3:
-        4:    4:package RailSystems.Test is
-        -:    5:
-        4:    6:  type TC is new AUnit.Test_Cases.Test_Case with null record;
-        -:    7:
-        -:    8:   overriding procedure Set_Up_Case (T: in out TC);
-        -:    9:
-        -:   10:   overriding procedure Set_Up (T: in out TC);
-        -:   11:   overriding procedure Tear_Down (T: in out TC);
-        -:   12:
-        -:   13:   overriding procedure Tear_Down_Case (T: in out TC);
-        -:   14:   private
-        -:   15:   procedure Register_Tests (T: in out TC);
-        -:   16:   function Name (T: TC) return Aunit.Message_String;
-        -:   17:
-        2:   18:end RailSystems.Test;
+        -:    3:with TYPES;
+        -:    4:
+        4:    5:package RailSystems.Test is
+        -:    6:
+        4:    7:  type TC is new AUnit.Test_Cases.Test_Case with null record;
+        -:    8:
+        -:    9:   overriding procedure Set_Up_Case (T: in out TC);
+        -:   10:
+        -:   11:   overriding procedure Set_Up (T: in out TC);
+        -:   12:   overriding procedure Tear_Down (T: in out TC);
+        -:   13:
+        -:   14:   overriding procedure Tear_Down_Case (T: in out TC);
+        -:   15:   private
+        -:   16:   procedure Register_Tests (T: in out TC);
+        -:   17:   function Name (T: TC) return Aunit.Message_String;
+        -:   18:
+        2:   19:end RailSystems.Test;

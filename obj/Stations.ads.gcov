@@ -16,14 +16,14 @@
         1:   14:   inTracks:LIST_TRACKS.LIST_PTR(MAX_SIZE =>100);
         1:   15:   outTracks:LIST_TRACKS.LIST_PTR(MAX_SIZE =>100);
         -:   16:
-      276:   17:   type Station is
+      293:   17:   type Station is
         -:   18:      record
         -:   19:         ID: Natural:=0;
         -:   20:         Location: TYPES.Station_Locations:=TYPES.No;
         -:   21:         TrainID: Natural:=0;
-      276:   22:         Incoming: LIST_TRACKS.LIST_PTR(MAX_SIZE =>100);
-      276:   23:         Outgoing: LIST_TRACKS.LIST_PTR(MAX_SIZE =>100);
-      276:   24:         TracksLineOriginAndDestination: TYPES.LIST_OD.LIST_PTR(MAX_SIZE =>100);
+      293:   22:         Incoming: LIST_TRACKS.LIST_PTR(MAX_SIZE =>100);
+      293:   23:         Outgoing: LIST_TRACKS.LIST_PTR(MAX_SIZE =>100);
+      293:   24:         TracksLineOriginAndDestination: TYPES.LIST_OD.LIST_PTR(MAX_SIZE =>100);
         -:   25:      end record;
         -:   26:--     procedure Init(station_r: in out Station);
         -:   27:   --     procedure Add_IncomingTrack(Station_r: in out Station; track_r: in Tracks.Track);

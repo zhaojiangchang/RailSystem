@@ -15,7 +15,7 @@
         -:   13:   -- 8 means 8.00 clock and 22 mians 22.00 clock
         -:   14:   type TimeTable is(S8,S9,S10,S11,S12,S13,S14,S15,S16,S17,S18,S19,S20,S21,S22);
         -:   15:
-    27600:   16:   type ODRecord is record
+    29300:   16:   type ODRecord is record
         -:   17:      Origin: Station_Locations:=No;
         -:   18:      Destination: Station_Locations:=No;
         -:   19:   end record;

@@ -500,6 +500,7 @@ package body RailSystems with SPARK_Mode=>On is
       Track_Not_Exist_Exception: Exception;
       Train_Already_On_Track_Exception: Exception;
       Train_Already_On_Station_Exception: Exception;
+      Set_Train_Location_LocationID_Out_Of_Range_Exception: Exception;
       tempStation: Stations.Station;
       tempTrack: Tracks.Track;
       Location: Trains.Train_Location;
@@ -514,6 +515,7 @@ package body RailSystems with SPARK_Mode=>On is
          Print("SET TRAIN LOCATION: id out of range");
          Raise Set_Train_Location_LocationID_Out_Of_Range_Exception;
       end if;
+
       if LocationName = "Track" then
          tempTrack:= Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(r_system.All_Tracks, LocationID);
          if tempTrack.TrainID /=0 then

@@ -2,14 +2,14 @@
         -:    0:Programs:38
         -:    1:with Ada.Text_IO; use Ada.Text_IO;
         -:    2:package body sPrint is
-       28:    3:   procedure Print(s: in String) is
+       36:    3:   procedure Print(s: in String) is
         -:    4:   begin
-       28:    5:      if s = "" then
+       36:    5:      if s = "" then
     #####:    6:         New_Line;
         -:    7:      else
-       28:    8:         Put_Line(s);
+       36:    8:         Put_Line(s);
         -:    9:      end if;
-       28:   10:   end Print;
+       36:   10:   end Print;
         -:   11:
        48:   12:   procedure Print_Natural(s: in String; n: in Natural)
         -:   13:   is

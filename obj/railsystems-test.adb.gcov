@@ -20,43 +20,43 @@
         2:   18:   end Set_Up_Case;
         -:   19:
         -:   20:
-       36:   21:   procedure Set_Up (T : in out TC) is
+       44:   21:   procedure Set_Up (T : in out TC) is
         -:   22:   begin
-       36:   23:      New_Line;
-       36:   24:      Put_Line("Set Up ..");
-       36:   25:      if LIST_STATIONS.GET_SIZE(rail_system.All_Stations) >0 then
+       44:   23:      New_Line;
+       44:   24:      Put_Line("Set Up ..");
+       44:   25:      if LIST_STATIONS.GET_SIZE(rail_system.All_Stations) >0 then
     #####:   26:         LIST_STATIONS.DELETE_ALL(rail_system.All_Stations);
         -:   27:      end if;
-       36:   28:      if  LIST_TRAINS.GET_SIZE(rail_system.All_Trains) >0 then
+       44:   28:      if  LIST_TRAINS.GET_SIZE(rail_system.All_Trains) >0 then
     #####:   29:         LIST_TRAINS.DELETE_ALL(rail_system.All_Trains);
         -:   30:      end if;
-       36:   31:      if Stations.LIST_TRACKS.GET_SIZE(rail_system.All_Tracks) >0 then
+       44:   31:      if Stations.LIST_TRACKS.GET_SIZE(rail_system.All_Tracks) >0 then
     #####:   32:         Stations.LIST_TRACKS.DELETE_ALL(rail_system.All_Tracks);
         -:   33:      end if;
-       36:   34:      Put_Line ("finish Set up ..");
-       36:   35:      Init(rail_system);
+       44:   34:      Put_Line ("finish Set up ..");
+       44:   35:      Init(rail_system);
         -:   36:
         -:   37:
         -:   38:
-       36:   39:   end;
+       44:   39:   end;
         -:   40:
-       36:   41:   procedure Tear_Down (T : in out TC) is
+       44:   41:   procedure Tear_Down (T : in out TC) is
         -:   42:   begin
-       36:   43:      Put_Line("Tear Down ...");
-       36:   44:      if LIST_STATIONS.GET_SIZE(rail_system.All_Stations) >0 then
-        6:   45:         LIST_STATIONS.DELETE_ALL(rail_system.All_Stations);
+       44:   43:      Put_Line("Tear Down ...");
+       44:   44:      if LIST_STATIONS.GET_SIZE(rail_system.All_Stations) >0 then
+        8:   45:         LIST_STATIONS.DELETE_ALL(rail_system.All_Stations);
         -:   46:      end if;
-       36:   47:      if  LIST_TRAINS.GET_SIZE(rail_system.All_Trains) >0 then
-        6:   48:         LIST_TRAINS.DELETE_ALL(rail_system.All_Trains);
+       44:   47:      if  LIST_TRAINS.GET_SIZE(rail_system.All_Trains) >0 then
+       12:   48:         LIST_TRAINS.DELETE_ALL(rail_system.All_Trains);
         -:   49:      end if;
-       36:   50:      if Stations.LIST_TRACKS.GET_SIZE(rail_system.All_Tracks) >0 then
+       44:   50:      if Stations.LIST_TRACKS.GET_SIZE(rail_system.All_Tracks) >0 then
         8:   51:         Stations.LIST_TRACKS.DELETE_ALL(rail_system.All_Tracks);
         -:   52:      end if;
         -:   53:
-       36:   54:      Init(rail_system);
+       44:   54:      Init(rail_system);
         -:   55:
         -:   56:
-       36:   57:   end;
+       44:   57:   end;
         -:   58:
         2:   59:   procedure Tear_Down_Case (T : in out TC) is
         -:   60:   begin
@@ -94,476 +94,545 @@
         2:   92:      setTrainLocation(rail_system, trainA, "None", 1);
         2:   93:      TrainA := getTrainById(rail_system,1);
         -:   94:
-        2:   95:      addTrain(rail_system, 2);
-        -:   96:      -- Set train 2 current location to None (not on the railsystem)
-        2:   97:      setTrainLocation(rail_system, trainB, "None", 2);
-        2:   98:      TrainB := getTrainById(rail_system,2);
-        -:   99:
-        2:  100:      addTrain(rail_system, 3);
-        -:  101:      -- Set train 3 current location to None (not on the railsystem)
-        2:  102:      setTrainLocation(rail_system, trainC, "None", 3);
-        2:  103:      TrainC := getTrainById(rail_system,3);
-        -:  104:
-        2:  105:      Put_Line("total trains size: "& LIST_TRAINS.GET_SIZE(rail_system.All_Trains)'Image);
-        -:  106:
-        2:  107:      Assert (Condition => (LIST_TRAINS.GET_SIZE(rail_system.All_Trains)) = 3,
-        -:  108:              Message => "total trains added should = 3");
-        2:  109:   end Test_AddTrain;
-        -:  110:
-        2:  111:   procedure Test_AddTrack (CWTC : in out AUnit.Test_Cases.Test_Case'Class)
-        -:  112:   is
-        -:  113:
+        -:   95:
+        2:   96:      addTrain(rail_system, 2);
+        -:   97:      -- Set train 2 current location to None (not on the railsystem)
+        2:   98:      setTrainLocation(rail_system, trainB, "None", 2);
+        2:   99:      TrainB := getTrainById(rail_system,2);
+        -:  100:
+        2:  101:      addTrain(rail_system, 3);
+        -:  102:      -- Set train 3 current location to None (not on the railsystem)
+        2:  103:      setTrainLocation(rail_system, trainC, "None", 3);
+        2:  104:      TrainC := getTrainById(rail_system,3);
+        -:  105:
+        2:  106:      Put_Line("total trains size: "& LIST_TRAINS.GET_SIZE(rail_system.All_Trains)'Image);
+        -:  107:
+        2:  108:      Assert (Condition => (LIST_TRAINS.GET_SIZE(rail_system.All_Trains)) = 3,
+        -:  109:              Message => "total trains added should = 3");
+        2:  110:   end Test_AddTrain;
+        -:  111:
+        2:  112:   procedure Test_AddTrack (CWTC : in out AUnit.Test_Cases.Test_Case'Class)
+        -:  113:   is
         -:  114:
-        -:  115:   begin
-        2:  116:      Put_Line("");
-        2:  117:      Put_Line("Test add tracks");
-        2:  118:      addTrack(rail_system,  1, TYPES.Wellington, TYPES.Petone, TYPES.Wellington, TYPES.UpperHutt);
-        -:  119:
-        2:  120:      Assert (Condition => (Stations.LIST_TRACKS.GET_SIZE(rail_system.All_Tracks)) = 1,
-        -:  121:        Message => "total tracks added should = 1");
-        2:  122:      Assert (Condition => (Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(rail_system.All_Tracks, 1).Origin) = TYPES.Wellington,
-        -:  123:             Message=>"track origin should equals Wellington");
-        2:  124:      Assert (Condition => (Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(A  => rail_system.All_Tracks,
-        -:  125:                                                                   ID => 1).Destination) = TYPES.Petone,
-        -:  126:             Message=>"track Destination should equals Petone");
-        2:  127:   end Test_AddTrack;
-        -:  128:
+        -:  115:
+        -:  116:   begin
+        2:  117:      Put_Line("");
+        2:  118:      Put_Line("Test add tracks");
+        2:  119:      addTrack(rail_system,  1, TYPES.Wellington, TYPES.Petone, TYPES.Wellington, TYPES.UpperHutt);
+        -:  120:
+        2:  121:      Assert (Condition => (Stations.LIST_TRACKS.GET_SIZE(rail_system.All_Tracks)) = 1,
+        -:  122:        Message => "total tracks added should = 1");
+        2:  123:      Assert (Condition => (Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(rail_system.All_Tracks, 1).Origin) = TYPES.Wellington,
+        -:  124:             Message=>"track origin should equals Wellington");
+        2:  125:      Assert (Condition => (Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(A  => rail_system.All_Tracks,
+        -:  126:                                                                   ID => 1).Destination) = TYPES.Petone,
+        -:  127:             Message=>"track Destination should equals Petone");
+        2:  128:   end Test_AddTrack;
         -:  129:
-        2:  130:   procedure Test_AddStation (CWTC : in out AUnit.Test_Cases.Test_Case'Class)
-        -:  131:   is
-        -:  132:
+        -:  130:
+        2:  131:   procedure Test_AddStation (CWTC : in out AUnit.Test_Cases.Test_Case'Class)
+        -:  132:   is
         -:  133:
-        -:  134:   begin
-        2:  135:      Put_Line("");
-        2:  136:      Put_Line("Test add station");
-        2:  137:      addStation(rail_system, 1,TYPES.Wellington);
-        -:  138:
-        2:  139:      Assert (Condition => (LIST_STATIONS.GET_SIZE(rail_system.All_Stations)) = 1,
-        -:  140:        Message => "total station added should = 1");
-        2:  141:      Assert (Condition => (LIST_STATIONS.GET_ELEMENT_BY_ID(A  => rail_system.All_Stations,
-        -:  142:                                                                   ID => 1).Location) = TYPES.Wellington,
-        -:  143:             Message=>"station location should equals Wellington");
-        2:  144:   end Test_AddStation;
-        -:  145:
+        -:  134:
+        -:  135:   begin
+        2:  136:      Put_Line("");
+        2:  137:      Put_Line("Test add station");
+        2:  138:      addStation(rail_system, 1,TYPES.Wellington);
+        -:  139:
+        2:  140:      Assert (Condition => (LIST_STATIONS.GET_SIZE(rail_system.All_Stations)) = 1,
+        -:  141:        Message => "total station added should = 1");
+        2:  142:      Assert (Condition => (LIST_STATIONS.GET_ELEMENT_BY_ID(A  => rail_system.All_Stations,
+        -:  143:                                                                   ID => 1).Location) = TYPES.Wellington,
+        -:  144:             Message=>"station location should equals Wellington");
+        2:  145:   end Test_AddStation;
         -:  146:
-        2:  147:     procedure Test_AddIncomingTracksAndOutgoingTracks (CWTC : in out AUnit.Test_Cases.Test_Case'Class)
-        -:  148:   is
-        -:  149:
+        -:  147:
+        2:  148:     procedure Test_AddIncomingTracksAndOutgoingTracks (CWTC : in out AUnit.Test_Cases.Test_Case'Class)
+        -:  149:   is
         -:  150:
-        -:  151:   begin
-        2:  152:      Put_Line("");
-        2:  153:      Put_Line("Test_AddIncomingTracksAndOutgoingTracks");
-        -:  154:
-        2:  155:      addTrack(rail_system,  1, TYPES.Wellington, TYPES.Petone, TYPES.Wellington, TYPES.UpperHutt);
-        2:  156:      addTrack(rail_system,  2, TYPES.Petone, TYPES.LowerHutt, TYPES.Wellington, TYPES.UpperHutt);
-        2:  157:      addTrack(rail_system,  3, TYPES.LowerHutt, TYPES.UpperHutt, TYPES.Wellington, TYPES.UpperHutt);
-        -:  158:
-        2:  159:      addTrack(rail_system,  4, TYPES.Wellington, TYPES.CroftonDowns, TYPES.Wellington, TYPES.Johnsonville);
-        2:  160:      addTrack(rail_system,  5, TYPES.CroftonDowns, TYPES.Ngaio, TYPES.Wellington, TYPES.Johnsonville);
-        2:  161:      addTrack(rail_system,  6, TYPES.Ngaio, TYPES.Khandallah, TYPES.Wellington, TYPES.Johnsonville);
-        2:  162:      addTrack(rail_system,  7, TYPES.Khandallah, TYPES.Johnsonville, TYPES.Wellington, TYPES.Johnsonville);
-        -:  163:
-        2:  164:      addTrack(rail_system,  8, TYPES.Petone, TYPES.Wellington, TYPES.UpperHutt, TYPES.Wellington);
-        2:  165:      addTrack(rail_system,  9, TYPES.LowerHutt, TYPES.Petone, TYPES.UpperHutt, TYPES.Wellington);
-        2:  166:      addTrack(rail_system,  10, TYPES.UpperHutt, TYPES.LowerHutt, TYPES.UpperHutt, TYPES.Wellington);
-        -:  167:
-        2:  168:      addTrack(rail_system,  11, TYPES.CroftonDowns, TYPES.Wellington, TYPES.Johnsonville, TYPES.Wellington);
-        2:  169:      addTrack(rail_system,  12, TYPES.Ngaio, TYPES.CroftonDowns, TYPES.Johnsonville, TYPES.Wellington);
-        2:  170:      addTrack(rail_system,  13, TYPES.Khandallah, TYPES.Ngaio, TYPES.Johnsonville, TYPES.Wellington);
-        2:  171:      addTrack(rail_system,  14, TYPES.Johnsonville, TYPES.Khandallah, TYPES.Johnsonville, TYPES.Wellington);
-        -:  172:
-        2:  173:      addStation(rail_system, 1,TYPES.Wellington);
-        2:  174:      addStation(rail_system, 2,TYPES.Johnsonville);
-        2:  175:      addStation(rail_system, 3,TYPES.UpperHutt);
-        2:  176:      addStation(rail_system, 4,TYPES.LowerHutt);
-        2:  177:      addStation(rail_system, 5,TYPES.Petone);
-        2:  178:      addStation(rail_system, 6,TYPES.CroftonDowns);
-        2:  179:      addStation(rail_system, 7,TYPES.Ngaio);
-        2:  180:      addStation(rail_system, 8,TYPES.Khandallah);
-        -:  181:
-        2:  182:      addIncomingOutgoingTracksForEachStation(rail_system);
-        -:  183:
-        2:  184:      Assert (Condition => (Stations.LIST_TRACKS.GET_SIZE(LIST_STATIONS.GET_ELEMENT_BY_ID(rail_system.All_Stations, 1).Incoming)) = 2,
-        -:  185:        Message => "wellington incoming tracks = 2");
-        2:  186:      Assert (Condition => (Stations.LIST_TRACKS.GET_SIZE(LIST_STATIONS.GET_ELEMENT_BY_ID(rail_system.All_Stations, 1).Outgoing)) = 2,
-        -:  187:        Message => "wellington outgoing tracks = 2");
-        2:  188:      Assert (Condition => (Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(A  => LIST_STATIONS.GET_ELEMENT_BY_ID(rail_system.All_Stations,1).Outgoing,
-        -:  189:                                                                   ID => 1).Origin) = TYPES.Wellington,
-        -:  190:              Message => "wellington outgoing track id 1's origin should equal wellington");
-        4:  191:      Put_Line(Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(A  => LIST_STATIONS.GET_ELEMENT_BY_ID(rail_system.All_Stations,1).Outgoing,
-        2:  192:                                                                   ID => 1).Destination'Image);
-        2:  193:      Assert (Condition => (Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(A  => LIST_STATIONS.GET_ELEMENT_BY_ID(rail_system.All_Stations,1).Outgoing,
-        -:  194:                                                                   ID => 1).Destination) = TYPES.PETONE,
-        -:  195:        Message => "wellington outgoing track id 1's Destination should equal PETONE");
-        2:  196:   end Test_AddIncomingTracksAndOutgoingTracks;
-        -:  197:
+        -:  151:
+        -:  152:   begin
+        2:  153:      Put_Line("");
+        2:  154:      Put_Line("Test_AddIncomingTracksAndOutgoingTracks");
+        -:  155:
+        2:  156:      addTrack(rail_system,  1, TYPES.Wellington, TYPES.Petone, TYPES.Wellington, TYPES.UpperHutt);
+        2:  157:      addTrack(rail_system,  2, TYPES.Petone, TYPES.LowerHutt, TYPES.Wellington, TYPES.UpperHutt);
+        2:  158:      addTrack(rail_system,  3, TYPES.LowerHutt, TYPES.UpperHutt, TYPES.Wellington, TYPES.UpperHutt);
+        -:  159:
+        2:  160:      addTrack(rail_system,  4, TYPES.Wellington, TYPES.CroftonDowns, TYPES.Wellington, TYPES.Johnsonville);
+        2:  161:      addTrack(rail_system,  5, TYPES.CroftonDowns, TYPES.Ngaio, TYPES.Wellington, TYPES.Johnsonville);
+        2:  162:      addTrack(rail_system,  6, TYPES.Ngaio, TYPES.Khandallah, TYPES.Wellington, TYPES.Johnsonville);
+        2:  163:      addTrack(rail_system,  7, TYPES.Khandallah, TYPES.Johnsonville, TYPES.Wellington, TYPES.Johnsonville);
+        -:  164:
+        2:  165:      addTrack(rail_system,  8, TYPES.Petone, TYPES.Wellington, TYPES.UpperHutt, TYPES.Wellington);
+        2:  166:      addTrack(rail_system,  9, TYPES.LowerHutt, TYPES.Petone, TYPES.UpperHutt, TYPES.Wellington);
+        2:  167:      addTrack(rail_system,  10, TYPES.UpperHutt, TYPES.LowerHutt, TYPES.UpperHutt, TYPES.Wellington);
+        -:  168:
+        2:  169:      addTrack(rail_system,  11, TYPES.CroftonDowns, TYPES.Wellington, TYPES.Johnsonville, TYPES.Wellington);
+        2:  170:      addTrack(rail_system,  12, TYPES.Ngaio, TYPES.CroftonDowns, TYPES.Johnsonville, TYPES.Wellington);
+        2:  171:      addTrack(rail_system,  13, TYPES.Khandallah, TYPES.Ngaio, TYPES.Johnsonville, TYPES.Wellington);
+        2:  172:      addTrack(rail_system,  14, TYPES.Johnsonville, TYPES.Khandallah, TYPES.Johnsonville, TYPES.Wellington);
+        -:  173:
+        2:  174:      addStation(rail_system, 1,TYPES.Wellington);
+        2:  175:      addStation(rail_system, 2,TYPES.Johnsonville);
+        2:  176:      addStation(rail_system, 3,TYPES.UpperHutt);
+        2:  177:      addStation(rail_system, 4,TYPES.LowerHutt);
+        2:  178:      addStation(rail_system, 5,TYPES.Petone);
+        2:  179:      addStation(rail_system, 6,TYPES.CroftonDowns);
+        2:  180:      addStation(rail_system, 7,TYPES.Ngaio);
+        2:  181:      addStation(rail_system, 8,TYPES.Khandallah);
+        -:  182:
+        2:  183:      addIncomingOutgoingTracksForEachStation(rail_system);
+        -:  184:
+        2:  185:      Assert (Condition => (Stations.LIST_TRACKS.GET_SIZE(LIST_STATIONS.GET_ELEMENT_BY_ID(rail_system.All_Stations, 1).Incoming)) = 2,
+        -:  186:        Message => "wellington incoming tracks = 2");
+        2:  187:      Assert (Condition => (Stations.LIST_TRACKS.GET_SIZE(LIST_STATIONS.GET_ELEMENT_BY_ID(rail_system.All_Stations, 1).Outgoing)) = 2,
+        -:  188:        Message => "wellington outgoing tracks = 2");
+        2:  189:      Assert (Condition => (Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(A  => LIST_STATIONS.GET_ELEMENT_BY_ID(rail_system.All_Stations,1).Outgoing,
+        -:  190:                                                                   ID => 1).Origin) = TYPES.Wellington,
+        -:  191:              Message => "wellington outgoing track id 1's origin should equal wellington");
+        4:  192:      Put_Line(Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(A  => LIST_STATIONS.GET_ELEMENT_BY_ID(rail_system.All_Stations,1).Outgoing,
+        2:  193:                                                                   ID => 1).Destination'Image);
+        2:  194:      Assert (Condition => (Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(A  => LIST_STATIONS.GET_ELEMENT_BY_ID(rail_system.All_Stations,1).Outgoing,
+        -:  195:                                                                   ID => 1).Destination) = TYPES.PETONE,
+        -:  196:        Message => "wellington outgoing track id 1's Destination should equal PETONE");
+        2:  197:   end Test_AddIncomingTracksAndOutgoingTracks;
         -:  198:
-        2:  199:   procedure Test_AlreadyAddTrackException (CWTC: in out AUnit.Test_Cases.Test_Case'Class) is
-        2:  200:      procedure Test_Raising_Exception is
-        -:  201:      begin
-        2:  202:         Put_Line("");
-        2:  203:         Put_Line("Test_AlreadyAddTrackException");
-        2:  204:         addTrack(rail_system,  1, TYPES.Wellington, TYPES.Petone, TYPES.Wellington, TYPES.UpperHutt);
+        -:  199:
+        2:  200:   procedure Test_AlreadyAddTrackException (CWTC: in out AUnit.Test_Cases.Test_Case'Class) is
+        2:  201:      procedure Test_Raising_Exception is
+        -:  202:      begin
+        2:  203:         Put_Line("");
+        2:  204:         Put_Line("Test_AlreadyAddTrackException");
         2:  205:         addTrack(rail_system,  1, TYPES.Wellington, TYPES.Petone, TYPES.Wellington, TYPES.UpperHutt);
-        -:  206:
-    #####:  207:      end;
-        -:  208:   begin
-        2:  209:      Assert_Exception (Proc => Test_Raising_Exception'Unrestricted_Access,
-        -:  210:                        Message =>"ADD TRACK: track already exist");
-        2:  211:   end Test_AlreadyAddTrackException;
-        -:  212:
-        2:  213:    procedure Test_AddTrackTrackIDAlreadyUsedException (CWTC: in out AUnit.Test_Cases.Test_Case'Class) is
-        2:  214:      procedure Test_Raising_Exception is
-        -:  215:      begin
-        2:  216:         Put_Line("");
-        2:  217:         Put_Line("Test_AddTrackTrackIDAlreadyUsedException");
-        2:  218:         addTrack(rail_system,  1, TYPES.Wellington, TYPES.Petone, TYPES.Wellington, TYPES.UpperHutt);
-        2:  219:         addTrack(rail_system,  1, TYPES.Wellington, TYPES.CroftonDowns, TYPES.Wellington, TYPES.Johnsonville);
-        -:  220:
-    #####:  221:      end;
-        -:  222:   begin
-        -:  223:
-        2:  224:      Assert_Exception (Proc => Test_Raising_Exception'Unrestricted_Access,
-        -:  225:                        Message =>"ADD TRACK: track ID already used");
-        -:  226:
-        2:  227:   end Test_AddTrackTrackIDAlreadyUsedException;
-        -:  228:
-        2:  229:   procedure Test_AddTrack_Origin_Destination_Not_Station_Location_Exception (CWTC: in out AUnit.Test_Cases.Test_Case'Class) is
-        2:  230:      procedure Test_Raising_Exception is
-        -:  231:      begin
-        2:  232:         Put_Line("");
-        2:  233:         Put_Line("Test_AddTrack_Origin_Destination_Not_Station_Location_Exception");
-        2:  234:         addTrack(rail_system,  1, TYPES.No, TYPES.No, TYPES.Wellington, TYPES.UpperHutt);
-        -:  235:
-    #####:  236:      end;
-        -:  237:   begin
-        2:  238:      Assert_Exception (Proc => Test_Raising_Exception'Unrestricted_Access,
-        -:  239:                        Message =>"ADD TRACK: Origin or Destionation has to be a Station location");
-        2:  240:   end Test_AddTrack_Origin_Destination_Not_Station_Location_Exception;
-        -:  241:
-        2:  242:   procedure Test_AddTrack_Origin_equal_Destination_Exception (CWTC: in out AUnit.Test_Cases.Test_Case'Class) is
-        2:  243:      procedure Test_Raising_Exception is
-        -:  244:      begin
-        2:  245:         Put_Line("");
-        2:  246:         Put_Line("Test_AddTrack_Origin_equal_Destination_Exception");
-        2:  247:         addTrack(rail_system,  1, TYPES.Wellington, TYPES.Wellington, TYPES.Wellington, TYPES.UpperHutt);
-        -:  248:
-    #####:  249:      end;
-        -:  250:   begin
-        2:  251:      Assert_Exception (Proc => Test_Raising_Exception'Unrestricted_Access,
-        -:  252:                        Message =>"ADD TRACK:  track Origin should not equals Destination");
-        2:  253:   end Test_AddTrack_Origin_equal_Destination_Exception;
-        -:  254:
+        2:  206:         addTrack(rail_system,  1, TYPES.Wellington, TYPES.Petone, TYPES.Wellington, TYPES.UpperHutt);
+        -:  207:
+    #####:  208:      end;
+        -:  209:   begin
+        2:  210:      Assert_Exception (Proc => Test_Raising_Exception'Unrestricted_Access,
+        -:  211:                        Message =>"ADD TRACK: track already exist");
+        2:  212:   end Test_AlreadyAddTrackException;
+        -:  213:
+        2:  214:    procedure Test_AddTrackTrackIDAlreadyUsedException (CWTC: in out AUnit.Test_Cases.Test_Case'Class) is
+        2:  215:      procedure Test_Raising_Exception is
+        -:  216:      begin
+        2:  217:         Put_Line("");
+        2:  218:         Put_Line("Test_AddTrackTrackIDAlreadyUsedException");
+        2:  219:         addTrack(rail_system,  1, TYPES.Wellington, TYPES.Petone, TYPES.Wellington, TYPES.UpperHutt);
+        2:  220:         addTrack(rail_system,  1, TYPES.Wellington, TYPES.CroftonDowns, TYPES.Wellington, TYPES.Johnsonville);
+        -:  221:
+    #####:  222:      end;
+        -:  223:   begin
+        -:  224:
+        2:  225:      Assert_Exception (Proc => Test_Raising_Exception'Unrestricted_Access,
+        -:  226:                        Message =>"ADD TRACK: track ID already used");
+        -:  227:
+        2:  228:   end Test_AddTrackTrackIDAlreadyUsedException;
+        -:  229:
+        2:  230:   procedure Test_AddTrack_Origin_Destination_Not_Station_Location_Exception (CWTC: in out AUnit.Test_Cases.Test_Case'Class) is
+        2:  231:      procedure Test_Raising_Exception is
+        -:  232:      begin
+        2:  233:         Put_Line("");
+        2:  234:         Put_Line("Test_AddTrack_Origin_Destination_Not_Station_Location_Exception");
+        2:  235:         addTrack(rail_system,  1, TYPES.No, TYPES.No, TYPES.Wellington, TYPES.UpperHutt);
+        -:  236:
+    #####:  237:      end;
+        -:  238:   begin
+        2:  239:      Assert_Exception (Proc => Test_Raising_Exception'Unrestricted_Access,
+        -:  240:                        Message =>"ADD TRACK: Origin or Destionation has to be a Station location");
+        2:  241:   end Test_AddTrack_Origin_Destination_Not_Station_Location_Exception;
+        -:  242:
+        2:  243:   procedure Test_AddTrack_Origin_equal_Destination_Exception (CWTC: in out AUnit.Test_Cases.Test_Case'Class) is
+        2:  244:      procedure Test_Raising_Exception is
+        -:  245:      begin
+        2:  246:         Put_Line("");
+        2:  247:         Put_Line("Test_AddTrack_Origin_equal_Destination_Exception");
+        2:  248:         addTrack(rail_system,  1, TYPES.Wellington, TYPES.Wellington, TYPES.Wellington, TYPES.UpperHutt);
+        -:  249:
+    #####:  250:      end;
+        -:  251:   begin
+        2:  252:      Assert_Exception (Proc => Test_Raising_Exception'Unrestricted_Access,
+        -:  253:                        Message =>"ADD TRACK:  track Origin should not equals Destination");
+        2:  254:   end Test_AddTrack_Origin_equal_Destination_Exception;
         -:  255:
-        2:  256:   procedure Test_AddTrack_Tracks_Line_Origin_Destination_Equal_Exception (CWTC: in out AUnit.Test_Cases.Test_Case'Class) is
-        2:  257:      procedure Test_Raising_Exception is
-        -:  258:      begin
-        2:  259:         Put_Line("");
-        2:  260:         Put_Line("Test_AddTrack_Tracks_Line_Origin_Destination_Equal_Exception");
-        2:  261:         addTrack(rail_system,  1, TYPES.Wellington, TYPES.CroftonDowns, TYPES.Wellington, TYPES.Wellington);
-        -:  262:
-    #####:  263:      end;
-        -:  264:   begin
-        2:  265:      Assert_Exception (Proc => Test_Raising_Exception'Unrestricted_Access,
-        -:  266:                        Message =>"ADD TRACK: Tracks line origin should not equals tracks line destination");
-        2:  267:   end Test_AddTrack_Tracks_Line_Origin_Destination_Equal_Exception;
-        -:  268:
-        2:  269:   procedure Test_AddTrack_ID_Out_Of_Range_Less_1_Exception (CWTC: in out AUnit.Test_Cases.Test_Case'Class) is
-        2:  270:      procedure Test_Raising_Exception is
-        -:  271:      begin
-        2:  272:         Put_Line("");
-        2:  273:         Put_Line("Test_AlreadyAddTrackException");
-        2:  274:         addTrack(rail_system, 0, TYPES.Wellington, TYPES.CroftonDowns, TYPES.Wellington, TYPES.Johnsonville);
-    #####:  275:      end;
-        -:  276:   begin
-        2:  277:      Assert_Exception (Proc => Test_Raising_Exception'Unrestricted_Access,
-        -:  278:                        Message =>"ADD TRACK: ID should not less than 1");
-        2:  279:   end Test_AddTrack_ID_Out_Of_Range_Less_1_Exception;
-        -:  280:
-        2:  281:    procedure Test_AddTrack_ID_Out_Of_Range_Great_100_Exception (CWTC: in out AUnit.Test_Cases.Test_Case'Class) is
-        2:  282:      procedure Test_Raising_Exception is
-        -:  283:      begin
-        2:  284:         Put_Line("");
-        2:  285:         Put_Line("Test_AddTrack_ID_Out_Of_Range_Great_100_Exception");
-        2:  286:         addTrack(rail_system, 101, TYPES.Wellington, TYPES.CroftonDowns, TYPES.Wellington, TYPES.Johnsonville);
-        -:  287:
-    #####:  288:      end;
-        -:  289:   begin
-        2:  290:      Assert_Exception (Proc => Test_Raising_Exception'Unrestricted_Access,
-        -:  291:                        Message =>"ADD TRACK: ID should not Great than 100");
-        2:  292:   end Test_AddTrack_ID_Out_Of_Range_Great_100_Exception;
-        -:  293:
-        2:  294:   procedure Test_Get_Train_By_ID_ID_Out_Of_Range_Less_1_Exception (CWTC: in out AUnit.Test_Cases.Test_Case'Class) is
-        2:  295:      procedure Test_Raising_Exception is
-        2:  296:         TrainA: Trains.Train;
-        -:  297:      begin
-        2:  298:         Put_Line("");
-        2:  299:         Put_Line("Test_Get_Train_By_ID_ID_Out_Of_Range_Less_1_Exception");
-        -:  300:
-        2:  301:         addTrain(rail_system, 1);
-        -:  302:         -- Set train 1 current location to None (not on the railsystem)
-        2:  303:         setTrainLocation(rail_system, trainA, "None", 1);
-        2:  304:         TrainA := getTrainById(rail_system,1);
-        -:  305:
-        2:  306:         TrainA := getTrainById(rail_system,0);
-    #####:  307:      end;
-        -:  308:   begin
-        2:  309:      Assert_Exception (Proc => Test_Raising_Exception'Unrestricted_Access,
-        -:  310:                        Message =>"GET TRAIN BY ID: id should not less than 1");
-        2:  311:   end Test_Get_Train_By_ID_ID_Out_Of_Range_Less_1_Exception;
-        -:  312:
-        2:  313:   procedure Test_Get_Train_By_ID_ID_Out_Of_Range_Great_1_Exception (CWTC: in out AUnit.Test_Cases.Test_Case'Class) is
-        2:  314:      procedure Test_Raising_Exception is
-        2:  315:         TrainA: Trains.Train;
-        -:  316:      begin
-        2:  317:         Put_Line("");
-        2:  318:         Put_Line("Test_Get_Train_By_ID_ID_Out_Of_Range_Great_1_Exception");
-        -:  319:
-        2:  320:         addTrain(rail_system, 1);
-        -:  321:         -- Set train 1 current location to None (not on the railsystem)
-        2:  322:         setTrainLocation(rail_system, trainA, "None", 1);
-        2:  323:         TrainA := getTrainById(rail_system,1);
-        -:  324:
-        2:  325:         TrainA := getTrainById(rail_system,2);
-    #####:  326:      end;
-        -:  327:   begin
-        2:  328:      Assert_Exception (Proc => Test_Raising_Exception'Unrestricted_Access,
-        -:  329:                        Message =>"GET TRAIN BY ID: id out great than the size of the trains");
-        2:  330:   end Test_Get_Train_By_ID_ID_Out_Of_Range_Great_1_Exception;
-        -:  331:
-        -:  332:
-        2:  333:   procedure Test_Add_Train_ID_Out_Of_Range_Less_1_Exception (CWTC: in out AUnit.Test_Cases.Test_Case'Class) is
-        2:  334:      procedure Test_Raising_Exception is
-        2:  335:         TrainA: Trains.Train;
-        -:  336:      begin
-        2:  337:         Put_Line("");
-        2:  338:         Put_Line("Test_Add_Train_ID_Out_Of_Range_Less_1_Exception");
+        -:  256:
+        2:  257:   procedure Test_AddTrack_Tracks_Line_Origin_Destination_Equal_Exception (CWTC: in out AUnit.Test_Cases.Test_Case'Class) is
+        2:  258:      procedure Test_Raising_Exception is
+        -:  259:      begin
+        2:  260:         Put_Line("");
+        2:  261:         Put_Line("Test_AddTrack_Tracks_Line_Origin_Destination_Equal_Exception");
+        2:  262:         addTrack(rail_system,  1, TYPES.Wellington, TYPES.CroftonDowns, TYPES.Wellington, TYPES.Wellington);
+        -:  263:
+    #####:  264:      end;
+        -:  265:   begin
+        2:  266:      Assert_Exception (Proc => Test_Raising_Exception'Unrestricted_Access,
+        -:  267:                        Message =>"ADD TRACK: Tracks line origin should not equals tracks line destination");
+        2:  268:   end Test_AddTrack_Tracks_Line_Origin_Destination_Equal_Exception;
+        -:  269:
+        2:  270:   procedure Test_AddTrack_ID_Out_Of_Range_Less_1_Exception (CWTC: in out AUnit.Test_Cases.Test_Case'Class) is
+        2:  271:      procedure Test_Raising_Exception is
+        -:  272:      begin
+        2:  273:         Put_Line("");
+        2:  274:         Put_Line("Test_AlreadyAddTrackException");
+        2:  275:         addTrack(rail_system, 0, TYPES.Wellington, TYPES.CroftonDowns, TYPES.Wellington, TYPES.Johnsonville);
+    #####:  276:      end;
+        -:  277:   begin
+        2:  278:      Assert_Exception (Proc => Test_Raising_Exception'Unrestricted_Access,
+        -:  279:                        Message =>"ADD TRACK: ID should not less than 1");
+        2:  280:   end Test_AddTrack_ID_Out_Of_Range_Less_1_Exception;
+        -:  281:
+        2:  282:    procedure Test_AddTrack_ID_Out_Of_Range_Great_100_Exception (CWTC: in out AUnit.Test_Cases.Test_Case'Class) is
+        2:  283:      procedure Test_Raising_Exception is
+        -:  284:      begin
+        2:  285:         Put_Line("");
+        2:  286:         Put_Line("Test_AddTrack_ID_Out_Of_Range_Great_100_Exception");
+        2:  287:         addTrack(rail_system, 101, TYPES.Wellington, TYPES.CroftonDowns, TYPES.Wellington, TYPES.Johnsonville);
+        -:  288:
+    #####:  289:      end;
+        -:  290:   begin
+        2:  291:      Assert_Exception (Proc => Test_Raising_Exception'Unrestricted_Access,
+        -:  292:                        Message =>"ADD TRACK: ID should not Great than 100");
+        2:  293:   end Test_AddTrack_ID_Out_Of_Range_Great_100_Exception;
+        -:  294:
+        2:  295:   procedure Test_Get_Train_By_ID_ID_Out_Of_Range_Less_1_Exception (CWTC: in out AUnit.Test_Cases.Test_Case'Class) is
+        2:  296:      procedure Test_Raising_Exception is
+        2:  297:         TrainA: Trains.Train;
+        -:  298:      begin
+        2:  299:         Put_Line("");
+        2:  300:         Put_Line("Test_Get_Train_By_ID_ID_Out_Of_Range_Less_1_Exception");
+        -:  301:
+        2:  302:         addTrain(rail_system, 1);
+        -:  303:         -- Set train 1 current location to None (not on the railsystem)
+        2:  304:         setTrainLocation(rail_system, trainA, "None", 1);
+        2:  305:         TrainA := getTrainById(rail_system,0);
+    #####:  306:      end;
+        -:  307:   begin
+        2:  308:      Assert_Exception (Proc => Test_Raising_Exception'Unrestricted_Access,
+        -:  309:                        Message =>"GET TRAIN BY ID: id should not less than 1");
+        2:  310:   end Test_Get_Train_By_ID_ID_Out_Of_Range_Less_1_Exception;
+        -:  311:
+        2:  312:   procedure Test_Get_Train_By_ID_ID_Out_Of_Range_Great_Train_Size_Exception (CWTC: in out AUnit.Test_Cases.Test_Case'Class) is
+        2:  313:      procedure Test_Raising_Exception is
+        2:  314:         TrainA: Trains.Train;
+        -:  315:      begin
+        2:  316:         Put_Line("");
+        2:  317:         Put_Line("Test_Get_Train_By_ID_ID_Out_Of_Range_Great_Train_Size_Exception");
+        -:  318:
+        2:  319:         addTrain(rail_system, 1);
+        -:  320:         -- Set train 1 current location to None (not on the railsystem)
+        2:  321:         setTrainLocation(rail_system, trainA, "None", 1);
+        2:  322:         TrainA := getTrainById(rail_system,2);
+    #####:  323:      end;
+        -:  324:   begin
+        2:  325:      Assert_Exception (Proc => Test_Raising_Exception'Unrestricted_Access,
+        -:  326:                        Message =>"GET TRAIN BY ID: id out great than the size of the trains");
+        2:  327:   end Test_Get_Train_By_ID_ID_Out_Of_Range_Great_Train_Size_Exception;
+        -:  328:
+        -:  329:
+        2:  330:   procedure Test_Add_Train_ID_Out_Of_Range_Less_1_Exception (CWTC: in out AUnit.Test_Cases.Test_Case'Class) is
+        2:  331:      procedure Test_Raising_Exception is
+        2:  332:         TrainA: Trains.Train;
+        -:  333:      begin
+        2:  334:         Put_Line("");
+        2:  335:         Put_Line("Test_Add_Train_ID_Out_Of_Range_Less_1_Exception");
+        -:  336:
+        2:  337:         addTrain(rail_system, 0);
+        -:  338:         -- Set train 1 current location to None (not on the railsystem)
         -:  339:
-        2:  340:         addTrain(rail_system, 0);
-        -:  341:         -- Set train 1 current location to None (not on the railsystem)
-        -:  342:
-    #####:  343:      end;
-        -:  344:   begin
-        2:  345:      Assert_Exception (Proc => Test_Raising_Exception'Unrestricted_Access,
-        -:  346:                        Message =>"ADD TRAIN: ID should between 1 and 100");
-        2:  347:   end Test_Add_Train_ID_Out_Of_Range_Less_1_Exception;
-        -:  348:
-        2:  349:   procedure Test_Add_Train_ID_Out_Of_Range_Great_MaxSize_Exception (CWTC: in out AUnit.Test_Cases.Test_Case'Class) is
-        2:  350:      procedure Test_Raising_Exception is
-        2:  351:         TrainA: Trains.Train;
-        -:  352:      begin
-        2:  353:         Put_Line("");
-        2:  354:         Put_Line("Test_Add_Train_ID_Out_Of_Range_Great_MaxSize_Exception");
+    #####:  340:      end;
+        -:  341:   begin
+        2:  342:      Assert_Exception (Proc => Test_Raising_Exception'Unrestricted_Access,
+        -:  343:                        Message =>"ADD TRAIN: ID should between 1 and 100");
+        2:  344:   end Test_Add_Train_ID_Out_Of_Range_Less_1_Exception;
+        -:  345:
+        2:  346:   procedure Test_Add_Train_ID_Out_Of_Range_Great_MaxSize_Exception (CWTC: in out AUnit.Test_Cases.Test_Case'Class) is
+        2:  347:      procedure Test_Raising_Exception is
+        2:  348:         TrainA: Trains.Train;
+        -:  349:      begin
+        2:  350:         Put_Line("");
+        2:  351:         Put_Line("Test_Add_Train_ID_Out_Of_Range_Great_MaxSize_Exception");
+        -:  352:
+        2:  353:         addTrain(rail_system, 1000);
+    #####:  354:      end;
         -:  355:
-        2:  356:         addTrain(rail_system, 1000);
-    #####:  357:      end;
-        -:  358:
-        -:  359:   begin
-        2:  360:      Assert_Exception (Proc => Test_Raising_Exception'Unrestricted_Access,
-        -:  361:                        Message =>"ADD TRAIN: ID should between 1 and 100");
-        2:  362:   end Test_Add_Train_ID_Out_Of_Range_Great_MaxSize_Exception;
-        -:  363:
-        -:  364:
-    #####:  365:   procedure Test_Add_Station_Station_ID_Already_Exist_Exception (CWTC: in out AUnit.Test_Cases.Test_Case'Class) is
-    #####:  366:      procedure Test_Raising_Exception is
-    #####:  367:         TrainA: Trains.Train;
-        -:  368:      begin
-    #####:  369:         Put_Line("");
-    #####:  370:         Put_Line("Test_Add_Station_Station_ID_Already_Exist_Exception");
-        -:  371:
-    #####:  372:         addStation(rail_system, 1,TYPES.Wellington);
-    #####:  373:         addStation(rail_system, 1,TYPES.Johnsonville);
-    #####:  374:      end;
-        -:  375:
-        -:  376:   begin
-    #####:  377:      Assert_Exception (Proc => Test_Raising_Exception'Unrestricted_Access,
-        -:  378:                        Message =>"ADD STATION: station id already exist");
-    #####:  379:   end Test_Add_Station_Station_ID_Already_Exist_Exception;
-        -:  380:
-        -:  381:
-        2:  382:   procedure Test_Add_Station_Location_Already_Exist_Exception (CWTC: in out AUnit.Test_Cases.Test_Case'Class) is
-        2:  383:      procedure Test_Raising_Exception is
-        2:  384:         TrainA: Trains.Train;
-        -:  385:      begin
-        2:  386:         Put_Line("");
-        2:  387:         Put_Line("Test_Add_Station_Station_ID_Already_Exist_Exception");
-        -:  388:
-        2:  389:         addStation(rail_system, 1,TYPES.Wellington);
-        2:  390:         addStation(rail_system, 2,TYPES.Wellington);
-    #####:  391:      end;
-        -:  392:
-        -:  393:   begin
-        2:  394:      Assert_Exception (Proc => Test_Raising_Exception'Unrestricted_Access,
-        -:  395:                        Message =>"ADD STATION: station id already exist");
-        2:  396:   end Test_Add_Station_Location_Already_Exist_Exception;
-        -:  397:
-        2:  398:   procedure Test_Add_Station_ID_Out_Of_Range_Less_1_Exception (CWTC: in out AUnit.Test_Cases.Test_Case'Class) is
-        2:  399:      procedure Test_Raising_Exception is
-        2:  400:         TrainA: Trains.Train;
-        -:  401:      begin
-        2:  402:         Put_Line("");
-        2:  403:         Put_Line("Test_Add_Station_ID_Out_Of_Range_Less_1_Exception");
+        -:  356:   begin
+        2:  357:      Assert_Exception (Proc => Test_Raising_Exception'Unrestricted_Access,
+        -:  358:                        Message =>"ADD TRAIN: ID should between 1 and 100");
+        2:  359:   end Test_Add_Train_ID_Out_Of_Range_Great_MaxSize_Exception;
+        -:  360:
+        -:  361:
+        2:  362:   procedure Test_Add_Station_Station_ID_Already_Exist_Exception (CWTC: in out AUnit.Test_Cases.Test_Case'Class) is
+        2:  363:      procedure Test_Raising_Exception is
+        2:  364:         TrainA: Trains.Train;
+        -:  365:      begin
+        2:  366:         Put_Line("");
+        2:  367:         Put_Line("Test_Add_Station_Station_ID_Already_Exist_Exception");
+        -:  368:
+        2:  369:         addStation(rail_system, 1,TYPES.Wellington);
+        2:  370:         addStation(rail_system, 1,TYPES.Johnsonville);
+    #####:  371:      end;
+        -:  372:
+        -:  373:   begin
+        2:  374:      Assert_Exception (Proc => Test_Raising_Exception'Unrestricted_Access,
+        -:  375:                        Message =>"ADD STATION: station id already exist");
+        2:  376:   end Test_Add_Station_Station_ID_Already_Exist_Exception;
+        -:  377:
+        -:  378:
+        2:  379:   procedure Test_Add_Station_Location_Already_Exist_Exception (CWTC: in out AUnit.Test_Cases.Test_Case'Class) is
+        2:  380:      procedure Test_Raising_Exception is
+        2:  381:         TrainA: Trains.Train;
+        -:  382:      begin
+        2:  383:         Put_Line("");
+        2:  384:         Put_Line("Test_Add_Station_Location_Already_Exist_Exception");
+        -:  385:
+        2:  386:         addStation(rail_system, 1,TYPES.Wellington);
+        2:  387:         addStation(rail_system, 2,TYPES.Wellington);
+    #####:  388:      end;
+        -:  389:
+        -:  390:   begin
+        2:  391:      Assert_Exception (Proc => Test_Raising_Exception'Unrestricted_Access,
+        -:  392:                        Message =>"ADD STATION: station id already exist");
+        2:  393:   end Test_Add_Station_Location_Already_Exist_Exception;
+        -:  394:
+        2:  395:   procedure Test_Add_Station_ID_Out_Of_Range_Less_1_Exception (CWTC: in out AUnit.Test_Cases.Test_Case'Class) is
+        2:  396:      procedure Test_Raising_Exception is
+        2:  397:         TrainA: Trains.Train;
+        -:  398:      begin
+        2:  399:         Put_Line("");
+        2:  400:         Put_Line("Test_Add_Station_ID_Out_Of_Range_Less_1_Exception");
+        -:  401:
+        2:  402:        addStation(rail_system, 0,TYPES.Wellington);
+        -:  403:         -- Set train 1 current location to None (not on the railsystem)
         -:  404:
-        2:  405:        addStation(rail_system, 0,TYPES.Wellington);
-        -:  406:         -- Set train 1 current location to None (not on the railsystem)
-        -:  407:
-    #####:  408:      end;
-        -:  409:   begin
-        2:  410:      Assert_Exception (Proc => Test_Raising_Exception'Unrestricted_Access,
-        -:  411:                        Message =>"ADD Station: ID should between 1 and 100");
-        2:  412:   end Test_Add_Station_ID_Out_Of_Range_Less_1_Exception;
-        -:  413:
-        2:  414:   procedure Test_Add_Station_ID_Out_Of_Range_Great_MaxSize_Exception (CWTC: in out AUnit.Test_Cases.Test_Case'Class) is
-        2:  415:      procedure Test_Raising_Exception is
-        2:  416:         TrainA: Trains.Train;
-        -:  417:      begin
-        2:  418:         Put_Line("");
-        2:  419:         Put_Line("Test_Add_Station_ID_Out_Of_Range_Great_MaxSize_Exception");
+    #####:  405:      end;
+        -:  406:   begin
+        2:  407:      Assert_Exception (Proc => Test_Raising_Exception'Unrestricted_Access,
+        -:  408:                        Message =>"ADD Station: ID should between 1 and 100");
+        2:  409:   end Test_Add_Station_ID_Out_Of_Range_Less_1_Exception;
+        -:  410:
+        2:  411:   procedure Test_Add_Station_ID_Out_Of_Range_Great_MaxSize_Exception (CWTC: in out AUnit.Test_Cases.Test_Case'Class) is
+        2:  412:      procedure Test_Raising_Exception is
+        2:  413:         TrainA: Trains.Train;
+        -:  414:      begin
+        2:  415:         Put_Line("");
+        2:  416:         Put_Line("Test_Add_Station_ID_Out_Of_Range_Great_MaxSize_Exception");
+        -:  417:
+        2:  418:         addStation(rail_system, 101,TYPES.Wellington);
+    #####:  419:      end;
         -:  420:
-        2:  421:         addStation(rail_system, 101,TYPES.Wellington);
-    #####:  422:      end;
-        -:  423:
-        -:  424:   begin
-        2:  425:      Assert_Exception (Proc => Test_Raising_Exception'Unrestricted_Access,
-        -:  426:                        Message =>"ADD Station: ID should between 1 and 100");
-        2:  427:   end Test_Add_Station_ID_Out_Of_Range_Great_MaxSize_Exception;
-        -:  428:   --        procedure Test_AlreadyAddTrackException (CWTC: in out AUnit.Test_Cases.Test_Case'Class) is
-        -:  429:   --        procedure Test_Raising_Exception is
-        -:  430:   --           TrainA: Trains.Train;
-        -:  431:   --
-        -:  432:   --        begin
-        -:  433:--           Put_Line("");
-        -:  434:--           Put_Line("Test_AlreadyAddTrackException");
-        -:  435:--           addTrack(rail_system,  1, TYPES.Wellington, TYPES.Petone, TYPES.Wellington, TYPES.UpperHutt);
-        -:  436:--           addTrack(rail_system,  1, TYPES.Wellington, TYPES.CroftonDowns, TYPES.Wellington, TYPES.Johnsonville);
-        -:  437:--
-        -:  438:--        end;
-        -:  439:--     begin
-        -:  440:--        Assert_Exception (Proc => Test_Raising_Exception'Unrestricted_Access,
-        -:  441:--                          Message =>"ADD TRACK: track already exist");
-        -:  442:--        Assert_Exception (Proc => Test_Raising_Exception'Unrestricted_Access,
-        -:  443:--                          Message =>"ADD TRACK: track ID already used");
-        -:  444:--        Assert_Exception (Proc => Test_Raising_Exception'Unrestricted_Access,
-        -:  445:--                          Message =>"ADD TRACK: track Origin should not equals Destination");
-        -:  446:--     end Test_AlreadyAddTrackException;
-        -:  447:
-        -:  448:--     procedure Test_AlreadyAddTrackException_Outgoing (CWTC: in out AUnit.Test_Cases.Test_Case'Class) is
-        -:  449:--        procedure Test_Raising_Exception is
-        -:  450:--
-        -:  451:--        begin
-        -:  452:--
-        -:  453:--
-        -:  454:--
-        -:  455:--        end;
-        -:  456:--     begin
-        -:  457:--        Assert_Exception (Proc => Test_Raising_Exception'Unrestricted_Access,
-        -:  458:--                          Message =>"ADD TRACK: track Origin should not equals Destination");
-        -:  459:--     end Test_AlreadyAddTrackException_Outgoing;
+        -:  421:   begin
+        2:  422:      Assert_Exception (Proc => Test_Raising_Exception'Unrestricted_Access,
+        -:  423:                        Message =>"ADD Station: ID should between 1 and 100");
+        -:  424:
+        2:  425:   end Test_Add_Station_ID_Out_Of_Range_Great_MaxSize_Exception;
+        -:  426:
+        -:  427:
+        2:  428:   procedure Test_Set_Train_Location_LocationID_Out_Of_Range_Exception_Less_1 (CWTC: in out AUnit.Test_Cases.Test_Case'Class) is
+        2:  429:      procedure Test_Raising_Exception is
+        2:  430:         TrainA: Trains.Train;
+        -:  431:      begin
+        2:  432:         Put_Line("");
+        2:  433:         Put_Line("Test_Set_Train_Location_LocationID_Out_Of_Range_Exception_Less_1");
+        -:  434:
+        2:  435:         addTrain(rail_system, 1);
+        2:  436:         RailSystems.setTrainLocation(rail_system, trainA, "None", 0);
+        -:  437:
+        -:  438:
+    #####:  439:      end;
+        -:  440:   begin
+        2:  441:      Assert_Exception (Proc => Test_Raising_Exception'Unrestricted_Access,
+        -:  442:                        Message =>"ADD Station: ID should between 1 and 100");
+        2:  443:   end Test_Set_Train_Location_LocationID_Out_Of_Range_Exception_Less_1;
+        -:  444:
+        2:  445:   procedure Test_Set_Train_Location_LocationID_Out_Of_Range_Exception_Great_Trains_Size (CWTC: in out AUnit.Test_Cases.Test_Case'Class) is
+        2:  446:      procedure Test_Raising_Exception is
+        2:  447:         TrainA: Trains.Train;
+        -:  448:      begin
+        2:  449:         Put_Line("");
+        2:  450:         Put_Line("Test_Set_Train_Location_LocationID_Out_Of_Range_Exception_Great_Trains_Size");
+        -:  451:
+        2:  452:         addTrain(rail_system, 1);
+        2:  453:         RailSystems.setTrainLocation(rail_system, trainA, "None", 2);
+    #####:  454:      end;
+        -:  455:
+        -:  456:   begin
+        2:  457:      Assert_Exception (Proc => Test_Raising_Exception'Unrestricted_Access,
+        -:  458:                        Message =>"ADD Station: ID should between 1 and 100");
+        2:  459:   end Test_Set_Train_Location_LocationID_Out_Of_Range_Exception_Great_Trains_Size;
         -:  460:
         -:  461:
-        -:  462:--     procedure Test_NotFindTrackIdException (CWTC: in out AUnit.Test_Cases.Test_Case'Class) is
-        -:  463:--        procedure Test_Raising_Exception is
-        -:  464:--
-        -:  465:--        begin
-        -:  466:--
-        -:  467:--        end;
-        -:  468:--     begin
-        -:  469:--        Assert_Exception (Proc => Test_Raising_Exception'Unrestricted_Access,
-        -:  470:--                          Message =>"track id not exist (station incoming tracks)");
-        -:  471:--     end Test_NotFindTrackIdException;
-        -:  472:--
-        -:  473:--     procedure Test_StationIDNotExistException (CWTC: in out AUnit.Test_Cases.Test_Case'Class) is
-        -:  474:--        procedure Test_Raising_Exception is
-        -:  475:--
-        -:  476:--        begin
-        -:  477:--
-        -:  478:--        end;
-        -:  479:--     begin
-        -:  480:--        Assert_Exception (Proc => Test_Raising_Exception'Unrestricted_Access,
-        -:  481:--                          Message =>"station id not exist (station incoming tracks)");
-        -:  482:--     end Test_StationIDNotExistException;
-        -:  483:   --==========================================================
-        -:  484:   --               REGISTRATION/NAMING
-        -:  485:   --==========================================================
-        -:  486:   --
-        2:  487:   procedure Register_Tests (T: in out TC) is
-        -:  488:      use AUnit.Test_Cases.Registration;
-        -:  489:   begin
-        2:  490:      Register_Routine (Test => T,
-        -:  491:                        Routine => Test_AddTrain'Access,
-        -:  492:                        Name => "Test_AddTrain");
-        2:  493:      Register_Routine (Test => T,
-        -:  494:                        Routine => Test_AddTrack'Access,
-        -:  495:                        Name => "Test_AddTrack");
-        2:  496:      Register_Routine (Test => T,
-        -:  497:                        Routine => Test_AddStation'Access,
-        -:  498:                        Name => "Test_AddStation");
-        2:  499:      Register_Routine (Test => T,
-        -:  500:                        Routine => Test_AddIncomingTracksAndOutgoingTracks'Access,
-        -:  501:                        Name => "Test_AddIncomingTracksAndOutgoingTracks");
-        -:  502:
-        2:  503:      Register_Routine (Test => T,
-        -:  504:                        Routine => Test_AlreadyAddTrackException'Access,
-        -:  505:                        Name => "Test_AlreadyAddTrackException");
-        -:  506:
-        2:  507:      Register_Routine (Test => T,
-        -:  508:                        Routine => Test_AddTrackTrackIDAlreadyUsedException'Access,
-        -:  509:                        Name => "Test_AddTrackTrackIDAlreadyUsedException");
-        -:  510:
-        2:  511:      Register_Routine (Test => T,
-        -:  512:                        Routine => Test_AddTrack_Origin_Destination_Not_Station_Location_Exception'Access,
-        -:  513:                        Name => "Test_AddTrack_Origin_Destination_Not_Station_Location_Exception");
-        -:  514:
-        2:  515:      Register_Routine (Test => T,
-        -:  516:                        Routine => Test_AddTrack_Origin_equal_Destination_Exception'Access,
-        -:  517:                        Name => "Test_AddTrack_Origin_equal_Destination_Exception");
-        2:  518:      Register_Routine (Test => T,
-        -:  519:                        Routine => Test_AddTrack_ID_Out_Of_Range_Less_1_Exception'Access,
-        -:  520:                        Name => "Test_AddTrack_ID_Out_Of_Range_Less_1_Exception");
-        2:  521:      Register_Routine (Test => T,
-        -:  522:                        Routine => Test_AddTrack_ID_Out_Of_Range_Great_100_Exception'Access,
-        -:  523:                        Name => "Test_AddTrack_ID_Out_Of_Range_Great_100_Exception");
-        2:  524:      Register_Routine (Test => T,
-        -:  525:                        Routine => Test_AddTrack_Tracks_Line_Origin_Destination_Equal_Exception'Access,
-        -:  526:                        Name => "Test_AddTrack_Tracks_Line_Origin_Destination_Equal_Exception");
-        2:  527:      Register_Routine (Test => T,
-        -:  528:                        Routine => Test_Get_Train_By_ID_ID_Out_Of_Range_Less_1_Exception'Access,
-        -:  529:                        Name => "Test_Get_Train_By_ID_ID_Out_Of_Range_Less_1_Exception");
-        2:  530:      Register_Routine (Test => T,
-        -:  531:                        Routine => Test_Get_Train_By_ID_ID_Out_Of_Range_Great_1_Exception'Access,
-        -:  532:                        Name => "Test_Get_Train_By_ID_ID_Out_Of_Range_Great_1_Exception");
-        2:  533:      Register_Routine (Test => T,
-        -:  534:                        Routine => Test_Add_Train_ID_Out_Of_Range_Less_1_Exception'Access,
-        -:  535:                        Name => "Test_Add_Train_ID_Out_Of_Range_Less_1_Exception");
-        2:  536:      Register_Routine (Test => T,
-        -:  537:                        Routine => Test_Add_Train_ID_Out_Of_Range_Great_MaxSize_Exception'Access,
-        -:  538:                        Name => "Test_Add_Train_ID_Out_Of_Range_Great_MaxSize_Exception");
-        2:  539:      Register_Routine (Test => T,
-        -:  540:                        Routine => Test_Add_Station_Location_Already_Exist_Exception'Access,
-        -:  541:                        Name => "Test_Add_Station_Location_Already_Exist_Exception");
-        2:  542:       Register_Routine (Test => T,
-        -:  543:                        Routine => Test_Add_Station_ID_Out_Of_Range_Less_1_Exception'Access,
-        -:  544:                        Name => "Test_Add_Station_ID_Out_Of_Range_Less_1_Exception");
-        -:  545:
-        2:  546:        Register_Routine (Test => T,
-        -:  547:                        Routine => Test_Add_Station_ID_Out_Of_Range_Great_MaxSize_Exception'Access,
-        -:  548:                        Name => "Test_Add_Station_ID_Out_Of_Range_Great_MaxSize_Exception");
-        -:  549:
-        -:  550:      --        Register_Routine (Test => T,
-        -:  551:      --                          Routine => Test_AlreadyAddTrackException_Outgoing'Access,
-        -:  552:      --                          Name => "Test_AlreadyAddTrackException_Outgoing");
-        -:  553:      --        Register_Routine (Test => T,
-        -:  554:      --                          Routine => Test_NotFindTrackIdException'Access,
-        -:  555:      --                          Name => "Test_NotFindTrackIdException");
-        -:  556:      --        Register_Routine (Test => T,
-        -:  557:--                          Routine => Test_StationIDNotExistException'Access,
-        -:  558:--                          Name => "Test_StationIDNotExistException");
-        2:  559:   end Register_Tests;
-        -:  560:
-       36:  561:   function Name (T: TC) return AUnit.Message_String is
-        -:  562:      pragma Unreferenced (T);
-        -:  563:   begin
-       36:  564:      return AUnit.Format ("Tests: Standard Tests");
-        -:  565:   end Name;
+        2:  462:   procedure Test_Set_Train_Location_LocationName_Incorrect_Exception (CWTC: in out AUnit.Test_Cases.Test_Case'Class) is
+        2:  463:      procedure Test_Raising_Exception is
+        2:  464:         TrainA: Trains.Train;
+        -:  465:      begin
+        2:  466:         Put_Line("");
+        2:  467:         Put_Line("Test_Set_Train_Location_LocationName_Incorrect_Exception");
+        -:  468:
+        2:  469:         addTrain(rail_system, 1);
+        2:  470:         RailSystems.setTrainLocation(rail_system, trainA, "a", 2);
+    #####:  471:      end;
+        -:  472:
+        -:  473:   begin
+        2:  474:      Assert_Exception (Proc => Test_Raising_Exception'Unrestricted_Access,
+        -:  475:                        Message =>"ADD Station: ID should between 1 and 100");
+        2:  476:   end Test_Set_Train_Location_LocationName_Incorrect_Exception;
+        -:  477:
+        -:  478:
+        -:  479:
+        -:  480:   --        procedure Test_AlreadyAddTrackException (CWTC: in out AUnit.Test_Cases.Test_Case'Class) is
+        -:  481:   --        procedure Test_Raising_Exception is
+        -:  482:   --           TrainA: Trains.Train;
+        -:  483:      --
+        -:  484:      --        begin
+        -:  485:      --           Put_Line("");
+        -:  486:      --           Put_Line("Test_AlreadyAddTrackException");
+        -:  487:      --           addTrack(rail_system,  1, TYPES.Wellington, TYPES.Petone, TYPES.Wellington, TYPES.UpperHutt);
+        -:  488:      --           addTrack(rail_system,  1, TYPES.Wellington, TYPES.CroftonDowns, TYPES.Wellington, TYPES.Johnsonville);
+        -:  489:      --
+        -:  490:      --        end;
+        -:  491:      --     begin
+        -:  492:      --        Assert_Exception (Proc => Test_Raising_Exception'Unrestricted_Access,
+        -:  493:      --                          Message =>"ADD TRACK: track already exist");
+        -:  494:      --        Assert_Exception (Proc => Test_Raising_Exception'Unrestricted_Access,
+        -:  495:      --                          Message =>"ADD TRACK: track ID already used");
+        -:  496:      --        Assert_Exception (Proc => Test_Raising_Exception'Unrestricted_Access,
+        -:  497:      --                          Message =>"ADD TRACK: track Origin should not equals Destination");
+        -:  498:--     end Test_AlreadyAddTrackException;
+        -:  499:
+        -:  500:--     procedure Test_AlreadyAddTrackException_Outgoing (CWTC: in out AUnit.Test_Cases.Test_Case'Class) is
+        -:  501:--        procedure Test_Raising_Exception is
+        -:  502:--
+        -:  503:--        begin
+        -:  504:--
+        -:  505:--
+        -:  506:--
+        -:  507:--        end;
+        -:  508:--     begin
+        -:  509:--        Assert_Exception (Proc => Test_Raising_Exception'Unrestricted_Access,
+        -:  510:--                          Message =>"ADD TRACK: track Origin should not equals Destination");
+        -:  511:--     end Test_AlreadyAddTrackException_Outgoing;
+        -:  512:
+        -:  513:
+        -:  514:--     procedure Test_NotFindTrackIdException (CWTC: in out AUnit.Test_Cases.Test_Case'Class) is
+        -:  515:--        procedure Test_Raising_Exception is
+        -:  516:--
+        -:  517:--        begin
+        -:  518:--
+        -:  519:--        end;
+        -:  520:--     begin
+        -:  521:--        Assert_Exception (Proc => Test_Raising_Exception'Unrestricted_Access,
+        -:  522:--                          Message =>"track id not exist (station incoming tracks)");
+        -:  523:--     end Test_NotFindTrackIdException;
+        -:  524:--
+        -:  525:--     procedure Test_StationIDNotExistException (CWTC: in out AUnit.Test_Cases.Test_Case'Class) is
+        -:  526:--        procedure Test_Raising_Exception is
+        -:  527:--
+        -:  528:--        begin
+        -:  529:--
+        -:  530:--        end;
+        -:  531:--     begin
+        -:  532:--        Assert_Exception (Proc => Test_Raising_Exception'Unrestricted_Access,
+        -:  533:--                          Message =>"station id not exist (station incoming tracks)");
+        -:  534:--     end Test_StationIDNotExistException;
+        -:  535:   --==========================================================
+        -:  536:   --               REGISTRATION/NAMING
+        -:  537:   --==========================================================
+        -:  538:   --
+        2:  539:   procedure Register_Tests (T: in out TC) is
+        -:  540:      use AUnit.Test_Cases.Registration;
+        -:  541:   begin
+        2:  542:      Register_Routine (Test => T,
+        -:  543:                        Routine => Test_AddTrain'Access,
+        -:  544:                        Name => "Test_AddTrain");
+        2:  545:      Register_Routine (Test => T,
+        -:  546:                        Routine => Test_AddTrack'Access,
+        -:  547:                        Name => "Test_AddTrack");
+        2:  548:      Register_Routine (Test => T,
+        -:  549:                        Routine => Test_AddStation'Access,
+        -:  550:                        Name => "Test_AddStation");
+        2:  551:      Register_Routine (Test => T,
+        -:  552:                        Routine => Test_AddIncomingTracksAndOutgoingTracks'Access,
+        -:  553:                        Name => "Test_AddIncomingTracksAndOutgoingTracks");
+        -:  554:
+        2:  555:      Register_Routine (Test => T,
+        -:  556:                        Routine => Test_AlreadyAddTrackException'Access,
+        -:  557:                        Name => "Test_AlreadyAddTrackException");
+        -:  558:
+        2:  559:      Register_Routine (Test => T,
+        -:  560:                        Routine => Test_AddTrackTrackIDAlreadyUsedException'Access,
+        -:  561:                        Name => "Test_AddTrackTrackIDAlreadyUsedException");
+        -:  562:
+        2:  563:      Register_Routine (Test => T,
+        -:  564:                        Routine => Test_AddTrack_Origin_Destination_Not_Station_Location_Exception'Access,
+        -:  565:                        Name => "Test_AddTrack_Origin_Destination_Not_Station_Location_Exception");
         -:  566:
-        2:  567:end RailSystems.Test;
+        2:  567:      Register_Routine (Test => T,
+        -:  568:                        Routine => Test_AddTrack_Origin_equal_Destination_Exception'Access,
+        -:  569:                        Name => "Test_AddTrack_Origin_equal_Destination_Exception");
+        2:  570:      Register_Routine (Test => T,
+        -:  571:                        Routine => Test_AddTrack_ID_Out_Of_Range_Less_1_Exception'Access,
+        -:  572:                        Name => "Test_AddTrack_ID_Out_Of_Range_Less_1_Exception");
+        2:  573:      Register_Routine (Test => T,
+        -:  574:                        Routine => Test_AddTrack_ID_Out_Of_Range_Great_100_Exception'Access,
+        -:  575:                        Name => "Test_AddTrack_ID_Out_Of_Range_Great_100_Exception");
+        2:  576:      Register_Routine (Test => T,
+        -:  577:                        Routine => Test_AddTrack_Tracks_Line_Origin_Destination_Equal_Exception'Access,
+        -:  578:                        Name => "Test_AddTrack_Tracks_Line_Origin_Destination_Equal_Exception");
+        2:  579:      Register_Routine (Test => T,
+        -:  580:                        Routine => Test_Get_Train_By_ID_ID_Out_Of_Range_Less_1_Exception'Access,
+        -:  581:                        Name => "Test_Get_Train_By_ID_ID_Out_Of_Range_Less_1_Exception");
+        2:  582:      Register_Routine (Test => T,
+        -:  583:                        Routine => Test_Get_Train_By_ID_ID_Out_Of_Range_Great_Train_Size_Exception'Access,
+        -:  584:                        Name => "Test_Get_Train_By_ID_ID_Out_Of_Range_Great_Train_Size_Exception");
+        2:  585:      Register_Routine (Test => T,
+        -:  586:                        Routine => Test_Add_Train_ID_Out_Of_Range_Less_1_Exception'Access,
+        -:  587:                        Name => "Test_Add_Train_ID_Out_Of_Range_Less_1_Exception");
+        2:  588:      Register_Routine (Test => T,
+        -:  589:                        Routine => Test_Add_Train_ID_Out_Of_Range_Great_MaxSize_Exception'Access,
+        -:  590:                        Name => "Test_Add_Train_ID_Out_Of_Range_Great_MaxSize_Exception");
+        2:  591:      Register_Routine (Test => T,
+        -:  592:                        Routine => Test_Add_Station_Location_Already_Exist_Exception'Access,
+        -:  593:                        Name => "Test_Add_Station_Location_Already_Exist_Exception");
+        2:  594:      Register_Routine (Test => T,
+        -:  595:                        Routine => Test_Add_Station_ID_Out_Of_Range_Less_1_Exception'Access,
+        -:  596:                        Name => "Test_Add_Station_ID_Out_Of_Range_Less_1_Exception");
+        -:  597:
+        2:  598:      Register_Routine (Test => T,
+        -:  599:                        Routine => Test_Add_Station_ID_Out_Of_Range_Great_MaxSize_Exception'Access,
+        -:  600:                        Name => "Test_Add_Station_ID_Out_Of_Range_Great_MaxSize_Exception");
+        -:  601:
+        2:  602:      Register_Routine (Test => T,
+        -:  603:                        Routine => Test_Add_Station_Station_ID_Already_Exist_Exception'Access,
+        -:  604:                        Name => "Test_Add_Station_Station_ID_Already_Exist_Exception");
+        -:  605:
+        2:  606:      Register_Routine (Test => T,
+        -:  607:                        Routine => Test_Set_Train_Location_LocationID_Out_Of_Range_Exception_Less_1'Access,
+        -:  608:                        Name => "Test_Set_Train_Location_LocationID_Out_Of_Range_Exception_Less_1");
+        -:  609:
+        2:  610:      Register_Routine (Test => T,
+        -:  611:                        Routine => Test_Set_Train_Location_LocationID_Out_Of_Range_Exception_Great_Trains_Size'Access,
+        -:  612:                        Name => "Test_Set_Train_Location_LocationID_Out_Of_Range_Exception_Great_Trains_Size");
+        2:  613:        Register_Routine (Test => T,
+        -:  614:                        Routine => Test_Set_Train_Location_LocationName_Incorrect_Exception'Access,
+        -:  615:                        Name => "Test_Set_Train_Location_LocationName_Incorrect_Exception");
+        -:  616:
+        -:  617:
+        -:  618:
+        -:  619:      --        Register_Routine (Test => T,
+        -:  620:      --                          Routine => Test_AlreadyAddTrackException_Outgoing'Access,
+        -:  621:      --                          Name => "Test_AlreadyAddTrackException_Outgoing");
+        -:  622:      --        Register_Routine (Test => T,
+        -:  623:      --                          Routine => Test_NotFindTrackIdException'Access,
+        -:  624:      --                          Name => "Test_NotFindTrackIdException");
+        -:  625:      --        Register_Routine (Test => T,
+        -:  626:--                          Routine => Test_StationIDNotExistException'Access,
+        -:  627:--                          Name => "Test_StationIDNotExistException");
+        2:  628:   end Register_Tests;
+        -:  629:
+       44:  630:   function Name (T: TC) return AUnit.Message_String is
+        -:  631:      pragma Unreferenced (T);
+        -:  632:   begin
+       44:  633:      return AUnit.Format ("Tests: Standard Tests");
+        -:  634:   end Name;
+        -:  635:
+        2:  636:end RailSystems.Test;

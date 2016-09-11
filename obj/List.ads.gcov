@@ -66,7 +66,7 @@
         -:   64:   procedure APPEND ( A: in out  LIST_PTR ; D: in DATA_TYPE; ID: in Natural  );
         -:   65:   --  Add the new element at the back of the list and increments the list size
         -:   66:
-        -:   67:   procedure APPEND_TO_FIRST ( A: in out  LIST_PTR ; D: in DATA_TYPE; ID: in Natural);
+        -:   67:--     procedure APPEND_TO_FIRST ( A: in out  LIST_PTR ; D: in DATA_TYPE; ID: in Natural);
         -:   68:   --  Add the new element at the first of the list and increments the list size
         -:   69:
         -:   70:   procedure DELETE_ALL (A: in out LIST_PTR );
@@ -89,19 +89,19 @@
         -:   87:
         -:   88:private
         -:   89:
-   167400:   90: type DATA is
+   177600:   90: type DATA is
         -:   91:      record
-    83700:   92:         DATA: DATA_TYPE;
+    88800:   92:         DATA: DATA_TYPE;
         -:   93:         ID: Natural:=E_ID;
         -:   94:      end record;
         -:   95:   -- List implementation
         -:   96:
         -:   97:
-    83700:   98:   type List_Array is array (Positive range <>) of DATA;
-   168237:   99:   type LIST_PTR(MAX_SIZE: Positive ) is
+    88800:   98:   type List_Array is array (Positive range <>) of DATA;
+   178488:   99:   type LIST_PTR(MAX_SIZE: Positive ) is
         -:  100:      record
         -:  101:         SIZE: Natural:=E_ID;
-      837:  102:         ELEMENTS: List_Array(1 .. MAX_SIZE);
+      888:  102:         ELEMENTS: List_Array(1 .. MAX_SIZE);
         -:  103:         HEAD: Positive:=1;
         -:  104:      end record;
         -:  105:

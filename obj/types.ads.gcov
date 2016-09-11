@@ -1,18 +1,33 @@
         -:    0:Source:C:/Users/JackyChang/Desktop/RailSystem/src/types.ads
-        -:    0:Programs:41
+        -:    0:Programs:38
         -:    1:with List;
-        -:    2:package TYPES is
+        1:    2:package TYPES is
         -:    3:   type MAX_SIZE is RANGE 0..100;
-        -:    4:   type Location_State_Type is (L_Track, L_Station, L_Non);
-    #####:    5:   type Location_Type is array ( Location_State_Type ) of Integer;
-        -:    6:   type Origin_Type is (No,LowerHutt, UpperHutt, Wellington, Johnsonville);
-        -:    7:   type Destination_Type is (No, LowerHutt, UpperHutt, Wellington, Johnsonville);
-        -:    8:   type Station_Locations is (LowerHutt, UpperHutt, Petone, Wellington, Khandallah, CroftonDowns, Ngaio, Johnsonville);
-    #####:    9:   type trackIDsArray is array( MAX_SIZE ) of TYPES.MAX_SIZE;
+        -:    4:   --Move on Track
+        -:    5:   --Stop at Station
+        -:    6:   --Open ready for use
+        -:    7:   --Close Off from the railsystem
+        -:    8:   type Train_State is (Move, Stop, Open, Close);
+        -:    9:--     type Location_Type is array ( Location_State_Type ) of Integer;
         -:   10:
-        -:   11:
+        -:   11:   type Station_Locations is (No, LowerHutt, UpperHutt, Petone, Wellington, Khandallah, CroftonDowns, Ngaio, Johnsonville);
         -:   12:
-        -:   13:
-        -:   14:
+        -:   13:   -- 8 means 8.00 clock and 22 mians 22.00 clock
+        -:   14:   type TimeTable is(S8,S9,S10,S11,S12,S13,S14,S15,S16,S17,S18,S19,S20,S21,S22);
         -:   15:
-        -:   16:end TYPES;
+    27600:   16:   type ODRecord is record
+        -:   17:      Origin: Station_Locations:=No;
+        -:   18:      Destination: Station_Locations:=No;
+        -:   19:   end record;
+        -:   20:   od:ODRecord;
+        -:   21:   package LIST_OD is new LIST
+        -:   22:     ( DATA_TYPE => ODRecord,
+        -:   23:       E_ID=>0,
+        -:   24:       NO_FOUND => od);
+        -:   25:
+        -:   26:--     type ListTracksOrigionAndDesttination is record
+        -:   27:--        ListTracksOandD: LIST_OD.LIST_PTR(MAX_SIZE =>100);
+        -:   28:--     end record;
+        -:   29:
+        -:   30:
+        1:   31:end TYPES;

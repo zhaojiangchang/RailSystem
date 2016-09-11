@@ -323,11 +323,11 @@ package body RailSystems with SPARK_Mode=>On is
       Tracks_Line_Origin_Destination_Equal_Exception: Exception;
 
    begin
-      --        Tracks.Init(track);
-      --        track.ID:=0;
-      --        track.Origin:= TYPES.No;
-      --        track.Destination:=TYPES.No;
-      --        track.TrainID:=0;
+      Print_Natural("id: ", ID);
+      if ID <1 or ID>100 then
+         Print("ADD TRACK: ID should between 1 and Max_Size");
+         Raise ID_Out_Of_Range_Exception;
+      end if;
       sizeTracks:= Stations.LIST_TRACKS.GET_SIZE(r_system.All_Tracks);
       if sizeTracks > 0 then
          for j in 1 ..sizeTracks loop
@@ -362,10 +362,7 @@ package body RailSystems with SPARK_Mode=>On is
          Raise Track_Already_Used_Exception;
       end if;
 
-      if ID <1 or ID>100 then
-         Print("ADD TRACK: ID should between 1 and Max_Size");
-         Raise ID_Out_Of_Range_Exception;
-      end if;
+
       OriginExist := false;
       DestinationExist := false;
       for location in TYPES.No .. TYPES.Johnsonville loop
@@ -377,14 +374,14 @@ package body RailSystems with SPARK_Mode=>On is
          end if;
 
       end loop;
-      if OriginExist = false then
-         Print("ADD TRACK: Origin Not Exist Exception");
-         Raise Origin_Not_Exist_Exception;
-      end if;
-      if DestinationExist = false then
-         Print("ADD TRACK: Destination Not Exist Exception");
-         Raise Destination_Not_Exist_Exception;
-      end if;
+--        if OriginExist = false then
+--           Print("ADD TRACK: Origin Not Exist Exception");
+--           Raise Origin_Not_Exist_Exception;
+--        end if;
+--        if DestinationExist = false then
+--           Print("ADD TRACK: Destination Not Exist Exception");
+--           Raise Destination_Not_Exist_Exception;
+--        end if;
 
       track.ID:=ID;
       track.Origin:= Origin;
@@ -402,8 +399,13 @@ package body RailSystems with SPARK_Mode=>On is
                        ID: in Natural)
    is
       train: Trains.Train;
+      ID_Out_Of_Range_Exception: Exception;
 
    begin
+      if ID <1 or ID>100 then
+         Print("ADD TRAIN: ID should between 1 and 100");
+         Raise ID_Out_Of_Range_Exception;
+      end if;
       train.ID := ID;
       LIST_TRAINS.APPEND(r_system.All_Trains, train,ID);
    end addTrain;
@@ -414,19 +416,15 @@ package body RailSystems with SPARK_Mode=>On is
    function getTrainById(r_system: in RailSystem; ID: in Natural)
                          return Trains.Train
    is
-      ID_Out_Of_Range_Exception: Exception;
+      Get_Train_By_ID_ID_Out_Of_Range_Exception: Exception;
       train: Trains.train;
    begin
       if ID < 1 or ID > RailSystems.LIST_TRAINS.GET_SIZE(r_system.All_Trains) then
          Print("GET TRAIN BY ID: id out of range");
-         Raise ID_Out_Of_Range_Exception;
+         Raise Get_Train_By_ID_ID_Out_Of_Range_Exception;
       end if;
 
-      for i in 1 ..  RailSystems.LIST_TRAINS.GET_SIZE(r_system.All_Trains) loop
-         train:= RailSystems.LIST_TRAINS.GET_ELEMENT_BY_ID(r_system.All_Trains, ID);
-         return train;
-      end loop;
-
+      train:= RailSystems.LIST_TRAINS.GET_ELEMENT_BY_ID(r_system.All_Trains, ID);
       return train;
    end getTrainById;
 
@@ -440,33 +438,50 @@ package body RailSystems with SPARK_Mode=>On is
       Location: in TYPES.Station_Locations)
    is
       station_t: Stations.Station;
-      LocationExist: Boolean;
       tempStation: Stations.Station;
+      --        LocationExist: Boolean;
+      tempStation2: Stations.Station;
       Station_Already_Exist_Exception: Exception;
-      Location_Not_Exist_Exception: Exception;
+--        Location_Not_Exist_Exception: Exception;
+      Station_ID_Already_Exist_Exception: Exception;
+      Add_Station_ID_Out_Of_Range_Exception: Exception;
    begin
       --        Stations.Init(station_t);
-      LocationExist := False;
-      for l in TYPES.No .. TYPES.Johnsonville loop
-         if l = Location then
-            LocationExist := True;
+      --        LocationExist := False;
+      --        for l in TYPES.No .. TYPES.Johnsonville loop
+      --           if l = Location then
+      --              LocationExist := True;
+      --           end if;
+      --        end loop;
+      --        if LocationExist = false then
+      --           Print("ADD STATION: Station Location Not Exist Exception");
+      --           Raise Location_Not_Exist_Exception;
+      --        end if;
+
+      if StationID < 1 or StationID > 100 then
+         Print("ADD STATION: id out of range");
+         Raise Add_Station_ID_Out_Of_Range_Exception;
+      end if;
+      tempStation2:= LIST_STATIONS.GET_ELEMENT_BY_ID(r_system.All_Stations, StationID);
+      if tempStation2.ID /= 0 then
+         Print("ADD STATION: station id already exist");
+         Raise Station_ID_Already_Exist_Exception;
+      end if;
+
+      for i in 1 .. LIST_STATIONS.GET_SIZE(r_system.All_Stations) loop
+         tempStation:= LIST_STATIONS.GET_ELEMENT(r_system.All_Stations,i);
+         if tempStation.Location = Location then
+            Print("ADD STATION: station already exist");
+            Raise Station_Already_Exist_Exception;
          end if;
       end loop;
-      if LocationExist = false then
-         Print("ADD STATION: Station Location Not Exist Exception");
-         Raise Location_Not_Exist_Exception;
-      end if;
-
-      tempStation:= LIST_STATIONS.GET_ELEMENT_BY_ID(r_system.All_Stations, StationID);
-      if tempStation.ID /= 0 then
-         Print("ADD STATION: station already exist");
-         Raise Station_Already_Exist_Exception;
-      end if;
 
 
-      station_t.ID := StationID;
-      station_t.Location := Location;
-      LIST_STATIONS.APPEND(r_system.All_Stations, station_t,StationID);
+
+
+   station_t.ID := StationID;
+   station_t.Location := Location;
+   LIST_STATIONS.APPEND(r_system.All_Stations, station_t,StationID);
 
    end addStation;
 
@@ -495,6 +510,10 @@ package body RailSystems with SPARK_Mode=>On is
       tempStation.ID:=0;
       tempStation.TrainID:=0;
       tempStation.Location:=TYPES.No;
+       if LocationID < 1 or LocationID > LIST_TRAINS.GET_SIZE(r_system.All_Trains) then
+         Print("SET TRAIN LOCATION: id out of range");
+         Raise Set_Train_Location_LocationID_Out_Of_Range_Exception;
+      end if;
       if LocationName = "Track" then
          tempTrack:= Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(r_system.All_Tracks, LocationID);
          if tempTrack.TrainID /=0 then

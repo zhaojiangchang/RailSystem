@@ -1,31 +1,34 @@
-        -:    0:Source:C:/Users/JackyChang/Desktop/RailSystem/src/Stations.ads
-        -:    0:Programs:41
+        -:    0:Source:C:/Users/JackyChang/Desktop/RailSystem/src/stations.ads
+        -:    0:Programs:38
         -:    1:with Tracks;
         -:    2:with list;
         -:    3:with TYPES;
-        2:    4:package Stations
+        1:    4:package Stations
         -:    5:--  is
-        -:    6:with SPARK_Mode is
+        -:    6:with SPARK_Mode=>On is
         -:    7:
-        -:    8:
-        -:    9:     tk : Tracks.Track;
-        -:   10:
-        -:   11:   package LIST_TRACKS is new LIST
-        -:   12:     ( DATA_TYPE => Tracks.Track,
-        -:   13:       SIZE_TYPE => TYPES.MAX_SIZE,
-        -:   14:       NO_FOUND => tk);
-        -:   15:
-       58:   16:   type Station is
-        -:   17:      record
-        -:   18:         ID: TYPES.MAX_SIZE:=0;
-        -:   19:         Location: TYPES.Station_Locations;
-        -:   20:         Incoming: LIST_TRACKS.LIST_PTR;
-        -:   21:         Outgoing: LIST_TRACKS.LIST_PTR;
-        -:   22:      end record;
-        -:   23:
-        -:   24:   procedure Add_IncomingTrack(Station_r: in out Station; track_r: in Tracks.Track);
-        -:   25:   procedure Add_OutgoingTrack(Station_r: in out Station; track_r: in Tracks.Track);
-        -:   26:   procedure Remove_IncomingTrack(Station_r: in out Station; track_r: in Tracks.Track);
-        -:   27:   procedure Remove_OutgoingTrack(Station_r: in out Station; track_r: in Tracks.Track);
-        -:   28:
-        2:   29:end Stations;
+        -:    8:   tk : Tracks.Track;
+        -:    9:
+        -:   10:   package LIST_TRACKS is new LIST
+        -:   11:     ( DATA_TYPE => Tracks.Track,
+        -:   12:       E_ID=>0,
+        -:   13:       NO_FOUND => tk);
+        1:   14:   inTracks:LIST_TRACKS.LIST_PTR(MAX_SIZE =>100);
+        1:   15:   outTracks:LIST_TRACKS.LIST_PTR(MAX_SIZE =>100);
+        -:   16:
+      276:   17:   type Station is
+        -:   18:      record
+        -:   19:         ID: Natural:=0;
+        -:   20:         Location: TYPES.Station_Locations:=TYPES.No;
+        -:   21:         TrainID: Natural:=0;
+      276:   22:         Incoming: LIST_TRACKS.LIST_PTR(MAX_SIZE =>100);
+      276:   23:         Outgoing: LIST_TRACKS.LIST_PTR(MAX_SIZE =>100);
+      276:   24:         TracksLineOriginAndDestination: TYPES.LIST_OD.LIST_PTR(MAX_SIZE =>100);
+        -:   25:      end record;
+        -:   26:--     procedure Init(station_r: in out Station);
+        -:   27:   --     procedure Add_IncomingTrack(Station_r: in out Station; track_r: in Tracks.Track);
+        -:   28:   --     procedure Add_OutgoingTrack(Station_r: in out Station; track_r: in Tracks.Track);
+        -:   29:   --     procedure Remove_IncomingTrack(Station_r: in out Station; track_r: in Tracks.Track);
+        -:   30:   --     procedure Remove_OutgoingTrack(Station_r: in out Station; track_r: in Tracks.Track);
+        -:   31:
+        1:   32:end Stations;

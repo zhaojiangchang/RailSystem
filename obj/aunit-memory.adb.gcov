@@ -1,5 +1,5 @@
         -:    0:Source:C:/GNAT/2016/include/aunit/aunit-memory.adb
-        -:    0:Programs:41
+        -:    0:Programs:38
         -:    1:------------------------------------------------------------------------------
         -:    2:--                                                                          --
         -:    3:--                         GNAT RUN-TIME COMPONENTS                         --
@@ -39,11 +39,11 @@
         -:   37:   -- Alloc --
         -:   38:   -----------
         -:   39:
-       20:   40:   function AUnit_Alloc (Size : size_t) return System.Address is
+       72:   40:   function AUnit_Alloc (Size : size_t) return System.Address is
         -:   41:      function RT_Malloc (Size : size_t) return System.Address;
         -:   42:      pragma Import (C, RT_Malloc, "__gnat_malloc");
         -:   43:   begin
-       20:   44:      return RT_Malloc (Size);
+       72:   44:      return RT_Malloc (Size);
         -:   45:   end AUnit_Alloc;
         -:   46:
         -:   47:   ----------

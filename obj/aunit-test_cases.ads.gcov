@@ -1,5 +1,5 @@
         -:    0:Source:C:/GNAT/2016/include/aunit/aunit-test_cases.ads
-        -:    0:Programs:41
+        -:    0:Programs:38
         -:    1:------------------------------------------------------------------------------
         -:    2:--                                                                          --
         -:    3:--                         GNAT COMPILER COMPONENTS                         --
@@ -46,7 +46,7 @@
         -:   44:
         -:   45:   type Test_Routine is access procedure (Test : in out Test_Case'Class);
         -:   46:
-       22:   47:   type Routine_Spec is record
+       74:   47:   type Routine_Spec is record
         -:   48:      Routine      : Test_Routine;
         -:   49:      Routine_Name : Message_String;
         -:   50:   end record;

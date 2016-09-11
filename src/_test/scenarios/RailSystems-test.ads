@@ -1,5 +1,6 @@
 with AUnit;
 with AUnit.Test_Cases;
+with TYPES;
 
 package RailSystems.Test is
 

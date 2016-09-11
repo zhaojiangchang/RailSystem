@@ -1,5 +1,5 @@
         -:    0:Source:C:/GNAT/2016/include/aunit/aunit-test_cases.adb
-        -:    0:Programs:41
+        -:    0:Programs:38
         -:    1:------------------------------------------------------------------------------
         -:    2:--                                                                          --
         -:    3:--                         GNAT COMPILER COMPONENTS                         --
@@ -43,19 +43,19 @@
         -:   41:   -- Add_Routine --
         -:   42:   -----------------
         -:   43:
-       10:   44:   procedure Add_Routine (T : in out Test_Case'Class; Val : Routine_Spec) is
+       36:   44:   procedure Add_Routine (T : in out Test_Case'Class; Val : Routine_Spec) is
         -:   45:   begin
-       10:   46:      Routine_Lists.Append (T.Routines, Val);
-       10:   47:   end Add_Routine;
+       36:   46:      Routine_Lists.Append (T.Routines, Val);
+       36:   47:   end Add_Routine;
         -:   48:
         -:   49:   --------------
         -:   50:   -- Run_Test --
         -:   51:   --------------
         -:   52:
-       10:   53:   procedure Run_Test (Test : in out Test_Case) is
+       36:   53:   procedure Run_Test (Test : in out Test_Case) is
         -:   54:   begin
-       10:   55:      Test.Routine.Routine (Test);
-       10:   56:   end Run_Test;
+       36:   55:      Test.Routine.Routine (Test);
+       36:   56:   end Run_Test;
         -:   57:
         -:   58:   ---------
         -:   59:   -- Run --
@@ -78,22 +78,22 @@
         2:   76:      Set_Up_Case (Test_Case'Class (Test.all));
         2:   77:      C := First (Test.Routines);
         -:   78:
-       12:   79:      while Has_Element (C) loop
-       10:   80:         Test.Routine := Element (C);
-       10:   81:         if Options.Filter = null
+       38:   79:      while Has_Element (C) loop
+       36:   80:         Test.Routine := Element (C);
+       36:   81:         if Options.Filter = null
     #####:   82:           or else Is_Active (Options.Filter.all, Test.all)
         -:   83:         then
-       10:   84:            AUnit.Simple_Test_Cases.Run
-       10:   85:              (AUnit.Simple_Test_Cases.Test_Case (Test.all)'Access,
+       36:   84:            AUnit.Simple_Test_Cases.Run
+       36:   85:              (AUnit.Simple_Test_Cases.Test_Case (Test.all)'Access,
         -:   86:               Options, R, Result);
         -:   87:
-       10:   88:            if Result = Failure then
+       36:   88:            if Result = Failure then
     #####:   89:               Outcome := Failure;
         -:   90:            end if;
         -:   91:         end if;
         -:   92:
-       10:   93:         Next (C);
-       10:   94:      end loop;
+       36:   93:         Next (C);
+       36:   94:      end loop;
         -:   95:
         2:   96:      Tear_Down_Case (Test_Case'Class (Test.all));
         2:   97:   end Run;
@@ -102,9 +102,9 @@
         -:  100:   -- Routine_Name --
         -:  101:   ------------------
         -:  102:
-       10:  103:   function Routine_Name (Test : Test_Case) return Message_String is
+       36:  103:   function Routine_Name (Test : Test_Case) return Message_String is
         -:  104:   begin
-       10:  105:      return Test.Routine.Routine_Name;
+       36:  105:      return Test.Routine.Routine_Name;
         -:  106:   end Routine_Name;
         -:  107:
         -:  108:   ------------------

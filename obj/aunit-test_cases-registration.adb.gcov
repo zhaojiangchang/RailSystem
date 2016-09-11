@@ -1,5 +1,5 @@
         -:    0:Source:C:/GNAT/2016/include/aunit/aunit-test_cases-registration.adb
-        -:    0:Programs:41
+        -:    0:Programs:38
         -:    1:------------------------------------------------------------------------------
         -:    2:--                                                                          --
         -:    3:--                         GNAT COMPILER COMPONENTS                         --
@@ -40,19 +40,19 @@
         -:   38:   -- Register_Routine --
         -:   39:   ----------------------
         -:   40:
-       10:   41:   procedure Register_Routine
+       36:   41:   procedure Register_Routine
         -:   42:     (Test    : in out Test_Case'Class;
         -:   43:      Routine : Test_Routine;
         -:   44:      Name    : String) is
         -:   45:
-       10:   46:      Formatted_Name : constant Message_String := Format (Name);
-       10:   47:      Val : Routine_Spec;
+       36:   46:      Formatted_Name : constant Message_String := Format (Name);
+       36:   47:      Val : Routine_Spec;
         -:   48:      use Routine_Lists;
         -:   49:
         -:   50:   begin
-       10:   51:      Val  := (Routine, Formatted_Name);
-       10:   52:      Add_Routine (Test, Val);
-       10:   53:   end Register_Routine;
+       36:   51:      Val  := (Routine, Formatted_Name);
+       36:   52:      Add_Routine (Test, Val);
+       36:   53:   end Register_Routine;
         -:   54:
         -:   55:   -------------------
         -:   56:   -- Routine_Count --

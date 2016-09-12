@@ -34,7 +34,7 @@
         -:   32:--  Version for run-time libraries that support exception handling
         -:   33:
         -:   34:separate (AUnit.Assertions)
-       36:   35:procedure Assert_Exception
+       50:   35:procedure Assert_Exception
         -:   36:  (Proc    : Throwing_Exception_Proc;
         -:   37:   Message : String;
         -:   38:   Source  : String := GNAT.Source_Info.File;
@@ -42,13 +42,13 @@
         -:   40:is
         -:   41:begin
         -:   42:   begin
-       36:   43:      Proc.all;
+       50:   43:      Proc.all;
         -:   44:   exception
-       72:   45:      when others =>
-       36:   46:         return;
+       96:   45:      when others =>
+       48:   46:         return;
         -:   47:   end;
         -:   48:
         -:   49:   --  No exception raised: register the failure message
-    #####:   50:   Assert (False, Message, Source, Line);
+        2:   50:   Assert (False, Message, Source, Line);
         -:   51:
         -:   52:end Assert_Exception;

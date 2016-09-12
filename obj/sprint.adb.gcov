@@ -2,35 +2,35 @@
         -:    0:Programs:38
         -:    1:with Ada.Text_IO; use Ada.Text_IO;
         -:    2:package body sPrint is
-       36:    3:   procedure Print(s: in String) is
+      190:    3:   procedure Print(s: in String) is
         -:    4:   begin
-       36:    5:      if s = "" then
+      190:    5:      if s = "" then
     #####:    6:         New_Line;
         -:    7:      else
-       36:    8:         Put_Line(s);
+      190:    8:         Put_Line(s);
         -:    9:      end if;
-       36:   10:   end Print;
+      190:   10:   end Print;
         -:   11:
-       48:   12:   procedure Print_Natural(s: in String; n: in Natural)
+      504:   12:   procedure Print_Natural(s: in String; n: in Natural)
         -:   13:   is
         -:   14:   begin
-       48:   15:      Put_Line(s &":  "& n'Image);
-       48:   16:   end Print_Natural;
+      504:   15:      Put_Line(s &":  "& n'Image);
+      504:   16:   end Print_Natural;
         -:   17:
         -:   18:
-    #####:   19:   procedure Print_Train_State(s: in String; n: in TYPES.Train_State)
+       94:   19:   procedure Print_Train_State(s: in String; n: in TYPES.Train_State)
         -:   20:   is
         -:   21:   begin
-    #####:   22:      Put_Line(s &":  "& n'Image);
+       94:   22:      Put_Line(s &":  "& n'Image);
         -:   23:
-    #####:   24:   end Print_Train_State;
+       94:   24:   end Print_Train_State;
         -:   25:
         -:   26:
-    #####:   27:   procedure Print_Station_Locations(s: in String; n: in TYPES.Station_Locations)
+      188:   27:   procedure Print_Station_Locations(s: in String; n: in TYPES.Station_Locations)
         -:   28:   is
         -:   29:   begin
-    #####:   30:      Put_Line(s &":  "& n'Image);
-    #####:   31:   end Print_Station_Locations;
+      188:   30:      Put_Line(s &":  "& n'Image);
+      188:   31:   end Print_Station_Locations;
         -:   32:
         -:   33:
         -:   34:end sPrint;

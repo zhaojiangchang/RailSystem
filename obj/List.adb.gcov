@@ -16,18 +16,18 @@
         -:   14:   ---------------
         -:   15:   -- CONTAINS --
         -:   16:   ---------------
-       28:   17:   function CONTAINS (A: LIST_PTR; D: DATA_TYPE) return Boolean
+      200:   17:   function CONTAINS (A: LIST_PTR; D: DATA_TYPE) return Boolean
         -:   18:   is
         -:   19:      size: Natural;
         -:   20:   begin
-       28:   21:      size:= A.SIZE;
+      200:   21:      size:= A.SIZE;
         -:   22:
-       28:   23:      for i in 1 .. size loop
-       12:   24:         if A.ELEMENTS(i).DATA = D then
+      200:   23:      for i in 1 .. size loop
+       80:   24:         if A.ELEMENTS(i).DATA = D then
     #####:   25:            return True;
         -:   26:         end if;
-       12:   27:      end loop;
-       28:   28:      return False;
+       80:   27:      end loop;
+      200:   28:      return False;
         -:   29:   end CONTAINS;
         -:   30:
         -:   31:
@@ -61,35 +61,35 @@
         -:   59:   -- GET_SIZE  --
         -:   60:   ---------------
         -:   61:
-      330:   62:   function GET_SIZE ( A: LIST_PTR )
+     1310:   62:   function GET_SIZE ( A: LIST_PTR )
         -:   63:                      return Natural
         -:   64:   is
         -:   65:   begin
-      330:   66:      return A.SIZE;
+     1310:   66:      return A.SIZE;
         -:   67:   end GET_SIZE;
         -:   68:
         -:   69:   ---------------
         -:   70:   -- FULL  --
         -:   71:   ---------------
-       92:   72:   function FULL ( A : in LIST_PTR) return Boolean is
+      539:   72:   function FULL ( A : in LIST_PTR) return Boolean is
         -:   73:   begin
-       92:   74:      return A.SIZE = A.MAX_SIZE;
+      539:   74:      return A.SIZE = A.MAX_SIZE;
         -:   75:   end FULL;
         -:   76:   ---------------
         -:   77:   -- APPEND    --
         -:   78:   ---------------
         -:   79:
-       92:   80:   procedure APPEND ( A: in out LIST_PTR; D: in DATA_TYPE; ID: in Natural)
+      539:   80:   procedure APPEND ( A: in out LIST_PTR; D: in DATA_TYPE; ID: in Natural)
         -:   81:   is
         -:   82:   begin
         -:   83:
         -:   84:      -- create a new cell to store the new element
-       92:   85:      if not FULL(A) then
-       92:   86:         A.SIZE:= A.SIZE +1;
-       92:   87:         A.ELEMENTS(A.SIZE).DATA := D;
-       92:   88:         A.ELEMENTS(A.SIZE).ID:= ID;
+      539:   85:      if not FULL(A) then
+      539:   86:         A.SIZE:= A.SIZE +1;
+      539:   87:         A.ELEMENTS(A.SIZE).DATA := D;
+      539:   88:         A.ELEMENTS(A.SIZE).ID:= ID;
         -:   89:      end if;
-       92:   90:   end APPEND;
+      539:   90:   end APPEND;
         -:   91:
         -:   92:   ---------------
         -:   93:   -- APPEND  TO FIRST  --
@@ -116,33 +116,33 @@
         -:  114:   -- DELETE    --
         -:  115:   ---------------
         -:  116:
-       24:  117:   procedure DELETE_ALL (A: in out LIST_PTR )
+       72:  117:   procedure DELETE_ALL (A: in out LIST_PTR )
         -:  118:   is
         -:  119:   begin
         -:  120:      -- Set size to 0
-       24:  121:      A.SIZE := 0;
-       24:  122:      A.HEAD := 1;
+       72:  121:      A.SIZE := 0;
+       72:  122:      A.HEAD := 1;
         -:  123:
-       24:  124:   end DELETE_ALL;
+       72:  124:   end DELETE_ALL;
         -:  125:
         -:  126:
         -:  127:   -----------------
         -:  128:   -- GET_ELEMENT --
         -:  129:   -----------------
         -:  130:
-       82:  131:   function GET_ELEMENT( A: LIST_PTR ;LOCATION: Natural )
+      559:  131:   function GET_ELEMENT( A: LIST_PTR ;LOCATION: Natural )
         -:  132:                        return DATA_TYPE
         -:  133:   is
         -:  134:   begin
         -:  135:
         -:  136:
-       82:  137:      if  A.SIZE = 0 or LOCATION <= 0  or LOCATION >A.SIZE then
+      559:  137:      if  A.SIZE = 0 or LOCATION <= 0  or LOCATION >A.SIZE then
         -:  138:
         -:  139:         -- If element is not in the list at this location
-    #####:  140:         return NO_FOUND;
+       12:  140:         return NO_FOUND;
         -:  141:
         -:  142:      else
-       82:  143:         return A.ELEMENTS(LOCATION).DATA;
+      547:  143:         return A.ELEMENTS(LOCATION).DATA;
         -:  144:      end if;
         -:  145:
         -:  146:   end GET_ELEMENT;
@@ -174,24 +174,24 @@
         -:  172:   -- GET_ELEMENT_BY_ID--
         -:  173:   ----------------------
         -:  174:
-      288:  175:   function GET_ELEMENT_BY_ID( A: LIST_PTR ;ID: Natural )
+     5002:  175:   function GET_ELEMENT_BY_ID( A: LIST_PTR ;ID: Natural )
         -:  176:                        return DATA_TYPE
         -:  177:   is
         -:  178:   begin
         -:  179:
         -:  180:
-      288:  181:      if  A.SIZE = 0 or ID <= 0  or ID >A.SIZE then
+     5002:  181:      if  A.SIZE = 0 or ID <= 0  or ID >A.SIZE then
         -:  182:
         -:  183:         -- If element is not in the list at this location
-       41:  184:         return NO_FOUND;
+      258:  184:         return NO_FOUND;
         -:  185:
         -:  186:      else
         -:  187:
-      247:  188:         for i in 1 .. A.SIZE loop
-     1401:  189:            if A.ELEMENTS(i).ID = ID then
-      247:  190:               return A.ELEMENTS(i).DATA;
+     4744:  188:         for i in 1 .. A.SIZE loop
+    22618:  189:            if A.ELEMENTS(i).ID = ID then
+     4744:  190:               return A.ELEMENTS(i).DATA;
         -:  191:            end if;
-     1154:  192:         end loop;
+    17874:  192:         end loop;
     #####:  193:         return NO_FOUND;
         -:  194:      end if;
         -:  195:
@@ -202,29 +202,29 @@
         -:  200:--     -- SWAP --
         -:  201:--     ----------
         -:  202:--
-    #####:  203:   procedure SWAP( A: in out LIST_PTR; FIRST: Natural; SECOND: Natural)
-        -:  204:   is
-    #####:  205:      TEMPA,TEMPB: DATA ;
-        -:  206:   begin
-    #####:  207:      if A.SIZE = 0 or FIRST <=0 or SECOND >A.SIZE or FIRST >A.SIZE or SECOND <=0 then
-        -:  208:         -- If the index to find the element is out of bounds raise the exception
-    #####:  209:         raise OUT_OF_BOUNDS;
-        -:  210:      end if;
-        -:  211:
-    #####:  212:      if FIRST = SECOND then
-        -:  213:         -- If first is equal to seconde then there is no need to swap!
-    #####:  214:         return;
-        -:  215:      end if;
-        -:  216:
-        -:  217:      -- Get the data at specified positions
-    #####:  218:      TEMPA:= GET_ELEMENT_RECORD( A, FIRST);
-    #####:  219:      TEMPB:= GET_ELEMENT_RECORD( A, SECOND);
-        -:  220:
-        -:  221:      -- Swap them
-    #####:  222:      REPLACE( A, FIRST, TEMPB);
-    #####:  223:      REPLACE( A, SECOND,TEMPA);
-        -:  224:
-    #####:  225:   end SWAP;
+        -:  203:--     procedure SWAP( A: in out LIST_PTR; FIRST: Natural; SECOND: Natural)
+        -:  204:--     is
+        -:  205:--        TEMPA,TEMPB: DATA ;
+        -:  206:--     begin
+        -:  207:--        if A.SIZE = 0 or FIRST <=0 or SECOND >A.SIZE or FIRST >A.SIZE or SECOND <=0 then
+        -:  208:--           -- If the index to find the element is out of bounds raise the exception
+        -:  209:--           raise OUT_OF_BOUNDS;
+        -:  210:--        end if;
+        -:  211:--
+        -:  212:--        if FIRST = SECOND then
+        -:  213:--           -- If first is equal to seconde then there is no need to swap!
+        -:  214:--           return;
+        -:  215:--        end if;
+        -:  216:--
+        -:  217:--        -- Get the data at specified positions
+        -:  218:--        TEMPA:= GET_ELEMENT_RECORD( A, FIRST);
+        -:  219:--        TEMPB:= GET_ELEMENT_RECORD( A, SECOND);
+        -:  220:--
+        -:  221:--        -- Swap them
+        -:  222:--        REPLACE( A, FIRST, TEMPB);
+        -:  223:--        REPLACE( A, SECOND,TEMPA);
+        -:  224:--
+        -:  225:--     end SWAP;
         -:  226:
         -:  227:--
         -:  228:--     -------------
@@ -248,32 +248,32 @@
         -:  246:   -- REPLACE_BY_ID --
         -:  247:   -------------
         -:  248:
-       16:  249:   procedure REPLACE_BY_ID (A: in out LIST_PTR; ID: Natural; NEWVALUE: DATA_TYPE )
+      385:  249:   procedure REPLACE_BY_ID (A: in out LIST_PTR; ID: Natural; NEWVALUE: DATA_TYPE )
         -:  250:   is
         -:  251:   begin
-       16:  252:      if  A.SIZE = 0 or ID <= 0 or ID > A.SIZE then
+      385:  252:      if  A.SIZE = 0 or ID <= 0 or ID > A.SIZE then
         -:  253:         -- If the index of the element don't exist raise exception
     #####:  254:         raise OUT_OF_BOUNDS;
         -:  255:      else
-       16:  256:         for i in 1 .. A.SIZE loop
-       72:  257:            if A.ELEMENTS(i).ID = ID then
-       16:  258:               A.ELEMENTS(i).DATA := NEWVALUE;
-       32:  259:               return;
+      385:  256:         for i in 1 .. A.SIZE loop
+     1573:  257:            if A.ELEMENTS(i).ID = ID then
+      385:  258:               A.ELEMENTS(i).DATA := NEWVALUE;
+      770:  259:               return;
         -:  260:            end if;
-       56:  261:         end loop;
+     1188:  261:         end loop;
     #####:  262:         raise OUT_OF_BOUNDS;
         -:  263:      end if;
         -:  264:
         -:  265:   end REPLACE_BY_ID;
         -:  266:
         -:  267:
-      225:  268:   procedure Init (A : in out LIST_PTR) is
+      335:  268:   procedure Init (A : in out LIST_PTR) is
         -:  269:   begin
-      225:  270:      A.Head := 1;
-      225:  271:      A.Size := 0;
-      225:  272:      for i in 1.. A.SIZE loop
+      335:  270:      A.Head := 1;
+      335:  271:      A.Size := 0;
+      335:  272:      for i in 1.. A.SIZE loop
     #####:  273:         A.ELEMENTS(i).ID:=0;
     #####:  274:      end loop;
         -:  275:
-      225:  276:   end Init;
+      335:  276:   end Init;
         -:  277:end LIST;

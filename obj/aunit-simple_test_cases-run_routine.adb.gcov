@@ -40,14 +40,14 @@
         -:   38:separate (AUnit.Simple_Test_Cases)
         -:   39:
         -:   40:--  Version for run-time libraries that support exception handling
-       44:   41:procedure Run_Routine
+       66:   41:procedure Run_Routine
         -:   42:  (Test    : access Test_Case'Class;
         -:   43:   Options :        AUnit.Options.AUnit_Options;
         -:   44:   R       : in out Result'Class;
         -:   45:   Outcome :    out Status)
         -:   46:is
-       44:   47:   Unexpected_Exception : Boolean := False;
-       44:   48:   Time : Time_Measure.Time := Time_Measure.Null_Time;
+       66:   47:   Unexpected_Exception : Boolean := False;
+       66:   48:   Time : Time_Measure.Time := Time_Measure.Null_Time;
         -:   49:
         -:   50:   use Time_Measure;
         -:   51:
@@ -55,22 +55,22 @@
         -:   53:
         -:   54:   --  Reset failure list to capture failed assertions for one routine
         -:   55:
-       44:   56:   Clear_Failures (Test.all);
+       66:   56:   Clear_Failures (Test.all);
         -:   57:
         -:   58:   begin
-       44:   59:      if Options.Test_Case_Timer then
+       66:   59:      if Options.Test_Case_Timer then
     #####:   60:         Start_Measure (Time);
         -:   61:      end if;
         -:   62:
-       44:   63:      Run_Test (Test.all);
+       66:   63:      Run_Test (Test.all);
         -:   64:
-       44:   65:      if Options.Test_Case_Timer then
+       64:   65:      if Options.Test_Case_Timer then
     #####:   66:         Stop_Measure (Time);
         -:   67:      end if;
         -:   68:
         -:   69:   exception
-    #####:   70:      when Assertion_Error =>
-    #####:   71:         if Options.Test_Case_Timer then
+        4:   70:      when Assertion_Error =>
+        2:   71:         if Options.Test_Case_Timer then
     #####:   72:            Stop_Measure (Time);
         -:   73:         end if;
         -:   74:
@@ -90,23 +90,23 @@
         -:   88:            Elapsed => Time);
         -:   89:   end;
         -:   90:
-       44:   91:   if not Unexpected_Exception and then not Has_Failures (Test.all) then
-       44:   92:      Outcome := Success;
-       44:   93:      Add_Success (R, Name (Test.all), Routine_Name (Test.all), Time);
+       66:   91:   if not Unexpected_Exception and then not Has_Failures (Test.all) then
+       64:   92:      Outcome := Success;
+       64:   93:      Add_Success (R, Name (Test.all), Routine_Name (Test.all), Time);
         -:   94:   else
-    #####:   95:      Outcome := Failure;
+        2:   95:      Outcome := Failure;
         -:   96:      declare
-    #####:   97:         C : Failure_Iter := First_Failure (Test.all);
+        2:   97:         C : Failure_Iter := First_Failure (Test.all);
         -:   98:      begin
-    #####:   99:         while Has_Failure (C) loop
-    #####:  100:            Add_Failure (R,
-    #####:  101:                         Name (Test.all),
-    #####:  102:                         Routine_Name (Test.all),
-    #####:  103:                         Get_Failure (C),
+        4:   99:         while Has_Failure (C) loop
+        8:  100:            Add_Failure (R,
+        4:  101:                         Name (Test.all),
+        2:  102:                         Routine_Name (Test.all),
+        2:  103:                         Get_Failure (C),
         -:  104:                         Time);
-    #####:  105:            Next (C);
-    #####:  106:         end loop;
-    #####:  107:      end;
+        2:  105:            Next (C);
+        2:  106:         end loop;
+        2:  107:      end;
         -:  108:   end if;
         -:  109:
-       44:  110:end Run_Routine;
+       66:  110:end Run_Routine;

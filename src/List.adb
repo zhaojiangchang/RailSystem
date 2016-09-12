@@ -200,29 +200,29 @@ package body LIST is
 --     -- SWAP --
 --     ----------
 --
-   procedure SWAP( A: in out LIST_PTR; FIRST: Natural; SECOND: Natural)
-   is
-      TEMPA,TEMPB: DATA ;
-   begin
-      if A.SIZE = 0 or FIRST <=0 or SECOND >A.SIZE or FIRST >A.SIZE or SECOND <=0 then
-         -- If the index to find the element is out of bounds raise the exception
-         raise OUT_OF_BOUNDS;
-      end if;
-
-      if FIRST = SECOND then
-         -- If first is equal to seconde then there is no need to swap!
-         return;
-      end if;
-
-      -- Get the data at specified positions
-      TEMPA:= GET_ELEMENT_RECORD( A, FIRST);
-      TEMPB:= GET_ELEMENT_RECORD( A, SECOND);
-
-      -- Swap them
-      REPLACE( A, FIRST, TEMPB);
-      REPLACE( A, SECOND,TEMPA);
-
-   end SWAP;
+--     procedure SWAP( A: in out LIST_PTR; FIRST: Natural; SECOND: Natural)
+--     is
+--        TEMPA,TEMPB: DATA ;
+--     begin
+--        if A.SIZE = 0 or FIRST <=0 or SECOND >A.SIZE or FIRST >A.SIZE or SECOND <=0 then
+--           -- If the index to find the element is out of bounds raise the exception
+--           raise OUT_OF_BOUNDS;
+--        end if;
+--
+--        if FIRST = SECOND then
+--           -- If first is equal to seconde then there is no need to swap!
+--           return;
+--        end if;
+--
+--        -- Get the data at specified positions
+--        TEMPA:= GET_ELEMENT_RECORD( A, FIRST);
+--        TEMPB:= GET_ELEMENT_RECORD( A, SECOND);
+--
+--        -- Swap them
+--        REPLACE( A, FIRST, TEMPB);
+--        REPLACE( A, SECOND,TEMPA);
+--
+--     end SWAP;
 
 --
 --     -------------

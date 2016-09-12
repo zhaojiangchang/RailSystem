@@ -72,7 +72,7 @@
         -:   70:   procedure DELETE_ALL (A: in out LIST_PTR );
         -:   71:   --  Empty the list and put its size to 0
         -:   72:
-        -:   73:   procedure SWAP( A: in out LIST_PTR; FIRST: Natural; SECOND: Natural);
+        -:   73:--     procedure SWAP( A: in out LIST_PTR; FIRST: Natural; SECOND: Natural);
         -:   74:   --  Interchange elements inside the list.
         -:   75:   --  If the first and second positions are out of bound then
         -:   76:   --  OUT_OF_BOUNDS is raised.
@@ -89,19 +89,19 @@
         -:   87:
         -:   88:private
         -:   89:
-   177600:   90: type DATA is
+   451800:   90: type DATA is
         -:   91:      record
-    88800:   92:         DATA: DATA_TYPE;
+   225900:   92:         DATA: DATA_TYPE;
         -:   93:         ID: Natural:=E_ID;
         -:   94:      end record;
         -:   95:   -- List implementation
         -:   96:
         -:   97:
-    88800:   98:   type List_Array is array (Positive range <>) of DATA;
-   178488:   99:   type LIST_PTR(MAX_SIZE: Positive ) is
+   225900:   98:   type List_Array is array (Positive range <>) of DATA;
+   454059:   99:   type LIST_PTR(MAX_SIZE: Positive ) is
         -:  100:      record
         -:  101:         SIZE: Natural:=E_ID;
-      888:  102:         ELEMENTS: List_Array(1 .. MAX_SIZE);
+     2259:  102:         ELEMENTS: List_Array(1 .. MAX_SIZE);
         -:  103:         HEAD: Positive:=1;
         -:  104:      end record;
         -:  105:

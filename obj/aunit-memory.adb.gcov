@@ -39,11 +39,11 @@
         -:   37:   -- Alloc --
         -:   38:   -----------
         -:   39:
-       88:   40:   function AUnit_Alloc (Size : size_t) return System.Address is
+      136:   40:   function AUnit_Alloc (Size : size_t) return System.Address is
         -:   41:      function RT_Malloc (Size : size_t) return System.Address;
         -:   42:      pragma Import (C, RT_Malloc, "__gnat_malloc");
         -:   43:   begin
-       88:   44:      return RT_Malloc (Size);
+      136:   44:      return RT_Malloc (Size);
         -:   45:   end AUnit_Alloc;
         -:   46:
         -:   47:   ----------

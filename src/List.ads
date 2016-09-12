@@ -70,7 +70,7 @@ package LIST is
    procedure DELETE_ALL (A: in out LIST_PTR );
    --  Empty the list and put its size to 0
 
-   procedure SWAP( A: in out LIST_PTR; FIRST: Natural; SECOND: Natural);
+--     procedure SWAP( A: in out LIST_PTR; FIRST: Natural; SECOND: Natural);
    --  Interchange elements inside the list.
    --  If the first and second positions are out of bound then
    --  OUT_OF_BOUNDS is raised.

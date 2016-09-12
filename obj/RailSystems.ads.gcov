@@ -41,9 +41,9 @@
         -:   39:    procedure replaceTrack(r_system: in out RailSystem; TrackID: in Natural;track: in Tracks.Track);
         -:   40:   procedure addIncomingOutgoingTracksForEachStation(r_system: in out RailSystem);
         -:   41:   procedure setTrainLocation(r_system: in RailSystem; train: in out Trains.Train;LocationName: in  String; LocationID: in Natural);
-        -:   42:   procedure go(r_system: in out RailSystem; train: in out Trains.Train)with SPARK_Mode => On;
-        -:   43:   procedure prepareTrain(r_system: in RailSystem; train: in out Trains.Train; Origin: in TYPES.Station_Locations; Destionation: in TYPES.Station_Locations; StartTime: in TYPES.TimeTable);
-        -:   44:   procedure updateTrain(r_system: in RailSystem; train: in out Trains.Train);
+        -:   42:   procedure go(r_system: in out RailSystem; train: in out Trains.Train; count: in Positive)with SPARK_Mode => On;
+        -:   43:   procedure prepareTrain(r_system: in out RailSystem; train: in out Trains.Train; Origin: in TYPES.Station_Locations; Destionation: in TYPES.Station_Locations; StartTime: in TYPES.TimeTable);
+        -:   44:--     procedure updateTrain(r_system: in RailSystem; train: in out Trains.Train);
         -:   45:--     procedure search(r_system: in RailSystem; train: in Trains.Train);
         -:   46:   --function
         -:   47:   function getStationByName(r_system: in RailSystem; stationLocation: in TYPES.Station_Locations) return Stations.Station;

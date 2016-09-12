@@ -63,17 +63,17 @@
         -:   61:   -- New_Node --
         -:   62:   --------------
         -:   63:
-       90:   64:   function New_Node_Type
+      136:   64:   function New_Node_Type
         -:   65:     (Element : Element_Type;
         -:   66:      Next    : Node_Access;
         -:   67:      Prev    : Node_Access) return Node_Access
         -:   68:   is
-       90:   69:      Res : constant Node_Access := New_Node_Type;
+      136:   69:      Res : constant Node_Access := New_Node_Type;
         -:   70:   begin
-       90:   71:      Res.Element := Element;
-       90:   72:      Res.Next    := Next;
-       90:   73:      Res.Prev    := Prev;
-       90:   74:      return Res;
+      136:   71:      Res.Element := Element;
+      136:   72:      Res.Next    := Next;
+      136:   73:      Res.Prev    := Prev;
+      136:   74:      return Res;
         -:   75:   end New_Node_Type;
         -:   76:
         -:   77:   ---------
@@ -109,14 +109,14 @@
         -:  107:   -- Append --
         -:  108:   ------------
         -:  109:
-       90:  110:   procedure Append
+      136:  110:   procedure Append
         -:  111:     (Container : in out List;
         -:  112:      New_Item  : Element_Type;
         -:  113:      Count     : Count_Type := 1)
         -:  114:   is
         -:  115:   begin
-       90:  116:      Insert (Container, No_Element, New_Item, Count);
-       90:  117:   end Append;
+      136:  116:      Insert (Container, No_Element, New_Item, Count);
+      136:  117:   end Append;
         -:  118:
         -:  119:   -----------
         -:  120:   -- Clear --
@@ -315,15 +315,15 @@
         -:  313:   -- Element --
         -:  314:   -------------
         -:  315:
-      356:  316:   function Element (Position : Cursor) return Element_Type is
+      542:  316:   function Element (Position : Cursor) return Element_Type is
         -:  317:   begin
-      356:  318:      if Position.Node = null then
+      542:  318:      if Position.Node = null then
     #####:  319:         raise Constraint_Error;
         -:  320:      end if;
         -:  321:
         -:  322:      pragma Assert (Vet (Position), "bad cursor in Element");
         -:  323:
-      356:  324:      return Position.Node.Element;
+      542:  324:      return Position.Node.Element;
         -:  325:   end Element;
         -:  326:
         -:  327:   ----------
@@ -364,13 +364,13 @@
         -:  362:   -- First --
         -:  363:   -----------
         -:  364:
-      148:  365:   function First (Container : List) return Cursor is
+      216:  365:   function First (Container : List) return Cursor is
         -:  366:   begin
-      148:  367:      if Container.First = null then
-       98:  368:         return No_Element;
+      216:  367:      if Container.First = null then
+      136:  368:         return No_Element;
         -:  369:      end if;
         -:  370:
-       50:  371:      return Cursor'(Container'Unchecked_Access, Container.First);
+       80:  371:      return Cursor'(Container'Unchecked_Access, Container.First);
         -:  372:   end First;
         -:  373:
         -:  374:   -------------------
@@ -565,27 +565,27 @@
         -:  563:   -- Has_Element --
         -:  564:   -----------------
         -:  565:
-      288:  566:   function Has_Element (Position : Cursor) return Boolean is
+      432:  566:   function Has_Element (Position : Cursor) return Boolean is
         -:  567:   begin
         -:  568:      pragma Assert (Vet (Position), "bad cursor in Has_Element");
-      288:  569:      return Position.Node /= null;
+      432:  569:      return Position.Node /= null;
         -:  570:   end Has_Element;
         -:  571:
         -:  572:   ------------
         -:  573:   -- Insert --
         -:  574:   ------------
         -:  575:
-       90:  576:   procedure Insert
+      136:  576:   procedure Insert
         -:  577:     (Container : in out List;
         -:  578:      Before    : Cursor;
         -:  579:      New_Item  : Element_Type;
         -:  580:      Position  : out Cursor;
         -:  581:      Count     : Count_Type := 1)
         -:  582:   is
-       90:  583:      New_Node : Node_Access;
+      136:  583:      New_Node : Node_Access;
         -:  584:
         -:  585:   begin
-       90:  586:      if Before.Container /= null then
+      136:  586:      if Before.Container /= null then
     #####:  587:         if Before.Container /= Container'Unrestricted_Access then
     #####:  588:            raise Program_Error;
         -:  589:         end if;
@@ -593,41 +593,41 @@
         -:  591:         pragma Assert (Vet (Before), "bad cursor in Insert");
         -:  592:      end if;
         -:  593:
-       90:  594:      if Count = 0 then
+      136:  594:      if Count = 0 then
     #####:  595:         Position := Before;
     #####:  596:         return;
         -:  597:      end if;
         -:  598:
-       90:  599:      if Container.Length > Count_Type'Last - Count then
+      136:  599:      if Container.Length > Count_Type'Last - Count then
     #####:  600:         raise Constraint_Error;
         -:  601:      end if;
         -:  602:
-       90:  603:      if Container.Busy > 0 then
+      136:  603:      if Container.Busy > 0 then
     #####:  604:         raise Program_Error;
         -:  605:      end if;
         -:  606:
-       90:  607:      New_Node := New_Node_Type (New_Item, null, null);
-       90:  608:      Insert_Internal (Container, Before.Node, New_Node);
+      136:  607:      New_Node := New_Node_Type (New_Item, null, null);
+      136:  608:      Insert_Internal (Container, Before.Node, New_Node);
         -:  609:
-       90:  610:      Position := Cursor'(Container'Unchecked_Access, New_Node);
+      136:  610:      Position := Cursor'(Container'Unchecked_Access, New_Node);
         -:  611:
-       90:  612:      for J in Count_Type'(2) .. Count loop
+      136:  612:      for J in Count_Type'(2) .. Count loop
     #####:  613:         New_Node := New_Node_Type (New_Item, null, null);
     #####:  614:         Insert_Internal (Container, Before.Node, New_Node);
     #####:  615:      end loop;
-       90:  616:   end Insert;
+      136:  616:   end Insert;
         -:  617:
-       90:  618:   procedure Insert
+      136:  618:   procedure Insert
         -:  619:     (Container : in out List;
         -:  620:      Before    : Cursor;
         -:  621:      New_Item  : Element_Type;
         -:  622:      Count     : Count_Type := 1)
         -:  623:   is
-       90:  624:      Position : Cursor;
+      136:  624:      Position : Cursor;
         -:  625:      pragma Unreferenced (Position);
         -:  626:   begin
-       90:  627:      Insert (Container, Before, New_Item, Position, Count);
-       90:  628:   end Insert;
+      136:  627:      Insert (Container, Before, New_Item, Position, Count);
+      136:  628:   end Insert;
         -:  629:
     #####:  630:   procedure Insert
         -:  631:     (Container : in out List;
@@ -674,27 +674,27 @@
         -:  672:   -- Insert_Internal --
         -:  673:   ---------------------
         -:  674:
-       90:  675:   procedure Insert_Internal
+      136:  675:   procedure Insert_Internal
         -:  676:     (Container : in out List;
         -:  677:      Before    : Node_Access;
         -:  678:      New_Node  : Node_Access)
         -:  679:   is
         -:  680:   begin
-       90:  681:      if Container.Length = 0 then
+      136:  681:      if Container.Length = 0 then
         -:  682:         pragma Assert (Before = null);
         -:  683:         pragma Assert (Container.First = null);
         -:  684:         pragma Assert (Container.Last = null);
         -:  685:
-        6:  686:         Container.First := New_Node;
-        6:  687:         Container.Last := New_Node;
+        8:  686:         Container.First := New_Node;
+        8:  687:         Container.Last := New_Node;
         -:  688:
-       84:  689:      elsif Before = null then
+      128:  689:      elsif Before = null then
         -:  690:         pragma Assert (Container.Last.Next = null);
         -:  691:
-       84:  692:         Container.Last.Next := New_Node;
-       84:  693:         New_Node.Prev := Container.Last;
+      128:  692:         Container.Last.Next := New_Node;
+      128:  693:         New_Node.Prev := Container.Last;
         -:  694:
-       84:  695:         Container.Last := New_Node;
+      128:  695:         Container.Last := New_Node;
         -:  696:
     #####:  697:      elsif Before = Container.First then
         -:  698:         pragma Assert (Container.First.Prev = null);
@@ -715,8 +715,8 @@
     #####:  713:         Before.Prev := New_Node;
         -:  714:      end if;
         -:  715:
-       90:  716:      Container.Length := Container.Length + 1;
-       90:  717:   end Insert_Internal;
+      136:  716:      Container.Length := Container.Length + 1;
+      136:  717:   end Insert_Internal;
         -:  718:
         -:  719:   --------------
         -:  720:   -- Is_Empty --
@@ -744,10 +744,10 @@
         6:  742:      B := B + 1;
         -:  743:
         -:  744:      begin
-      138:  745:         while Node /= null loop
-      132:  746:            Process (Cursor'(Container'Unchecked_Access, Node));
-      132:  747:            Node := Node.Next;
-      132:  748:         end loop;
+      204:  745:         while Node /= null loop
+      198:  746:            Process (Cursor'(Container'Unchecked_Access, Node));
+      198:  747:            Node := Node.Next;
+      198:  748:         end loop;
         -:  749:      end;
         -:  750:
         6:  751:      B := B - 1;
@@ -821,27 +821,27 @@
         -:  819:   -- Next --
         -:  820:   ----------
         -:  821:
-       90:  822:   procedure Next (Position : in out Cursor) is
+      138:  822:   procedure Next (Position : in out Cursor) is
         -:  823:   begin
-       90:  824:      Position := Next (Position);
-       90:  825:   end Next;
+      138:  824:      Position := Next (Position);
+      138:  825:   end Next;
         -:  826:
-       90:  827:   function Next (Position : Cursor) return Cursor is
+      138:  827:   function Next (Position : Cursor) return Cursor is
         -:  828:   begin
-       90:  829:      if Position.Node = null then
+      138:  829:      if Position.Node = null then
     #####:  830:         return No_Element;
         -:  831:      end if;
         -:  832:
         -:  833:      pragma Assert (Vet (Position), "bad cursor in Next");
         -:  834:
         -:  835:      declare
-       90:  836:         Next_Node : constant Node_Access := Position.Node.Next;
+      138:  836:         Next_Node : constant Node_Access := Position.Node.Next;
         -:  837:      begin
-       90:  838:         if Next_Node = null then
-        6:  839:            return No_Element;
+      138:  838:         if Next_Node = null then
+       12:  839:            return No_Element;
         -:  840:         end if;
         -:  841:
-       84:  842:         return Cursor'(Position.Container, Next_Node);
+      126:  842:         return Cursor'(Position.Container, Next_Node);
         -:  843:      end;
         -:  844:   end Next;
         -:  845:
@@ -1212,19 +1212,19 @@
         -: 1210:      pragma Assert (Container.Last.Next = null);
         -: 1211:   end Splice;
         -: 1212:
-       44: 1213:   procedure Splice
+       66: 1213:   procedure Splice
         -: 1214:     (Target   : in out List;
         -: 1215:      Before   : Cursor;
         -: 1216:      Source   : in out List;
         -: 1217:      Position : in out Cursor)
         -: 1218:   is
         -: 1219:   begin
-       44: 1220:      if Target'Address = Source'Address then
+       66: 1220:      if Target'Address = Source'Address then
     #####: 1221:         Splice (Target, Before, Position);
     #####: 1222:         return;
         -: 1223:      end if;
         -: 1224:
-       44: 1225:      if Before.Container /= null then
+       66: 1225:      if Before.Container /= null then
     #####: 1226:         if Before.Container /= Target'Unrestricted_Access then
     #####: 1227:            raise Program_Error;
         -: 1228:         end if;
@@ -1232,38 +1232,38 @@
         -: 1230:         pragma Assert (Vet (Before), "bad Before cursor in Splice");
         -: 1231:      end if;
         -: 1232:
-       44: 1233:      if Position.Node = null then
+       66: 1233:      if Position.Node = null then
     #####: 1234:         raise Constraint_Error;
         -: 1235:      end if;
         -: 1236:
-       44: 1237:      if Position.Container /= Source'Unrestricted_Access then
+       66: 1237:      if Position.Container /= Source'Unrestricted_Access then
     #####: 1238:         raise Program_Error;
         -: 1239:      end if;
         -: 1240:
         -: 1241:      pragma Assert (Vet (Position), "bad Position cursor in Splice");
         -: 1242:
-       44: 1243:      if Target.Length = Count_Type'Last then
+       66: 1243:      if Target.Length = Count_Type'Last then
     #####: 1244:         raise Constraint_Error;
         -: 1245:      end if;
         -: 1246:
-       44: 1247:      if Target.Busy > 0 then
+       66: 1247:      if Target.Busy > 0 then
     #####: 1248:         raise Program_Error;
         -: 1249:      end if;
         -: 1250:
-       44: 1251:      if Source.Busy > 0 then
+       66: 1251:      if Source.Busy > 0 then
     #####: 1252:         raise Program_Error;
         -: 1253:      end if;
         -: 1254:
-       44: 1255:      if Position.Node = Source.First then
-       44: 1256:         Source.First := Position.Node.Next;
+       66: 1255:      if Position.Node = Source.First then
+       66: 1256:         Source.First := Position.Node.Next;
         -: 1257:
-       44: 1258:         if Position.Node = Source.Last then
+       66: 1258:         if Position.Node = Source.Last then
         -: 1259:            pragma Assert (Source.First = null);
         -: 1260:            pragma Assert (Source.Length = 1);
         2: 1261:            Source.Last := null;
         -: 1262:
         -: 1263:         else
-       42: 1264:            Source.First.Prev := null;
+       64: 1264:            Source.First.Prev := null;
         -: 1265:         end if;
         -: 1266:
     #####: 1267:      elsif Position.Node = Source.Last then
@@ -1277,24 +1277,24 @@
     #####: 1275:         Position.Node.Next.Prev := Position.Node.Prev;
         -: 1276:      end if;
         -: 1277:
-       44: 1278:      if Target.Length = 0 then
+       66: 1278:      if Target.Length = 0 then
         -: 1279:         pragma Assert (Target.First = null);
         -: 1280:         pragma Assert (Target.Last = null);
         -: 1281:         pragma Assert (Before = No_Element);
         -: 1282:
-        2: 1283:         Target.First := Position.Node;
-        2: 1284:         Target.Last := Position.Node;
+        4: 1283:         Target.First := Position.Node;
+        4: 1284:         Target.Last := Position.Node;
         -: 1285:
-        2: 1286:         Target.First.Prev := null;
-        2: 1287:         Target.Last.Next := null;
+        4: 1286:         Target.First.Prev := null;
+        4: 1287:         Target.Last.Next := null;
         -: 1288:
-       42: 1289:      elsif Before.Node = null then
+       62: 1289:      elsif Before.Node = null then
         -: 1290:         pragma Assert (Target.Last.Next = null);
-       42: 1291:         Target.Last.Next := Position.Node;
-       42: 1292:         Position.Node.Prev := Target.Last;
+       62: 1291:         Target.Last.Next := Position.Node;
+       62: 1292:         Position.Node.Prev := Target.Last;
         -: 1293:
-       42: 1294:         Target.Last := Position.Node;
-       42: 1295:         Target.Last.Next := null;
+       62: 1294:         Target.Last := Position.Node;
+       62: 1295:         Target.Last.Next := null;
         -: 1296:
     #####: 1297:      elsif Before.Node = Target.First then
         -: 1298:         pragma Assert (Target.First.Prev = null);
@@ -1313,11 +1313,11 @@
     #####: 1311:         Position.Node.Next := Before.Node;
         -: 1312:      end if;
         -: 1313:
-       44: 1314:      Target.Length := Target.Length + 1;
-       44: 1315:      Source.Length := Source.Length - 1;
+       66: 1314:      Target.Length := Target.Length + 1;
+       66: 1315:      Source.Length := Source.Length - 1;
         -: 1316:
-       44: 1317:      Position.Container := Target'Unchecked_Access;
-       44: 1318:   end Splice;
+       66: 1317:      Position.Container := Target'Unchecked_Access;
+       66: 1318:   end Splice;
         -: 1319:
         -: 1320:   ----------
         -: 1321:   -- Swap --

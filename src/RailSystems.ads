@@ -39,9 +39,9 @@ with SPARK_Mode=>On is
     procedure replaceTrack(r_system: in out RailSystem; TrackID: in Natural;track: in Tracks.Track);
    procedure addIncomingOutgoingTracksForEachStation(r_system: in out RailSystem);
    procedure setTrainLocation(r_system: in RailSystem; train: in out Trains.Train;LocationName: in  String; LocationID: in Natural);
-   procedure go(r_system: in out RailSystem; train: in out Trains.Train)with SPARK_Mode => On;
-   procedure prepareTrain(r_system: in RailSystem; train: in out Trains.Train; Origin: in TYPES.Station_Locations; Destionation: in TYPES.Station_Locations; StartTime: in TYPES.TimeTable);
-   procedure updateTrain(r_system: in RailSystem; train: in out Trains.Train);
+   procedure go(r_system: in out RailSystem; train: in out Trains.Train; count: in Positive)with SPARK_Mode => On;
+   procedure prepareTrain(r_system: in out RailSystem; train: in out Trains.Train; Origin: in TYPES.Station_Locations; Destionation: in TYPES.Station_Locations; StartTime: in TYPES.TimeTable);
+--     procedure updateTrain(r_system: in RailSystem; train: in out Trains.Train);
 --     procedure search(r_system: in RailSystem; train: in Trains.Train);
    --function
    function getStationByName(r_system: in RailSystem; stationLocation: in TYPES.Station_Locations) return Stations.Station;

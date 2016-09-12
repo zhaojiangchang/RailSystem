@@ -88,28 +88,28 @@
         -:   86:   -- Run --
         -:   87:   ---------
         -:   88:
-       44:   89:   procedure Run
+       66:   89:   procedure Run
         -:   90:     (Test    : access Test_Case;
         -:   91:      Options :        AUnit_Options;
         -:   92:      R       : in out Result'Class;
         -:   93:      Outcome :    out Status)
         -:   94:   is
-       44:   95:      Old : constant Test_Access := AUnit.Assertions.Current_Test;
+       66:   95:      Old : constant Test_Access := AUnit.Assertions.Current_Test;
         -:   96:   begin
-       44:   97:      Outcome := Success;
-       44:   98:      if Options.Filter = null
+       66:   97:      Outcome := Success;
+       66:   98:      if Options.Filter = null
     #####:   99:        or else Is_Active (Options.Filter.all, Test.all)
         -:  100:      then
-       44:  101:         AUnit.Assertions.Set_Current_Test (Test_Access (Test));
-       44:  102:         Init_Test (Test.all);
-       44:  103:         Start_Test (R, 1);
+       66:  101:         AUnit.Assertions.Set_Current_Test (Test_Access (Test));
+       66:  102:         Init_Test (Test.all);
+       66:  103:         Start_Test (R, 1);
         -:  104:
         -:  105:         --  Run test routine
-       44:  106:         Set_Up (Test_Case'Class (Test.all));
-       44:  107:         Run_Routine (Test, Options, R, Outcome);
-       44:  108:         Tear_Down (Test_Case'Class (Test.all));
-       44:  109:         AUnit.Assertions.Set_Current_Test (Old);
+       66:  106:         Set_Up (Test_Case'Class (Test.all));
+       66:  107:         Run_Routine (Test, Options, R, Outcome);
+       66:  108:         Tear_Down (Test_Case'Class (Test.all));
+       66:  109:         AUnit.Assertions.Set_Current_Test (Old);
         -:  110:      end if;
-       44:  111:   end Run;
+       66:  111:   end Run;
         -:  112:
         -:  113:end AUnit.Simple_Test_Cases;

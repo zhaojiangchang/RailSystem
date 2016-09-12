@@ -43,19 +43,19 @@
         -:   41:   -- Add_Routine --
         -:   42:   -----------------
         -:   43:
-       44:   44:   procedure Add_Routine (T : in out Test_Case'Class; Val : Routine_Spec) is
+       66:   44:   procedure Add_Routine (T : in out Test_Case'Class; Val : Routine_Spec) is
         -:   45:   begin
-       44:   46:      Routine_Lists.Append (T.Routines, Val);
-       44:   47:   end Add_Routine;
+       66:   46:      Routine_Lists.Append (T.Routines, Val);
+       66:   47:   end Add_Routine;
         -:   48:
         -:   49:   --------------
         -:   50:   -- Run_Test --
         -:   51:   --------------
         -:   52:
-       44:   53:   procedure Run_Test (Test : in out Test_Case) is
+       66:   53:   procedure Run_Test (Test : in out Test_Case) is
         -:   54:   begin
-       44:   55:      Test.Routine.Routine (Test);
-       44:   56:   end Run_Test;
+       66:   55:      Test.Routine.Routine (Test);
+       64:   56:   end Run_Test;
         -:   57:
         -:   58:   ---------
         -:   59:   -- Run --
@@ -78,22 +78,22 @@
         2:   76:      Set_Up_Case (Test_Case'Class (Test.all));
         2:   77:      C := First (Test.Routines);
         -:   78:
-       46:   79:      while Has_Element (C) loop
-       44:   80:         Test.Routine := Element (C);
-       44:   81:         if Options.Filter = null
+       68:   79:      while Has_Element (C) loop
+       66:   80:         Test.Routine := Element (C);
+       66:   81:         if Options.Filter = null
     #####:   82:           or else Is_Active (Options.Filter.all, Test.all)
         -:   83:         then
-       44:   84:            AUnit.Simple_Test_Cases.Run
-       44:   85:              (AUnit.Simple_Test_Cases.Test_Case (Test.all)'Access,
+       66:   84:            AUnit.Simple_Test_Cases.Run
+       66:   85:              (AUnit.Simple_Test_Cases.Test_Case (Test.all)'Access,
         -:   86:               Options, R, Result);
         -:   87:
-       44:   88:            if Result = Failure then
-    #####:   89:               Outcome := Failure;
+       66:   88:            if Result = Failure then
+        2:   89:               Outcome := Failure;
         -:   90:            end if;
         -:   91:         end if;
         -:   92:
-       44:   93:         Next (C);
-       44:   94:      end loop;
+       66:   93:         Next (C);
+       66:   94:      end loop;
         -:   95:
         2:   96:      Tear_Down_Case (Test_Case'Class (Test.all));
         2:   97:   end Run;
@@ -102,9 +102,9 @@
         -:  100:   -- Routine_Name --
         -:  101:   ------------------
         -:  102:
-       44:  103:   function Routine_Name (Test : Test_Case) return Message_String is
+       66:  103:   function Routine_Name (Test : Test_Case) return Message_String is
         -:  104:   begin
-       44:  105:      return Test.Routine.Routine_Name;
+       66:  105:      return Test.Routine.Routine_Name;
         -:  106:   end Routine_Name;
         -:  107:
         -:  108:   ------------------

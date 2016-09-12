@@ -10,43 +10,88 @@
         2:    8:package RailSystems
         -:    9:--  is
         -:   10:with SPARK_Mode=>On is
-        2:   11:  tn : Trains.Train;
-        -:   12:   package LIST_TRAINS is new LIST
-        -:   13:     ( DATA_TYPE => Trains.Train,
-        -:   14:       E_ID=>0,
-        -:   15:       NO_FOUND => tn);
-        -:   16:
-        2:   17:   sn : Stations.Station;
-        -:   18:   package LIST_STATIONS is new LIST
-        -:   19:     ( DATA_TYPE => Stations.Station,
-        -:   20:       E_ID=>0,
-        -:   21:       NO_FOUND => sn);
-        -:   22:
-        -:   23:
-        2:   24:   type RailSystem is
-        -:   25:      record
-        2:   26:         All_Trains: LIST_TRAINS.LIST_PTR(MAX_SIZE =>100);
-        2:   27:         All_Stations: LIST_STATIONS.LIST_PTR(MAX_SIZE =>100);
-        2:   28:         All_Tracks: Stations.LIST_TRACKS.LIST_PTR(MAX_SIZE =>100);
-        -:   29:      end record;
-        -:   30:
-        -:   31:   --procedure
-        -:   32:   --     procedure InitTrack(track_r: in out Tracks.Track);
-        -:   33:   procedure Init(r_system: in out RailSystem);
-        -:   34:   procedure addTrain (r_system: in out RailSystem; ID: in Natural);
-        -:   35:   procedure addTrack(r_system: in out RailSystem; ID: in Natural; Origin: in TYPES.Station_Locations; Destination: in TYPES.Station_Locations; LineOrigin: in TYPES.Station_Locations; LineDestination: in TYPES.Station_Locations);
-        -:   36:   procedure addStation(r_system: in out RailSystem; StationID: in Natural; Location: TYPES.Station_Locations);
-        -:   37:   procedure replaceStation(r_system: in out RailSystem; StationID: in Natural; station: in Stations.Station);
-        -:   38:   procedure replaceTrain(r_system: in out RailSystem; TrainID: in Natural; train: in Trains.Train);
-        -:   39:    procedure replaceTrack(r_system: in out RailSystem; TrackID: in Natural;track: in Tracks.Track);
-        -:   40:   procedure addIncomingOutgoingTracksForEachStation(r_system: in out RailSystem);
-        -:   41:   procedure setTrainLocation(r_system: in RailSystem; train: in out Trains.Train;LocationName: in  String; LocationID: in Natural);
-        -:   42:   procedure go(r_system: in out RailSystem; train: in out Trains.Train; count: in Positive)with SPARK_Mode => On;
-        -:   43:   procedure prepareTrain(r_system: in out RailSystem; train: in out Trains.Train; Origin: in TYPES.Station_Locations; Destionation: in TYPES.Station_Locations; StartTime: in TYPES.TimeTable);
-        -:   44:--     procedure updateTrain(r_system: in RailSystem; train: in out Trains.Train);
-        -:   45:--     procedure search(r_system: in RailSystem; train: in Trains.Train);
-        -:   46:   --function
-        -:   47:   function getStationByName(r_system: in RailSystem; stationLocation: in TYPES.Station_Locations) return Stations.Station;
-        -:   48:   function getTrackByName(r_system: in RailSystem; Origin: in TYPES.Station_Locations; Destination: in TYPES.Station_Locations) return Tracks.Track;
-        -:   49:   function getTrainById(r_system: in RailSystem; ID: in Natural) return Trains.Train;
-        2:   50:end RailSystems;
+        -:   11:   use all type TYPES.Station_Locations;
+        -:   12:   use all type TYPES.Train_State;
+        2:   13:  tn : Trains.Train;
+        -:   14:   package LIST_TRAINS is new LIST
+        -:   15:     ( DATA_TYPE => Trains.Train,
+        -:   16:       E_ID=>0,
+        -:   17:       NO_FOUND => tn);
+        -:   18:
+        2:   19:   sn : Stations.Station;
+        -:   20:   package LIST_STATIONS is new LIST
+        -:   21:     ( DATA_TYPE => Stations.Station,
+        -:   22:       E_ID=>0,
+        -:   23:       NO_FOUND => sn);
+        -:   24:
+        -:   25:
+        2:   26:   type RailSystem is
+        -:   27:      record
+        2:   28:         All_Trains: LIST_TRAINS.LIST_PTR(MAX_SIZE =>100);
+        2:   29:         All_Stations: LIST_STATIONS.LIST_PTR(MAX_SIZE =>100);
+        2:   30:         All_Tracks: Stations.LIST_TRACKS.LIST_PTR(MAX_SIZE =>100);
+        -:   31:      end record;
+        -:   32:
+        -:   33:   --procedure
+        -:   34:   --     procedure InitTrack(track_r: in out Tracks.Track);
+        -:   35:   procedure Init(r_system: in out RailSystem);
+        -:   36:   procedure addTrain (r_system: in out RailSystem; ID: in Natural)
+        -:   37:     with
+        -:   38:       Pre =>(ID>0
+        -:   39:              and ID<101),
+        -:   40:     Post =>(if LIST_TRAINS.GET_SIZE(r_system'Old.All_Trains)<LIST_TRAINS.GET_SIZE(r_system.All_Trains)
+        -:   41:                 then LIST_TRAINS.GET_ELEMENT_BY_ID(r_system.All_Trains,ID).ID > 0
+        -:   42:             and LIST_TRAINS.GET_ELEMENT_BY_ID(r_system.All_Trains,ID).ID < 101 );
+        -:   43:   procedure addTrack(r_system: in out RailSystem; ID: in Natural; Origin: in TYPES.Station_Locations; Destination: in TYPES.Station_Locations; LineOrigin: in TYPES.Station_Locations; LineDestination: in TYPES.Station_Locations)
+        -:   44:     with
+        -:   45:       Pre =>(ID >=1
+        -:   46:              and ID<=100
+        -:   47:              and Origin /= TYPES.No
+        -:   48:              and Destination /= TYPES.No
+        -:   49:              and LineOrigin /= TYPES.No
+        -:   50:              and LineDestination /= TYPES.No
+        -:   51:              and Origin /= Destination
+        -:   52:              and LineOrigin /= LineDestination
+        -:   53:              and Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(r_system.All_Tracks, ID).id = 0),
+        -:   54:     post =>(if Stations.LIST_TRACKS.GET_SIZE(r_system'Old.All_Tracks )< 100 then Stations.LIST_TRACKS.GET_SIZE(r_system.All_Tracks) =Stations.LIST_TRACKS.GET_SIZE(r_system'Old.All_Tracks) +1 );
+        -:   55:--           Post=>(if j in 1..Stations.LIST_TRACKS.GET_SIZE(r_system.All_Tracks)
+        -:   56:--                         then  Stations.LIST_TRACKS.GET_ELEMENT(r_system.All_Tracks,j).Origin /=Origin
+        -:   57:--                 and Stations.LIST_TRACKS.GET_ELEMENT(r_system.All_Tracks,j).Destination /=Destination);
+        -:   58:   procedure addStation(r_system: in out RailSystem; StationID: in Natural; Location: TYPES.Station_Locations)
+        -:   59:     with
+        -:   60:       pre =>(StationID >=1
+        -:   61:              and StationID <=100
+        -:   62:              and LIST_STATIONS.GET_ELEMENT_BY_ID(r_system.All_Stations, StationID).ID = 0),
+        -:   63:   Post => (LIST_STATIONS.GET_ELEMENT_BY_ID(r_system.All_Stations, StationID).ID = StationID);
+        -:   64:   procedure replaceStation(r_system: in out RailSystem; StationID: in Natural; station: in Stations.Station);
+        -:   65:   procedure replaceTrain(r_system: in out RailSystem; TrainID: in Natural; train: in Trains.Train);
+        -:   66:   procedure replaceTrack(r_system: in out RailSystem; TrackID: in Natural;track: in Tracks.Track);
+        -:   67:   procedure addIncomingOutgoingTracksForEachStation(r_system: in out RailSystem);
+        -:   68:   procedure setTrainLocation(r_system: in RailSystem; train: in out Trains.Train;LocationName: in  String; LocationID: in Natural)
+        -:   69:     with
+        -:   70:       pre =>(train.ID /=0
+        -:   71:              and LocationName = "None"
+        -:   72:              and LocationID >=1
+        -:   73:              and LocationID <= LIST_TRAINS.GET_SIZE(r_system.All_Trains)),
+        -:   74:         post =>(train.Location.currentLocation ="None   ");
+        -:   75:   procedure go(r_system: in out RailSystem; train: in out Trains.Train; count: in Positive)with SPARK_Mode => On;
+        -:   76:   procedure prepareTrain(r_system: in out RailSystem; train: in out Trains.Train; Origin: in TYPES.Station_Locations; Destination: in TYPES.Station_Locations; StartTime: in TYPES.TimeTable)
+        -:   77:     with
+        -:   78:       pre =>(Origin /= TYPES.No
+        -:   79:              and Destination /= TYPES.No
+        -:   80:              and Origin /= Destination
+        -:   81:              and RailSystems.getStationByName(r_system,Origin).TrainID = 0
+        -:   82:              and train.Location.Station.TrainID = 0),
+        -:   83:     post => (train.Origin = Origin
+        -:   84:              and train.Destination = Destination
+        -:   85:              and train.State = TYPES.Open);
+        -:   86:   --     procedure updateTrain(r_system: in RailSystem; train: in out Trains.Train);
+        -:   87:   --     procedure search(r_system: in RailSystem; train: in Trains.Train);
+        -:   88:   --function
+        -:   89:   function getStationByName(r_system: in RailSystem; stationLocation: in TYPES.Station_Locations) return Stations.Station;
+        -:   90:   function getTrackByName(r_system: in RailSystem; Origin: in TYPES.Station_Locations; Destination: in TYPES.Station_Locations) return Tracks.Track;
+        -:   91:   function getTrainById(r_system: in RailSystem; ID: in Natural) return Trains.Train
+        -:   92:     with
+        -:   93:       pre => (ID >=1
+        -:   94:               and ID <= LIST_TRAINS.GET_SIZE(r_system.All_Trains));
+        2:   95:end RailSystems;

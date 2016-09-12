@@ -35,15 +35,14 @@ package body RailSystems with SPARK_Mode=>On is
    -- Go (For train) --
    --------------------
    procedure go(r_system: in out RailSystem; train: in out Trains.Train; count: in Positive)
-     with SPARK_Mode =>On
    is
       --        Trains: Trains.Train;
       tempTrack: Tracks.Track;
       tempStation: Stations.Station;
       tempStationLocation: TYPES.Station_Locations;
-      Start_Time : Ada.Calendar.Time;
-      Next_Cycle : Ada.Calendar.Time;
-      Period     : constant Duration  := 2.0;
+--        Start_Time : Ada.Calendar.Time;
+--        Next_Cycle : Ada.Calendar.Time;
+--        Period     : constant Duration  := 2.0;
       station_count: Positive;
       Other_Train_On_Track_Exception: Exception;
       Other_Train_At_Station_Exception: Exception;
@@ -51,8 +50,8 @@ package body RailSystems with SPARK_Mode=>On is
    begin
       pragma Warnings(Off, r_system);
 
-      Start_Time := Ada.Calendar.Clock;
-      Next_Cycle := Start_Time;
+--        Start_Time := Ada.Calendar.Clock;
+--        Next_Cycle := Start_Time;
       station_count:=1;
       while station_count< count loop
          Print_Natural("Train ID:  ",train.ID);
@@ -127,7 +126,7 @@ package body RailSystems with SPARK_Mode=>On is
 
 
 
-         Next_Cycle := Next_Cycle + Period;
+--           Next_Cycle := Next_Cycle + Period;
          station_count:=station_count+1;
       end loop;
 
@@ -151,18 +150,18 @@ package body RailSystems with SPARK_Mode=>On is
    procedure prepareTrain(r_system: in out RailSystem;
                           train: in out Trains.Train;
                           Origin: in TYPES.Station_Locations;
-                          Destionation: in TYPES.Station_Locations;
+                          Destination: in TYPES.Station_Locations;
                           StartTime: in TYPES.TimeTable)
 
    is
       Origin_Should_Not_Equals_No: Exception;
-      Destionation_Should_Not_Equals_No: Exception;
+      Destination_Should_Not_Equals_No: Exception;
       Already_Train_At_Station: Exception;
-      Origin_Should_Not_Equals_Destionation: Exception;
-      Origin_Station_Destionation_Station_Not_Same_Route_Line: Exception;
+      Origin_Should_Not_Equals_Destination: Exception;
+      Origin_Station_Destination_Station_Not_Same_Route_Line: Exception;
       Train_Already_Runing_Exception: Exception;
       tempOriginStation: Stations.Station;
-      tempDestionationStation: Stations.Station;
+      tempDestinationStation: Stations.Station;
       od_record: TYPES.ODRecord;
       --        state: TYPES.Train_State;
       check1: Boolean;
@@ -174,9 +173,9 @@ package body RailSystems with SPARK_Mode=>On is
       --           raise Train_Already_Runing_Exception;
       --        end if;
 
-      if Destionation = TYPES.No then
-         Print("PREPARE TRAIN: Destionation should not be TYPES.No");
-         raise Destionation_Should_Not_Equals_No;
+      if Destination = TYPES.No then
+         Print("PREPARE TRAIN: Destination should not be TYPES.No");
+         raise Destination_Should_Not_Equals_No;
       end if;
 
       if Origin = TYPES.No then
@@ -185,9 +184,9 @@ package body RailSystems with SPARK_Mode=>On is
       end if;
 
 
-      if Origin = Destionation then
-         Print("PREPARE TRAIN:  Origin can not equals destionation");
-         raise Origin_Should_Not_Equals_Destionation;
+      if Origin = Destination then
+         Print("PREPARE TRAIN:  Origin can not equals Destination");
+         raise Origin_Should_Not_Equals_Destination;
       end if;
 
       train.Location.Station:= getStationByName(r_system, Origin);
@@ -197,33 +196,33 @@ package body RailSystems with SPARK_Mode=>On is
       end if;
 
       tempOriginStation:=getStationByName(r_system,Origin);
-      tempDestionationStation:=getStationByName(r_system,Destionation);
+--        tempDestinationStation:=getStationByName(r_system,Destination);
 
       check1:=False;
       for i in 1..TYPES.LIST_OD.GET_SIZE(tempOriginStation.TracksLineOriginAndDestination) loop
          od_record:=TYPES.LIST_OD.GET_ELEMENT(tempOriginStation.TracksLineOriginAndDestination, i);
-         if od_record.Origin = Origin or od_record.Origin = Destionation then
-            if od_record.Destination = Origin or od_record.Destination = Destionation then
+         if od_record.Origin = Origin or od_record.Origin = Destination then
+            if od_record.Destination = Origin or od_record.Destination = Destination then
                check1:=True;
             end if;
          end if;
       end loop;
 
 --        check2:=False;
---        for i in 1..TYPES.LIST_OD.GET_SIZE(tempDestionationStation.TracksLineOriginAndDestination) loop
---           od_record:=TYPES.LIST_OD.GET_ELEMENT(tempDestionationStation.TracksLineOriginAndDestination, i);
+--        for i in 1..TYPES.LIST_OD.GET_SIZE(tempDestinationStation.TracksLineOriginAndDestination) loop
+--           od_record:=TYPES.LIST_OD.GET_ELEMENT(tempDestinationStation.TracksLineOriginAndDestination, i);
 --           if od_record.Origin = Origin or od_record.Destination = Origin then
---              if od_record.Origin = Destionation or od_record.Destination = Destionation then
+--              if od_record.Origin = Destination or od_record.Destination = Destination then
 --                 check2:=True;
 --              end if;
 --           end if;
 --        end loop;
       if check1 = True  then
 
-         train.Location.Station.TrainID:=train.ID;
+         train.Location.Station.TrainID:= train.ID;
          train.Origin := Origin;
 
-         train.Destination := Destionation;
+         train.Destination := Destination;
          train.State:=TYPES.Open;
          train.Start_Run_Time:=StartTime;
          train.Location.currentLocation:="Station";
@@ -236,8 +235,8 @@ package body RailSystems with SPARK_Mode=>On is
                       train    => train);
 
       else
-         Print("PREPARE TRAIN: Origin station and Destionation station not at the same route line");
-         Raise Origin_Station_Destionation_Station_Not_Same_Route_Line;
+         Print("PREPARE TRAIN: Origin station and Destination station not at the same route line");
+         Raise Origin_Station_Destination_Station_Not_Same_Route_Line;
       end if;
    end prepareTrain;
 
@@ -319,8 +318,8 @@ package body RailSystems with SPARK_Mode=>On is
                       LineDestination: in TYPES.Station_Locations)
    is
       track: Tracks.Track;
-      OriginExist: Boolean;
-      DestinationExist: Boolean;
+--        OriginExist: Boolean;
+--        DestinationExist: Boolean;
       sizeTracks: Natural;
       Origin_equal_Destination_Exception : Exception;
       Track_Already_Add_Exception: Exception;
@@ -352,7 +351,7 @@ package body RailSystems with SPARK_Mode=>On is
 
 
       if Origin = TYPES.No or Destination = TYPES.No or LineOrigin = TYPES.No or LineDestination = TYPES.No then
-         Print("Origin or Destionation has to be a Station location");
+         Print("Origin or Destination has to be a Station location");
          Raise Origin_Destination_Not_Station_Location_Exception;
       end if;
 
@@ -372,17 +371,17 @@ package body RailSystems with SPARK_Mode=>On is
       end if;
 
 
-      OriginExist := false;
-      DestinationExist := false;
-      for location in TYPES.No .. TYPES.Johnsonville loop
-         if location = Origin then
-            OriginExist := True;
-         end if;
-         if location = Destination then
-            DestinationExist := true;
-         end if;
-
-      end loop;
+--        OriginExist := false;
+--        DestinationExist := false;
+--        for location in TYPES.No .. TYPES.Johnsonville loop
+--           if location = Origin then
+--              OriginExist := True;
+--           end if;
+--           if location = Destination then
+--              DestinationExist := true;
+--           end if;
+--
+--        end loop;
 --        if OriginExist = false then
 --           Print("ADD TRACK: Origin Not Exist Exception");
 --           Raise Origin_Not_Exist_Exception;

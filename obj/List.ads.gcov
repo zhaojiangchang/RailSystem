@@ -89,19 +89,19 @@
         -:   87:
         -:   88:private
         -:   89:
-   451800:   90: type DATA is
+   447000:   90: type DATA is
         -:   91:      record
-   225900:   92:         DATA: DATA_TYPE;
+   223500:   92:         DATA: DATA_TYPE;
         -:   93:         ID: Natural:=E_ID;
         -:   94:      end record;
         -:   95:   -- List implementation
         -:   96:
         -:   97:
-   225900:   98:   type List_Array is array (Positive range <>) of DATA;
-   454059:   99:   type LIST_PTR(MAX_SIZE: Positive ) is
+   223500:   98:   type List_Array is array (Positive range <>) of DATA;
+   449235:   99:   type LIST_PTR(MAX_SIZE: Positive ) is
         -:  100:      record
         -:  101:         SIZE: Natural:=E_ID;
-     2259:  102:         ELEMENTS: List_Array(1 .. MAX_SIZE);
+     2235:  102:         ELEMENTS: List_Array(1 .. MAX_SIZE);
         -:  103:         HEAD: Positive:=1;
         -:  104:      end record;
         -:  105:

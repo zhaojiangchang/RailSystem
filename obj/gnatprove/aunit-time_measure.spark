@@ -1,0 +1,50 @@
+{
+  "spark": [
+    {
+      "name": "AUnit.Time_Measure.Start_Measure",
+      "sloc": [
+        {
+          "file": "aunit-time_measure.ads",
+          "line": 46
+        }
+      ],
+      "spark": "no"
+    },
+    {
+      "name": "AUnit.Time_Measure.Stop_Measure",
+      "sloc": [
+        {
+          "file": "aunit-time_measure.ads",
+          "line": 49
+        }
+      ],
+      "spark": "no"
+    },
+    {
+      "name": "AUnit.Time_Measure.Get_Measure",
+      "sloc": [
+        {
+          "file": "aunit-time_measure.ads",
+          "line": 52
+        }
+      ],
+      "spark": "no"
+    },
+    {
+      "name": "AUnit.Time_Measure",
+      "sloc": [
+        {
+          "file": "aunit-time_measure.ads",
+          "line": 34
+        }
+      ],
+      "spark": "no"
+    }
+  ],
+  "flow": [
+  ],
+  "proof": [
+  ],
+  "assumptions": [
+  ]
+}

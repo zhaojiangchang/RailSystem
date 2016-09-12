@@ -43,9 +43,9 @@
        10:   41:      tempTrack: Tracks.Track;
        10:   42:      tempStation: Stations.Station;
         -:   43:      tempStationLocation: TYPES.Station_Locations;
-        -:   44:      Start_Time : Ada.Calendar.Time;
-        -:   45:      Next_Cycle : Ada.Calendar.Time;
-       10:   46:      Period     : constant Duration  := 2.0;
+        -:   44:--        Start_Time : Ada.Calendar.Time;
+        -:   45:--        Next_Cycle : Ada.Calendar.Time;
+        -:   46:--        Period     : constant Duration  := 2.0;
         -:   47:      station_count: Positive;
        10:   48:      Other_Train_On_Track_Exception: Exception;
        10:   49:      Other_Train_At_Station_Exception: Exception;
@@ -53,8 +53,8 @@
         -:   51:   begin
         -:   52:      pragma Warnings(Off, r_system);
         -:   53:
-       10:   54:      Start_Time := Ada.Calendar.Clock;
-       10:   55:      Next_Cycle := Start_Time;
+        -:   54:--        Start_Time := Ada.Calendar.Clock;
+        -:   55:--        Next_Cycle := Start_Time;
        10:   56:      station_count:=1;
       104:   57:      while station_count< count loop
        96:   58:         Print_Natural("Train ID:  ",train.ID);
@@ -129,7 +129,7 @@
         -:  127:
         -:  128:
         -:  129:
-       94:  130:         Next_Cycle := Next_Cycle + Period;
+        -:  130:--           Next_Cycle := Next_Cycle + Period;
        94:  131:         station_count:=station_count+1;
        94:  132:      end loop;
         -:  133:
@@ -153,18 +153,18 @@
        24:  151:   procedure prepareTrain(r_system: in out RailSystem;
         -:  152:                          train: in out Trains.Train;
         -:  153:                          Origin: in TYPES.Station_Locations;
-        -:  154:                          Destionation: in TYPES.Station_Locations;
+        -:  154:                          Destination: in TYPES.Station_Locations;
         -:  155:                          StartTime: in TYPES.TimeTable)
         -:  156:
         -:  157:   is
        24:  158:      Origin_Should_Not_Equals_No: Exception;
-       24:  159:      Destionation_Should_Not_Equals_No: Exception;
+       24:  159:      Destination_Should_Not_Equals_No: Exception;
        24:  160:      Already_Train_At_Station: Exception;
-       24:  161:      Origin_Should_Not_Equals_Destionation: Exception;
-       24:  162:      Origin_Station_Destionation_Station_Not_Same_Route_Line: Exception;
+       24:  161:      Origin_Should_Not_Equals_Destination: Exception;
+       24:  162:      Origin_Station_Destination_Station_Not_Same_Route_Line: Exception;
        24:  163:      Train_Already_Runing_Exception: Exception;
        24:  164:      tempOriginStation: Stations.Station;
-       24:  165:      tempDestionationStation: Stations.Station;
+       24:  165:      tempDestinationStation: Stations.Station;
        24:  166:      od_record: TYPES.ODRecord;
         -:  167:      --        state: TYPES.Train_State;
         -:  168:      check1: Boolean;
@@ -176,9 +176,9 @@
         -:  174:      --           raise Train_Already_Runing_Exception;
         -:  175:      --        end if;
         -:  176:
-       24:  177:      if Destionation = TYPES.No then
-        2:  178:         Print("PREPARE TRAIN: Destionation should not be TYPES.No");
-        2:  179:         raise Destionation_Should_Not_Equals_No;
+       24:  177:      if Destination = TYPES.No then
+        2:  178:         Print("PREPARE TRAIN: Destination should not be TYPES.No");
+        2:  179:         raise Destination_Should_Not_Equals_No;
         -:  180:      end if;
         -:  181:
        22:  182:      if Origin = TYPES.No then
@@ -187,9 +187,9 @@
         -:  185:      end if;
         -:  186:
         -:  187:
-       20:  188:      if Origin = Destionation then
-        2:  189:         Print("PREPARE TRAIN:  Origin can not equals destionation");
-        2:  190:         raise Origin_Should_Not_Equals_Destionation;
+       20:  188:      if Origin = Destination then
+        2:  189:         Print("PREPARE TRAIN:  Origin can not equals Destination");
+        2:  190:         raise Origin_Should_Not_Equals_Destination;
         -:  191:      end if;
         -:  192:
        18:  193:      train.Location.Station:= getStationByName(r_system, Origin);
@@ -199,33 +199,33 @@
         -:  197:      end if;
         -:  198:
        16:  199:      tempOriginStation:=getStationByName(r_system,Origin);
-       16:  200:      tempDestionationStation:=getStationByName(r_system,Destionation);
+        -:  200:--        tempDestinationStation:=getStationByName(r_system,Destination);
         -:  201:
        16:  202:      check1:=False;
        16:  203:      for i in 1..TYPES.LIST_OD.GET_SIZE(tempOriginStation.TracksLineOriginAndDestination) loop
        22:  204:         od_record:=TYPES.LIST_OD.GET_ELEMENT(tempOriginStation.TracksLineOriginAndDestination, i);
-       22:  205:         if od_record.Origin = Origin or od_record.Origin = Destionation then
-       22:  206:            if od_record.Destination = Origin or od_record.Destination = Destionation then
+       22:  205:         if od_record.Origin = Origin or od_record.Origin = Destination then
+       22:  206:            if od_record.Destination = Origin or od_record.Destination = Destination then
        14:  207:               check1:=True;
         -:  208:            end if;
         -:  209:         end if;
        22:  210:      end loop;
         -:  211:
         -:  212:--        check2:=False;
-        -:  213:--        for i in 1..TYPES.LIST_OD.GET_SIZE(tempDestionationStation.TracksLineOriginAndDestination) loop
-        -:  214:--           od_record:=TYPES.LIST_OD.GET_ELEMENT(tempDestionationStation.TracksLineOriginAndDestination, i);
+        -:  213:--        for i in 1..TYPES.LIST_OD.GET_SIZE(tempDestinationStation.TracksLineOriginAndDestination) loop
+        -:  214:--           od_record:=TYPES.LIST_OD.GET_ELEMENT(tempDestinationStation.TracksLineOriginAndDestination, i);
         -:  215:--           if od_record.Origin = Origin or od_record.Destination = Origin then
-        -:  216:--              if od_record.Origin = Destionation or od_record.Destination = Destionation then
+        -:  216:--              if od_record.Origin = Destination or od_record.Destination = Destination then
         -:  217:--                 check2:=True;
         -:  218:--              end if;
         -:  219:--           end if;
         -:  220:--        end loop;
        16:  221:      if check1 = True  then
         -:  222:
-       14:  223:         train.Location.Station.TrainID:=train.ID;
+       14:  223:         train.Location.Station.TrainID:= train.ID;
        14:  224:         train.Origin := Origin;
         -:  225:
-       14:  226:         train.Destination := Destionation;
+       14:  226:         train.Destination := Destination;
        14:  227:         train.State:=TYPES.Open;
        14:  228:         train.Start_Run_Time:=StartTime;
        14:  229:         train.Location.currentLocation:="Station";
@@ -238,8 +238,8 @@
         -:  236:                      train    => train);
         -:  237:
         -:  238:      else
-        2:  239:         Print("PREPARE TRAIN: Origin station and Destionation station not at the same route line");
-        2:  240:         Raise Origin_Station_Destionation_Station_Not_Same_Route_Line;
+        2:  239:         Print("PREPARE TRAIN: Origin station and Destination station not at the same route line");
+        2:  240:         Raise Origin_Station_Destination_Station_Not_Same_Route_Line;
         -:  241:      end if;
        14:  242:   end prepareTrain;
         -:  243:
@@ -261,11 +261,11 @@
         -:  259:   -- get station by station name --
         -:  260:   ---------------------------------
         -:  261:
-      384:  262:   function getStationByName(r_system: in RailSystem;
+      368:  262:   function getStationByName(r_system: in RailSystem;
         -:  263:                             stationLocation: in TYPES.Station_Locations)
         -:  264:                             return Stations.Station
         -:  265:   is
-      384:  266:      temp: Stations.Station;
+      368:  266:      temp: Stations.Station;
         -:  267:      --        l: Stations.LIST_TRACKS.LIST_PTR(MAX_SIZE =>100);
         -:  268:      --        inTracks:Stations.LIST_TRACKS.LIST_PTR(MAX_SIZE =>100);
         -:  269:      --        outTracks: Stations.LIST_TRACKS.LIST_PTR(MAX_SIZE =>100);
@@ -274,14 +274,14 @@
         -:  272:      pragma Warnings(Off, temp);
         -:  273:      --        Stations.LIST_TRACKS.Init(inTracks);
         -:  274:      --        Stations.LIST_TRACKS.Init(outTracks);
-      384:  275:      for i in 1 .. RailSystems.LIST_STATIONS.GET_SIZE(r_system.All_Stations) loop
+      368:  275:      for i in 1 .. RailSystems.LIST_STATIONS.GET_SIZE(r_system.All_Stations) loop
         -:  276:
-     2000:  277:         if RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(r_system.All_Stations, i).Location = stationLocation then
-      382:  278:            return RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(r_system.All_Stations, i);
+     1974:  277:         if RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(r_system.All_Stations, i).Location = stationLocation then
+      366:  278:            return RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(r_system.All_Stations, i);
         -:  279:         end if;
-     1618:  280:      end loop;
+     1608:  280:      end loop;
         2:  281:      return temp;
-      384:  282:   end getStationByName;
+      368:  282:   end getStationByName;
         -:  283:
         -:  284:   ---------------------------------
         -:  285:   -- get track by station name --
@@ -321,8 +321,8 @@
         -:  319:                      LineDestination: in TYPES.Station_Locations)
         -:  320:   is
       222:  321:      track: Tracks.Track;
-        -:  322:      OriginExist: Boolean;
-        -:  323:      DestinationExist: Boolean;
+        -:  322:--        OriginExist: Boolean;
+        -:  323:--        DestinationExist: Boolean;
         -:  324:      sizeTracks: Natural;
       222:  325:      Origin_equal_Destination_Exception : Exception;
       222:  326:      Track_Already_Add_Exception: Exception;
@@ -354,7 +354,7 @@
         -:  352:
         -:  353:
       216:  354:      if Origin = TYPES.No or Destination = TYPES.No or LineOrigin = TYPES.No or LineDestination = TYPES.No then
-        2:  355:         Print("Origin or Destionation has to be a Station location");
+        2:  355:         Print("Origin or Destination has to be a Station location");
         2:  356:         Raise Origin_Destination_Not_Station_Location_Exception;
         -:  357:      end if;
         -:  358:
@@ -374,17 +374,17 @@
         -:  372:      end if;
         -:  373:
         -:  374:
-      208:  375:      OriginExist := false;
-      208:  376:      DestinationExist := false;
-     2080:  377:      for location in TYPES.No .. TYPES.Johnsonville loop
-     1872:  378:         if location = Origin then
-      208:  379:            OriginExist := True;
-        -:  380:         end if;
-     1872:  381:         if location = Destination then
-      208:  382:            DestinationExist := true;
-        -:  383:         end if;
-        -:  384:
-     1664:  385:      end loop;
+        -:  375:--        OriginExist := false;
+        -:  376:--        DestinationExist := false;
+        -:  377:--        for location in TYPES.No .. TYPES.Johnsonville loop
+        -:  378:--           if location = Origin then
+        -:  379:--              OriginExist := True;
+        -:  380:--           end if;
+        -:  381:--           if location = Destination then
+        -:  382:--              DestinationExist := true;
+        -:  383:--           end if;
+        -:  384:--
+        -:  385:--        end loop;
         -:  386:--        if OriginExist = false then
         -:  387:--           Print("ADD TRACK: Origin Not Exist Exception");
         -:  388:--           Raise Origin_Not_Exist_Exception;

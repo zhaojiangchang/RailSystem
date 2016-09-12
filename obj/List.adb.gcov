@@ -61,11 +61,11 @@
         -:   59:   -- GET_SIZE  --
         -:   60:   ---------------
         -:   61:
-     1310:   62:   function GET_SIZE ( A: LIST_PTR )
+     1294:   62:   function GET_SIZE ( A: LIST_PTR )
         -:   63:                      return Natural
         -:   64:   is
         -:   65:   begin
-     1310:   66:      return A.SIZE;
+     1294:   66:      return A.SIZE;
         -:   67:   end GET_SIZE;
         -:   68:
         -:   69:   ---------------
@@ -174,24 +174,24 @@
         -:  172:   -- GET_ELEMENT_BY_ID--
         -:  173:   ----------------------
         -:  174:
-     5002:  175:   function GET_ELEMENT_BY_ID( A: LIST_PTR ;ID: Natural )
+     4960:  175:   function GET_ELEMENT_BY_ID( A: LIST_PTR ;ID: Natural )
         -:  176:                        return DATA_TYPE
         -:  177:   is
         -:  178:   begin
         -:  179:
         -:  180:
-     5002:  181:      if  A.SIZE = 0 or ID <= 0  or ID >A.SIZE then
+     4960:  181:      if  A.SIZE = 0 or ID <= 0  or ID >A.SIZE then
         -:  182:
         -:  183:         -- If element is not in the list at this location
       258:  184:         return NO_FOUND;
         -:  185:
         -:  186:      else
         -:  187:
-     4744:  188:         for i in 1 .. A.SIZE loop
-    22618:  189:            if A.ELEMENTS(i).ID = ID then
-     4744:  190:               return A.ELEMENTS(i).DATA;
+     4702:  188:         for i in 1 .. A.SIZE loop
+    22556:  189:            if A.ELEMENTS(i).ID = ID then
+     4702:  190:               return A.ELEMENTS(i).DATA;
         -:  191:            end if;
-    17874:  192:         end loop;
+    17854:  192:         end loop;
     #####:  193:         return NO_FOUND;
         -:  194:      end if;
         -:  195:

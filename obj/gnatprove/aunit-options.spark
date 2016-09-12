@@ -1,0 +1,20 @@
+{
+  "spark": [
+    {
+      "name": "AUnit.Options",
+      "sloc": [
+        {
+          "file": "aunit-options.ads",
+          "line": 34
+        }
+      ],
+      "spark": "no"
+    }
+  ],
+  "flow": [
+  ],
+  "proof": [
+  ],
+  "assumptions": [
+  ]
+}

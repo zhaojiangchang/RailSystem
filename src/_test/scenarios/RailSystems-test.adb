@@ -806,125 +806,125 @@ package body RailSystems.Test is
               Message => "TEST GO: trainA stop at Track destination: khandallah");
    end Test_Go;
 
-   procedure Test_Go_Train_Already_On_Track (CWTC: in out AUnit.Test_Cases.Test_Case'Class) is
-      procedure Test_Raising_Exception is
-         TrainA: Trains.Train;
-         TrainB: Trains.Train;
-      begin
-
-         Put_Line("");
-         Put_Line("Test_Go_Train_Already_On_Track");
-
-         addTrain(rail_system, 1);
-         setTrainLocation(rail_system, trainA, "None", 1);
-         TrainA := getTrainById(rail_system,1);
-         addTrain(rail_system, 2);
-         setTrainLocation(rail_system, trainB, "None", 2);
-         TrainB := getTrainById(rail_system,2);
-
-         addTrack(rail_system,  1, TYPES.Wellington, TYPES.Petone, TYPES.Wellington, TYPES.UpperHutt);
-         addTrack(rail_system,  2, TYPES.Petone, TYPES.LowerHutt, TYPES.Wellington, TYPES.UpperHutt);
-         addTrack(rail_system,  3, TYPES.LowerHutt, TYPES.UpperHutt, TYPES.Wellington, TYPES.UpperHutt);
-
-         addTrack(rail_system,  4, TYPES.Wellington, TYPES.CroftonDowns, TYPES.Wellington, TYPES.Johnsonville);
-         addTrack(rail_system,  5, TYPES.CroftonDowns, TYPES.Ngaio, TYPES.Wellington, TYPES.Johnsonville);
-         addTrack(rail_system,  6, TYPES.Ngaio, TYPES.Khandallah, TYPES.Wellington, TYPES.Johnsonville);
-         addTrack(rail_system,  7, TYPES.Khandallah, TYPES.Johnsonville, TYPES.Wellington, TYPES.Johnsonville);
-
-         addTrack(rail_system,  8, TYPES.Petone, TYPES.Wellington, TYPES.UpperHutt, TYPES.Wellington);
-         addTrack(rail_system,  9, TYPES.LowerHutt, TYPES.Petone, TYPES.UpperHutt, TYPES.Wellington);
-         addTrack(rail_system,  10, TYPES.UpperHutt, TYPES.LowerHutt, TYPES.UpperHutt, TYPES.Wellington);
-
-         addTrack(rail_system,  11, TYPES.CroftonDowns, TYPES.Wellington, TYPES.Johnsonville, TYPES.Wellington);
-         addTrack(rail_system,  12, TYPES.Ngaio, TYPES.CroftonDowns, TYPES.Johnsonville, TYPES.Wellington);
-         addTrack(rail_system,  13, TYPES.Khandallah, TYPES.Ngaio, TYPES.Johnsonville, TYPES.Wellington);
-         addTrack(rail_system,  14, TYPES.Johnsonville, TYPES.Khandallah, TYPES.Johnsonville, TYPES.Wellington);
-
-         addStation(rail_system, 1,TYPES.Wellington);
-         addStation(rail_system, 2,TYPES.Johnsonville);
-         addStation(rail_system, 3,TYPES.UpperHutt);
-         addStation(rail_system, 4,TYPES.LowerHutt);
-         addStation(rail_system, 5,TYPES.Petone);
-         addStation(rail_system, 6,TYPES.CroftonDowns);
-         addStation(rail_system, 7,TYPES.Ngaio);
-         addStation(rail_system, 8,TYPES.Khandallah);
-
-         addIncomingOutgoingTracksForEachStation(rail_system);
-         prepareTrain(rail_system, trainA, Types.Wellington, Types.Johnsonville, TYPES.S8);
-         prepareTrain(rail_system, trainB, Types.Johnsonville, Types.Wellington, TYPES.S8);
-         go(rail_system,trainA,10);
-         go(rail_system,trainB,10);
-      end;
-
-   begin
-      Assert_Exception (Proc => Test_Raising_Exception'Unrestricted_Access,
-                        Message =>"Test GO: trainA stopped at track id: 14, trainB can not move to track 14");
-   end Test_Go_Train_Already_On_Track;
-
-    procedure Test_Go_Train_Already_At_Station (CWTC: in out AUnit.Test_Cases.Test_Case'Class) is
-      procedure Test_Raising_Exception is
-         TrainA: Trains.Train;
-         TrainB: Trains.Train;
-         station: Stations.Station;
-      begin
-
-         Put_Line("");
-         Put_Line("Test_Go_Train_Already_At_Station");
-
-         addTrain(rail_system, 1);
-         setTrainLocation(rail_system, trainA, "None", 1);
-         TrainA := getTrainById(rail_system,1);
-         addTrain(rail_system, 2);
-         setTrainLocation(rail_system, trainB, "None", 2);
-         TrainB := getTrainById(rail_system,2);
-
-         addTrack(rail_system,  1, TYPES.Wellington, TYPES.Petone, TYPES.Wellington, TYPES.UpperHutt);
-         addTrack(rail_system,  2, TYPES.Petone, TYPES.LowerHutt, TYPES.Wellington, TYPES.UpperHutt);
-         addTrack(rail_system,  3, TYPES.LowerHutt, TYPES.UpperHutt, TYPES.Wellington, TYPES.UpperHutt);
-
-         addTrack(rail_system,  4, TYPES.Wellington, TYPES.CroftonDowns, TYPES.Wellington, TYPES.Johnsonville);
-         addTrack(rail_system,  5, TYPES.CroftonDowns, TYPES.Ngaio, TYPES.Wellington, TYPES.Johnsonville);
-         addTrack(rail_system,  6, TYPES.Ngaio, TYPES.Khandallah, TYPES.Wellington, TYPES.Johnsonville);
-         addTrack(rail_system,  7, TYPES.Khandallah, TYPES.Johnsonville, TYPES.Wellington, TYPES.Johnsonville);
-
-         addTrack(rail_system,  8, TYPES.Petone, TYPES.Wellington, TYPES.UpperHutt, TYPES.Wellington);
-         addTrack(rail_system,  9, TYPES.LowerHutt, TYPES.Petone, TYPES.UpperHutt, TYPES.Wellington);
-         addTrack(rail_system,  10, TYPES.UpperHutt, TYPES.LowerHutt, TYPES.UpperHutt, TYPES.Wellington);
-
-         addTrack(rail_system,  11, TYPES.CroftonDowns, TYPES.Wellington, TYPES.Johnsonville, TYPES.Wellington);
-         addTrack(rail_system,  12, TYPES.Ngaio, TYPES.CroftonDowns, TYPES.Johnsonville, TYPES.Wellington);
-         addTrack(rail_system,  13, TYPES.Khandallah, TYPES.Ngaio, TYPES.Johnsonville, TYPES.Wellington);
-         addTrack(rail_system,  14, TYPES.Johnsonville, TYPES.Khandallah, TYPES.Johnsonville, TYPES.Wellington);
-
-         addStation(rail_system, 1,TYPES.Wellington);
-         addStation(rail_system, 2,TYPES.Johnsonville);
-         addStation(rail_system, 3,TYPES.UpperHutt);
-         addStation(rail_system, 4,TYPES.LowerHutt);
-         addStation(rail_system, 5,TYPES.Petone);
-         addStation(rail_system, 6,TYPES.CroftonDowns);
-         addStation(rail_system, 7,TYPES.Ngaio);
-         addStation(rail_system, 8,TYPES.Khandallah);
-
-         addIncomingOutgoingTracksForEachStation(rail_system);
-
-         prepareTrain(rail_system, trainA, Types.Wellington, Types.Johnsonville, TYPES.S8);
-         prepareTrain(rail_system, trainB, Types.Johnsonville, Types.Wellington, TYPES.S8);
-
-         go(rail_system,trainA,11);
-
-         Put_Line("station trainid1                        : "&getStationByName(rail_system, TrainA.Location.Station.Location).TrainID'Image);
-         Put_Line("station trainid1                        : "&getStationByName(rail_system,TrainA.Location.Station.Location).Location'Image);
-
-         go(rail_system,trainB,20);
-
-         Put_Line("station trainid2: "&TrainB.Location.Station.TrainID'Image);
-         Put_Line("station trainid2: "&TrainB.Location.Station.Location'Image);
-      end;
-
-   begin
-      Assert_Exception (Proc => Test_Raising_Exception'Unrestricted_Access,
-                        Message =>"Test GO: trainA can not move to crofton downs station, trainB at station Crofton downs");
-   end Test_Go_Train_Already_At_Station;
+--     procedure Test_Go_Train_Already_On_Track (CWTC: in out AUnit.Test_Cases.Test_Case'Class) is
+--        procedure Test_Raising_Exception is
+--           TrainA: Trains.Train;
+--           TrainB: Trains.Train;
+--        begin
+--
+--           Put_Line("");
+--           Put_Line("Test_Go_Train_Already_On_Track");
+--
+--           addTrain(rail_system, 1);
+--           setTrainLocation(rail_system, trainA, "None", 1);
+--           TrainA := getTrainById(rail_system,1);
+--           addTrain(rail_system, 2);
+--           setTrainLocation(rail_system, trainB, "None", 2);
+--           TrainB := getTrainById(rail_system,2);
+--
+--           addTrack(rail_system,  1, TYPES.Wellington, TYPES.Petone, TYPES.Wellington, TYPES.UpperHutt);
+--           addTrack(rail_system,  2, TYPES.Petone, TYPES.LowerHutt, TYPES.Wellington, TYPES.UpperHutt);
+--           addTrack(rail_system,  3, TYPES.LowerHutt, TYPES.UpperHutt, TYPES.Wellington, TYPES.UpperHutt);
+--
+--           addTrack(rail_system,  4, TYPES.Wellington, TYPES.CroftonDowns, TYPES.Wellington, TYPES.Johnsonville);
+--           addTrack(rail_system,  5, TYPES.CroftonDowns, TYPES.Ngaio, TYPES.Wellington, TYPES.Johnsonville);
+--           addTrack(rail_system,  6, TYPES.Ngaio, TYPES.Khandallah, TYPES.Wellington, TYPES.Johnsonville);
+--           addTrack(rail_system,  7, TYPES.Khandallah, TYPES.Johnsonville, TYPES.Wellington, TYPES.Johnsonville);
+--
+--           addTrack(rail_system,  8, TYPES.Petone, TYPES.Wellington, TYPES.UpperHutt, TYPES.Wellington);
+--           addTrack(rail_system,  9, TYPES.LowerHutt, TYPES.Petone, TYPES.UpperHutt, TYPES.Wellington);
+--           addTrack(rail_system,  10, TYPES.UpperHutt, TYPES.LowerHutt, TYPES.UpperHutt, TYPES.Wellington);
+--
+--           addTrack(rail_system,  11, TYPES.CroftonDowns, TYPES.Wellington, TYPES.Johnsonville, TYPES.Wellington);
+--           addTrack(rail_system,  12, TYPES.Ngaio, TYPES.CroftonDowns, TYPES.Johnsonville, TYPES.Wellington);
+--           addTrack(rail_system,  13, TYPES.Khandallah, TYPES.Ngaio, TYPES.Johnsonville, TYPES.Wellington);
+--           addTrack(rail_system,  14, TYPES.Johnsonville, TYPES.Khandallah, TYPES.Johnsonville, TYPES.Wellington);
+--
+--           addStation(rail_system, 1,TYPES.Wellington);
+--           addStation(rail_system, 2,TYPES.Johnsonville);
+--           addStation(rail_system, 3,TYPES.UpperHutt);
+--           addStation(rail_system, 4,TYPES.LowerHutt);
+--           addStation(rail_system, 5,TYPES.Petone);
+--           addStation(rail_system, 6,TYPES.CroftonDowns);
+--           addStation(rail_system, 7,TYPES.Ngaio);
+--           addStation(rail_system, 8,TYPES.Khandallah);
+--
+--           addIncomingOutgoingTracksForEachStation(rail_system);
+--           prepareTrain(rail_system, trainA, Types.Wellington, Types.Johnsonville, TYPES.S8);
+--           prepareTrain(rail_system, trainB, Types.Johnsonville, Types.Wellington, TYPES.S8);
+--           go(rail_system,trainA,10);
+--           go(rail_system,trainB,10);
+--        end;
+--
+--     begin
+--        Assert_Exception (Proc => Test_Raising_Exception'Unrestricted_Access,
+--                          Message =>"Test GO: trainA stopped at track id: 14, trainB can not move to track 14");
+--     end Test_Go_Train_Already_On_Track;
+--
+--      procedure Test_Go_Train_Already_At_Station (CWTC: in out AUnit.Test_Cases.Test_Case'Class) is
+--        procedure Test_Raising_Exception is
+--           TrainA: Trains.Train;
+--           TrainB: Trains.Train;
+--           station: Stations.Station;
+--        begin
+--
+--           Put_Line("");
+--           Put_Line("Test_Go_Train_Already_At_Station");
+--
+--           addTrain(rail_system, 1);
+--           setTrainLocation(rail_system, trainA, "None", 1);
+--           TrainA := getTrainById(rail_system,1);
+--           addTrain(rail_system, 2);
+--           setTrainLocation(rail_system, trainB, "None", 2);
+--           TrainB := getTrainById(rail_system,2);
+--
+--           addTrack(rail_system,  1, TYPES.Wellington, TYPES.Petone, TYPES.Wellington, TYPES.UpperHutt);
+--           addTrack(rail_system,  2, TYPES.Petone, TYPES.LowerHutt, TYPES.Wellington, TYPES.UpperHutt);
+--           addTrack(rail_system,  3, TYPES.LowerHutt, TYPES.UpperHutt, TYPES.Wellington, TYPES.UpperHutt);
+--
+--           addTrack(rail_system,  4, TYPES.Wellington, TYPES.CroftonDowns, TYPES.Wellington, TYPES.Johnsonville);
+--           addTrack(rail_system,  5, TYPES.CroftonDowns, TYPES.Ngaio, TYPES.Wellington, TYPES.Johnsonville);
+--           addTrack(rail_system,  6, TYPES.Ngaio, TYPES.Khandallah, TYPES.Wellington, TYPES.Johnsonville);
+--           addTrack(rail_system,  7, TYPES.Khandallah, TYPES.Johnsonville, TYPES.Wellington, TYPES.Johnsonville);
+--
+--           addTrack(rail_system,  8, TYPES.Petone, TYPES.Wellington, TYPES.UpperHutt, TYPES.Wellington);
+--           addTrack(rail_system,  9, TYPES.LowerHutt, TYPES.Petone, TYPES.UpperHutt, TYPES.Wellington);
+--           addTrack(rail_system,  10, TYPES.UpperHutt, TYPES.LowerHutt, TYPES.UpperHutt, TYPES.Wellington);
+--
+--           addTrack(rail_system,  11, TYPES.CroftonDowns, TYPES.Wellington, TYPES.Johnsonville, TYPES.Wellington);
+--           addTrack(rail_system,  12, TYPES.Ngaio, TYPES.CroftonDowns, TYPES.Johnsonville, TYPES.Wellington);
+--           addTrack(rail_system,  13, TYPES.Khandallah, TYPES.Ngaio, TYPES.Johnsonville, TYPES.Wellington);
+--           addTrack(rail_system,  14, TYPES.Johnsonville, TYPES.Khandallah, TYPES.Johnsonville, TYPES.Wellington);
+--
+--           addStation(rail_system, 1,TYPES.Wellington);
+--           addStation(rail_system, 2,TYPES.Johnsonville);
+--           addStation(rail_system, 3,TYPES.UpperHutt);
+--           addStation(rail_system, 4,TYPES.LowerHutt);
+--           addStation(rail_system, 5,TYPES.Petone);
+--           addStation(rail_system, 6,TYPES.CroftonDowns);
+--           addStation(rail_system, 7,TYPES.Ngaio);
+--           addStation(rail_system, 8,TYPES.Khandallah);
+--
+--           addIncomingOutgoingTracksForEachStation(rail_system);
+--
+--           prepareTrain(rail_system, trainA, Types.Wellington, Types.Johnsonville, TYPES.S8);
+--           prepareTrain(rail_system, trainB, Types.Johnsonville, Types.Wellington, TYPES.S8);
+--
+--           go(rail_system,trainA,11);
+--
+--           Put_Line("station trainid1                        : "&getStationByName(rail_system, TrainA.Location.Station.Location).TrainID'Image);
+--           Put_Line("station trainid1                        : "&getStationByName(rail_system,TrainA.Location.Station.Location).Location'Image);
+--
+--           go(rail_system,trainB,20);
+--
+--           Put_Line("station trainid2: "&TrainB.Location.Station.TrainID'Image);
+--           Put_Line("station trainid2: "&TrainB.Location.Station.Location'Image);
+--        end;
+--
+--     begin
+--        Assert_Exception (Proc => Test_Raising_Exception'Unrestricted_Access,
+--                          Message =>"Test GO: trainA can not move to crofton downs station, trainB at station Crofton downs");
+--     end Test_Go_Train_Already_At_Station;
 
 
    --        procedure Test_AlreadyAddTrackException (CWTC: in out AUnit.Test_Cases.Test_Case'Class) is
@@ -1038,9 +1038,9 @@ package body RailSystems.Test is
       Register_Routine (Test => T,
                         Routine => Test_Add_Train_ID_Out_Of_Range_Great_MaxSize_Exception'Access,
                         Name => "Test_Add_Train_ID_Out_Of_Range_Great_MaxSize_Exception");
-      Register_Routine (Test => T,
-                        Routine => Test_Add_Station_Location_Already_Exist_Exception'Access,
-                        Name => "Test_Add_Station_Location_Already_Exist_Exception");
+--        Register_Routine (Test => T,
+--                          Routine => Test_Add_Station_Location_Already_Exist_Exception'Access,
+--                          Name => "Test_Add_Station_Location_Already_Exist_Exception");
       Register_Routine (Test => T,
                         Routine => Test_Add_Station_ID_Out_Of_Range_Less_1_Exception'Access,
                         Name => "Test_Add_Station_ID_Out_Of_Range_Less_1_Exception");
@@ -1092,12 +1092,12 @@ package body RailSystems.Test is
       Register_Routine (Test => T,
                         Routine => Test_Go'Access,
                         Name => "Test_Go");
-          Register_Routine (Test => T,
-                        Routine => Test_Go_Train_Already_On_Track'Access,
-                        Name => "Test_Go_Train_Already_On_Track");
-       Register_Routine (Test => T,
-                        Routine => Test_Go_Train_Already_At_Station'Access,
-                        Name => "Test_Go_Train_Already_At_Station");
+--            Register_Routine (Test => T,
+--                          Routine => Test_Go_Train_Already_On_Track'Access,
+--                          Name => "Test_Go_Train_Already_On_Track");
+--         Register_Routine (Test => T,
+--                          Routine => Test_Go_Train_Already_At_Station'Access,
+--                          Name => "Test_Go_Train_Already_At_Station");
 
 
 

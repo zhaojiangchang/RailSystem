@@ -103,7 +103,7 @@ begin
    --set TrainA from Wellington to Upper Hutt
    RailSystems.prepareTrain(rail_system, trainA, Types.Wellington, Types.UpperHutt, TYPES.S8);
    --set TrainB from Wellington to Johnsonville
-   RailSystems.prepareTrain(rail_system, trainB, Types.Wellington, Types.Johnsonville, TYPES.S8);
+--     RailSystems.prepareTrain(rail_system, trainB, Types.Wellington, Types.Johnsonville, TYPES.S8);
    --set TrainC from Upper Hutt to Wellington
    RailSystems.prepareTrain(rail_system, trainC, Types.UpperHutt, Types.Wellington, TYPES.S8);
    --Train A start run;

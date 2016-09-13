@@ -238,16 +238,16 @@ package body ada_main is
    end;
 
 --  BEGIN Object file/option list
-   --   C:\Users\JackyChang\Desktop\RailSystem\obj\List.o
-   --   C:\Users\JackyChang\Desktop\RailSystem\obj\types.o
-   --   C:\Users\JackyChang\Desktop\RailSystem\obj\sPrint.o
-   --   C:\Users\JackyChang\Desktop\RailSystem\obj\Tracks.o
-   --   C:\Users\JackyChang\Desktop\RailSystem\obj\Stations.o
-   --   C:\Users\JackyChang\Desktop\RailSystem\obj\Trains.o
-   --   C:\Users\JackyChang\Desktop\RailSystem\obj\RailSystems.o
-   --   C:\Users\JackyChang\Desktop\RailSystem\obj\main.o
-   --   -LC:\Users\JackyChang\Desktop\RailSystem\obj\
-   --   -LC:\Users\JackyChang\Desktop\RailSystem\obj\
+   --   C:\RailSystem\obj\List.o
+   --   C:\RailSystem\obj\types.o
+   --   C:\RailSystem\obj\sPrint.o
+   --   C:\RailSystem\obj\Tracks.o
+   --   C:\RailSystem\obj\Stations.o
+   --   C:\RailSystem\obj\Trains.o
+   --   C:\RailSystem\obj\RailSystems.o
+   --   C:\RailSystem\obj\main.o
+   --   -LC:\RailSystem\obj\
+   --   -LC:\RailSystem\obj\
    --   -LC:/gnat/2016/lib/gcc/i686-pc-mingw32/4.9.4/adalib/
    --   -static
    --   -lgnat

@@ -85,20 +85,6 @@
       "spark": "no"
     },
     {
-      "name": "TYPES.LIST_OD.APPEND_TO_FIRST",
-      "sloc": [
-        {
-          "file": "list.ads",
-          "line": 67
-        },
-        {
-          "file": "types.ads",
-          "line": 21
-        }
-      ],
-      "spark": "no"
-    },
-    {
       "name": "TYPES.LIST_OD.DELETE_ALL",
       "sloc": [
         {
@@ -146,20 +132,6 @@
         {
           "file": "list.ads",
           "line": 60
-        },
-        {
-          "file": "types.ads",
-          "line": 21
-        }
-      ],
-      "spark": "no"
-    },
-    {
-      "name": "TYPES.LIST_OD.SWAP",
-      "sloc": [
-        {
-          "file": "list.ads",
-          "line": 73
         },
         {
           "file": "types.ads",
@@ -232,6 +204,8 @@
     }
   ],
   "flow": [
+  ],
+  "proof": [
   ],
   "assumptions": [
   ]

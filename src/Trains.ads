@@ -4,8 +4,8 @@ with Stations;
 package Trains
 --  is
 with SPARK_Mode=>On is
-   inTracks:Stations.LIST_TRACKS.LIST_PTR(MAX_SIZE =>100);
-   outTracks:Stations.LIST_TRACKS.LIST_PTR(MAX_SIZE =>100);
+   inTracks:Stations.LIST_TRACKS.LIST_PTR;
+   outTracks:Stations.LIST_TRACKS.LIST_PTR;
    type Train_Location is
       record
          currentLocation:String(1..7):="None   ";

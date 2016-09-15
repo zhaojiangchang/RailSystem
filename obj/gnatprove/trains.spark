@@ -14,71 +14,7 @@
   "flow": [
   ],
   "proof": [
-    {
-      "file": "trains.ads",
-      "line": 8,
-      "col": 55,
-      "rule": "VC_RANGE_CHECK",
-      "severity": "info",
-      "entity": {
-        "name": "Trains",
-        "sloc": [
-          {
-            "file": "trains.ads",
-            "line": 4
-          }
-        ]
-      },
-      "how_proved": "prover",
-      "stats": {
-        "CVC4": {
-          "count": 1,
-          "max_steps": 1,
-          "max_time": 2.99999993294477E-02
-        }
-      }
-    },
-    {
-      "file": "trains.ads",
-      "line": 7,
-      "col": 54,
-      "rule": "VC_RANGE_CHECK",
-      "severity": "info",
-      "entity": {
-        "name": "Trains",
-        "sloc": [
-          {
-            "file": "trains.ads",
-            "line": 4
-          }
-        ]
-      },
-      "how_proved": "prover",
-      "stats": {
-        "CVC4": {
-          "count": 1,
-          "max_steps": 1,
-          "max_time": 1.99999995529652E-02
-        }
-      }
-    }
   ],
   "assumptions": [
-    {
-      "assumptions": [
-      ],
-      "claim": {
-        "predicate": "CLAIM_AORTE",
-        "arg": {
-          "name": "Trains",
-          "sloc": [
-            {
-              "file": "trains.ads",
-              "line": 4
-            }
-          ]
-        }
-      }
-    }
   ]
 }

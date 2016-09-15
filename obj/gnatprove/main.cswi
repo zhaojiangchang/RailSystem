@@ -1,5 +1,6 @@
-20160913151902
+20160915074504
+-gnata
 -fprofile-arcs
 -ftest-coverage
 -gnatc
--gnates=C:\RailSystem\obj\gnatprove\751b1017.tmp
+-gnates=C:\Users\JackyChang\Desktop\tutorial\RailSystem\obj\gnatprove\5bbcf622.tmp

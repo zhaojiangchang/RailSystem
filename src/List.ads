@@ -14,12 +14,14 @@
 --  After that you can begin using the list methods to insert, remove
 --  or modify its content.
 
+pragma SPARK_Mode (On);
 
 
 generic
 
    type DATA_TYPE is PRIVATE;
    E_ID:Natural;
+   MAX_SIZE:Positive;
    NO_FOUND: DATA_TYPE;
 
 package LIST is
@@ -36,7 +38,8 @@ package LIST is
    --  Raised when accesing elements outside the valid range of the list
 
 
-   type LIST_PTR(MAX_SIZE: Positive ) is private ;
+   --     type LIST_PTR(MAX_SIZE: Positive ) is private ;
+   type List_PTR is private;
    --  Private type for a List
 
 
@@ -45,11 +48,6 @@ package LIST is
    ---------------------
    function CONTAINS ( A: LIST_PTR; D: in DATA_TYPE) return Boolean;
 
-   function GET_FIRST ( A: LIST_PTR ) return DATA_TYPE;
-   --  Returns the first element of the list. Could be null
-
-   function GET_LAST ( A: LIST_PTR ) return DATA_TYPE;
-   --  Returns the last element of the list
 
    function GET_SIZE ( A: LIST_PTR ) return Natural;
    --  Returns the current size of the list, which is 0 if empty
@@ -61,7 +59,14 @@ package LIST is
 
    function FULL ( A : in LIST_PTR) return Boolean;
 
-   procedure APPEND ( A: in out  LIST_PTR ; D: in DATA_TYPE; ID: in Natural  );
+   procedure APPEND ( A: in out  LIST_PTR ; D: in DATA_TYPE; ID: in Natural  )
+   with
+       Pre =>(ID > 0
+              and ID <= MAX_SIZE
+--                and (if ID > 0  and ID < 101 then ( for all Index in 1 .. GET_SIZE(A)
+--                  =>GET_ELEMENT(A,Index) /= D))
+         );
+
    --  Add the new element at the back of the list and increments the list size
 
 --     procedure APPEND_TO_FIRST ( A: in out  LIST_PTR ; D: in DATA_TYPE; ID: in Natural);
@@ -75,7 +80,7 @@ package LIST is
    --  If the first and second positions are out of bound then
    --  OUT_OF_BOUNDS is raised.
 
-   procedure REPLACE( A: in out LIST_PTR; LOCATION: Natural; NEWVALUE: DATA );
+--     procedure REPLACE( A: in out LIST_PTR; LOCATION: Natural; NEWVALUE: DATA );
    --  Replace an element inside the list with a new value in the specified
    --  location.
    --  If location is out of bounds then OUT_OF_BOUNDS is raised.
@@ -96,11 +101,13 @@ private
 
 
    type List_Array is array (Positive range <>) of DATA;
-   type LIST_PTR(MAX_SIZE: Positive ) is
+--     type LIST_PTR(MAX_SIZE: Positive ) is
+   type LIST_PTR is
       record
          SIZE: Natural:=E_ID;
          ELEMENTS: List_Array(1 .. MAX_SIZE);
          HEAD: Positive:=1;
+         LIST_MAX_SIZE :Positive:= MAX_SIZE;
       end record;
 
 end LIST;

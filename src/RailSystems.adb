@@ -9,9 +9,6 @@ package body RailSystems with SPARK_Mode=>On is
    use all type TYPES.MAX_SIZE;
    use all type TYPES.Station_Locations;
 
-
-
-
    procedure Init(r_system: in out RailSystem)
    is
    begin
@@ -20,39 +17,21 @@ package body RailSystems with SPARK_Mode=>On is
       Stations.LIST_TRACKS.Init(r_system.All_Tracks);
    end Init;
 
-
-   --     procedure InitTrack
-   --       (track_r: in out Tracks.Track)
-   --     is
-   --     begin
-   --        track_r.ID:=0;
-   --        track_r.Origin:= TYPES.No;
-   --        track_r.Destination:=TYPES.No;
-   --        track_r.TrainID:=0;
-   --     end InitTrack;
-
    --------------------
    -- Go (For train) --
    --------------------
    procedure go(r_system: in out RailSystem; train: in out Trains.Train; count: in Positive)
    is
       --        Trains: Trains.Train;
-      tempTrack: Tracks.Track;
-      tempStation: Stations.Station;
+      track: Tracks.Track;
+      station: Stations.Station;
       tempStationLocation: TYPES.Station_Locations;
       size: Natural;
---        Start_Time : Ada.Calendar.Time;
---        Next_Cycle : Ada.Calendar.Time;
---        Period     : constant Duration  := 2.0;
-      station_count: Positive;
-      Other_Train_On_Track_Exception: Exception;
-      Other_Train_At_Station_Exception: Exception;
-
+      station_count: Natural;
    begin
       pragma Warnings(Off, r_system);
---        Start_Time := Ada.Calendar.Clock;
---        Next_Cycle := Start_Time;
       station_count:=1;
+
       while station_count< count loop
          if train.Location.currentLocation = "Station" then
             if train.Location.Station.Location =train.Destination then
@@ -60,46 +39,43 @@ package body RailSystems with SPARK_Mode=>On is
                train.Origin :=train.Destination;
                train.Destination:= tempStationLocation;
             end if;
-            train.Location.currentLocation := "Track  ";
             if train.Location.Station.ID /=0 then
                size:=Stations.LIST_TRACKS.GET_SIZE(LIST_STATIONS.GET_ELEMENT_BY_ID(r_system.All_Stations,train.Location.Station.ID).Outgoing);
                for i in 1 .. size loop
                   if train.Location.Station.ID /=0 then
-                     tempTrack:= Stations.LIST_TRACKS.GET_ELEMENT(RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(r_system.All_Stations,train.Location.Station.ID).Outgoing, i);
-                     if tempTrack.TracksLineDestination = train.Destination  then
-                        if tempTrack.Origin/=TYPES.No and tempTrack.Destination/=TYPES.No then
-                           if getTrackByName(r_system,tempTrack.Origin, tempTrack.Destination).TrainID = 0 then
-                              train.Location.Track:= tempTrack;
+                     track:= Stations.LIST_TRACKS.GET_ELEMENT(RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(r_system.All_Stations,train.Location.Station.ID).Outgoing, i);
+                     if track.TracksLineDestination = train.Destination  then
+                        if track.Origin/=TYPES.No and track.Destination/=TYPES.No then
+                           if getTrackByName(r_system,track.Origin, track.Destination).TrainID = 0 then
+                              train.Location.currentLocation := "Track  ";
+                              train.Location.Track:= track;
                               train.Location.Station.ID := 0;
                               train.Location.Station.TrainID:=0;
                               train.State:=TYPES.Move;
                               train.Location.Track.TrainID:=train.ID;
-                              tempStation:= getStationByName(r_system,tempTrack.Destination);
-                              tempStation.TrainID:=0;
-                              if tempStation.ID >0 and tempStation.ID<101 then
-                                 replaceStation(r_system,tempStation.ID,tempStation);
+                              station:= getStationByName(r_system,track.Destination);
+                              station.TrainID:=0;
+                              if station.ID >0 and station.ID<101 and station.Location /=TYPES.No then
+                                 replaceStation(r_system,station);
                               end if;
 
-                              tempTrack.TrainID:=train.ID;
-                              if tempTrack.ID >0 and tempTrack.ID<101 then
-                                 replaceTrack(r_system,tempTrack.ID,tempTrack);
+                              track.TrainID:=train.ID;
+                              if track.ID >0 and track.ID<101 then
+                                 replaceTrack(r_system,track);
                               end if;
                               if train.ID>0 and train.ID<101 then
-                                 replaceTrain(r_system,train.ID,train);
+                                 replaceTrain(r_system,train);
                               end if;
-
+                              Print_Natural("Train ID:  ", train.ID);
                               Print_Train_State("Train state:  ", train.State);
                               Print("Train current location:  "& train.Location.currentLocation);
                               Print_Natural("Track ID:  ",train.Location.Track.ID);
-                              Print_Station_Locations("Track from:", tempTrack.Origin);
-                              Print_Station_Locations("Track to:  ", tempTrack.Destination);
+                              Print_Station_Locations("Track from:", track.Origin);
+                              Print_Station_Locations("Track to:  ", track.Destination);
                               Print("--------------------------------------------------------");
-                           else
---                                  while  getTrackByName(r_system,tempTrack.Origin, tempTrack.Destination).TrainID /= 0 loop
-                                 Print_Natural("GO: Can not move, Other train on the track: ", tempTrack.ID);
---                                  end loop;
+--                             else
+--                                Print_Natural("GO: Can not move, Other train on the track: ", track.ID);
 
---                                Raise Other_Train_On_Track_Exception;
                            end if;
 
                         end if;
@@ -108,78 +84,59 @@ package body RailSystems with SPARK_Mode=>On is
                end loop;
             end if;
 
-
-
          elsif train.Location.currentLocation = "Track  " then
             if train.Location.Track.Destination /= TYPES.No then
-               tempStation:=getStationByName(r_system, train.Location.Track.Destination);
+               station:=getStationByName(r_system, train.Location.Track.Destination);
             end if;
-            if tempStation.Location /=TYPES.No then
-               if getStationByName(r_system,tempStation.Location).TrainID = 0 then
-                  train.Location.currentLocation:= "Station";
+            if station.Location /=TYPES.No then
+               if getStationByName(r_system,station.Location).TrainID = 0 then
                   if train.Location.Track.Destination /= TYPES.No then
                      train.Location.Station:= getStationByName(r_system, train.Location.Track.Destination);
                   end if;
-
+                  train.Location.currentLocation:= "Station";
                   train.State:=TYPES.Stop;
                   train.Location.Track.ID:=0;
                   train.Location.Track.TrainID:=0;
                   train.Location.Station.TrainID:= train.ID;
-                  tempStation.TrainID:=train.ID;
-                  if tempStation.ID >0 and tempStation.ID<101 then
-                     replaceStation(r_system,tempStation.ID,tempStation);
+                  station.TrainID:=train.ID;
+
+                  if station.ID >0 and station.ID<101 and station.Location /= TYPES.No then
+                     replaceStation(r_system,station);
                   end if;
                   if train.Location.Track.Origin /= TYPES.No and train.Location.Track.Destination /= TYPES.No then
-                     tempTrack:=getTrackByName(r_system,train.Location.Track.Origin, train.Location.Track.Destination);
+                     track:=getTrackByName(r_system,train.Location.Track.Origin, train.Location.Track.Destination);
                   end if;
 
-                  tempTrack.TrainID:=0;
-                  if tempTrack.ID >0 and tempTrack.ID<101 then
-                     replaceTrack(r_system,tempTrack.ID,tempTrack);
+                  track.TrainID:=0;
+                  if track.ID >0 and track.ID<101 then
+                     replaceTrack(r_system,track);
                   end if;
                   if train.ID>0 and train.ID<101 then
-                     replaceTrain(r_system,train.ID,train);
+                     replaceTrain(r_system,train);
                   end if;
+                  Print_Natural("Train state:  ", train.ID);
 
                   Print_Train_State("Train state:  ", train.State);
                   Print_Natural("current location station id:  ", train.Location.Station.ID);
                   Print_Station_Locations("current location station:  ", train.Location.Station.Location);
 
                   Print("--------------------------------------------------------");
-               else
+--                 else
+--                    Print_Natural("GO: Can not stop, other train at station", station.ID);
+--                    Print_Natural("GO: Train id at the station: ", station.TrainID);
 
---                      while getStationByName(r_system,tempStation.Location).TrainID /= 0 loop
-                     Print_Natural("GO: Can not stop, other train at station", tempStation.ID);
-                     Print_Natural("GO: Train id at the station: ", tempStation.TrainID);
---                      end loop;
-                  --                    Raise Other_Train_At_Station_Exception;
                end if;
             end if;
 
          end if;
 
-
-
---           Next_Cycle := Next_Cycle + Period;
          station_count:=station_count+1;
       end loop;
 
 
    end go;
 
-   --------------------------------------------
-   -- replace Train ----------------------------
-   --------------------------------------------
-   procedure replaceTrain(r_system: in out RailSystem;
-                          TrainID: in Natural;
-                          train: in Trains.Train)
-   is
-   begin
-      if train.Location.Station.ID>0 and train.Location.Station.ID <101 and TrainID >0 and TrainID<101 then
-         LIST_TRAINS.REPLACE_BY_ID(r_system.All_Trains,TrainID,train);
-      end if;
 
-   end replaceTrain;
 
    --------------------
    -- Prepare Train --
@@ -191,110 +148,34 @@ package body RailSystems with SPARK_Mode=>On is
                           StartTime: in TYPES.TimeTable)
 
    is
-      Origin_Should_Not_Equals_No: Exception;
-      Destination_Should_Not_Equals_No: Exception;
-      Already_Train_At_Station: Exception;
-      Origin_Should_Not_Equals_Destination: Exception;
-      Origin_Station_Destination_Station_Not_Same_Route_Line: Exception;
-      Train_Already_Runing_Exception: Exception;
+
       tempOriginStation: Stations.Station;
-      tempDestinationStation: Stations.Station;
-      od_record: TYPES.ODRecord;
-      --        state: TYPES.Train_State;
-      check1: Boolean;
---        check2: Boolean;
+
    begin
-      --        state:=train.State;
-      --        if  TYPES.Move  state or state = TYPES.Stop or state =  TYPES.Open then
-      --           Print_Natural("PREPARE TRAIN: Train already runing in the railway system Choose other train to prepare. Train ID: ",train.ID);
-      --           raise Train_Already_Runing_Exception;
-      --        end if;
 
-      if Destination = TYPES.No then
-         Print("PREPARE TRAIN: Destination should not be TYPES.No");
-         raise Destination_Should_Not_Equals_No;
+      train.Origin := Origin;
+
+      train.Destination := Destination;
+      train.State:=TYPES.Open;
+      train.Start_Run_Time:=StartTime;
+      train.Location.currentLocation:="Station";
+      train.Location.Station := getStationByName(r_system, Origin);
+      train.Location.Station.TrainID:= train.ID;
+      train.Location.Track.TrainID :=0;
+      tempOriginStation:= getStationByName(r_system        => r_system,
+                                           stationLocation => Origin);
+        tempOriginStation.TrainID:= train.ID;
+      if tempOriginStation.ID>0 and tempOriginStation.ID<101 and tempOriginStation.Location /= TYPES.No then
+         replaceStation(r_system, tempOriginStation);
       end if;
-
-      if Origin = TYPES.No then
-         Print("PREPARE TRAIN: Origin should not be TYPES.No");
-         raise Origin_Should_Not_Equals_No;
-      end if;
-
-
-      if Origin = Destination then
-         Print("PREPARE TRAIN:  Origin can not equals Destination");
-         raise Origin_Should_Not_Equals_Destination;
-      end if;
-
-      train.Location.Station:= getStationByName(r_system, Origin);
-      if train.Location.Station.TrainID /=0 then
-         Print("PREPARE TRAIN: Already train at station");
-         raise Already_Train_At_Station;
-      end if;
-
-      tempOriginStation:=getStationByName(r_system,Origin);
---        tempDestinationStation:=getStationByName(r_system,Destination);
-
-      check1:=False;
-      for i in 1..TYPES.LIST_OD.GET_SIZE(tempOriginStation.TracksLineOriginAndDestination) loop
-         od_record:=TYPES.LIST_OD.GET_ELEMENT(tempOriginStation.TracksLineOriginAndDestination, i);
-         if od_record.Origin = Origin or od_record.Origin = Destination then
-            if od_record.Destination = Origin or od_record.Destination = Destination then
-               check1:=True;
-            end if;
+      if train.ID>0 and train.ID<101 then
+            replaceTrain(r_system => r_system,
+                         train    => train);
          end if;
-      end loop;
+--        end if;
 
---        check2:=False;
---        for i in 1..TYPES.LIST_OD.GET_SIZE(tempDestinationStation.TracksLineOriginAndDestination) loop
---           od_record:=TYPES.LIST_OD.GET_ELEMENT(tempDestinationStation.TracksLineOriginAndDestination, i);
---           if od_record.Origin = Origin or od_record.Destination = Origin then
---              if od_record.Origin = Destination or od_record.Destination = Destination then
---                 check2:=True;
---              end if;
---           end if;
---        end loop;
-      if check1 = True  then
-         train.Origin := Origin;
-
-         train.Destination := Destination;
-         train.State:=TYPES.Open;
-         train.Start_Run_Time:=StartTime;
-         train.Location.currentLocation:="Station";
-         train.Location.Station := getStationByName(r_system, Origin);
-         train.Location.Station.TrainID:= train.ID;
-         train.Location.Track.TrainID :=0;
-         tempOriginStation.TrainID:= train.ID;
-         if tempOriginStation.ID>0 and tempOriginStation.ID<101 then
-            replaceStation(r_system,tempOriginStation.ID, tempOriginStation);
-         end if;
-         if train.ID>0 and train.ID<101 then
-         replaceTrain(r_system => r_system,
-                      TrainID  => train.ID,
-                      train    => train);
-         end if;
-
-
-      else
-         Print("PREPARE TRAIN: Origin station and Destination station not at the same route line");
-         Raise Origin_Station_Destination_Station_Not_Same_Route_Line;
-      end if;
    end prepareTrain;
 
-
-   --------------------
-   -- update Train --
-   --------------------
---     procedure updateTrain(r_system: in RailSystem;
---                           train: in out Trains.Train)
---
---     is
---        pragma Warnings(Off, r_system);
---
---
---     begin
---        null;
---     end updateTrain;
    ---------------------------------
    -- get station by station name --
    ---------------------------------
@@ -304,20 +185,16 @@ package body RailSystems with SPARK_Mode=>On is
                              return Stations.Station
    is
       temp: Stations.Station;
-      --        l: Stations.LIST_TRACKS.LIST_PTR(MAX_SIZE =>100);
-      --        inTracks:Stations.LIST_TRACKS.LIST_PTR(MAX_SIZE =>100);
-      --        outTracks: Stations.LIST_TRACKS.LIST_PTR(MAX_SIZE =>100);
-   begin
-      --        Stations.Init(temp);
-      pragma Warnings(Off, temp);
-      --        Stations.LIST_TRACKS.Init(inTracks);
-      --        Stations.LIST_TRACKS.Init(outTracks);
-      for i in 1 .. RailSystems.LIST_STATIONS.GET_SIZE(r_system.All_Stations) loop
 
-         if RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(r_system.All_Stations, i).Location = stationLocation then
-            return RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(r_system.All_Stations, i);
-         end if;
-      end loop;
+   begin
+      pragma Warnings(Off, temp);
+      if stationLocation /=TYPES.No then
+         for i in 1 .. RailSystems.LIST_STATIONS.GET_SIZE(r_system.All_Stations) loop
+            if RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(r_system.All_Stations, i).Location = stationLocation then
+               return RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(r_system.All_Stations, i);
+            end if;
+         end loop;
+      end  if;
       return temp;
    end getStationByName;
 
@@ -333,14 +210,14 @@ package body RailSystems with SPARK_Mode=>On is
       temp: Tracks.Track;
    begin
       --        InitTrack(temp);
-      temp.ID:=0;
-      temp.Origin:= TYPES.No;
-      temp.Destination:=TYPES.No;
-      temp.TrainID:=0;
+--        temp.ID:=0;
+--        temp.Origin:= TYPES.No;
+--        temp.Destination:=TYPES.No;
+--        temp.TrainID:=0;
       for i in 1 .. Stations.LIST_TRACKS.GET_SIZE(r_system.All_Tracks) loop
          if Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(r_system.All_Tracks, i).Origin = Origin
-         and Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(r_system.All_Tracks,i).Destination = Destination then
-            return Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(r_system.All_Tracks, i);
+           and Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(r_system.All_Tracks,i).Destination = Destination then
+            temp:= Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(r_system.All_Tracks, i);
          end if;
       end loop;
       return temp;
@@ -359,84 +236,18 @@ package body RailSystems with SPARK_Mode=>On is
                       LineDestination: in TYPES.Station_Locations)
    is
       track: Tracks.Track;
---        OriginExist: Boolean;
---        DestinationExist: Boolean;
-      sizeTracks: Natural;
-      Origin_equal_Destination_Exception : Exception;
-      Track_Already_Add_Exception: Exception;
-      ID_Out_Of_Range_Exception: Exception;
-      Origin_Not_Exist_Exception: Exception;
-      Destination_Not_Exist_Exception: Exception;
-      Origin_Destination_Not_Station_Location_Exception: Exception;
-      Track_Already_Used_Exception: Exception;
-      Tracks_Line_Origin_Destination_Equal_Exception: Exception;
-
    begin
-      if ID <1 or ID>100 then
-         Print("ADD TRACK: ID should between 1 and Max_Size");
-         Raise ID_Out_Of_Range_Exception;
-      end if;
-      sizeTracks:= Stations.LIST_TRACKS.GET_SIZE(r_system.All_Tracks);
-      if sizeTracks > 0 then
-         for j in 1 ..sizeTracks loop
-            track:= Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(r_system.All_Tracks, j);
-            if track.Origin = Origin and track.Destination = Destination then
-               print("ADD TRACK: track already exist");
-               Raise Track_Already_Add_Exception;
-            end if;
-         end loop;
-         --        else
-         --           print("ADD TRACK: tracks size = 0 (add first track)");
-      end if;
-
-
-      if Origin = TYPES.No or Destination = TYPES.No or LineOrigin = TYPES.No or LineDestination = TYPES.No then
-         Print("Origin or Destination has to be a Station location");
-         Raise Origin_Destination_Not_Station_Location_Exception;
-      end if;
-
-      if Origin = Destination then
-         Print("ADD TRACK: track Origin should not equals Destination");
-         Raise Origin_equal_Destination_Exception;
-      end if;
-
-      if LineDestination = LineOrigin then
-         Print("ADD TRACK: Tracks line origin should not equals tracks line destination");
-         Raise Tracks_Line_Origin_Destination_Equal_Exception;
-      end if;
-
-      if Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(r_system.All_Tracks, ID).id >= 1 then
-         Print("ADD TRACK: track ID already used");
-         Raise Track_Already_Used_Exception;
-      end if;
-
-
---        OriginExist := false;
---        DestinationExist := false;
---        for location in TYPES.No .. TYPES.Johnsonville loop
---           if location = Origin then
---              OriginExist := True;
---           end if;
---           if location = Destination then
---              DestinationExist := true;
---           end if;
---
---        end loop;
---        if OriginExist = false then
---           Print("ADD TRACK: Origin Not Exist Exception");
---           Raise Origin_Not_Exist_Exception;
---        end if;
---        if DestinationExist = false then
---           Print("ADD TRACK: Destination Not Exist Exception");
---           Raise Destination_Not_Exist_Exception;
---        end if;
-
       track.ID:=ID;
       track.Origin:= Origin;
       track.Destination:= Destination;
       track.TracksLineOrigin:= LineOrigin;
       track.TracksLineDestination:=LineDestination;
-      Stations.LIST_TRACKS.APPEND(r_system.All_Tracks,track, ID);
+      if Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(r_system.All_Tracks, ID).ID = 0 then
+         if track.ID /=0 and track.Origin /=TYPES.No and track.Destination /= types.No and track.TrainID = 0 and track.TracksLineOrigin /=types.No and track.TracksLineDestination/= TYPES.No then
+            Stations.LIST_TRACKS.APPEND(r_system.All_Tracks,track, ID);
+         end if;
+      end if;
+
    end addTrack;
 
    --------------
@@ -450,13 +261,16 @@ package body RailSystems with SPARK_Mode=>On is
       ID_Out_Of_Range_Exception: Exception;
 
    begin
-      if ID <1 or ID>100 then
-         Print("ADD TRAIN: ID should between 1 and 100");
-         Raise ID_Out_Of_Range_Exception;
-      end if;
+      --        if ID <1 or ID>100 then
+      --           Print("ADD TRAIN: ID should between 1 and 100");
+      --           Raise ID_Out_Of_Range_Exception;
+      --        end if;
       train.ID := ID;
       if LIST_TRAINS.GET_ELEMENT_BY_ID(r_system.All_Trains, ID).ID = 0 then
-         LIST_TRAINS.APPEND(r_system.All_Trains, train,ID);
+         if train.ID /=0 then
+            LIST_TRAINS.APPEND(r_system.All_Trains, train,ID);
+         end if;
+
       end if;
    end addTrain;
 
@@ -469,11 +283,6 @@ package body RailSystems with SPARK_Mode=>On is
       Get_Train_By_ID_ID_Out_Of_Range_Exception: Exception;
       train: Trains.train;
    begin
-      if ID < 1 or ID > RailSystems.LIST_TRAINS.GET_SIZE(r_system.All_Trains) then
-         Print("GET TRAIN BY ID: id out of range");
-         Raise Get_Train_By_ID_ID_Out_Of_Range_Exception;
-      end if;
-
       train:= RailSystems.LIST_TRAINS.GET_ELEMENT_BY_ID(r_system.All_Trains, ID);
       return train;
    end getTrainById;
@@ -484,159 +293,84 @@ package body RailSystems with SPARK_Mode=>On is
 
    procedure addStation
      (r_system: in out RailSystem;
-      StationID: in Natural;
+      ID: in Natural;
       Location: in TYPES.Station_Locations)
    is
-      station_t: Stations.Station;
-      tempStation: Stations.Station;
-      --        LocationExist: Boolean;
-      tempStation2: Stations.Station;
-      Station_Already_Exist_Exception: Exception;
---        Location_Not_Exist_Exception: Exception;
-      Station_ID_Already_Exist_Exception: Exception;
-      Add_Station_ID_Out_Of_Range_Exception: Exception;
+      station: Stations.Station;
    begin
-      --        Stations.Init(station_t);
-      --        LocationExist := False;
-      --        for l in TYPES.No .. TYPES.Johnsonville loop
-      --           if l = Location then
-      --              LocationExist := True;
-      --           end if;
-      --        end loop;
-      --        if LocationExist = false then
-      --           Print("ADD STATION: Station Location Not Exist Exception");
-      --           Raise Location_Not_Exist_Exception;
-      --        end if;
 
-      if StationID < 1 or StationID > 100 then
-         Print("ADD STATION: id out of range");
-         Raise Add_Station_ID_Out_Of_Range_Exception;
-      end if;
-      tempStation2:= LIST_STATIONS.GET_ELEMENT_BY_ID(r_system.All_Stations, StationID);
-      if tempStation2.ID /= 0 then
-         Print("ADD STATION: station id already exist");
-         Raise Station_ID_Already_Exist_Exception;
-      end if;
-
-      for i in 1 .. LIST_STATIONS.GET_SIZE(r_system.All_Stations) loop
-         tempStation:= LIST_STATIONS.GET_ELEMENT(r_system.All_Stations,i);
-         if tempStation.Location = Location then
-            Print("ADD STATION: station already exist");
---              Raise Station_Already_Exist_Exception;
+      station.ID := ID;
+      station.Location := Location;
+      if LIST_STATIONS.GET_ELEMENT_BY_ID(r_system.All_Stations, ID).ID = 0 then
+         if Station.Location /= TYPES.No then
+            LIST_STATIONS.APPEND(r_system.All_Stations, station,ID);
          end if;
-      end loop;
+      end if;
 
 
 
-
-   station_t.ID := StationID;
-   station_t.Location := Location;
-   LIST_STATIONS.APPEND(r_system.All_Stations, station_t,StationID);
 
    end addStation;
 
-
-   --------------------------------
-   -- set Train current Location --
-   --------------------------------
-
-   procedure setTrainLocation(r_system: in RailSystem;
-                              train: in out Trains.Train;
-                              LocationName: in  String;
-                              LocationID: in Natural)
-   is
-      Location_Name_Exception: Exception;
-      Station_Not_Exist_Exception: Exception;
-      Track_Not_Exist_Exception: Exception;
-      Train_Already_On_Track_Exception: Exception;
-      Train_Already_On_Station_Exception: Exception;
-      Set_Train_Location_LocationID_Out_Of_Range_Exception: Exception;
-      tempStation: Stations.Station;
-      tempTrack: Tracks.Track;
-      Location: Trains.Train_Location;
-   begin
-      tempTrack.TrainID:=0;
-
-      --        Stations.Init(tempStation);
-      tempStation.ID:=0;
-      tempStation.TrainID:=0;
-      tempStation.Location:=TYPES.No;
-       if LocationID < 1 or LocationID > LIST_TRAINS.GET_SIZE(r_system.All_Trains) then
-         Print("SET TRAIN LOCATION: id out of range");
-         Raise Set_Train_Location_LocationID_Out_Of_Range_Exception;
-      end if;
-
---        if LocationName = "Track" then
---           tempTrack:= Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(r_system.All_Tracks, LocationID);
---           if tempTrack.TrainID /=0 then
---              Print("SET TRAIN LOCATION: there is a train already on the track");
---              Raise Train_Already_On_Track_Exception;
---           elsif tempTrack.ID /= 0 then
---              Location.Track := tempTrack;
---              Location.Station := tempStation;
---              Location.currentLocation:= "Track  ";
---              train.Location := Location;
---           else
---              Print("SET TRAIN LOCATION: track not exist");
---              Raise Track_Not_Exist_Exception;
---           end if;
---
---        elsif LocationName = "Station" then
---           tempStation:= LIST_STATIONS.GET_ELEMENT_BY_ID(r_system.All_Stations, LocationID);
---           if tempStation.TrainID /= 0 then
---              Print("SET TRAIN LOCATION: there is a train already on the station");
---              Raise Train_Already_On_Station_Exception;
---           elsif tempStation.ID /= 0 then
---              Location.Station := tempStation;
---              Location.Track := tempTrack;
---              Location.currentLocation:= "Station";
---              train.Location := Location;
---           else
---              Print("SET TRAIN LOCATION: station not exist");
---              Raise Station_Not_Exist_Exception;
---           end if;
-
-      if LocationName = "None" then
-         Location.Station := tempStation;
-         Location.Track := tempTrack;
-         Location.currentLocation:= "None   ";
-         train.Location:= Location;
-      else
-         Print("SET TRAIN LOCATION: location name should be None");
-         Raise Location_Name_Exception;
-      end if;
-
-
-
-   end setTrainLocation;
 
    --------------------------------------------
    -- replace Track ---------------------------
    --------------------------------------------
    procedure replaceTrack(r_system: in out RailSystem;
-                            TrackID: in Natural;
-                            track: in Tracks.Track)
+                          track: in Tracks.Track)
    is
    begin
-      if track.ID /=0 then
-         Stations.LIST_TRACKS.REPLACE_BY_ID(r_system.All_Tracks,TrackID,track);
-      end if;
+         for i in 1..Stations.LIST_TRACKS.GET_SIZE(A => r_system.All_Tracks) loop
+            if Stations.LIST_TRACKS.GET_ELEMENT(A        => r_system.All_Tracks,
+                                                LOCATION => i).Origin = track.Origin
+              and  Stations.LIST_TRACKS.GET_ELEMENT(A        => r_system.All_Tracks,
+                                                    LOCATION => i).Destination = track.Destination
+              and Stations.LIST_TRACKS.GET_ELEMENT(A        => r_system.All_Tracks,
+                                                   LOCATION => i).ID = track.ID then
+               Stations.LIST_TRACKS.REPLACE_BY_ID(r_system.All_Tracks,track.ID,track);
+            end if;
+
+         end loop;
 
    end replaceTrack;
 
    --------------------------------------------
+   -- replace Train ----------------------------
+   --------------------------------------------
+   procedure replaceTrain(r_system: in out RailSystem;
+                          train: in Trains.Train)
+   is
+   begin
+      if train.Location.Station.ID>0 and train.Location.Station.ID <101 then
+         for i in 1.. LIST_TRAINS.GET_SIZE(A => r_system.All_Trains) loop
+            if LIST_TRAINS.GET_ELEMENT(A        => r_system.All_Trains,
+                                       LOCATION => i).ID = train.ID then
+               LIST_TRAINS.REPLACE_BY_ID(r_system.All_Trains,train.ID,train);
+            end if;
+         end loop;
+      end if;
+
+   end replaceTrain;
+   --------------------------------------------
    -- replace Station -------------------------
    --------------------------------------------
    procedure replaceStation(r_system: in out RailSystem;
-                            StationID: in Natural;
                             station: in Stations.Station)
    is
    begin
-      if Station.ID /=0 then
-         LIST_STATIONS.REPLACE_BY_ID(r_system.All_Stations,StationID,station);
-      end if;
+      if station.ID /=0 then
+         for i in 1..LIST_STATIONS.GET_SIZE(A => r_system.All_Stations) loop
+            if LIST_STATIONS.GET_ELEMENT(A        => r_system.All_Stations,
+                                         LOCATION => i).Location = station.Location
+              and LIST_STATIONS.GET_ELEMENT(A        => r_system.All_Stations,
+                                            LOCATION => i).ID = station.ID then
+               LIST_STATIONS.REPLACE_BY_ID(r_system.All_Stations,station.ID,station);
 
-   end replaceStation;
+            end if;
+            end loop;
+         end if;
+
+      end replaceStation;
 
 
    -----------------------------------------
@@ -649,9 +383,9 @@ package body RailSystems with SPARK_Mode=>On is
       od_record: TYPES.ODRecord;
       size: Natural;
       found: Boolean;
-      NotFindTrackIdException : Exception;
-      AlreadyAddTrackException : Exception;
-      StationIDNotExistException: Exception;
+      --        NotFindIDException : Exception;
+      --        AlreadyAddTrackException : Exception;
+      --        StationIDNotExistException: Exception;
 
    begin
 
@@ -662,8 +396,15 @@ package body RailSystems with SPARK_Mode=>On is
             tempTrack:= Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(r_system.All_Tracks, j);
             if tempTrack.Origin = tempStation.Location then
                if Stations.LIST_TRACKS.CONTAINS(tempStation.Outgoing, tempTrack) = False then
+                  if tempTrack.ID /=0 and tempTrack.Origin /=TYPES.No and tempTrack.Destination /= types.No and tempTrack.TrainID = 0 and tempTrack.TracksLineOrigin /=types.No and tempTrack.TracksLineDestination/= TYPES.No
+                    and tempTrack.Origin /=tempTrack.Destination and tempTrack.TracksLineOrigin /= tempTrack.TracksLineDestination
+                  then
+                     if tempTrack.ID>0 and tempTrack.ID<101 then
+                        Stations.LIST_TRACKS.APPEND(tempStation.Outgoing, tempTrack, tempTrack.ID);
+                     end if;
 
-                  Stations.LIST_TRACKS.APPEND(tempStation.Outgoing, tempTrack, tempTrack.ID);
+                  end if;
+
                   od_record.Origin:= tempTrack.TracksLineOrigin;
                   od_record.Destination:=TempTrack.TracksLineDestination;
                   size:=TYPES.LIST_OD.GET_SIZE(tempStation.TracksLineOriginAndDestination);
@@ -680,18 +421,28 @@ package body RailSystems with SPARK_Mode=>On is
                         end if;
                      end loop;
                      if found = False then
-                        TYPES.LIST_OD.APPEND(tempStation.TracksLineOriginAndDestination, od_record,1);
+                        if od_record.Origin /= od_record.Destination then
+                           TYPES.LIST_OD.APPEND(tempStation.TracksLineOriginAndDestination, od_record,1);
+                        end if;
+
                      end if;
                   end if;
                end if;
             elsif tempTrack.Destination = tempStation.Location then
                if Stations.LIST_TRACKS.CONTAINS(tempStation.Incoming, tempTrack) = False then
-                  Stations.LIST_TRACKS.APPEND(tempStation.Incoming, tempTrack, tempTrack.ID);
+                  if tempTrack.ID /=0 and tempTrack.Origin /=TYPES.No and tempTrack.Destination /= types.No and tempTrack.TrainID = 0 and tempTrack.TracksLineOrigin /=types.No and tempTrack.TracksLineDestination/= TYPES.No
+                    and tempTrack.TracksLineOrigin /= tempTrack.TracksLineDestination then
+                     if tempTrack.ID>0 and tempTrack.ID<101 then
+                        Stations.LIST_TRACKS.APPEND(tempStation.Incoming, tempTrack, tempTrack.ID);
+                     end if;
+
+                  end if;
+
                end if;
             end if;
          end loop;
-         if tempStation.ID>0 and tempStation.ID<101 then
-            replaceStation(r_system,tempStation.ID,tempStation);
+         if tempStation.ID>0 and tempStation.ID<101 and tempStation.Location /= TYPES.No then
+            replaceStation(r_system,tempStation);
          end if;
 
       end loop;

@@ -17,42 +17,24 @@ package body LIST is
    function CONTAINS (A: LIST_PTR; D: DATA_TYPE) return Boolean
    is
       size: Natural;
+      contain:Boolean;
    begin
       size:= A.SIZE;
-
+      contain:=False;
       for i in 1 .. size loop
-         if A.ELEMENTS(i).DATA = D then
-            return True;
+         if i < MAX_SIZE then
+            if A.ELEMENTS(i).ID /=0 then
+               if A.ELEMENTS(i).DATA = D then
+                  contain:= True;
+                  return contain;
+               end if;
+            end if;
          end if;
+
+         pragma Loop_Invariant(contain = False);
       end loop;
-      return False;
+      return contain;
    end CONTAINS;
-
-
-
-
-   ---------------
-   -- GET_FIRST --
-   ---------------
-
-   function GET_FIRST( A: LIST_PTR )
-                      return DATA_TYPE
-   is
-   begin
-      return A.ELEMENTS(1).DATA;
-   end GET_FIRST;
-
-
-   ---------------
-   -- GET_LAST  --
-   ---------------
-
-   function GET_LAST ( A: LIST_PTR )
-                      return DATA_TYPE
-   is
-   begin
-      return A.ELEMENTS(A.SIZE).DATA;
-   end GET_LAST;
 
 
    ---------------
@@ -71,7 +53,7 @@ package body LIST is
    ---------------
    function FULL ( A : in LIST_PTR) return Boolean is
    begin
-      return A.SIZE = A.MAX_SIZE;
+      return A.SIZE = A.LIST_MAX_SIZE;
    end FULL;
    ---------------
    -- APPEND    --
@@ -83,9 +65,12 @@ package body LIST is
 
       -- create a new cell to store the new element
       if not FULL(A) then
-         A.SIZE:= A.SIZE +1;
-         A.ELEMENTS(A.SIZE).DATA := D;
-         A.ELEMENTS(A.SIZE).ID:= ID;
+         if A.SIZE < MAX_SIZE then
+            A.SIZE:= A.SIZE +1;
+            A.ELEMENTS(A.SIZE).DATA := D;
+            A.ELEMENTS(A.SIZE).ID:= ID;
+         end if;
+
       end if;
    end APPEND;
 
@@ -132,41 +117,15 @@ package body LIST is
                         return DATA_TYPE
    is
    begin
-
-
-      if  A.SIZE = 0 or LOCATION <= 0  or LOCATION >A.SIZE then
+      if  A.SIZE = 0 or LOCATION <= 0  or LOCATION >A.SIZE or LOCATION > MAX_SIZE then
 
          -- If element is not in the list at this location
          return NO_FOUND;
-
       else
          return A.ELEMENTS(LOCATION).DATA;
       end if;
 
    end GET_ELEMENT;
-
-   ------------------------
-   -- GET_ELEMENT_Record --
-   ------------------------
-
-   function GET_ELEMENT_RECORD( A: LIST_PTR ;LOCATION: Natural )
-                        return DATA
-   is
-      D: DATA;
-   begin
-      D.ID:=0;
-
-
-      if  A.SIZE = 0 or LOCATION <= 0  or LOCATION >A.SIZE then
-
-         -- If element is not in the list at this location
-         return D;
-
-      else
-         return A.ELEMENTS(LOCATION);
-      end if;
-
-   end GET_ELEMENT_RECORD;
 
    ----------------------
    -- GET_ELEMENT_BY_ID--
@@ -175,6 +134,7 @@ package body LIST is
    function GET_ELEMENT_BY_ID( A: LIST_PTR ;ID: Natural )
                         return DATA_TYPE
    is
+      data: DATA_TYPE;
    begin
 
 
@@ -186,11 +146,14 @@ package body LIST is
       else
 
          for i in 1 .. A.SIZE loop
-            if A.ELEMENTS(i).ID = ID then
-               return A.ELEMENTS(i).DATA;
+            if i< MAX_SIZE then
+               if A.ELEMENTS(i).ID = ID then
+                  data:=A.ELEMENTS(i).DATA;
+               end if;
             end if;
          end loop;
-         return NO_FOUND;
+         return data;
+
       end if;
 
    end GET_ELEMENT_BY_ID;
@@ -229,17 +192,17 @@ package body LIST is
 --     -- REPLACE --
 --     -------------
 --
-   procedure REPLACE (A: in out LIST_PTR; LOCATION: Natural; NEWVALUE: DATA )
-   is
-   begin
-      if  A.SIZE = 0 or LOCATION <= 0 or LOCATION > A.SIZE then
-         -- If the index of the element don't exist raise exception
-         raise OUT_OF_BOUNDS;
-      else
-         A.ELEMENTS(LOCATION):= NEWVALUE;
-      end if;
-
-   end REPLACE;
+--     procedure REPLACE (A: in out LIST_PTR; LOCATION: Natural; NEWVALUE: DATA )
+--     is
+--     begin
+--        if  A.SIZE = 0 or LOCATION <= 0 or LOCATION > A.SIZE or LOCATION > MAX_SIZE then
+--           -- If the index of the element don't exist raise exception
+--           return;
+--        else
+--           A.ELEMENTS(LOCATION):= NEWVALUE;
+--        end if;
+--
+--     end REPLACE;
 
 
    -------------
@@ -249,17 +212,15 @@ package body LIST is
    procedure REPLACE_BY_ID (A: in out LIST_PTR; ID: Natural; NEWVALUE: DATA_TYPE )
    is
    begin
-      if  A.SIZE = 0 or ID <= 0 or ID > A.SIZE then
-         -- If the index of the element don't exist raise exception
-         raise OUT_OF_BOUNDS;
-      else
+      if  A.SIZE > 0 or ID > 0 or ID <= A.SIZE then
          for i in 1 .. A.SIZE loop
-            if A.ELEMENTS(i).ID = ID then
-               A.ELEMENTS(i).DATA := NEWVALUE;
-               return;
+            if i <MAX_SIZE then
+               if A.ELEMENTS(i).ID = ID then
+                  A.ELEMENTS(i).DATA := NEWVALUE;
+                  return;
+               end if;
             end if;
          end loop;
-         raise OUT_OF_BOUNDS;
       end if;
 
    end REPLACE_BY_ID;
@@ -269,9 +230,5 @@ package body LIST is
    begin
       A.Head := 1;
       A.Size := 0;
-      for i in 1.. A.SIZE loop
-         A.ELEMENTS(i).ID:=0;
-      end loop;
-
    end Init;
 end LIST;

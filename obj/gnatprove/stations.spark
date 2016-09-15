@@ -5,35 +5,7 @@
       "sloc": [
         {
           "file": "list.ads",
-          "line": 46
-        },
-        {
-          "file": "stations.ads",
-          "line": 10
-        }
-      ],
-      "spark": "all"
-    },
-    {
-      "name": "Stations.LIST_TRACKS.GET_FIRST",
-      "sloc": [
-        {
-          "file": "list.ads",
-          "line": 48
-        },
-        {
-          "file": "stations.ads",
-          "line": 10
-        }
-      ],
-      "spark": "all"
-    },
-    {
-      "name": "Stations.LIST_TRACKS.GET_LAST",
-      "sloc": [
-        {
-          "file": "list.ads",
-          "line": 51
+          "line": 49
         },
         {
           "file": "stations.ads",
@@ -47,7 +19,7 @@
       "sloc": [
         {
           "file": "list.ads",
-          "line": 54
+          "line": 52
         },
         {
           "file": "stations.ads",
@@ -61,7 +33,7 @@
       "sloc": [
         {
           "file": "list.ads",
-          "line": 62
+          "line": 60
         },
         {
           "file": "stations.ads",
@@ -75,7 +47,7 @@
       "sloc": [
         {
           "file": "list.ads",
-          "line": 64
+          "line": 62
         },
         {
           "file": "stations.ads",
@@ -89,7 +61,7 @@
       "sloc": [
         {
           "file": "list.ads",
-          "line": 70
+          "line": 75
         },
         {
           "file": "stations.ads",
@@ -103,21 +75,7 @@
       "sloc": [
         {
           "file": "list.ads",
-          "line": 57
-        },
-        {
-          "file": "stations.ads",
-          "line": 10
-        }
-      ],
-      "spark": "all"
-    },
-    {
-      "name": "Stations.LIST_TRACKS.GET_ELEMENT_RECORD",
-      "sloc": [
-        {
-          "file": "list.adb",
-          "line": 152
+          "line": 55
         },
         {
           "file": "stations.ads",
@@ -131,21 +89,7 @@
       "sloc": [
         {
           "file": "list.ads",
-          "line": 60
-        },
-        {
-          "file": "stations.ads",
-          "line": 10
-        }
-      ],
-      "spark": "all"
-    },
-    {
-      "name": "Stations.LIST_TRACKS.REPLACE",
-      "sloc": [
-        {
-          "file": "list.ads",
-          "line": 78
+          "line": 58
         },
         {
           "file": "stations.ads",
@@ -159,7 +103,7 @@
       "sloc": [
         {
           "file": "list.ads",
-          "line": 82
+          "line": 87
         },
         {
           "file": "stations.ads",
@@ -173,7 +117,7 @@
       "sloc": [
         {
           "file": "list.ads",
-          "line": 86
+          "line": 91
         },
         {
           "file": "stations.ads",
@@ -205,8 +149,116 @@
   ],
   "flow": [
     {
+      "file": "stations.ads",
+      "line": 8,
+      "col": 4,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "Stations",
+        "sloc": [
+          {
+            "file": "stations.ads",
+            "line": 4
+          }
+        ]
+      },
+      "tracefile": "stations__flow__252.trace",
+      "how_proved": "flow"
+    },
+    {
+      "file": "stations.ads",
+      "line": 8,
+      "col": 4,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "Stations",
+        "sloc": [
+          {
+            "file": "stations.ads",
+            "line": 4
+          }
+        ]
+      },
+      "tracefile": "stations__flow__252.trace",
+      "how_proved": "flow"
+    },
+    {
+      "file": "stations.ads",
+      "line": 8,
+      "col": 4,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "Stations",
+        "sloc": [
+          {
+            "file": "stations.ads",
+            "line": 4
+          }
+        ]
+      },
+      "tracefile": "stations__flow__252.trace",
+      "how_proved": "flow"
+    },
+    {
+      "file": "stations.ads",
+      "line": 8,
+      "col": 4,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "Stations",
+        "sloc": [
+          {
+            "file": "stations.ads",
+            "line": 4
+          }
+        ]
+      },
+      "tracefile": "stations__flow__252.trace",
+      "how_proved": "flow"
+    },
+    {
+      "file": "stations.ads",
+      "line": 8,
+      "col": 4,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "Stations",
+        "sloc": [
+          {
+            "file": "stations.ads",
+            "line": 4
+          }
+        ]
+      },
+      "tracefile": "stations__flow__252.trace",
+      "how_proved": "flow"
+    },
+    {
+      "file": "stations.ads",
+      "line": 8,
+      "col": 4,
+      "rule": "UNINITIALIZED",
+      "severity": "info",
+      "entity": {
+        "name": "Stations",
+        "sloc": [
+          {
+            "file": "stations.ads",
+            "line": 4
+          }
+        ]
+      },
+      "tracefile": "stations__flow__252.trace",
+      "how_proved": "flow"
+    },
+    {
       "file": "list.adb",
-      "line": 23,
+      "line": 24,
       "col": 21,
       "rule": "UNINITIALIZED",
       "severity": "info",
@@ -215,7 +267,7 @@
         "sloc": [
           {
             "file": "list.ads",
-            "line": 46
+            "line": 49
           },
           {
             "file": "stations.ads",
@@ -223,129 +275,21 @@
           }
         ]
       },
-      "tracefile": "stations__flow__48.trace",
-      "how_proved": "flow"
-    },
-    {
-      "file": "stations.ads",
-      "line": 8,
-      "col": 4,
-      "rule": "UNINITIALIZED",
-      "severity": "info",
-      "entity": {
-        "name": "Stations",
-        "sloc": [
-          {
-            "file": "stations.ads",
-            "line": 4
-          }
-        ]
-      },
-      "tracefile": "stations__flow__295.trace",
-      "how_proved": "flow"
-    },
-    {
-      "file": "stations.ads",
-      "line": 8,
-      "col": 4,
-      "rule": "UNINITIALIZED",
-      "severity": "info",
-      "entity": {
-        "name": "Stations",
-        "sloc": [
-          {
-            "file": "stations.ads",
-            "line": 4
-          }
-        ]
-      },
-      "tracefile": "stations__flow__295.trace",
-      "how_proved": "flow"
-    },
-    {
-      "file": "stations.ads",
-      "line": 8,
-      "col": 4,
-      "rule": "UNINITIALIZED",
-      "severity": "info",
-      "entity": {
-        "name": "Stations",
-        "sloc": [
-          {
-            "file": "stations.ads",
-            "line": 4
-          }
-        ]
-      },
-      "tracefile": "stations__flow__295.trace",
-      "how_proved": "flow"
-    },
-    {
-      "file": "stations.ads",
-      "line": 8,
-      "col": 4,
-      "rule": "UNINITIALIZED",
-      "severity": "info",
-      "entity": {
-        "name": "Stations",
-        "sloc": [
-          {
-            "file": "stations.ads",
-            "line": 4
-          }
-        ]
-      },
-      "tracefile": "stations__flow__295.trace",
-      "how_proved": "flow"
-    },
-    {
-      "file": "stations.ads",
-      "line": 8,
-      "col": 4,
-      "rule": "UNINITIALIZED",
-      "severity": "info",
-      "entity": {
-        "name": "Stations",
-        "sloc": [
-          {
-            "file": "stations.ads",
-            "line": 4
-          }
-        ]
-      },
-      "tracefile": "stations__flow__295.trace",
-      "how_proved": "flow"
-    },
-    {
-      "file": "stations.ads",
-      "line": 8,
-      "col": 4,
-      "rule": "UNINITIALIZED",
-      "severity": "info",
-      "entity": {
-        "name": "Stations",
-        "sloc": [
-          {
-            "file": "stations.ads",
-            "line": 4
-          }
-        ]
-      },
-      "tracefile": "stations__flow__295.trace",
+      "tracefile": "stations__flow__384.trace",
       "how_proved": "flow"
     },
     {
       "file": "list.adb",
-      "line": 163,
-      "col": 17,
+      "line": 29,
+      "col": 26,
       "rule": "UNINITIALIZED",
       "severity": "info",
       "entity": {
-        "name": "Stations.LIST_TRACKS.GET_ELEMENT_RECORD",
+        "name": "Stations.LIST_TRACKS.CONTAINS",
         "sloc": [
           {
-            "file": "list.adb",
-            "line": 152
+            "file": "list.ads",
+            "line": 49
           },
           {
             "file": "stations.ads",
@@ -353,21 +297,21 @@
           }
         ]
       },
-      "tracefile": "stations__flow__426.trace",
+      "tracefile": "stations__flow__384.trace",
       "how_proved": "flow"
     },
     {
       "file": "list.adb",
-      "line": 163,
-      "col": 17,
+      "line": 34,
+      "col": 32,
       "rule": "UNINITIALIZED",
       "severity": "info",
       "entity": {
-        "name": "Stations.LIST_TRACKS.GET_ELEMENT_RECORD",
+        "name": "Stations.LIST_TRACKS.CONTAINS",
         "sloc": [
           {
-            "file": "list.adb",
-            "line": 152
+            "file": "list.ads",
+            "line": 49
           },
           {
             "file": "stations.ads",
@@ -375,21 +319,21 @@
           }
         ]
       },
-      "tracefile": "stations__flow__426.trace",
+      "tracefile": "stations__flow__384.trace",
       "how_proved": "flow"
     },
     {
       "file": "list.adb",
-      "line": 163,
-      "col": 17,
+      "line": 36,
+      "col": 14,
       "rule": "UNINITIALIZED",
       "severity": "info",
       "entity": {
-        "name": "Stations.LIST_TRACKS.GET_ELEMENT_RECORD",
+        "name": "Stations.LIST_TRACKS.CONTAINS",
         "sloc": [
           {
-            "file": "list.adb",
-            "line": 152
+            "file": "list.ads",
+            "line": 49
           },
           {
             "file": "stations.ads",
@@ -397,111 +341,23 @@
           }
         ]
       },
-      "tracefile": "stations__flow__426.trace",
-      "how_proved": "flow"
-    },
-    {
-      "file": "list.adb",
-      "line": 163,
-      "col": 17,
-      "rule": "UNINITIALIZED",
-      "severity": "info",
-      "entity": {
-        "name": "Stations.LIST_TRACKS.GET_ELEMENT_RECORD",
-        "sloc": [
-          {
-            "file": "list.adb",
-            "line": 152
-          },
-          {
-            "file": "stations.ads",
-            "line": 10
-          }
-        ]
-      },
-      "tracefile": "stations__flow__426.trace",
-      "how_proved": "flow"
-    },
-    {
-      "file": "list.adb",
-      "line": 163,
-      "col": 17,
-      "rule": "UNINITIALIZED",
-      "severity": "info",
-      "entity": {
-        "name": "Stations.LIST_TRACKS.GET_ELEMENT_RECORD",
-        "sloc": [
-          {
-            "file": "list.adb",
-            "line": 152
-          },
-          {
-            "file": "stations.ads",
-            "line": 10
-          }
-        ]
-      },
-      "tracefile": "stations__flow__426.trace",
-      "how_proved": "flow"
-    },
-    {
-      "file": "list.adb",
-      "line": 163,
-      "col": 17,
-      "rule": "UNINITIALIZED",
-      "severity": "info",
-      "entity": {
-        "name": "Stations.LIST_TRACKS.GET_ELEMENT_RECORD",
-        "sloc": [
-          {
-            "file": "list.adb",
-            "line": 152
-          },
-          {
-            "file": "stations.ads",
-            "line": 10
-          }
-        ]
-      },
-      "tracefile": "stations__flow__426.trace",
-      "how_proved": "flow"
-    },
-    {
-      "file": "list.adb",
-      "line": 163,
-      "col": 17,
-      "rule": "UNINITIALIZED",
-      "severity": "info",
-      "entity": {
-        "name": "Stations.LIST_TRACKS.GET_ELEMENT_RECORD",
-        "sloc": [
-          {
-            "file": "list.adb",
-            "line": 152
-          },
-          {
-            "file": "stations.ads",
-            "line": 10
-          }
-        ]
-      },
-      "tracefile": "stations__flow__426.trace",
+      "tracefile": "stations__flow__384.trace",
       "how_proved": "flow"
     }
   ],
   "proof": [
     {
       "file": "list.adb",
-      "line": 24,
-      "col": 24,
+      "line": 26,
+      "col": 27,
       "rule": "VC_INDEX_CHECK",
-      "severity": "medium",
+      "severity": "info",
       "entity": {
         "name": "Stations.LIST_TRACKS.CONTAINS",
         "sloc": [
           {
             "file": "list.ads",
-            "line": 46
+            "line": 49
           },
           {
             "file": "stations.ads",
@@ -509,403 +365,27 @@
           }
         ]
       },
-      "cntexmp": {
-        "list.adb": {
-          "21": [
-            {
-              "name": "size",
-              "value": "2",
-              "kind": "variable"
-            }
-          ],
-          "23": [
-            {
-              "name": "i",
-              "value": "2",
-              "kind": "variable"
-            }
-          ],
-          "24": [
-            {
-              "name": "i",
-              "value": "2",
-              "kind": "variable"
-            }
-          ]
-        },
-        "list.ads": {
-          "46": [
-            {
-              "name": "D",
-              "value": "(ID => 2, Origin => 0, Destination => 0, TrainID => 2, TracksLineOrigin => 0, TracksLineDestination => 0)",
-              "kind": "variable"
-            }
-          ]
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 2,
+          "max_steps": 1,
+          "max_time": 5.00000007450581E-02
         }
-      },
-      "msg_id": 0,
-      "how_proved": "prover"
+      }
     },
     {
       "file": "list.adb",
-      "line": 87,
-      "col": 22,
+      "line": 173,
+      "col": 37,
       "rule": "VC_INDEX_CHECK",
-      "severity": "medium",
-      "entity": {
-        "name": "Stations.LIST_TRACKS.APPEND",
-        "sloc": [
-          {
-            "file": "list.ads",
-            "line": 64
-          },
-          {
-            "file": "stations.ads",
-            "line": 10
-          }
-        ]
-      },
-      "cntexmp": {
-        "list.adb": {
-        },
-        "list.ads": {
-          "64": [
-            {
-              "name": "D",
-              "value": "(ID => 1, Origin => 0, Destination => 0, TrainID => 1, TracksLineOrigin => 0, TracksLineDestination => 0)",
-              "kind": "variable"
-            },
-            {
-              "name": "ID",
-              "value": "0",
-              "kind": "variable"
-            }
-          ]
-        }
-      },
-      "msg_id": 1,
-      "how_proved": "prover"
-    },
-    {
-      "file": "list.adb",
-      "line": 257,
-      "col": 27,
-      "rule": "VC_INDEX_CHECK",
-      "severity": "medium",
-      "entity": {
-        "name": "Stations.LIST_TRACKS.REPLACE_BY_ID",
-        "sloc": [
-          {
-            "file": "list.ads",
-            "line": 82
-          },
-          {
-            "file": "stations.ads",
-            "line": 10
-          }
-        ]
-      },
-      "cntexmp": {
-        "list.adb": {
-          "256": [
-            {
-              "name": "i",
-              "value": "2",
-              "kind": "variable"
-            }
-          ],
-          "257": [
-            {
-              "name": "i",
-              "value": "2",
-              "kind": "variable"
-            }
-          ]
-        },
-        "list.ads": {
-          "82": [
-            {
-              "name": "ID",
-              "value": "1",
-              "kind": "variable"
-            },
-            {
-              "name": "NEWVALUE",
-              "value": "(ID => 2, Origin => 0, Destination => 0, TrainID => 2, TracksLineOrigin => 0, TracksLineDestination => 0)",
-              "kind": "variable"
-            }
-          ]
-        }
-      },
-      "msg_id": 2,
-      "how_proved": "prover"
-    },
-    {
-      "file": "list.adb",
-      "line": 262,
-      "col": 10,
-      "rule": "VC_RAISE",
-      "severity": "medium",
-      "entity": {
-        "name": "Stations.LIST_TRACKS.REPLACE_BY_ID",
-        "sloc": [
-          {
-            "file": "list.ads",
-            "line": 82
-          },
-          {
-            "file": "stations.ads",
-            "line": 10
-          }
-        ]
-      },
-      "cntexmp": {
-        "list.adb": {
-          "256": [
-            {
-              "name": "i",
-              "value": "2",
-              "kind": "variable"
-            }
-          ],
-          "262": [
-            {
-              "name": "i",
-              "value": "1",
-              "kind": "variable"
-            }
-          ]
-        },
-        "list.ads": {
-          "82": [
-            {
-              "name": "ID",
-              "value": "1",
-              "kind": "variable"
-            },
-            {
-              "name": "NEWVALUE",
-              "value": "(ID => 1, Origin => 0, Destination => 0, TrainID => 1, TracksLineOrigin => 0, TracksLineDestination => 0)",
-              "kind": "variable"
-            }
-          ]
-        }
-      },
-      "msg_id": 3,
-      "how_proved": "prover"
-    },
-    {
-      "file": "list.adb",
-      "line": 143,
-      "col": 28,
-      "rule": "VC_INDEX_CHECK",
-      "severity": "medium",
-      "entity": {
-        "name": "Stations.LIST_TRACKS.GET_ELEMENT",
-        "sloc": [
-          {
-            "file": "list.ads",
-            "line": 57
-          },
-          {
-            "file": "stations.ads",
-            "line": 10
-          }
-        ]
-      },
-      "cntexmp": {
-        "list.adb": {
-          "143": [
-            {
-              "name": "LOCATION",
-              "value": "2",
-              "kind": "variable"
-            }
-          ]
-        },
-        "list.ads": {
-          "23": [
-            {
-              "name": "NO_FOUND",
-              "value": "(ID => 2, Origin => 0, Destination => 0, TrainID => 2, TracksLineOrigin => 0, TracksLineDestination => 0)",
-              "kind": "variable"
-            }
-          ],
-          "57": [
-            {
-              "name": "LOCATION",
-              "value": "2",
-              "kind": "variable"
-            }
-          ]
-        }
-      },
-      "msg_id": 4,
-      "how_proved": "prover"
-    },
-    {
-      "file": "list.adb",
-      "line": 237,
-      "col": 10,
-      "rule": "VC_RAISE",
-      "severity": "medium",
-      "entity": {
-        "name": "Stations.LIST_TRACKS.REPLACE",
-        "sloc": [
-          {
-            "file": "list.ads",
-            "line": 78
-          },
-          {
-            "file": "stations.ads",
-            "line": 10
-          }
-        ]
-      },
-      "cntexmp": {
-        "list.ads": {
-          "78": [
-            {
-              "name": "LOCATION",
-              "value": "0",
-              "kind": "variable"
-            }
-          ]
-        }
-      },
-      "msg_id": 5,
-      "how_proved": "prover"
-    },
-    {
-      "file": "list.adb",
-      "line": 166,
-      "col": 28,
-      "rule": "VC_INDEX_CHECK",
-      "severity": "medium",
-      "entity": {
-        "name": "Stations.LIST_TRACKS.GET_ELEMENT_RECORD",
-        "sloc": [
-          {
-            "file": "list.adb",
-            "line": 152
-          },
-          {
-            "file": "stations.ads",
-            "line": 10
-          }
-        ]
-      },
-      "cntexmp": {
-        "list.adb": {
-          "152": [
-            {
-              "name": "LOCATION",
-              "value": "2",
-              "kind": "variable"
-            }
-          ],
-          "166": [
-            {
-              "name": "LOCATION",
-              "value": "2",
-              "kind": "variable"
-            }
-          ]
-        }
-      },
-      "msg_id": 6,
-      "how_proved": "prover"
-    },
-    {
-      "file": "list.adb",
-      "line": 86,
-      "col": 26,
-      "rule": "VC_OVERFLOW_CHECK",
-      "severity": "medium",
-      "entity": {
-        "name": "Stations.LIST_TRACKS.APPEND",
-        "sloc": [
-          {
-            "file": "list.ads",
-            "line": 64
-          },
-          {
-            "file": "stations.ads",
-            "line": 10
-          }
-        ]
-      },
-      "cntexmp": {
-        "list.adb": {
-        },
-        "list.ads": {
-          "64": [
-            {
-              "name": "D",
-              "value": "(ID => 2147483647, Origin => 0, Destination => 0, TrainID => 2147483647, TracksLineOrigin => 0, TracksLineDestination => 0)",
-              "kind": "variable"
-            },
-            {
-              "name": "ID",
-              "value": "0",
-              "kind": "variable"
-            }
-          ]
-        }
-      },
-      "msg_id": 7,
-      "how_proved": "prover"
-    },
-    {
-      "file": "list.adb",
-      "line": 254,
-      "col": 10,
-      "rule": "VC_RAISE",
-      "severity": "medium",
-      "entity": {
-        "name": "Stations.LIST_TRACKS.REPLACE_BY_ID",
-        "sloc": [
-          {
-            "file": "list.ads",
-            "line": 82
-          },
-          {
-            "file": "stations.ads",
-            "line": 10
-          }
-        ]
-      },
-      "cntexmp": {
-        "list.ads": {
-          "82": [
-            {
-              "name": "ID",
-              "value": "0",
-              "kind": "variable"
-            },
-            {
-              "name": "NEWVALUE",
-              "value": "(ID => 0, Origin => 0, Destination => 0, TrainID => 0, TracksLineOrigin => 0, TracksLineDestination => 0)",
-              "kind": "variable"
-            }
-          ]
-        }
-      },
-      "msg_id": 8,
-      "how_proved": "prover"
-    },
-    {
-      "file": "list.adb",
-      "line": 189,
-      "col": 27,
-      "rule": "VC_INDEX_CHECK",
-      "severity": "medium",
+      "severity": "info",
       "entity": {
         "name": "Stations.LIST_TRACKS.GET_ELEMENT_BY_ID",
         "sloc": [
           {
             "file": "list.ads",
-            "line": 60
+            "line": 58
           },
           {
             "file": "stations.ads",
@@ -913,115 +393,79 @@
           }
         ]
       },
-      "cntexmp": {
-        "list.adb": {
-          "188": [
-            {
-              "name": "i",
-              "value": "2",
-              "kind": "variable"
-            }
-          ],
-          "189": [
-            {
-              "name": "i",
-              "value": "2",
-              "kind": "variable"
-            }
-          ]
-        },
-        "list.ads": {
-          "23": [
-            {
-              "name": "NO_FOUND",
-              "value": "(ID => 2, Origin => 0, Destination => 0, TrainID => 2, TracksLineOrigin => 0, TracksLineDestination => 0)",
-              "kind": "variable"
-            }
-          ],
-          "60": [
-            {
-              "name": "ID",
-              "value": "1",
-              "kind": "variable"
-            }
-          ]
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 5.00000007450581E-02
         }
-      },
-      "msg_id": 9,
-      "how_proved": "prover"
+      }
     },
     {
       "file": "list.adb",
-      "line": 54,
-      "col": 26,
+      "line": 172,
+      "col": 30,
       "rule": "VC_INDEX_CHECK",
-      "severity": "medium",
-      "entity": {
-        "name": "Stations.LIST_TRACKS.GET_LAST",
-        "sloc": [
-          {
-            "file": "list.ads",
-            "line": 51
-          },
-          {
-            "file": "stations.ads",
-            "line": 10
-          }
-        ]
-      },
-      "msg_id": 10,
-      "how_proved": "prover"
-    },
-    {
-      "file": "list.adb",
-      "line": 239,
-      "col": 21,
-      "rule": "VC_INDEX_CHECK",
-      "severity": "medium",
-      "entity": {
-        "name": "Stations.LIST_TRACKS.REPLACE",
-        "sloc": [
-          {
-            "file": "list.ads",
-            "line": 78
-          },
-          {
-            "file": "stations.ads",
-            "line": 10
-          }
-        ]
-      },
-      "cntexmp": {
-        "list.adb": {
-          "239": [
-            {
-              "name": "LOCATION",
-              "value": "2",
-              "kind": "variable"
-            }
-          ]
-        },
-        "list.ads": {
-          "78": [
-            {
-              "name": "LOCATION",
-              "value": "2",
-              "kind": "variable"
-            }
-          ]
-        }
-      },
-      "msg_id": 11,
-      "how_proved": "prover"
-    },
-    {
-      "file": "list.adb",
-      "line": 72,
-      "col": 13,
-      "rule": "VC_RANGE_CHECK",
       "severity": "info",
       "entity": {
-        "name": "Stations.LIST_TRACKS.FULL",
+        "name": "Stations.LIST_TRACKS.GET_ELEMENT_BY_ID",
+        "sloc": [
+          {
+            "file": "list.ads",
+            "line": 58
+          },
+          {
+            "file": "stations.ads",
+            "line": 10
+          }
+        ]
+      },
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.99999993294477E-02
+        }
+      }
+    },
+    {
+      "file": "list.adb",
+      "line": 125,
+      "col": 28,
+      "rule": "VC_INDEX_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "Stations.LIST_TRACKS.GET_ELEMENT",
+        "sloc": [
+          {
+            "file": "list.ads",
+            "line": 55
+          },
+          {
+            "file": "stations.ads",
+            "line": 10
+          }
+        ]
+      },
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.99999993294477E-02
+        }
+      }
+    },
+    {
+      "file": "list.adb",
+      "line": 69,
+      "col": 29,
+      "rule": "VC_OVERFLOW_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "Stations.LIST_TRACKS.APPEND",
         "sloc": [
           {
             "file": "list.ads",
@@ -1044,16 +488,16 @@
     },
     {
       "file": "list.adb",
-      "line": 42,
-      "col": 25,
+      "line": 242,
+      "col": 30,
       "rule": "VC_INDEX_CHECK",
       "severity": "info",
       "entity": {
-        "name": "Stations.LIST_TRACKS.GET_FIRST",
+        "name": "Stations.LIST_TRACKS.REPLACE_BY_ID",
         "sloc": [
           {
             "file": "list.ads",
-            "line": 48
+            "line": 87
           },
           {
             "file": "stations.ads",
@@ -1072,16 +516,16 @@
     },
     {
       "file": "list.adb",
-      "line": 50,
-      "col": 13,
-      "rule": "VC_RANGE_CHECK",
+      "line": 27,
+      "col": 30,
+      "rule": "VC_INDEX_CHECK",
       "severity": "info",
       "entity": {
-        "name": "Stations.LIST_TRACKS.GET_LAST",
+        "name": "Stations.LIST_TRACKS.CONTAINS",
         "sloc": [
           {
             "file": "list.ads",
-            "line": 51
+            "line": 49
           },
           {
             "file": "stations.ads",
@@ -1092,15 +536,15 @@
       "how_proved": "prover",
       "stats": {
         "CVC4": {
-          "count": 1,
+          "count": 2,
           "max_steps": 1,
-          "max_time": 5.00000007450581E-02
+          "max_time": 5.99999986588955E-02
         }
       }
     },
     {
       "file": "list.adb",
-      "line": 273,
+      "line": 258,
       "col": 21,
       "rule": "VC_INDEX_CHECK",
       "severity": "info",
@@ -1109,7 +553,7 @@
         "sloc": [
           {
             "file": "list.ads",
-            "line": 86
+            "line": 91
           },
           {
             "file": "stations.ads",
@@ -1122,202 +566,14 @@
         "CVC4": {
           "count": 1,
           "max_steps": 1,
-          "max_time": 5.00000007450581E-02
-        }
-      }
-    },
-    {
-      "file": "stations.ads",
-      "line": 15,
-      "col": 46,
-      "rule": "VC_RANGE_CHECK",
-      "severity": "info",
-      "entity": {
-        "name": "Stations",
-        "sloc": [
-          {
-            "file": "stations.ads",
-            "line": 4
-          }
-        ]
-      },
-      "how_proved": "prover",
-      "stats": {
-        "CVC4": {
-          "count": 1,
-          "max_steps": 1,
-          "max_time": 5.00000007450581E-02
+          "max_time": 5.99999986588955E-02
         }
       }
     },
     {
       "file": "list.adb",
-      "line": 175,
-      "col": 13,
-      "rule": "VC_RANGE_CHECK",
-      "severity": "info",
-      "entity": {
-        "name": "Stations.LIST_TRACKS.GET_ELEMENT_BY_ID",
-        "sloc": [
-          {
-            "file": "list.ads",
-            "line": 60
-          },
-          {
-            "file": "stations.ads",
-            "line": 10
-          }
-        ]
-      },
-      "how_proved": "prover",
-      "stats": {
-        "CVC4": {
-          "count": 1,
-          "max_steps": 1,
-          "max_time": 2.99999993294477E-02
-        }
-      }
-    },
-    {
-      "file": "list.adb",
-      "line": 131,
-      "col": 13,
-      "rule": "VC_RANGE_CHECK",
-      "severity": "info",
-      "entity": {
-        "name": "Stations.LIST_TRACKS.GET_ELEMENT",
-        "sloc": [
-          {
-            "file": "list.ads",
-            "line": 57
-          },
-          {
-            "file": "stations.ads",
-            "line": 10
-          }
-        ]
-      },
-      "how_proved": "prover",
-      "stats": {
-        "CVC4": {
-          "count": 1,
-          "max_steps": 1,
-          "max_time": 2.99999993294477E-02
-        }
-      }
-    },
-    {
-      "file": "list.adb",
-      "line": 62,
-      "col": 13,
-      "rule": "VC_RANGE_CHECK",
-      "severity": "info",
-      "entity": {
-        "name": "Stations.LIST_TRACKS.GET_SIZE",
-        "sloc": [
-          {
-            "file": "list.ads",
-            "line": 54
-          },
-          {
-            "file": "stations.ads",
-            "line": 10
-          }
-        ]
-      },
-      "how_proved": "prover",
-      "stats": {
-        "CVC4": {
-          "count": 1,
-          "max_steps": 1,
-          "max_time": 2.99999993294477E-02
-        }
-      }
-    },
-    {
-      "file": "list.adb",
-      "line": 190,
-      "col": 34,
-      "rule": "VC_INDEX_CHECK",
-      "severity": "info",
-      "entity": {
-        "name": "Stations.LIST_TRACKS.GET_ELEMENT_BY_ID",
-        "sloc": [
-          {
-            "file": "list.ads",
-            "line": 60
-          },
-          {
-            "file": "stations.ads",
-            "line": 10
-          }
-        ]
-      },
-      "how_proved": "prover",
-      "stats": {
-        "CVC4": {
-          "count": 1,
-          "max_steps": 1,
-          "max_time": 2.99999993294477E-02
-        }
-      }
-    },
-    {
-      "file": "list.adb",
-      "line": 17,
-      "col": 13,
-      "rule": "VC_RANGE_CHECK",
-      "severity": "info",
-      "entity": {
-        "name": "Stations.LIST_TRACKS.CONTAINS",
-        "sloc": [
-          {
-            "file": "list.ads",
-            "line": 46
-          },
-          {
-            "file": "stations.ads",
-            "line": 10
-          }
-        ]
-      },
-      "how_proved": "prover",
-      "stats": {
-        "CVC4": {
-          "count": 1,
-          "max_steps": 1,
-          "max_time": 2.99999993294477E-02
-        }
-      }
-    },
-    {
-      "file": "stations.ads",
-      "line": 14,
-      "col": 45,
-      "rule": "VC_RANGE_CHECK",
-      "severity": "info",
-      "entity": {
-        "name": "Stations",
-        "sloc": [
-          {
-            "file": "stations.ads",
-            "line": 4
-          }
-        ]
-      },
-      "how_proved": "prover",
-      "stats": {
-        "CVC4": {
-          "count": 1,
-          "max_steps": 1,
-          "max_time": 2.99999993294477E-02
-        }
-      }
-    },
-    {
-      "file": "list.adb",
-      "line": 258,
-      "col": 27,
+      "line": 243,
+      "col": 30,
       "rule": "VC_INDEX_CHECK",
       "severity": "info",
       "entity": {
@@ -1325,7 +581,7 @@
         "sloc": [
           {
             "file": "list.ads",
-            "line": 82
+            "line": 87
           },
           {
             "file": "stations.ads",
@@ -1344,44 +600,16 @@
     },
     {
       "file": "list.adb",
-      "line": 152,
-      "col": 13,
-      "rule": "VC_RANGE_CHECK",
+      "line": 34,
+      "col": 10,
+      "rule": "VC_LOOP_INVARIANT_PRESERV",
       "severity": "info",
       "entity": {
-        "name": "Stations.LIST_TRACKS.GET_ELEMENT_RECORD",
-        "sloc": [
-          {
-            "file": "list.adb",
-            "line": 152
-          },
-          {
-            "file": "stations.ads",
-            "line": 10
-          }
-        ]
-      },
-      "how_proved": "prover",
-      "stats": {
-        "CVC4": {
-          "count": 1,
-          "max_steps": 1,
-          "max_time": 2.99999993294477E-02
-        }
-      }
-    },
-    {
-      "file": "list.adb",
-      "line": 38,
-      "col": 13,
-      "rule": "VC_RANGE_CHECK",
-      "severity": "info",
-      "entity": {
-        "name": "Stations.LIST_TRACKS.GET_FIRST",
+        "name": "Stations.LIST_TRACKS.CONTAINS",
         "sloc": [
           {
             "file": "list.ads",
-            "line": 48
+            "line": 49
           },
           {
             "file": "stations.ads",
@@ -1394,14 +622,14 @@
         "CVC4": {
           "count": 1,
           "max_steps": 1,
-          "max_time": 2.99999993294477E-02
+          "max_time": 5.00000007450581E-02
         }
       }
     },
     {
       "file": "list.adb",
-      "line": 88,
-      "col": 22,
+      "line": 71,
+      "col": 25,
       "rule": "VC_INDEX_CHECK",
       "severity": "info",
       "entity": {
@@ -1409,7 +637,7 @@
         "sloc": [
           {
             "file": "list.ads",
-            "line": 64
+            "line": 62
           },
           {
             "file": "stations.ads",
@@ -1423,6 +651,62 @@
           "count": 1,
           "max_steps": 1,
           "max_time": 5.00000007450581E-02
+        }
+      }
+    },
+    {
+      "file": "list.adb",
+      "line": 70,
+      "col": 25,
+      "rule": "VC_INDEX_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "Stations.LIST_TRACKS.APPEND",
+        "sloc": [
+          {
+            "file": "list.ads",
+            "line": 62
+          },
+          {
+            "file": "stations.ads",
+            "line": 10
+          }
+        ]
+      },
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 5.00000007450581E-02
+        }
+      }
+    },
+    {
+      "file": "list.adb",
+      "line": 34,
+      "col": 10,
+      "rule": "VC_LOOP_INVARIANT_INIT",
+      "severity": "info",
+      "entity": {
+        "name": "Stations.LIST_TRACKS.CONTAINS",
+        "sloc": [
+          {
+            "file": "list.ads",
+            "line": 49
+          },
+          {
+            "file": "stations.ads",
+            "line": 10
+          }
+        ]
+      },
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 2.99999993294477E-02
         }
       }
     }
@@ -1434,31 +718,11 @@
       "claim": {
         "predicate": "CLAIM_EFFECTS",
         "arg": {
-          "name": "Stations.LIST_TRACKS.REPLACE_BY_ID",
-          "sloc": [
-            {
-              "file": "list.ads",
-              "line": 82
-            },
-            {
-              "file": "stations.ads",
-              "line": 10
-            }
-          ]
-        }
-      }
-    },
-    {
-      "assumptions": [
-      ],
-      "claim": {
-        "predicate": "CLAIM_EFFECTS",
-        "arg": {
           "name": "Stations.LIST_TRACKS.GET_SIZE",
           "sloc": [
             {
               "file": "list.ads",
-              "line": 54
+              "line": 52
             },
             {
               "file": "stations.ads",
@@ -1478,163 +742,7 @@
           "sloc": [
             {
               "file": "list.ads",
-              "line": 54
-            },
-            {
-              "file": "stations.ads",
-              "line": 10
-            }
-          ]
-        }
-      }
-    },
-    {
-      "assumptions": [
-      ],
-      "claim": {
-        "predicate": "CLAIM_EFFECTS",
-        "arg": {
-          "name": "Stations.LIST_TRACKS.CONTAINS",
-          "sloc": [
-            {
-              "file": "list.ads",
-              "line": 46
-            },
-            {
-              "file": "stations.ads",
-              "line": 10
-            }
-          ]
-        }
-      }
-    },
-    {
-      "assumptions": [
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "Stations.LIST_TRACKS.FULL",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 62
-              },
-              {
-                "file": "stations.ads",
-                "line": 10
-              }
-            ]
-          }
-        }
-      ],
-      "claim": {
-        "predicate": "CLAIM_EFFECTS",
-        "arg": {
-          "name": "Stations.LIST_TRACKS.APPEND",
-          "sloc": [
-            {
-              "file": "list.ads",
-              "line": 64
-            },
-            {
-              "file": "stations.ads",
-              "line": 10
-            }
-          ]
-        }
-      }
-    },
-    {
-      "assumptions": [
-      ],
-      "claim": {
-        "predicate": "CLAIM_EFFECTS",
-        "arg": {
-          "name": "Stations.LIST_TRACKS.GET_FIRST",
-          "sloc": [
-            {
-              "file": "list.ads",
-              "line": 48
-            },
-            {
-              "file": "stations.ads",
-              "line": 10
-            }
-          ]
-        }
-      }
-    },
-    {
-      "assumptions": [
-      ],
-      "claim": {
-        "predicate": "CLAIM_AORTE",
-        "arg": {
-          "name": "Stations.LIST_TRACKS.GET_FIRST",
-          "sloc": [
-            {
-              "file": "list.ads",
-              "line": 48
-            },
-            {
-              "file": "stations.ads",
-              "line": 10
-            }
-          ]
-        }
-      }
-    },
-    {
-      "assumptions": [
-      ],
-      "claim": {
-        "predicate": "CLAIM_EFFECTS",
-        "arg": {
-          "name": "Stations.LIST_TRACKS.REPLACE",
-          "sloc": [
-            {
-              "file": "list.ads",
-              "line": 78
-            },
-            {
-              "file": "stations.ads",
-              "line": 10
-            }
-          ]
-        }
-      }
-    },
-    {
-      "assumptions": [
-      ],
-      "claim": {
-        "predicate": "CLAIM_EFFECTS",
-        "arg": {
-          "name": "Stations.LIST_TRACKS.GET_ELEMENT",
-          "sloc": [
-            {
-              "file": "list.ads",
-              "line": 57
-            },
-            {
-              "file": "stations.ads",
-              "line": 10
-            }
-          ]
-        }
-      }
-    },
-    {
-      "assumptions": [
-      ],
-      "claim": {
-        "predicate": "CLAIM_EFFECTS",
-        "arg": {
-          "name": "Stations.LIST_TRACKS.GET_ELEMENT_RECORD",
-          "sloc": [
-            {
-              "file": "list.adb",
-              "line": 152
+              "line": 52
             },
             {
               "file": "stations.ads",
@@ -1666,11 +774,31 @@
       "claim": {
         "predicate": "CLAIM_EFFECTS",
         "arg": {
-          "name": "Stations.LIST_TRACKS.GET_ELEMENT_BY_ID",
+          "name": "Stations.LIST_TRACKS.GET_ELEMENT",
           "sloc": [
             {
               "file": "list.ads",
-              "line": 60
+              "line": 55
+            },
+            {
+              "file": "stations.ads",
+              "line": 10
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "Stations.LIST_TRACKS.GET_ELEMENT",
+          "sloc": [
+            {
+              "file": "list.ads",
+              "line": 55
             },
             {
               "file": "stations.ads",
@@ -1686,11 +814,71 @@
       "claim": {
         "predicate": "CLAIM_EFFECTS",
         "arg": {
-          "name": "Stations.LIST_TRACKS.GET_LAST",
+          "name": "Stations.LIST_TRACKS.DELETE_ALL",
           "sloc": [
             {
               "file": "list.ads",
-              "line": 51
+              "line": 75
+            },
+            {
+              "file": "stations.ads",
+              "line": 10
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "Stations.LIST_TRACKS.DELETE_ALL",
+          "sloc": [
+            {
+              "file": "list.ads",
+              "line": 75
+            },
+            {
+              "file": "stations.ads",
+              "line": 10
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "Stations.LIST_TRACKS.GET_ELEMENT_BY_ID",
+          "sloc": [
+            {
+              "file": "list.ads",
+              "line": 58
+            },
+            {
+              "file": "stations.ads",
+              "line": 10
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "Stations.LIST_TRACKS.GET_ELEMENT_BY_ID",
+          "sloc": [
+            {
+              "file": "list.ads",
+              "line": 58
             },
             {
               "file": "stations.ads",
@@ -1710,7 +898,67 @@
           "sloc": [
             {
               "file": "list.ads",
-              "line": 86
+              "line": 91
+            },
+            {
+              "file": "stations.ads",
+              "line": 10
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "Stations.LIST_TRACKS.Init",
+          "sloc": [
+            {
+              "file": "list.ads",
+              "line": 91
+            },
+            {
+              "file": "stations.ads",
+              "line": 10
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "Stations.LIST_TRACKS.FULL",
+          "sloc": [
+            {
+              "file": "list.ads",
+              "line": 60
+            },
+            {
+              "file": "stations.ads",
+              "line": 10
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "Stations.LIST_TRACKS.FULL",
+          "sloc": [
+            {
+              "file": "list.ads",
+              "line": 60
             },
             {
               "file": "stations.ads",
@@ -1738,15 +986,31 @@
     },
     {
       "assumptions": [
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "Stations.LIST_TRACKS.FULL",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 60
+              },
+              {
+                "file": "stations.ads",
+                "line": 10
+              }
+            ]
+          }
+        }
       ],
       "claim": {
-        "predicate": "CLAIM_AORTE",
+        "predicate": "CLAIM_EFFECTS",
         "arg": {
-          "name": "Stations.LIST_TRACKS.Init",
+          "name": "Stations.LIST_TRACKS.APPEND",
           "sloc": [
             {
               "file": "list.ads",
-              "line": 86
+              "line": 62
             },
             {
               "file": "stations.ads",
@@ -1758,11 +1022,43 @@
     },
     {
       "assumptions": [
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "Stations.LIST_TRACKS.FULL",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 60
+              },
+              {
+                "file": "stations.ads",
+                "line": 10
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "Stations.LIST_TRACKS.FULL",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 60
+              },
+              {
+                "file": "stations.ads",
+                "line": 10
+              }
+            ]
+          }
+        }
       ],
       "claim": {
-        "predicate": "CLAIM_EFFECTS",
+        "predicate": "CLAIM_AORTE",
         "arg": {
-          "name": "Stations.LIST_TRACKS.FULL",
+          "name": "Stations.LIST_TRACKS.APPEND",
           "sloc": [
             {
               "file": "list.ads",
@@ -1780,13 +1076,33 @@
       "assumptions": [
       ],
       "claim": {
-        "predicate": "CLAIM_AORTE",
+        "predicate": "CLAIM_EFFECTS",
         "arg": {
-          "name": "Stations.LIST_TRACKS.FULL",
+          "name": "Stations.LIST_TRACKS.REPLACE_BY_ID",
           "sloc": [
             {
               "file": "list.ads",
-              "line": 62
+              "line": 87
+            },
+            {
+              "file": "stations.ads",
+              "line": 10
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "Stations.LIST_TRACKS.REPLACE_BY_ID",
+          "sloc": [
+            {
+              "file": "list.ads",
+              "line": 87
             },
             {
               "file": "stations.ads",
@@ -1802,11 +1118,11 @@
       "claim": {
         "predicate": "CLAIM_EFFECTS",
         "arg": {
-          "name": "Stations.LIST_TRACKS.DELETE_ALL",
+          "name": "Stations.LIST_TRACKS.CONTAINS",
           "sloc": [
             {
               "file": "list.ads",
-              "line": 70
+              "line": 49
             },
             {
               "file": "stations.ads",
@@ -1822,11 +1138,11 @@
       "claim": {
         "predicate": "CLAIM_AORTE",
         "arg": {
-          "name": "Stations.LIST_TRACKS.DELETE_ALL",
+          "name": "Stations.LIST_TRACKS.CONTAINS",
           "sloc": [
             {
               "file": "list.ads",
-              "line": 70
+              "line": 49
             },
             {
               "file": "stations.ads",

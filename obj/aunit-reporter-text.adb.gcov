@@ -78,12 +78,12 @@
         -:   76:   -- Indent --
         -:   77:   ------------
         -:   78:
-        4:   79:   procedure Indent (N : Natural) is
+    #####:   79:   procedure Indent (N : Natural) is
         -:   80:   begin
-        4:   81:      for J in 1 .. N loop
-        4:   82:         Put ("    ");
-        4:   83:      end loop;
-        4:   84:   end Indent;
+    #####:   81:      for J in 1 .. N loop
+    #####:   82:         Put ("    ");
+    #####:   83:      end loop;
+    #####:   84:   end Indent;
         -:   85:
         -:   86:   ----------------------
         -:   87:   -- Dump_Result_List --
@@ -96,16 +96,16 @@
         6:   94:      C : Cursor := First (L);
         -:   95:   begin
         6:   96:      if Has_Element (C) then
-        4:   97:         New_Line;
+        2:   97:         New_Line;
         -:   98:      end if;
         -:   99:
         -:  100:      --  Note: can't use Iterate because it violates restriction
         -:  101:      --  No_Implicit_Dynamic_Code
         -:  102:
-       72:  103:      while Has_Element (C) loop
-       66:  104:         Report_Test (Element (C), Prefix);
-       66:  105:         Next (C);
-       66:  106:      end loop;
+       68:  103:      while Has_Element (C) loop
+       62:  104:         Report_Test (Element (C), Prefix);
+       62:  105:         Next (C);
+       62:  106:      end loop;
         6:  107:   end Dump_Result_List;
         -:  108:
         -:  109:   ---------
@@ -210,38 +210,38 @@
         -:  208:   -- Report_Test --
         -:  209:   -----------------
         -:  210:
-       66:  211:   procedure Report_Test (Test : Test_Result; Prefix : String) is
+       62:  211:   procedure Report_Test (Test : Test_Result; Prefix : String) is
         -:  212:      T : AUnit_Duration;
         -:  213:   begin
-       66:  214:      Put (Prefix);
-       66:  215:      Put (" ");
-       66:  216:      Put (Test.Test_Name.all);
+       62:  214:      Put (Prefix);
+       62:  215:      Put (" ");
+       62:  216:      Put (Test.Test_Name.all);
         -:  217:
-       66:  218:      if Test.Routine_Name /= null then
-       66:  219:         Put (" : ");
-       66:  220:         Put (Test.Routine_Name.all);
+       62:  218:      if Test.Routine_Name /= null then
+       62:  219:         Put (" : ");
+       62:  220:         Put (Test.Routine_Name.all);
         -:  221:      end if;
         -:  222:
-       66:  223:      if Test.Elapsed /= Time_Measure.Null_Time then
+       62:  223:      if Test.Elapsed /= Time_Measure.Null_Time then
     #####:  224:         Put (" (in ");
     #####:  225:         T := Get_Measure (Test.Elapsed);
     #####:  226:         Put_Measure (T);
     #####:  227:         Put (")");
         -:  228:      end if;
         -:  229:
-       66:  230:      New_Line;
+       62:  230:      New_Line;
         -:  231:
-       66:  232:      if Test.Failure /= null then
-        2:  233:         Indent (1);
-        2:  234:         Put_Line (Test.Failure.Message.all);
-        2:  235:         Indent (1);
-        2:  236:         Put ("at ");
-        2:  237:         Put (Test.Failure.Source_Name.all);
-        2:  238:         Put (":");
-        2:  239:         Put (Test.Failure.Line);
-        2:  240:         New_Line;
+       62:  232:      if Test.Failure /= null then
+    #####:  233:         Indent (1);
+    #####:  234:         Put_Line (Test.Failure.Message.all);
+    #####:  235:         Indent (1);
+    #####:  236:         Put ("at ");
+    #####:  237:         Put (Test.Failure.Source_Name.all);
+    #####:  238:         Put (":");
+    #####:  239:         Put (Test.Failure.Line);
+    #####:  240:         New_Line;
         -:  241:
-       64:  242:      elsif Test.Error /= null then
+       62:  242:      elsif Test.Error /= null then
     #####:  243:         Indent (1);
     #####:  244:         Put_Line (Test.Error.Exception_Name.all);
         -:  245:
@@ -275,6 +275,6 @@
         -:  273:
     #####:  274:         New_Line;
         -:  275:      end if;
-       66:  276:   end Report_Test;
+       62:  276:   end Report_Test;
         -:  277:
         -:  278:end AUnit.Reporter.Text;

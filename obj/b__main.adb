@@ -23,6 +23,7 @@ package body ada_main is
    E109 : Short_Integer; pragma Import (Ada, E109, "system__finalization_root_E");
    E107 : Short_Integer; pragma Import (Ada, E107, "ada__finalization_E");
    E009 : Short_Integer; pragma Import (Ada, E009, "ada__calendar_E");
+   E127 : Short_Integer; pragma Import (Ada, E127, "system__assertions_E");
    E063 : Short_Integer; pragma Import (Ada, E063, "system__object_reader_E");
    E044 : Short_Integer; pragma Import (Ada, E044, "system__dwarf_lines_E");
    E020 : Short_Integer; pragma Import (Ada, E020, "system__secondary_stack_E");
@@ -31,8 +32,8 @@ package body ada_main is
    E125 : Short_Integer; pragma Import (Ada, E125, "list_E");
    E123 : Short_Integer; pragma Import (Ada, E123, "types_E");
    E116 : Short_Integer; pragma Import (Ada, E116, "sprint_E");
-   E126 : Short_Integer; pragma Import (Ada, E126, "stations_E");
-   E128 : Short_Integer; pragma Import (Ada, E128, "trains_E");
+   E128 : Short_Integer; pragma Import (Ada, E128, "stations_E");
+   E130 : Short_Integer; pragma Import (Ada, E130, "trains_E");
    E006 : Short_Integer; pragma Import (Ada, E006, "railsystems_E");
 
    Local_Priority_Specific_Dispatching : constant String := "";
@@ -172,6 +173,8 @@ package body ada_main is
       Ada.Calendar'Elab_Spec;
       Ada.Calendar'Elab_Body;
       E009 := E009 + 1;
+      System.Assertions'Elab_Spec;
+      E127 := E127 + 1;
       System.Object_Reader'Elab_Spec;
       System.Dwarf_Lines'Elab_Spec;
       System.File_Io'Elab_Body;
@@ -198,9 +201,9 @@ package body ada_main is
       E123 := E123 + 1;
       E116 := E116 + 1;
       Stations'Elab_Spec;
-      E126 := E126 + 1;
-      Trains'Elab_Spec;
       E128 := E128 + 1;
+      Trains'Elab_Spec;
+      E130 := E130 + 1;
       RAILSYSTEMS'ELAB_SPEC;
       E006 := E006 + 1;
    end adainit;
@@ -238,16 +241,16 @@ package body ada_main is
    end;
 
 --  BEGIN Object file/option list
-   --   C:\RailSystem\obj\List.o
-   --   C:\RailSystem\obj\types.o
-   --   C:\RailSystem\obj\sPrint.o
-   --   C:\RailSystem\obj\Tracks.o
-   --   C:\RailSystem\obj\Stations.o
-   --   C:\RailSystem\obj\Trains.o
-   --   C:\RailSystem\obj\RailSystems.o
-   --   C:\RailSystem\obj\main.o
-   --   -LC:\RailSystem\obj\
-   --   -LC:\RailSystem\obj\
+   --   C:\Users\JackyChang\Desktop\tutorial\RailSystem\obj\List.o
+   --   C:\Users\JackyChang\Desktop\tutorial\RailSystem\obj\types.o
+   --   C:\Users\JackyChang\Desktop\tutorial\RailSystem\obj\sPrint.o
+   --   C:\Users\JackyChang\Desktop\tutorial\RailSystem\obj\Tracks.o
+   --   C:\Users\JackyChang\Desktop\tutorial\RailSystem\obj\Stations.o
+   --   C:\Users\JackyChang\Desktop\tutorial\RailSystem\obj\Trains.o
+   --   C:\Users\JackyChang\Desktop\tutorial\RailSystem\obj\RailSystems.o
+   --   C:\Users\JackyChang\Desktop\tutorial\RailSystem\obj\main.o
+   --   -LC:\Users\JackyChang\Desktop\tutorial\RailSystem\obj\
+   --   -LC:\Users\JackyChang\Desktop\tutorial\RailSystem\obj\
    --   -LC:/gnat/2016/lib/gcc/i686-pc-mingw32/4.9.4/adalib/
    --   -static
    --   -lgnat

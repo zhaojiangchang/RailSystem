@@ -75,6 +75,8 @@
 </theory>
 <theory name="Types__list_od__e_id" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
+<theory name="Types__list_od__max_size" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
 <theory name="Types__list_od__no_found" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Types__list_od__data" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
@@ -83,9 +85,9 @@
 </theory>
 <theory name="Types__list_od__list_array" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Types__list_od__list_ptr__T3s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
 <theory name="Types__list_od__list_ptr__T4s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Types__list_od__list_ptr__T5s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Types__list_od__list_ptr" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
@@ -98,18 +100,6 @@
 <theory name="Types__list_od__contains__d__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Types__list_od__contains" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Types__list_od__get_first__a" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Types__list_od__get_first__a__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Types__list_od__get_first" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Types__list_od__get_last__a" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Types__list_od__get_last__a__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Types__list_od__get_last" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Types__list_od__get_size__a" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
@@ -150,14 +140,6 @@
 <theory name="Types__list_od__append__id" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Types__list_od__append__id__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Types__list_od__replace__location" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Types__list_od__replace__location__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Types__list_od__replace__newvalue" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Types__list_od__replace__newvalue__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Types__list_od__replace_by_id__id" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
@@ -1561,6 +1543,8 @@
 </theory>
 <theory name="Stations__list_tracks__e_id" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
+<theory name="Stations__list_tracks__max_size" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
 <theory name="Stations__list_tracks__no_found" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Stations__list_tracks__data" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
@@ -1569,9 +1553,9 @@
 </theory>
 <theory name="Stations__list_tracks__list_array" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Stations__list_tracks__list_ptr__T3s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
 <theory name="Stations__list_tracks__list_ptr__T4s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Stations__list_tracks__list_ptr__T5s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Stations__list_tracks__list_ptr" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
@@ -1584,18 +1568,6 @@
 <theory name="Stations__list_tracks__contains__d__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Stations__list_tracks__contains" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__get_first__a" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__get_first__a__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__get_first" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__get_last__a" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__get_last__a__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__get_last" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Stations__list_tracks__get_size__a" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
@@ -1637,14 +1609,6 @@
 </theory>
 <theory name="Stations__list_tracks__append__id__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Stations__list_tracks__replace__location" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__replace__location__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__replace__newvalue" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__replace__newvalue__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
 <theory name="Stations__list_tracks__replace_by_id__id" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Stations__list_tracks__replace_by_id__id__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
@@ -1653,109 +1617,21 @@
 </theory>
 <theory name="Stations__list_tracks__replace_by_id__newvalue__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Stations__list_tracks__contains__S13s__TT14sP1" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Stations__list_tracks__contains__L_1__R6s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Stations__list_tracks__contains__S13s__T14s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Stations__list_tracks__contains__L_1__T7s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Stations__list_tracks__contains__S13s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Stations__list_tracks__get_element_by_id__L_2__R15s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Stations__list_tracks__contains__L_1__R15s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Stations__list_tracks__get_element_by_id__L_2__T16s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Stations__list_tracks__contains__L_1__T16s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Stations__list_tracks__replace_by_id__L_3__R20s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Stations__list_tracks__get_first__S19s__TT20sP1" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Stations__list_tracks__replace_by_id__L_3__T21s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Stations__list_tracks__get_first__S19s__T20s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Stations__list_tracks__init__L_4__R23s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Stations__list_tracks__get_first__S19s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__get_last__S22s__TT23sP1" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__get_last__S22s__T23s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__get_last__S22s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__get_size__S25s__TT26sP1" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__get_size__S25s__T26s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__get_size__S25s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__full__S28s__TT29sP1" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__full__S28s__T29s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__full__S28s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__get_element__S31s__TT32sP1" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__get_element__S31s__T32s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__get_element__S31s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__get_element_record__a" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__get_element_record__a__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__get_element_record__location" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__get_element_record__location__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__get_element_record" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__get_element_record__S35s__TT36sP1" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__get_element_record__S35s__T36s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__get_element_record__S35s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__get_element_by_id__S39s__TT40sP1" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__get_element_by_id__S39s__T40s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__get_element_by_id__S39s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__get_element_by_id__L_2__R42s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__get_element_by_id__L_2__T43s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__replace_by_id__L_3__R46s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__replace_by_id__L_3__T47s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__init__L_4__R49s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__init__L_4__T50s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__TintracksS__TT5sP1" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__TintracksS__T5s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__TintracksS" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__TouttracksS__TT6sP1" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__TouttracksS__T6s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__TouttracksS" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__station__T7s__TT8sP1" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__station__T7s__T8s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__station__T7s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__station__T9s__TT10sP1" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__station__T9s__T10s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__station__T9s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__station__T11s__TT12sP1" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__station__T11s__T12s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__station__T11s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Stations__list_tracks__init__L_4__T24s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Stations__station" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
@@ -1770,10 +1646,6 @@
 <theory name="Types__list_od__delete_all__a" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Types__list_od__delete_all__a__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Types__list_od__replace__a" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Types__list_od__replace__a__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Types__list_od__replace_by_id__a" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
@@ -1971,10 +1843,6 @@
 </theory>
 <theory name="Stations__list_tracks__delete_all__a__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Stations__list_tracks__replace__a" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__replace__a__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
 <theory name="Stations__list_tracks__replace_by_id__a" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Stations__list_tracks__replace_by_id__a__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
@@ -1987,13 +1855,13 @@
 </theory>
 <theory name="Stations__list_tracks__contains__size__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
+<theory name="Stations__list_tracks__contains__contain" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Stations__list_tracks__contains__contain__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
 <theory name="Stations__list_tracks__contains__L_1__i" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Stations__list_tracks__contains__L_1__i__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__get_element_record__d" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__get_element_record__d__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Stations__list_tracks__get_element_by_id__L_2__i" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
@@ -2019,9 +1887,9 @@
 </theory>
 <theory name="Types__list_od__contains__size__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Types__list_od__get_element_record__d" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Types__list_od__contains__contain" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Types__list_od__get_element_record__d__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Types__list_od__contains__contain__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Standard__short_short_integer__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
@@ -2074,8 +1942,6 @@
 <theory name="Types__list_od__append" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Types__list_od__delete_all" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Types__list_od__replace" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Types__list_od__replace_by_id" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
@@ -2251,8 +2117,6 @@
 </theory>
 <theory name="Stations__list_tracks__delete_all" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Stations__list_tracks__replace" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
 <theory name="Stations__list_tracks__replace_by_id" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Stations__list_tracks__init" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
@@ -2291,9 +2155,9 @@
 </theory>
 <theory name="Types__list_od__list_array__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Types__list_od__list_ptr__T3s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
 <theory name="Types__list_od__list_ptr__T4s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Types__list_od__list_ptr__T5s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Types__list_od__list_ptr__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
@@ -2485,101 +2349,25 @@
 </theory>
 <theory name="Stations__list_tracks__list_array__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Stations__list_tracks__list_ptr__T3s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
 <theory name="Stations__list_tracks__list_ptr__T4s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Stations__list_tracks__list_ptr__T5s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Stations__list_tracks__list_ptr__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Stations__list_tracks__contains__S13s__TT14sP1__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Stations__list_tracks__contains__L_1__T7s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Stations__list_tracks__contains__S13s__T14s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Stations__list_tracks__get_element_by_id__L_2__T16s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Stations__list_tracks__contains__S13s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Stations__list_tracks__replace_by_id__L_3__T21s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Stations__list_tracks__contains__L_1__T16s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__get_first__S19s__TT20sP1__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__get_first__S19s__T20s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__get_first__S19s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__get_last__S22s__TT23sP1__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__get_last__S22s__T23s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__get_last__S22s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__get_size__S25s__TT26sP1__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__get_size__S25s__T26s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__get_size__S25s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__full__S28s__TT29sP1__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__full__S28s__T29s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__full__S28s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__get_element__S31s__TT32sP1__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__get_element__S31s__T32s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__get_element__S31s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__get_element_record__S35s__TT36sP1__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__get_element_record__S35s__T36s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__get_element_record__S35s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__get_element_by_id__S39s__TT40sP1__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__get_element_by_id__S39s__T40s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__get_element_by_id__S39s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__get_element_by_id__L_2__T43s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__replace_by_id__L_3__T47s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__init__L_4__T50s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__TintracksS__TT5sP1__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__TintracksS__T5s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__TintracksS__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__TouttracksS__TT6sP1__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__TouttracksS__T6s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__TouttracksS__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__station__T7s__TT8sP1__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__station__T7s__T8s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__station__T7s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__station__T9s__TT10sP1__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__station__T9s__T10s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__station__T9s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__station__T11s__TT12sP1__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__station__T11s__T12s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__station__T11s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Stations__list_tracks__init__L_4__T24s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Stations__station__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Types__list_od__e_id__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Types__list_od__max_size__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Types__list_od__no_found__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
@@ -2749,21 +2537,19 @@
 </theory>
 <theory name="Stations__list_tracks__e_id__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
+<theory name="Stations__list_tracks__max_size__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
 <theory name="Stations__list_tracks__no_found__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Stations__list_tracks__contains__L_1__R15s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Stations__list_tracks__contains__L_1__R6s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Stations__list_tracks__get_element_by_id__L_2__R42s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Stations__list_tracks__get_element_by_id__L_2__R15s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Stations__list_tracks__replace_by_id__L_3__R46s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Stations__list_tracks__replace_by_id__L_3__R20s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Stations__list_tracks__init__L_4__R49s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Stations__list_tracks__init__L_4__R23s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Types__list_od__contains__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Types__list_od__get_first__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Types__list_od__get_last__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Types__list_od__get_size__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
@@ -2776,8 +2562,6 @@
 <theory name="Types__list_od__append__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Types__list_od__delete_all__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Types__list_od__replace__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Types__list_od__replace_by_id__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
@@ -3081,10 +2865,6 @@
 </theory>
 <theory name="Stations__list_tracks__contains__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Stations__list_tracks__get_first__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__get_last__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
 <theory name="Stations__list_tracks__get_size__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Stations__list_tracks__get_element__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
@@ -3097,193 +2877,123 @@
 </theory>
 <theory name="Stations__list_tracks__delete_all__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Stations__list_tracks__replace__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
 <theory name="Stations__list_tracks__replace_by_id__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Stations__list_tracks__init__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Stations__list_tracks__get_element_record__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__package_def" sum="877a98414fece06e2a344076ed8258c0" expanded="true">
- <goal name="WP_parameter def" expl="VC for def" expanded="true">
- <transf name="split_goal_wp" expanded="true">
-  <goal name="WP_parameter def.1" expl="1. precondition">
-  <proof prover="1"><result status="valid" time="0.03" steps="0"/></proof>
-  </goal>
-  <goal name="WP_parameter def.2" expl="2. precondition">
-  <proof prover="1"><result status="valid" time="0.05" steps="0"/></proof>
-  </goal>
- </transf>
- </goal>
-</theory>
-<theory name="Stations__list_tracks__package_def" sum="7955749a6fad22205c9a1ff390a8576f" expanded="true">
+<theory name="Stations__package_def" sum="a99006921798bfca2dda58efdf22b391" expanded="true">
  <goal name="WP_parameter def" expl="VC for def" expanded="true">
  <transf name="split_goal_wp" expanded="true">
  </transf>
  </goal>
 </theory>
-<theory name="Stations__list_tracks__contains__subprogram_def" sum="b6625de2aadb48a6f82fcdb34d6aaddb" expanded="true">
- <goal name="WP_parameter def" expl="VC for def" expanded="true">
- <transf name="split_goal_wp" expanded="true">
-  <goal name="WP_parameter def.1" expl="1. precondition">
-  <proof prover="1"><result status="valid" time="0.03" steps="370"/></proof>
-  </goal>
-  <goal name="WP_parameter def.2" expl="2. assertion">
-  <proof prover="0"><result status="unknown" time="0.03" steps="590"/></proof>
-  <proof prover="1"><result status="unknown" time="0.05" steps="620"/></proof>
-  </goal>
- </transf>
- </goal>
-</theory>
-<theory name="Stations__list_tracks__get_first__subprogram_def" sum="e269887244e158f2c8125ccc6c1e90bc" expanded="true">
- <goal name="WP_parameter def" expl="VC for def" expanded="true">
- <transf name="split_goal_wp" expanded="true">
-  <goal name="WP_parameter def.1" expl="1. precondition">
-  <proof prover="1"><result status="valid" time="0.03" steps="370"/></proof>
-  </goal>
-  <goal name="WP_parameter def.2" expl="2. assertion">
-  <proof prover="1"><result status="valid" time="0.03" steps="50"/></proof>
-  </goal>
- </transf>
- </goal>
-</theory>
-<theory name="Stations__list_tracks__get_last__subprogram_def" sum="2cfe98e3303da0cef83d683058e97e86" expanded="true">
- <goal name="WP_parameter def" expl="VC for def" expanded="true">
- <transf name="split_goal_wp" expanded="true">
-  <goal name="WP_parameter def.1" expl="1. precondition">
-  <proof prover="1"><result status="valid" time="0.05" steps="370"/></proof>
-  </goal>
-  <goal name="WP_parameter def.2" expl="2. assertion">
-  <proof prover="0"><result status="unknown" time="0.05" steps="760"/></proof>
-  <proof prover="1"><result status="unknown" time="0.05" steps="790"/></proof>
-  </goal>
- </transf>
- </goal>
-</theory>
-<theory name="Stations__list_tracks__get_size__subprogram_def" sum="9abe9b4c74695fc264f86ca74b42905a" expanded="true">
- <goal name="WP_parameter def" expl="VC for def" expanded="true">
- <transf name="split_goal_wp" expanded="true">
-  <goal name="WP_parameter def.1" expl="1. precondition">
-  <proof prover="1"><result status="valid" time="0.03" steps="370"/></proof>
-  </goal>
- </transf>
- </goal>
-</theory>
-<theory name="Stations__list_tracks__get_element__subprogram_def" sum="cde3a403c91f8b4f6ab0c3ea2e73e74c" expanded="true">
- <goal name="WP_parameter def" expl="VC for def" expanded="true">
- <transf name="split_goal_wp" expanded="true">
-  <goal name="WP_parameter def.1" expl="1. precondition">
-  <proof prover="1"><result status="valid" time="0.03" steps="370"/></proof>
-  </goal>
-  <goal name="WP_parameter def.2" expl="2. assertion">
-  <proof prover="0"><result status="unknown" time="0.03" steps="600"/></proof>
-  <proof prover="1"><result status="unknown" time="0.05" steps="630"/></proof>
-  </goal>
- </transf>
- </goal>
-</theory>
-<theory name="Stations__list_tracks__get_element_by_id__subprogram_def" sum="58e0804baeb9c51982da0edf2b6a2f00" expanded="true">
- <goal name="WP_parameter def" expl="VC for def" expanded="true">
- <transf name="split_goal_wp" expanded="true">
-  <goal name="WP_parameter def.1" expl="1. precondition">
-  <proof prover="1"><result status="valid" time="0.03" steps="370"/></proof>
-  </goal>
-  <goal name="WP_parameter def.2" expl="2. assertion">
-  <proof prover="0"><result status="unknown" time="0.06" steps="590"/></proof>
-  <proof prover="1"><result status="unknown" time="0.05" steps="620"/></proof>
-  </goal>
-  <goal name="WP_parameter def.3" expl="3. assertion">
-  <proof prover="1"><result status="valid" time="0.03" steps="0"/></proof>
-  </goal>
- </transf>
- </goal>
-</theory>
-<theory name="Stations__list_tracks__full__subprogram_def" sum="9abe9b4c74695fc264f86ca74b42905a" expanded="true">
- <goal name="WP_parameter def" expl="VC for def" expanded="true">
- <transf name="split_goal_wp" expanded="true">
-  <goal name="WP_parameter def.1" expl="1. precondition">
-  <proof prover="1"><result status="valid" time="0.05" steps="370"/></proof>
-  </goal>
- </transf>
- </goal>
-</theory>
-<theory name="Stations__list_tracks__append__subprogram_def" sum="c12504bf80be8977e9f3878c4534538e" expanded="true">
- <goal name="WP_parameter def" expl="VC for def" expanded="true">
- <transf name="split_goal_wp" expanded="true">
-  <goal name="WP_parameter def.1" expl="1. precondition">
-  <proof prover="0"><result status="unknown" time="0.03" steps="740"/></proof>
-  <proof prover="1"><result status="unknown" time="0.05" steps="770"/></proof>
-  </goal>
-  <goal name="WP_parameter def.2" expl="2. assertion">
-  <proof prover="0"><result status="unknown" time="0.05" steps="720"/></proof>
-  <proof prover="1"><result status="unknown" time="0.05" steps="870"/></proof>
-  </goal>
-  <goal name="WP_parameter def.3" expl="3. assertion">
-  <proof prover="1"><result status="valid" time="0.05" steps="0"/></proof>
-  </goal>
- </transf>
- </goal>
-</theory>
-<theory name="Stations__list_tracks__delete_all__subprogram_def" sum="a8408bf7053d792a4b0b846e05e535b3" expanded="true">
+<theory name="Stations__list_tracks__package_def" sum="99366907df38f82c6356625e4e60bd99" expanded="true">
  <goal name="WP_parameter def" expl="VC for def" expanded="true">
  <transf name="split_goal_wp" expanded="true">
  </transf>
  </goal>
 </theory>
-<theory name="Stations__list_tracks__replace__subprogram_def" sum="606e816031396edcb6911e2f27415680" expanded="true">
+<theory name="Stations__list_tracks__contains__subprogram_def" sum="2ab293ecf5cabcb5b9be828378cc5ed4" expanded="true">
  <goal name="WP_parameter def" expl="VC for def" expanded="true">
  <transf name="split_goal_wp" expanded="true">
   <goal name="WP_parameter def.1" expl="1. assertion">
-  <proof prover="0"><result status="unknown" time="0.05" steps="770"/></proof>
-  <proof prover="1"><result status="unknown" time="0.05" steps="800"/></proof>
+  <proof prover="1"><result status="valid" time="0.03" steps="0"/></proof>
   </goal>
   <goal name="WP_parameter def.2" expl="2. assertion">
-  <proof prover="0"><result status="unknown" time="0.03" steps="700"/></proof>
-  <proof prover="1"><result status="unknown" time="0.05" steps="730"/></proof>
+  <proof prover="0" obsolete="true"><result status="unknown" time="0.03" steps="590"/></proof>
+  <proof prover="1"><result status="valid" time="0.06" steps="0"/></proof>
   </goal>
- </transf>
- </goal>
-</theory>
-<theory name="Stations__list_tracks__replace_by_id__subprogram_def" sum="aaa91e1a978ee4655b437c8d24466728" expanded="true">
- <goal name="WP_parameter def" expl="VC for def" expanded="true">
- <transf name="split_goal_wp" expanded="true">
-  <goal name="WP_parameter def.1" expl="1. assertion">
-  <proof prover="0"><result status="unknown" time="0.05" steps="770"/></proof>
-  <proof prover="1"><result status="unknown" time="0.05" steps="800"/></proof>
-  </goal>
-  <goal name="WP_parameter def.2" expl="2. assertion">
-  <proof prover="0"><result status="unknown" time="0.03" steps="760"/></proof>
-  <proof prover="1"><result status="unknown" time="0.03" steps="790"/></proof>
-  </goal>
-  <goal name="WP_parameter def.3" expl="3. assertion">
-  <proof prover="1"><result status="valid" time="0.05" steps="0"/></proof>
+  <goal name="WP_parameter def.3" expl="3. loop invariant init">
+  <proof prover="1"><result status="valid" time="0.03" steps="0"/></proof>
   </goal>
   <goal name="WP_parameter def.4" expl="4. assertion">
-  <proof prover="0"><result status="unknown" time="0.05" steps="740"/></proof>
-  <proof prover="1"><result status="unknown" time="0.05" steps="770"/></proof>
+  <proof prover="1"><result status="valid" time="0.05" steps="0"/></proof>
   </goal>
- </transf>
- </goal>
-</theory>
-<theory name="Stations__list_tracks__init__subprogram_def" sum="3110281854bbef3dfb1e8f90dae28945" expanded="true">
- <goal name="WP_parameter def" expl="VC for def" expanded="true">
- <transf name="split_goal_wp" expanded="true">
-  <goal name="WP_parameter def.1" expl="1. assertion">
+  <goal name="WP_parameter def.5" expl="5. assertion">
+  <proof prover="1"><result status="valid" time="0.02" steps="0"/></proof>
+  </goal>
+  <goal name="WP_parameter def.6" expl="6. loop invariant preservation">
   <proof prover="1"><result status="valid" time="0.05" steps="0"/></proof>
   </goal>
  </transf>
  </goal>
 </theory>
-<theory name="Stations__list_tracks__get_element_record__subprogram_def" sum="5db7ab6c048bc97b88a53cc6c9115487" expanded="true">
+<theory name="Stations__list_tracks__get_size__subprogram_def" sum="7ad3487baaecf387db941195ff9b26a9" expanded="true">
+ <goal name="WP_parameter def" expl="VC for def" expanded="true">
+ <transf name="split_goal_wp" expanded="true">
+ </transf>
+ </goal>
+</theory>
+<theory name="Stations__list_tracks__get_element__subprogram_def" sum="ae9abc190a06a3cdd938cc9be9f1400a" expanded="true">
+ <goal name="WP_parameter def" expl="VC for def" expanded="true">
+ <transf name="split_goal_wp" expanded="true">
+  <goal name="WP_parameter def.1" expl="1. assertion">
+  <proof prover="1"><result status="valid" time="0.03" steps="0"/></proof>
+  </goal>
+ </transf>
+ </goal>
+</theory>
+<theory name="Stations__list_tracks__get_element_by_id__subprogram_def" sum="375c615cb0aadcb7f9a07386776c7d51" expanded="true">
+ <goal name="WP_parameter def" expl="VC for def" expanded="true">
+ <transf name="split_goal_wp" expanded="true">
+  <goal name="WP_parameter def.1" expl="1. assertion">
+  <proof prover="1"><result status="valid" time="0.03" steps="0"/></proof>
+  </goal>
+  <goal name="WP_parameter def.2" expl="2. assertion">
+  <proof prover="0" obsolete="true"><result status="unknown" time="0.06" steps="590"/></proof>
+  <proof prover="1"><result status="valid" time="0.05" steps="0"/></proof>
+  </goal>
+ </transf>
+ </goal>
+</theory>
+<theory name="Stations__list_tracks__full__subprogram_def" sum="7ad3487baaecf387db941195ff9b26a9" expanded="true">
+ <goal name="WP_parameter def" expl="VC for def" expanded="true">
+ <transf name="split_goal_wp" expanded="true">
+ </transf>
+ </goal>
+</theory>
+<theory name="Stations__list_tracks__append__subprogram_def" sum="df7a783e51d31e473f52cb55ba392e6c" expanded="true">
  <goal name="WP_parameter def" expl="VC for def" expanded="true">
  <transf name="split_goal_wp" expanded="true">
   <goal name="WP_parameter def.1" expl="1. precondition">
-  <proof prover="1"><result status="valid" time="0.03" steps="370"/></proof>
+  <proof prover="0" obsolete="true"><result status="unknown" time="0.03" steps="740"/></proof>
+  <proof prover="1"><result status="valid" time="0.05" steps="150"/></proof>
   </goal>
   <goal name="WP_parameter def.2" expl="2. assertion">
-  <proof prover="0"><result status="unknown" time="0.06" steps="880"/></proof>
-  <proof prover="1"><result status="unknown" time="0.05" steps="910"/></proof>
+  <proof prover="0" obsolete="true"><result status="unknown" time="0.05" steps="720"/></proof>
+  <proof prover="1"><result status="valid" time="0.05" steps="200"/></proof>
+  </goal>
+  <goal name="WP_parameter def.3" expl="3. assertion">
+  <proof prover="1"><result status="valid" time="0.05" steps="0"/></proof>
+  </goal>
+ </transf>
+ </goal>
+</theory>
+<theory name="Stations__list_tracks__delete_all__subprogram_def" sum="933300652bfd5d8fe04eaeab391168b0" expanded="true">
+ <goal name="WP_parameter def" expl="VC for def" expanded="true">
+ <transf name="split_goal_wp" expanded="true">
+ </transf>
+ </goal>
+</theory>
+<theory name="Stations__list_tracks__replace_by_id__subprogram_def" sum="8987b49c45320b8ea09ab522573f451d" expanded="true">
+ <goal name="WP_parameter def" expl="VC for def" expanded="true">
+ <transf name="split_goal_wp" expanded="true">
+  <goal name="WP_parameter def.1" expl="1. assertion">
+  <proof prover="0" obsolete="true"><result status="unknown" time="0.05" steps="770"/></proof>
+  <proof prover="1"><result status="valid" time="0.03" steps="0"/></proof>
+  </goal>
+  <goal name="WP_parameter def.2" expl="2. assertion">
+  <proof prover="0" obsolete="true"><result status="unknown" time="0.03" steps="760"/></proof>
+  <proof prover="1"><result status="valid" time="0.05" steps="0"/></proof>
+  </goal>
+ </transf>
+ </goal>
+</theory>
+<theory name="Stations__list_tracks__init__subprogram_def" sum="9a7bf2ec32d644afd7ca74e82204d4cc" expanded="true">
+ <goal name="WP_parameter def" expl="VC for def" expanded="true">
+ <transf name="split_goal_wp" expanded="true">
+  <goal name="WP_parameter def.1" expl="1. assertion">
+  <proof prover="1"><result status="valid" time="0.06" steps="0"/></proof>
   </goal>
  </transf>
  </goal>

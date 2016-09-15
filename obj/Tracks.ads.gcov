@@ -1,4 +1,4 @@
-        -:    0:Source:C:/Users/JackyChang/Desktop/RailSystem/src/tracks.ads
+        -:    0:Source:C:/Users/JackyChang/Desktop/tutorial/RailSystem/src/tracks.ads
         -:    0:Programs:38
         -:    1:with TYPES;
         -:    2:
@@ -6,7 +6,7 @@
         -:    4:--  is
         -:    5:with SPARK_Mode=>On is
         -:    6:
-   149090:    7:   type Track is
+   209683:    7:   type Track is
         -:    8:      record
         -:    9:         ID: Natural:=0;
         -:   10:         Origin:TYPES.Station_Locations:=TYPES.No;

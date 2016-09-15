@@ -1,0 +1,120 @@
+{
+  "spark": [
+    {
+      "name": "AUnit.Reporter.Text.put_measureGP2718.Put_Measure",
+      "sloc": [
+        {
+          "file": "aunit-reporter-text.adb",
+          "line": 44
+        }
+      ],
+      "spark": "no"
+    },
+    {
+      "name": "AUnit.Reporter.Text.put_measureGP2718",
+      "sloc": [
+        {
+          "file": "aunit-reporter-text.adb",
+          "line": 44
+        }
+      ],
+      "spark": "no"
+    },
+    {
+      "name": "AUnit.Reporter.Text.Set_Use_ANSI_Colors",
+      "sloc": [
+        {
+          "file": "aunit-reporter-text.ads",
+          "line": 37
+        }
+      ],
+      "spark": "no"
+    },
+    {
+      "name": "AUnit.Reporter.Text.Indent",
+      "sloc": [
+        {
+          "file": "aunit-reporter-text.adb",
+          "line": 38
+        }
+      ],
+      "spark": "no"
+    },
+    {
+      "name": "AUnit.Reporter.Text.Dump_Result_List",
+      "sloc": [
+        {
+          "file": "aunit-reporter-text.adb",
+          "line": 41
+        }
+      ],
+      "spark": "no"
+    },
+    {
+      "name": "AUnit.Reporter.Text.Report_OK_Tests",
+      "sloc": [
+        {
+          "file": "aunit-reporter-text.ads",
+          "line": 48
+        }
+      ],
+      "spark": "no"
+    },
+    {
+      "name": "AUnit.Reporter.Text.Report_Fail_Tests",
+      "sloc": [
+        {
+          "file": "aunit-reporter-text.ads",
+          "line": 50
+        }
+      ],
+      "spark": "no"
+    },
+    {
+      "name": "AUnit.Reporter.Text.Report_Error_Tests",
+      "sloc": [
+        {
+          "file": "aunit-reporter-text.ads",
+          "line": 52
+        }
+      ],
+      "spark": "no"
+    },
+    {
+      "name": "AUnit.Reporter.Text.Report",
+      "sloc": [
+        {
+          "file": "aunit-reporter-text.ads",
+          "line": 44
+        }
+      ],
+      "spark": "no"
+    },
+    {
+      "name": "AUnit.Reporter.Text.Report_Test",
+      "sloc": [
+        {
+          "file": "aunit-reporter-text.adb",
+          "line": 47
+        }
+      ],
+      "spark": "no"
+    },
+    {
+      "name": "AUnit.Reporter.Text",
+      "sloc": [
+        {
+          "file": "aunit-reporter-text.ads",
+          "line": 33
+        }
+      ],
+      "spark": "no"
+    }
+  ],
+  "flow": [
+  ],
+  "proof": [
+  ],
+  "assumptions": [
+  ]
+}

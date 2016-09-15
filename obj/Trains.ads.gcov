@@ -1,4 +1,4 @@
-        -:    0:Source:C:/Users/JackyChang/Desktop/RailSystem/src/trains.ads
+        -:    0:Source:C:/Users/JackyChang/Desktop/tutorial/RailSystem/src/trains.ads
         -:    0:Programs:38
         -:    1:with TYPES;
         -:    2:with Tracks;
@@ -6,20 +6,20 @@
         1:    4:package Trains
         -:    5:--  is
         -:    6:with SPARK_Mode=>On is
-        1:    7:   inTracks:Stations.LIST_TRACKS.LIST_PTR(MAX_SIZE =>100);
-        1:    8:   outTracks:Stations.LIST_TRACKS.LIST_PTR(MAX_SIZE =>100);
-      138:    9:   type Train_Location is
+        1:    7:   inTracks:Stations.LIST_TRACKS.LIST_PTR;
+        1:    8:   outTracks:Stations.LIST_TRACKS.LIST_PTR;
+      183:    9:   type Train_Location is
         -:   10:      record
         -:   11:         currentLocation:String(1..7):="None   ";
         -:   12:         None: String(1..4):="None";
-      138:   13:         Track: Tracks.Track;
-      138:   14:         Station: Stations.Station;
+      183:   13:         Track: Tracks.Track;
+      183:   14:         Station: Stations.Station;
         -:   15:      end record;
         -:   16:
-      260:   17:   type Train is
+      366:   17:   type Train is
         -:   18:      record
         -:   19:         ID: Natural:=0;
-      130:   20:         Location: Train_Location;
+      183:   20:         Location: Train_Location;
         -:   21:         Origin: TYPES.Station_Locations:=TYPES.No;
         -:   22:         Destination: TYPES.Station_Locations:=TYPES.No;
         -:   23:         State: TYPES.Train_State:=TYPES.Close;

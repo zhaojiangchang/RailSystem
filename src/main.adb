@@ -18,17 +18,14 @@ begin
    RailSystems.Init(rail_system);
    RailSystems.addTrain(rail_system, 1);
    -- Set train 1 current location to None (not on the railsystem)
-   RailSystems.setTrainLocation(rail_system, trainA, "None", 1);
    TrainA := RailSystems.getTrainById(rail_system,1);
 
    RailSystems.addTrain(rail_system, 2);
    -- Set train 2 current location to None (not on the railsystem)
-   RailSystems.setTrainLocation(rail_system, trainB, "None", 2);
    TrainB := RailSystems.getTrainById(rail_system,2);
 
    RailSystems.addTrain(rail_system, 3);
    -- Set train 3 current location to None (not on the railsystem)
-   RailSystems.setTrainLocation(rail_system, trainC, "None", 3);
    TrainC := RailSystems.getTrainById(rail_system,3);
 
    print("total trains size: "& RailSystems.LIST_TRAINS.GET_SIZE(rail_system.All_Trains)'Image);
@@ -108,18 +105,18 @@ begin
    RailSystems.prepareTrain(rail_system, trainC, Types.UpperHutt, Types.Wellington, TYPES.S8);
    --Train A start run;
    Print("Train A start Run: From Wellington to Upper Hutt");
-   RailSystems.go(rail_system, trainA);
+     RailSystems.go(rail_system, trainA,10);
    Print("");
    Print("");
    Print("");
    Print("Train B start Run: From Wellington to Johnsonville");
-   RailSystems.go(rail_system, trainB);
+   RailSystems.go(rail_system, trainB,10);
    Print("");
    Print("");
    Print("");
-   Print("test Collide, will through exception - Train A stopped at Track 9(Lower hutt to Petone)");
+   Print("test Collide, - Train A stopped on the route from upper hutt and wellington");
    Print("Train C start Run: From Upper hutt to Wellington");
-   RailSystems.go(rail_system, trainC);
+   RailSystems.go(rail_system, trainC,10);
    Print("");
    Print("");
    Print("");

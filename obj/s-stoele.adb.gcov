@@ -69,7 +69,7 @@
         -:   67:
         -:   68:   function To_Integer (Value : Address) return Integer_Address is
         -:   69:   begin
-      176:   70:      return Integer_Address (Value);
+      248:   70:      return Integer_Address (Value);
         -:   71:   end To_Integer;
         -:   72:
         -:   73:   --  Address arithmetic
@@ -80,8 +80,8 @@
         -:   78:
         -:   79:   function "+" (Left : Address; Right : Storage_Offset) return Address is
         -:   80:   begin
-       88:   81:      return Storage_Elements.To_Address
-      176:   82:        (To_Integer (Left) + To_Integer (To_Address (Right)));
+      124:   81:      return Storage_Elements.To_Address
+      248:   82:        (To_Integer (Left) + To_Integer (To_Address (Right)));
         -:   83:   end "+";
         -:   84:
         -:   85:   function "+" (Left : Storage_Offset; Right : Address) return Address is

@@ -21,6 +21,7 @@ package TYPES is
    package LIST_OD is new LIST
      ( DATA_TYPE => ODRecord,
        E_ID=>0,
+       MAX_SIZE=>100,
        NO_FOUND => od);
 
 --     type ListTracksOrigionAndDesttination is record

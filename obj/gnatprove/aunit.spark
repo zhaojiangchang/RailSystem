@@ -1,0 +1,50 @@
+{
+  "spark": [
+    {
+      "name": "AUnit.Message_Alloc",
+      "sloc": [
+        {
+          "file": "aunit.ads",
+          "line": 45
+        }
+      ],
+      "spark": "no"
+    },
+    {
+      "name": "AUnit.Message_Free",
+      "sloc": [
+        {
+          "file": "aunit.ads",
+          "line": 46
+        }
+      ],
+      "spark": "no"
+    },
+    {
+      "name": "AUnit.Format",
+      "sloc": [
+        {
+          "file": "aunit.ads",
+          "line": 44
+        }
+      ],
+      "spark": "no"
+    },
+    {
+      "name": "AUnit",
+      "sloc": [
+        {
+          "file": "aunit.ads",
+          "line": 34
+        }
+      ],
+      "spark": "no"
+    }
+  ],
+  "flow": [
+  ],
+  "proof": [
+  ],
+  "assumptions": [
+  ]
+}

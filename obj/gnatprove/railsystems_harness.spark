@@ -1,0 +1,20 @@
+{
+  "spark": [
+    {
+      "name": "RailSystems_Harness",
+      "sloc": [
+        {
+          "file": "railsystems_harness.adb",
+          "line": 5
+        }
+      ],
+      "spark": "no"
+    }
+  ],
+  "flow": [
+  ],
+  "proof": [
+  ],
+  "assumptions": [
+  ]
+}

@@ -1,0 +1,7 @@
+railsystems-test.ads:11:25: class-wide in_out "rail_system" must also be a class-wide input of overridden subprogram "Set_Up" at aunit-test_cases.ads:41 (SPARK RM 6.1.6)[#0]
+railsystems-test.ads:11:25: class-wide in_out "rail_system" must also be a class-wide output of overridden subprogram "Set_Up" at aunit-test_cases.ads:41 (SPARK RM 6.1.6)[#1]
+railsystems-test.ads:12:25: class-wide in_out "rail_system" must also be a class-wide input of overridden subprogram "Tear_Down" at aunit-test_cases.ads:41 (SPARK RM 6.1.6)[#2]
+railsystems-test.ads:12:25: class-wide in_out "rail_system" must also be a class-wide output of overridden subprogram "Tear_Down" at aunit-test_cases.ads:41 (SPARK RM 6.1.6)[#3]
+railsystems-test.ads:14:25: class-wide in_out "rail_system" must also be a class-wide input of overridden subprogram "Tear_Down_Case" at aunit-test_cases.ads:60 (SPARK RM 6.1.6)[#4]
+railsystems-test.ads:14:25: class-wide in_out "rail_system" must also be a class-wide output of overridden subprogram "Tear_Down_Case" at aunit-test_cases.ads:60 (SPARK RM 6.1.6)[#5]
+railsystems-test.ads:16:14: class-wide input "the heap" must also be a class-wide input of overridden subprogram "Register_Tests" at aunit-test_cases.ads:54 (SPARK RM 6.1.6)[#6]

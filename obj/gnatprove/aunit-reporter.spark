@@ -1,0 +1,30 @@
+{
+  "spark": [
+    {
+      "name": "AUnit.Reporter.Report",
+      "sloc": [
+        {
+          "file": "aunit-reporter.ads",
+          "line": 39
+        }
+      ],
+      "spark": "no"
+    },
+    {
+      "name": "AUnit.Reporter",
+      "sloc": [
+        {
+          "file": "aunit-reporter.ads",
+          "line": 35
+        }
+      ],
+      "spark": "no"
+    }
+  ],
+  "flow": [
+  ],
+  "proof": [
+  ],
+  "assumptions": [
+  ]
+}

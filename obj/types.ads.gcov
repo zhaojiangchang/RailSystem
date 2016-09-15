@@ -1,4 +1,4 @@
-        -:    0:Source:C:/Users/JackyChang/Desktop/RailSystem/src/types.ads
+        -:    0:Source:C:/Users/JackyChang/Desktop/tutorial/RailSystem/src/types.ads
         -:    0:Programs:38
         -:    1:with List;
         1:    2:package TYPES is
@@ -15,7 +15,7 @@
         -:   13:   -- 8 means 8.00 clock and 22 mians 22.00 clock
         -:   14:   type TimeTable is(S8,S9,S10,S11,S12,S13,S14,S15,S16,S17,S18,S19,S20,S21,S22);
         -:   15:
-    29300:   16:   type ODRecord is record
+   104500:   16:   type ODRecord is record
         -:   17:      Origin: Station_Locations:=No;
         -:   18:      Destination: Station_Locations:=No;
         -:   19:   end record;
@@ -23,11 +23,12 @@
         -:   21:   package LIST_OD is new LIST
         -:   22:     ( DATA_TYPE => ODRecord,
         -:   23:       E_ID=>0,
-        -:   24:       NO_FOUND => od);
-        -:   25:
-        -:   26:--     type ListTracksOrigionAndDesttination is record
-        -:   27:--        ListTracksOandD: LIST_OD.LIST_PTR(MAX_SIZE =>100);
-        -:   28:--     end record;
-        -:   29:
+        -:   24:       MAX_SIZE=>100,
+        -:   25:       NO_FOUND => od);
+        -:   26:
+        -:   27:--     type ListTracksOrigionAndDesttination is record
+        -:   28:--        ListTracksOandD: LIST_OD.LIST_PTR(MAX_SIZE =>100);
+        -:   29:--     end record;
         -:   30:
-        1:   31:end TYPES;
+        -:   31:
+        1:   32:end TYPES;

@@ -59,7 +59,6 @@ package body RailSystems.Test is
    procedure Test_dfs_station_reachability_by_train (CWTC : in out AUnit.Test_Cases.Test_Case'Class)
    is
       TrainA: Trains.Train;
-      isReachedStation: Boolean;
    begin
       Init(r_system => rail_system);
       Put_Line("");
@@ -99,16 +98,100 @@ package body RailSystems.Test is
       addStation(rail_system, 8,TYPES.Khandallah);
       addIncomingOutgoingTracksForEachStation(rail_system);
 
-      prepareTrain(rail_system, trainA, Types.UpperHutt, Types.Johnsonville, TYPES.S8);
-      isReachedStation:= dfs_station_reachability_by_train(rail_system, trainA);
-      Assert (Condition => (isReachedStation) = True,
+      prepareTrain(rail_system, trainA, Types.Wellington, Types.Johnsonville, TYPES.S8);
+      dfs_station_reachability_by_train(rail_system, trainA);
+      Assert (Condition => (trainA.isReachable) = True,
               Message => "Test_dfs_station_reachability_by_train: reachable from wellington to johnsonvile");
    end Test_dfs_station_reachability_by_train;
+
+   procedure Test_dfs_station_reachability_by_train_station_trainid_equls_zero_Exception (CWTC: in out AUnit.Test_Cases.Test_Case'Class) is
+      procedure Test_Raising_Exception is
+         TrainA: Trains.Train;
+      begin
+           Init(r_system => rail_system);
+      Put_Line("");
+      Put_Line("Test_dfs_station_reachability_by_train_station_trainid_equls_zero_Exception");
+
+      addTrain(rail_system, 1);
+      --           setTrainLocation(rail_system, trainB, "None");
+      TrainA := getTrainById(rail_system,1);
+
+
+      addTrack(rail_system,  1, TYPES.Wellington, TYPES.CroftonDowns, TYPES.Wellington, TYPES.Johnsonville);
+      addTrack(rail_system,  2, TYPES.CroftonDowns, TYPES.Ngaio, TYPES.Wellington, TYPES.Johnsonville);
+      addTrack(rail_system,  3, TYPES.Ngaio, TYPES.Khandallah, TYPES.Wellington, TYPES.Johnsonville);
+      addTrack(rail_system,  4, TYPES.Khandallah, TYPES.Johnsonville, TYPES.Wellington, TYPES.Johnsonville);
+
+      addTrack(rail_system,  5, TYPES.CroftonDowns, TYPES.Wellington, TYPES.Johnsonville, TYPES.Wellington);
+      addTrack(rail_system,  6, TYPES.Ngaio, TYPES.CroftonDowns, TYPES.Johnsonville, TYPES.Wellington);
+      addTrack(rail_system,  7, TYPES.Khandallah, TYPES.Ngaio, TYPES.Johnsonville, TYPES.Wellington);
+      addTrack(rail_system,  8, TYPES.Johnsonville, TYPES.Khandallah, TYPES.Johnsonville, TYPES.Wellington);
+
+
+      addStation(rail_system, 1,TYPES.Wellington);
+      addStation(rail_system, 2,TYPES.Johnsonville);
+      addStation(rail_system, 3,TYPES.CroftonDowns);
+      addStation(rail_system, 4,TYPES.Ngaio);
+      addStation(rail_system, 5,TYPES.Khandallah);
+      addIncomingOutgoingTracksForEachStation(rail_system);
+
+         prepareTrain(rail_system, trainA, Types.Wellington, Types.Johnsonville, TYPES.S8);
+         TrainA.Location.Station.Location:= TYPES.No;
+         replaceStation(r_system => rail_system,
+                        station  => getStationByName(stations_list   => rail_system.All_Stations,
+                                                     stationLocation => trainA.Location.Station.Location));
+         dfs_station_reachability_by_train(rail_system, trainA);
+      end;
+   begin
+      Assert_Exception (Proc => Test_Raising_Exception'Unrestricted_Access,
+                        Message =>"Test_dfs_station_reachability_by_train_station_trainid_equls_zero_Exception: train.location.station.trainId = 0");
+   end Test_dfs_station_reachability_by_train_station_trainid_equls_zero_Exception;
+
+   procedure Test_dfs_station_reachability_by_train_base_location_No_Exception (CWTC: in out AUnit.Test_Cases.Test_Case'Class) is
+      procedure Test_Raising_Exception is
+         TrainA: Trains.Train;
+      begin
+           Init(r_system => rail_system);
+      Put_Line("");
+      Put_Line("Test_dfs_station_reachability_by_train_base_location_No_Exception");
+
+      addTrain(rail_system, 1);
+      --           setTrainLocation(rail_system, trainB, "None");
+      TrainA := getTrainById(rail_system,1);
+
+
+      addTrack(rail_system,  1, TYPES.Wellington, TYPES.CroftonDowns, TYPES.Wellington, TYPES.Johnsonville);
+      addTrack(rail_system,  2, TYPES.CroftonDowns, TYPES.Ngaio, TYPES.Wellington, TYPES.Johnsonville);
+      addTrack(rail_system,  3, TYPES.Ngaio, TYPES.Khandallah, TYPES.Wellington, TYPES.Johnsonville);
+      addTrack(rail_system,  4, TYPES.Khandallah, TYPES.Johnsonville, TYPES.Wellington, TYPES.Johnsonville);
+
+      addTrack(rail_system,  5, TYPES.CroftonDowns, TYPES.Wellington, TYPES.Johnsonville, TYPES.Wellington);
+      addTrack(rail_system,  6, TYPES.Ngaio, TYPES.CroftonDowns, TYPES.Johnsonville, TYPES.Wellington);
+      addTrack(rail_system,  7, TYPES.Khandallah, TYPES.Ngaio, TYPES.Johnsonville, TYPES.Wellington);
+      addTrack(rail_system,  8, TYPES.Johnsonville, TYPES.Khandallah, TYPES.Johnsonville, TYPES.Wellington);
+
+
+      addStation(rail_system, 1,TYPES.Wellington);
+      addStation(rail_system, 2,TYPES.Johnsonville);
+      addStation(rail_system, 3,TYPES.CroftonDowns);
+      addStation(rail_system, 4,TYPES.Ngaio);
+      addStation(rail_system, 5,TYPES.Khandallah);
+      addIncomingOutgoingTracksForEachStation(rail_system);
+
+         prepareTrain(rail_system, trainA, Types.Wellington, Types.Johnsonville, TYPES.S8);
+         TrainA.Location.Station.TrainID:= 0;
+         replaceTrain(r_system => rail_system,
+                      train    => trainA);
+         dfs_station_reachability_by_train(rail_system, trainA);
+      end;
+   begin
+      Assert_Exception (Proc => Test_Raising_Exception'Unrestricted_Access,
+                        Message =>"Test_dfs_station_reachability_by_train_base_location_No_Exception: train.location.station.trainId = 0");
+   end Test_dfs_station_reachability_by_train_base_location_No_Exception;
 
    procedure Test_dfs_station_reachability_by_stations (CWTC : in out AUnit.Test_Cases.Test_Case'Class)
    is
       TrainA: Trains.Train;
-      stationReachable: Boolean;
    begin
       Init(r_system => rail_system);
       Put_Line("");
@@ -147,17 +230,21 @@ package body RailSystems.Test is
       addStation(rail_system, 7,TYPES.Ngaio);
       addStation(rail_system, 8,TYPES.Khandallah);
       addIncomingOutgoingTracksForEachStation(rail_system);
-      stationReachable:=dfs_station_reachability_by_stations(rail_system, TYPES.Wellington, TYPES.Johnsonville);
-      Assert (Condition => (stationReachable) = True,
+      dfs_station_reachability_by_stations(rail_system, TYPES.Wellington, TYPES.Johnsonville);
+      Assert (Condition => (getStationByName(stations_list   => rail_system.All_Stations,
+                                             stationLocation => TYPES.Johnsonville).isReachable) = True,
               Message => "Test_dfs_station_reachability_by_stations: reachable from wellington to johnsonvile");
-       stationReachable:=dfs_station_reachability_by_stations(rail_system, TYPES.Wellington, TYPES.UpperHutt);
-      Assert (Condition => (stationReachable) = True,
+       dfs_station_reachability_by_stations(rail_system, TYPES.Wellington, TYPES.UpperHutt);
+      Assert (Condition => (getStationByName(stations_list   => rail_system.All_Stations,
+                                             stationLocation => TYPES.UpperHutt).isReachable) = True,
               Message => "Test_dfs_station_reachability_by_stations: reachable from wellington to UpperHutt");
-       stationReachable:=dfs_station_reachability_by_stations(rail_system, TYPES.Wellington, TYPES.Johnsonville);
-      Assert (Condition => (stationReachable) = True,
+       dfs_station_reachability_by_stations(rail_system, TYPES.Wellington, TYPES.Johnsonville);
+      Assert (Condition => (getStationByName(stations_list   => rail_system.All_Stations,
+                                             stationLocation => TYPES.Johnsonville).isReachable) = True,
               Message => "Test_dfs_station_reachability_by_stations: reachable from wellington to johnsonvile");
-       stationReachable:=dfs_station_reachability_by_stations(rail_system, TYPES.UpperHutt, TYPES.Johnsonville);
-      Assert (Condition => (stationReachable) = True,
+       dfs_station_reachability_by_stations(rail_system, TYPES.UpperHutt, TYPES.Johnsonville);
+      Assert (Condition => (getStationByName(stations_list   => rail_system.All_Stations,
+                                             stationLocation => TYPES.Johnsonville).isReachable) = True,
               Message => "Test_dfs_station_reachability_by_stations: reachable from UpperHutt to johnsonvile");
    end Test_dfs_station_reachability_by_stations;
 
@@ -1117,6 +1204,16 @@ package body RailSystems.Test is
       Register_Routine (Test => T,
                         Routine => Test_dfs_station_reachability_by_stations'Access,
                         Name => "Test_dfs_station_reachability_by_stations");
+
+        Register_Routine (Test => T,
+                        Routine => Test_dfs_station_reachability_by_train_base_location_No_Exception'Access,
+                        Name => "Test_dfs_station_reachability_by_train_base_location_No_Exception");
+ Register_Routine (Test => T,
+                        Routine => Test_dfs_station_reachability_by_train_station_trainid_equls_zero_Exception'Access,
+                        Name => "Test_dfs_station_reachability_by_train_station_trainid_equls_zero_Exception");
+
+
+
 
    end Register_Tests;
 

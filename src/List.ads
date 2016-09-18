@@ -48,7 +48,7 @@ package LIST is
    ---------------------
    function CONTAINS ( A: LIST_PTR; D: in DATA_TYPE) return Boolean;
 
-   function GET_LAST(A: LIST_PTR) return DATA_TYPE;
+--     function GET_LAST(A: LIST_PTR) return DATA_TYPE;
 
    function GET_SIZE ( A: LIST_PTR ) return Natural;
    --  Returns the current size of the list, which is 0 if empty
@@ -75,7 +75,7 @@ package LIST is
 --     procedure APPEND_TO_FIRST ( A: in out  LIST_PTR ; D: in DATA_TYPE; ID: in Natural);
    --  Add the new element at the first of the list and increments the list size
 
-   procedure DELETE_ALL (A: in out LIST_PTR );
+--     procedure DELETE_ALL (A: in out LIST_PTR );
    --  Empty the list and put its size to 0
 
 --     procedure SWAP( A: in out LIST_PTR; FIRST: Natural; SECOND: Natural);

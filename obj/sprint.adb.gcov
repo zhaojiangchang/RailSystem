@@ -26,11 +26,11 @@
        36:   24:   end Print_Train_State;
         -:   25:
         -:   26:
-      254:   27:   procedure Print_Station_Locations(s: in String; n: in TYPES.Station_Locations)
+      290:   27:   procedure Print_Station_Locations(s: in String; n: in TYPES.Station_Locations)
         -:   28:   is
         -:   29:   begin
-      254:   30:      Put_Line(s &":  "& n'Image);
-      254:   31:   end Print_Station_Locations;
+      290:   30:      Put_Line(s &":  "& n'Image);
+      290:   31:   end Print_Station_Locations;
         -:   32:
         -:   33:
         -:   34:end sPrint;

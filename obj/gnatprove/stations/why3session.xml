@@ -1625,13 +1625,9 @@
 </theory>
 <theory name="Stations__list_tracks__get_element_by_id__L_2__T16s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Stations__list_tracks__replace_by_id__L_3__R20s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Stations__list_tracks__replace_by_id__L_3__R18s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Stations__list_tracks__replace_by_id__L_3__T21s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__init__L_4__R23s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__init__L_4__T24s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Stations__list_tracks__replace_by_id__L_3__T19s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Stations__station" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
@@ -1863,6 +1859,10 @@
 </theory>
 <theory name="Stations__list_tracks__contains__L_1__i__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
+<theory name="Stations__list_tracks__get_element_by_id__data" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Stations__list_tracks__get_element_by_id__data__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
 <theory name="Stations__list_tracks__get_element_by_id__L_2__i" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Stations__list_tracks__get_element_by_id__L_2__i__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
@@ -1871,18 +1871,6 @@
 </theory>
 <theory name="Stations__list_tracks__replace_by_id__L_3__i__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Stations__list_tracks__init__L_4__i" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__init__L_4__i__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__intracks" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__intracks__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__outtracks" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__outtracks__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
 <theory name="Types__list_od__contains__size" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Types__list_od__contains__size__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
@@ -1890,6 +1878,10 @@
 <theory name="Types__list_od__contains__contain" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Types__list_od__contains__contain__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Types__list_od__get_element_by_id__data" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Types__list_od__get_element_by_id__data__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Standard__short_short_integer__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
@@ -2133,10 +2125,6 @@
 </theory>
 <theory name="Stations__list_tracks__replace_by_id__L_3__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Stations__list_tracks__init__L_4" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__init__L_4__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
 <theory name="Types__Tmax_sizeB__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Types__max_size__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
@@ -2359,9 +2347,7 @@
 </theory>
 <theory name="Stations__list_tracks__get_element_by_id__L_2__T16s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Stations__list_tracks__replace_by_id__L_3__T21s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__init__L_4__T24s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Stations__list_tracks__replace_by_id__L_3__T19s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Stations__station__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
@@ -2545,9 +2531,7 @@
 </theory>
 <theory name="Stations__list_tracks__get_element_by_id__L_2__R15s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Stations__list_tracks__replace_by_id__L_3__R20s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Stations__list_tracks__init__L_4__R23s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Stations__list_tracks__replace_by_id__L_3__R18s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Types__list_od__contains__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
@@ -2881,7 +2865,7 @@
 </theory>
 <theory name="Stations__list_tracks__init__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Stations__package_def" sum="a99006921798bfca2dda58efdf22b391" expanded="true">
+<theory name="Stations__package_def" sum="e0b79bfe2de3d459eccff705fa77f57e" expanded="true">
  <goal name="WP_parameter def" expl="VC for def" expanded="true">
  <transf name="split_goal_wp" expanded="true">
  </transf>
@@ -2933,15 +2917,15 @@
  </transf>
  </goal>
 </theory>
-<theory name="Stations__list_tracks__get_element_by_id__subprogram_def" sum="375c615cb0aadcb7f9a07386776c7d51" expanded="true">
+<theory name="Stations__list_tracks__get_element_by_id__subprogram_def" sum="57584da7dd5c6aa0a250d7512fd4594d" expanded="true">
  <goal name="WP_parameter def" expl="VC for def" expanded="true">
  <transf name="split_goal_wp" expanded="true">
   <goal name="WP_parameter def.1" expl="1. assertion">
-  <proof prover="1"><result status="valid" time="0.03" steps="0"/></proof>
+  <proof prover="1"><result status="valid" time="0.02" steps="0"/></proof>
   </goal>
   <goal name="WP_parameter def.2" expl="2. assertion">
   <proof prover="0" obsolete="true"><result status="unknown" time="0.06" steps="590"/></proof>
-  <proof prover="1"><result status="valid" time="0.05" steps="0"/></proof>
+  <proof prover="1"><result status="valid" time="0.03" steps="0"/></proof>
   </goal>
  </transf>
  </goal>
@@ -2975,26 +2959,23 @@
  </transf>
  </goal>
 </theory>
-<theory name="Stations__list_tracks__replace_by_id__subprogram_def" sum="8987b49c45320b8ea09ab522573f451d" expanded="true">
+<theory name="Stations__list_tracks__replace_by_id__subprogram_def" sum="407b253c7cc35f65465c25200499c327" expanded="true">
  <goal name="WP_parameter def" expl="VC for def" expanded="true">
  <transf name="split_goal_wp" expanded="true">
   <goal name="WP_parameter def.1" expl="1. assertion">
   <proof prover="0" obsolete="true"><result status="unknown" time="0.05" steps="770"/></proof>
-  <proof prover="1"><result status="valid" time="0.03" steps="0"/></proof>
+  <proof prover="1"><result status="valid" time="0.02" steps="0"/></proof>
   </goal>
   <goal name="WP_parameter def.2" expl="2. assertion">
   <proof prover="0" obsolete="true"><result status="unknown" time="0.03" steps="760"/></proof>
-  <proof prover="1"><result status="valid" time="0.05" steps="0"/></proof>
+  <proof prover="1"><result status="valid" time="0.02" steps="0"/></proof>
   </goal>
  </transf>
  </goal>
 </theory>
-<theory name="Stations__list_tracks__init__subprogram_def" sum="9a7bf2ec32d644afd7ca74e82204d4cc" expanded="true">
+<theory name="Stations__list_tracks__init__subprogram_def" sum="933300652bfd5d8fe04eaeab391168b0" expanded="true">
  <goal name="WP_parameter def" expl="VC for def" expanded="true">
  <transf name="split_goal_wp" expanded="true">
-  <goal name="WP_parameter def.1" expl="1. assertion">
-  <proof prover="1"><result status="valid" time="0.06" steps="0"/></proof>
-  </goal>
  </transf>
  </goal>
 </theory>

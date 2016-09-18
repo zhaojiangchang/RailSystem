@@ -14104,6 +14104,22 @@ module Types__list_od__init__a__axiom
 
 end
 
+(* Module declaring the external object "types__list_od__get_element_by_id__data," created in Gnat2Why.Decls.Translate_External_Object *)
+module Types__list_od__get_element_by_id__data
+ use import "ref".Ref
+ use import "_gnatprove_standard".Main
+
+ val data #"list.ads" 105 0 0#  : Main.__private__ref 
+
+end
+
+(* Module giving an empty axiom for the entity "types__list_od__get_element_by_id__data", created in Gnat2Why.Decls.Translate_External_Object *)
+module Types__list_od__get_element_by_id__data__axiom
+ use import "_gnatprove_standard".Main
+
+
+end
+
 (* Module declaring the external object "types__list_od__contains__size," created in Gnat2Why.Decls.Translate_External_Object *)
 module Types__list_od__contains__size
  use import "ref".Ref

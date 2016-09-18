@@ -22,7 +22,7 @@ package body LIST is
       size:= A.SIZE;
       contain:=False;
       for i in 1 .. size loop
-         if i < MAX_SIZE then
+         if i < A.MAX_SIZE then
             if A.ELEMENTS(i).ID /=0 then
                if A.ELEMENTS(i).DATA = D then
                   contain:= True;
@@ -36,6 +36,28 @@ package body LIST is
       return contain;
    end CONTAINS;
 
+   -----------------------
+   -- get last element  --
+   -----------------------
+
+   function GET_LAST(A: LIST_PTR) return DATA_TYPE
+   is
+   begin
+      return GET_ELEMENT(A        => A,
+                         LOCATION => A.SIZE);
+   end GET_LAST;
+   ---------------------
+   -- Delete element  --
+   ---------------------
+
+   procedure DELETE_LAST(A: in out LIST_PTR)
+   is
+   begin
+      if A.SIZE > 0 then
+         A.SIZE := A.SIZE -1;
+      end if;
+
+   end DELETE_LAST;
 
    ---------------
    -- GET_SIZE  --
@@ -53,7 +75,7 @@ package body LIST is
    ---------------
    function FULL ( A : in LIST_PTR) return Boolean is
    begin
-      return A.SIZE = A.LIST_MAX_SIZE;
+      return A.SIZE = A.MAX_SIZE;
    end FULL;
    ---------------
    -- APPEND    --
@@ -65,7 +87,7 @@ package body LIST is
 
       -- create a new cell to store the new element
       if not FULL(A) then
-         if A.SIZE < MAX_SIZE then
+         if A.SIZE < A.MAX_SIZE then
             A.SIZE:= A.SIZE +1;
             A.ELEMENTS(A.SIZE).DATA := D;
             A.ELEMENTS(A.SIZE).ID:= ID;
@@ -117,7 +139,7 @@ package body LIST is
                         return DATA_TYPE
    is
    begin
-      if  A.SIZE = 0 or LOCATION <= 0  or LOCATION >A.SIZE or LOCATION > MAX_SIZE then
+      if  A.SIZE = 0 or LOCATION <= 0  or LOCATION >A.SIZE or LOCATION > A.MAX_SIZE then
 
          -- If element is not in the list at this location
          return NO_FOUND;
@@ -146,7 +168,7 @@ package body LIST is
       else
 
          for i in 1 .. A.SIZE loop
-            if i< MAX_SIZE then
+            if i< A.MAX_SIZE then
                if A.ELEMENTS(i).ID = ID then
                   data:=A.ELEMENTS(i).DATA;
                end if;
@@ -214,7 +236,7 @@ package body LIST is
    begin
       if  A.SIZE > 0 or ID > 0 or ID <= A.SIZE then
          for i in 1 .. A.SIZE loop
-            if i <MAX_SIZE then
+            if i <A.MAX_SIZE then
                if A.ELEMENTS(i).ID = ID then
                   A.ELEMENTS(i).DATA := NEWVALUE;
                   return;

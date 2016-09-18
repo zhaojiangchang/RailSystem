@@ -3853,6 +3853,22 @@ module Types__list_od__contains__contain__axiom
 
 
 end
+
+(* Module declaring the external object "types__list_od__get_element_by_id__data," created in Gnat2Why.Decls.Translate_External_Object *)
+module Types__list_od__get_element_by_id__data
+ use import "ref".Ref
+ use import "_gnatprove_standard".Main
+
+ val data #"list.ads" 105 0 0#  : Main.__private__ref 
+
+end
+
+(* Module giving an empty axiom for the entity "types__list_od__get_element_by_id__data", created in Gnat2Why.Decls.Translate_External_Object *)
+module Types__list_od__get_element_by_id__data__axiom
+ use import "_gnatprove_standard".Main
+
+
+end
 (* Module giving axioms for type "short_short_integer", created in Gnat2Why.Types.Generate_Type_Completion *)
 module Standard__short_short_integer__axiom
  use import "_gnatprove_standard".Main

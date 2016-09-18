@@ -61,7 +61,7 @@
         -:   59:   pragma No_Strict_Aliasing (Test_Error_Access);
         -:   60:   --  Description of unexpected exceptions
         -:   61:
-       62:   62:   type Test_Result is record
+       66:   62:   type Test_Result is record
         -:   63:      Test_Name    : Message_String;
         -:   64:      Routine_Name : Message_String;
         -:   65:      Failure      : Test_Failure_Access;

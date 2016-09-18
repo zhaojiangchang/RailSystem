@@ -3,23 +3,23 @@
         -:    1:with TYPES;
         -:    2:with Tracks;
         -:    3:with Stations;
-        1:    4:package Trains
+        -:    4:package Trains
         -:    5:--  is
         -:    6:with SPARK_Mode=>On is
-        1:    7:   inTracks:Stations.LIST_TRACKS.LIST_PTR;
-        1:    8:   outTracks:Stations.LIST_TRACKS.LIST_PTR;
-      183:    9:   type Train_Location is
-        -:   10:      record
-        -:   11:         currentLocation:String(1..7):="None   ";
-        -:   12:         None: String(1..4):="None";
-      183:   13:         Track: Tracks.Track;
-      183:   14:         Station: Stations.Station;
+        -:    7:
+      394:    8:   type Train_Location is
+        -:    9:      record
+        -:   10:         currentLocation:String(1..7):="None   ";
+        -:   11:         None: String(1..4):="None";
+      394:   12:         Track: Tracks.Track;
+      394:   13:         Station: Stations.Station;
+        -:   14:
         -:   15:      end record;
         -:   16:
-      366:   17:   type Train is
+      788:   17:   type Train is
         -:   18:      record
         -:   19:         ID: Natural:=0;
-      183:   20:         Location: Train_Location;
+      394:   20:         Location: Train_Location;
         -:   21:         Origin: TYPES.Station_Locations:=TYPES.No;
         -:   22:         Destination: TYPES.Station_Locations:=TYPES.No;
         -:   23:         State: TYPES.Train_State:=TYPES.Close;
@@ -28,7 +28,7 @@
         -:   26:
         -:   27:--     procedure SET_LOCATION(train_r: in out Train; ID: in Natural; location: in Train_Location);
         -:   28:--     procedure Init(train_r: in out Train);
-        1:   29:end Trains;
+        -:   29:end Trains;
         -:   30:--  :=(
         -:   31:--                                      currentLocation=>"None   ",
         -:   32:--                                      None=>"None",

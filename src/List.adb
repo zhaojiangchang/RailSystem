@@ -40,12 +40,12 @@ package body LIST is
    -- get last element  --
    -----------------------
 
-   function GET_LAST(A: LIST_PTR) return DATA_TYPE
-   is
-   begin
-      return GET_ELEMENT(A        => A,
-                         LOCATION => A.SIZE);
-   end GET_LAST;
+--     function GET_LAST(A: LIST_PTR) return DATA_TYPE
+--     is
+--     begin
+--        return GET_ELEMENT(A        => A,
+--                           LOCATION => A.SIZE);
+--     end GET_LAST;
    ---------------------
    -- Delete element  --
    ---------------------
@@ -121,14 +121,14 @@ package body LIST is
    -- DELETE    --
    ---------------
 
-   procedure DELETE_ALL (A: in out LIST_PTR )
-   is
-   begin
-      -- Set size to 0
-      A.SIZE := 0;
-      A.HEAD := 1;
-
-   end DELETE_ALL;
+--     procedure DELETE_ALL (A: in out LIST_PTR )
+--     is
+--     begin
+--        -- Set size to 0
+--        A.SIZE := 0;
+--        A.HEAD := 1;
+--
+--     end DELETE_ALL;
 
 
    -----------------

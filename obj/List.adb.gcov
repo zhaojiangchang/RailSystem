@@ -16,87 +16,87 @@
         -:   14:   ---------------
         -:   15:   -- CONTAINS --
         -:   16:   ---------------
-      300:   17:   function CONTAINS (A: LIST_PTR; D: DATA_TYPE) return Boolean
+      344:   17:   function CONTAINS (A: LIST_PTR; D: DATA_TYPE) return Boolean
         -:   18:   is
         -:   19:      size: Natural;
         -:   20:      contain:Boolean;
         -:   21:   begin
-      300:   22:      size:= A.SIZE;
-      300:   23:      contain:=False;
-      300:   24:      for i in 1 .. size loop
-      216:   25:         if i < A.MAX_SIZE then
-      216:   26:            if A.ELEMENTS(i).ID /=0 then
-      276:   27:               if A.ELEMENTS(i).DATA = D then
-       20:   28:                  contain:= True;
-       20:   29:                  return contain;
+      344:   22:      size:= A.SIZE;
+      344:   23:      contain:=False;
+      344:   24:      for i in 1 .. size loop
+      258:   25:         if i < A.MAX_SIZE then
+      258:   26:            if A.ELEMENTS(i).ID /=0 then
+      336:   27:               if A.ELEMENTS(i).DATA = D then
+       26:   28:                  contain:= True;
+       26:   29:                  return contain;
         -:   30:               end if;
         -:   31:            end if;
         -:   32:         end if;
         -:   33:
-      196:   34:         pragma Loop_Invariant(contain = False);
-      196:   35:      end loop;
-      280:   36:      return contain;
+      232:   34:         pragma Loop_Invariant(contain = False);
+      232:   35:      end loop;
+      318:   36:      return contain;
         -:   37:   end CONTAINS;
         -:   38:
         -:   39:   -----------------------
         -:   40:   -- get last element  --
         -:   41:   -----------------------
         -:   42:
-    #####:   43:   function GET_LAST(A: LIST_PTR) return DATA_TYPE
-        -:   44:   is
-        -:   45:   begin
-    #####:   46:      return GET_ELEMENT(A        => A,
-        -:   47:                         LOCATION => A.SIZE);
-        -:   48:   end GET_LAST;
+        -:   43:--     function GET_LAST(A: LIST_PTR) return DATA_TYPE
+        -:   44:--     is
+        -:   45:--     begin
+        -:   46:--        return GET_ELEMENT(A        => A,
+        -:   47:--                           LOCATION => A.SIZE);
+        -:   48:--     end GET_LAST;
         -:   49:   ---------------------
         -:   50:   -- Delete element  --
         -:   51:   ---------------------
         -:   52:
-       58:   53:   procedure DELETE_LAST(A: in out LIST_PTR)
+       70:   53:   procedure DELETE_LAST(A: in out LIST_PTR)
         -:   54:   is
         -:   55:   begin
-       58:   56:      if A.SIZE > 0 then
-       58:   57:         A.SIZE := A.SIZE -1;
+       70:   56:      if A.SIZE > 0 then
+       70:   57:         A.SIZE := A.SIZE -1;
         -:   58:      end if;
         -:   59:
-       58:   60:   end DELETE_LAST;
+       70:   60:   end DELETE_LAST;
         -:   61:
         -:   62:   ---------------
         -:   63:   -- GET_SIZE  --
         -:   64:   ---------------
         -:   65:
-     1556:   66:   function GET_SIZE ( A: LIST_PTR )
+     1803:   66:   function GET_SIZE ( A: LIST_PTR )
         -:   67:                      return Natural
         -:   68:   is
         -:   69:   begin
-     1556:   70:      return A.SIZE;
+     1803:   70:      return A.SIZE;
         -:   71:   end GET_SIZE;
         -:   72:
         -:   73:   ---------------
         -:   74:   -- FULL  --
         -:   75:   ---------------
-      738:   76:   function FULL ( A : in LIST_PTR) return Boolean is
+      838:   76:   function FULL ( A : in LIST_PTR) return Boolean is
         -:   77:   begin
-      738:   78:      return A.SIZE = A.MAX_SIZE;
+      838:   78:      return A.SIZE = A.MAX_SIZE;
         -:   79:   end FULL;
         -:   80:   ---------------
         -:   81:   -- APPEND    --
         -:   82:   ---------------
         -:   83:
-      738:   84:   procedure APPEND ( A: in out LIST_PTR; D: in DATA_TYPE; ID: in Natural)
+      838:   84:   procedure APPEND ( A: in out LIST_PTR; D: in DATA_TYPE; ID: in Natural)
         -:   85:   is
         -:   86:   begin
         -:   87:
         -:   88:      -- create a new cell to store the new element
-      738:   89:      if not FULL(A) then
-      738:   90:         if A.SIZE < A.MAX_SIZE then
-      738:   91:            A.SIZE:= A.SIZE +1;
-      738:   92:            A.ELEMENTS(A.SIZE).DATA := D;
-      738:   93:            A.ELEMENTS(A.SIZE).ID:= ID;
+      838:   89:      if not FULL(A) then
+      838:   90:         if A.SIZE < A.MAX_SIZE then
+      838:   91:            A.SIZE:= A.SIZE +1;
+      838:   92:            A.ELEMENTS(A.SIZE).DATA := D;
+      838:   93:            A.ELEMENTS(A.SIZE).ID:= ID;
         -:   94:         end if;
         -:   95:
         -:   96:      end if;
-      738:   97:   end APPEND;
+      838:   97:   end APPEND;
         -:   98:
         -:   99:   ---------------
         -:  100:   -- APPEND  TO FIRST  --
@@ -123,30 +123,30 @@
         -:  121:   -- DELETE    --
         -:  122:   ---------------
         -:  123:
-    #####:  124:   procedure DELETE_ALL (A: in out LIST_PTR )
-        -:  125:   is
-        -:  126:   begin
-        -:  127:      -- Set size to 0
-    #####:  128:      A.SIZE := 0;
-    #####:  129:      A.HEAD := 1;
-        -:  130:
-    #####:  131:   end DELETE_ALL;
+        -:  124:--     procedure DELETE_ALL (A: in out LIST_PTR )
+        -:  125:--     is
+        -:  126:--     begin
+        -:  127:--        -- Set size to 0
+        -:  128:--        A.SIZE := 0;
+        -:  129:--        A.HEAD := 1;
+        -:  130:--
+        -:  131:--     end DELETE_ALL;
         -:  132:
         -:  133:
         -:  134:   -----------------
         -:  135:   -- GET_ELEMENT --
         -:  136:   -----------------
         -:  137:
-     5609:  138:   function GET_ELEMENT( A: LIST_PTR ;LOCATION: Natural )
+     6229:  138:   function GET_ELEMENT( A: LIST_PTR ;LOCATION: Natural )
         -:  139:                        return DATA_TYPE
         -:  140:   is
         -:  141:   begin
-     5609:  142:      if  A.SIZE = 0 or LOCATION <= 0  or LOCATION >A.SIZE or LOCATION > A.MAX_SIZE then
+     6229:  142:      if  A.SIZE = 0 or LOCATION <= 0  or LOCATION >A.SIZE or LOCATION > A.MAX_SIZE then
         -:  143:
         -:  144:         -- If element is not in the list at this location
         2:  145:         return NO_FOUND;
         -:  146:      else
-     5607:  147:         return A.ELEMENTS(LOCATION).DATA;
+     6227:  147:         return A.ELEMENTS(LOCATION).DATA;
         -:  148:      end if;
         -:  149:
         -:  150:   end GET_ELEMENT;
@@ -155,32 +155,32 @@
         -:  153:   -- GET_ELEMENT_BY_ID--
         -:  154:   ----------------------
         -:  155:
-     4053:  156:   function GET_ELEMENT_BY_ID( A: LIST_PTR ;ID: Natural )
+     4499:  156:   function GET_ELEMENT_BY_ID( A: LIST_PTR ;ID: Natural )
         -:  157:                        return DATA_TYPE
         -:  158:   is
-     4053:  159:      data: DATA_TYPE;
+     4499:  159:      data: DATA_TYPE;
         -:  160:   begin
         -:  161:
         -:  162:
-     4053:  163:      if  A.SIZE = 0 or ID <= 0  or ID >A.SIZE then
+     4499:  163:      if  A.SIZE = 0 or ID <= 0  or ID >A.SIZE then
         -:  164:
         -:  165:         -- If element is not in the list at this location
-      588:  166:         return NO_FOUND;
+      664:  166:         return NO_FOUND;
         -:  167:
         -:  168:      else
         -:  169:
-     3465:  170:         for i in 1 .. A.SIZE loop
-    35339:  171:            if i< A.MAX_SIZE then
-    35339:  172:               if A.ELEMENTS(i).ID = ID then
-     3465:  173:                  data:=A.ELEMENTS(i).DATA;
+     3835:  170:         for i in 1 .. A.SIZE loop
+    38043:  171:            if i< A.MAX_SIZE then
+    38043:  172:               if A.ELEMENTS(i).ID = ID then
+     3835:  173:                  data:=A.ELEMENTS(i).DATA;
         -:  174:               end if;
         -:  175:            end if;
-    35339:  176:         end loop;
-     3465:  177:         return data;
+    38043:  176:         end loop;
+     3835:  177:         return data;
         -:  178:
         -:  179:      end if;
         -:  180:
-     4053:  181:   end GET_ELEMENT_BY_ID;
+     4499:  181:   end GET_ELEMENT_BY_ID;
         -:  182:
         -:  183:
         -:  184:--     ----------
@@ -233,26 +233,26 @@
         -:  231:   -- REPLACE_BY_ID --
         -:  232:   -------------
         -:  233:
-      228:  234:   procedure REPLACE_BY_ID (A: in out LIST_PTR; ID: Natural; NEWVALUE: DATA_TYPE )
+      268:  234:   procedure REPLACE_BY_ID (A: in out LIST_PTR; ID: Natural; NEWVALUE: DATA_TYPE )
         -:  235:   is
         -:  236:   begin
-      228:  237:      if  A.SIZE > 0 or ID > 0 or ID <= A.SIZE then
-      228:  238:         for i in 1 .. A.SIZE loop
-      910:  239:            if i <A.MAX_SIZE then
-      910:  240:               if A.ELEMENTS(i).ID = ID then
-      228:  241:                  A.ELEMENTS(i).DATA := NEWVALUE;
-      228:  242:                  return;
+      268:  237:      if  A.SIZE > 0 or ID > 0 or ID <= A.SIZE then
+      268:  238:         for i in 1 .. A.SIZE loop
+      996:  239:            if i <A.MAX_SIZE then
+      996:  240:               if A.ELEMENTS(i).ID = ID then
+      268:  241:                  A.ELEMENTS(i).DATA := NEWVALUE;
+      268:  242:                  return;
         -:  243:               end if;
         -:  244:            end if;
-      682:  245:         end loop;
+      728:  245:         end loop;
         -:  246:      end if;
         -:  247:
         -:  248:   end REPLACE_BY_ID;
         -:  249:
         -:  250:
-      160:  251:   procedure Init (A : in out LIST_PTR) is
+      170:  251:   procedure Init (A : in out LIST_PTR) is
         -:  252:   begin
-      160:  253:      A.Head := 1;
-      160:  254:      A.Size := 0;
-      160:  255:   end Init;
+      170:  253:      A.Head := 1;
+      170:  254:      A.Size := 0;
+      170:  255:   end Init;
         -:  256:end LIST;

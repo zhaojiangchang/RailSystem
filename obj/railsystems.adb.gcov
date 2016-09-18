@@ -11,13 +11,13 @@
         -:    9:   use all type TYPES.MAX_SIZE;
         -:   10:   use all type TYPES.Station_Locations;
         -:   11:
-       64:   12:   procedure Init(r_system: in out RailSystem)
+       68:   12:   procedure Init(r_system: in out RailSystem)
         -:   13:   is
         -:   14:   begin
-       64:   15:      RailSystems.LIST_TRAINS.Init(r_system.All_Trains);
-       64:   16:      RailSystems.LIST_STATIONS.Init(r_system.All_Stations);
-       64:   17:      Stations.LIST_TRACKS.Init(r_system.All_Tracks);
-       64:   18:   end Init;
+       68:   15:      RailSystems.LIST_TRAINS.Init(r_system.All_Trains);
+       68:   16:      RailSystems.LIST_STATIONS.Init(r_system.All_Stations);
+       68:   17:      Stations.LIST_TRACKS.Init(r_system.All_Tracks);
+       68:   18:   end Init;
         -:   19:
         -:   20:   --------------------
         -:   21:   -- Go (For train) --
@@ -151,7 +151,7 @@
         -:  149:   -- deep first search - check reachability --
         -:  150:   --------------------------------------------
         -:  151:
-        2:  152:   function dfs_station_reachability_by_train(r_system: in RailSystem; train: in Trains.Train) return Boolean
+        4:  152:   procedure dfs_station_reachability_by_train(r_system: in out RailSystem; train: in out Trains.Train)
         -:  153:   is
         -:  154:      base_Location: TYPES.Station_Locations;
         -:  155:      temp_Location: TYPES.Station_Locations;
@@ -160,463 +160,468 @@
         2:  158:      station: Stations.Station;
         2:  159:      station2: Stations.Station;
         -:  160:   begin
-        2:  161:      base_Location:= TYPES.No;
-        2:  162:      if train.Location.Track.TrainID/=0 then
-    #####:  163:         base_Location:=train.location.Track.Destination;
-        2:  164:      elsif train.Location.Station.TrainID/=0 then
-        2:  165:         base_Location:=train.Location.Station.Location;
-        -:  166:      end if;
-        2:  167:      Print_Station_Locations("base location", base_Location);
-        2:  168:      if base_Location /= TYPES.No then
-        2:  169:         if getStationByName(stations_list   => stations_list,
-        2:  170:                             stationLocation => base_Location).ID = 0
-        -:  171:         then
-        -:  172:
-        2:  173:            station:=  getStationByName(stations_list   => r_system.All_Stations,
-        -:  174:                                        stationLocation => base_Location);
-        2:  175:            station.Location := base_Location;
-        2:  176:            if station.Location /= TYPES.No and station.ID > 0 and station.ID< 101 then
-        2:  177:               LIST_STATIONS.APPEND(A  => stations_list,
-        -:  178:                                    D  => station,
-        -:  179:                                    ID => station.ID);
+        -:  161:      --        if train.Location.Track.TrainID/=0 then
+        -:  162:      --           base_Location:=train.location.Track.Destination;
+        2:  163:      if train.Location.Station.TrainID/=0 then
+        2:  164:         base_Location:=train.Location.Station.Location;
+        2:  165:         Print_Station_Locations("base location", base_Location);
+        2:  166:         if base_Location /= TYPES.No then
+        2:  167:            if getStationByName(stations_list   => stations_list,
+        2:  168:                                stationLocation => base_Location).ID = 0
+        -:  169:            then
+        -:  170:
+        2:  171:               station:=  getStationByName(stations_list   => r_system.All_Stations,
+        -:  172:                                           stationLocation => base_Location);
+        2:  173:               station.Location := base_Location;
+        2:  174:               if station.Location /= TYPES.No and station.ID > 0 and station.ID< 101 then
+        2:  175:                  LIST_STATIONS.APPEND(A  => stations_list,
+        -:  176:                                       D  => station,
+        -:  177:                                       ID => station.ID);
+        -:  178:               end if;
+        -:  179:
         -:  180:            end if;
         -:  181:
-        -:  182:         end if;
-        -:  183:
-        4:  184:         while LIST_STATIONS.GET_SIZE(A => stations_list) /=0
-        -:  185:         loop
-        4:  186:            temp_Location:=LIST_STATIONS.GET_ELEMENT(A        => stations_list,
-        4:  187:                                                     LOCATION => LIST_STATIONS.GET_SIZE(A => stations_list)).Location;
-        4:  188:            Print_Station_Locations("temp_Location", temp_Location);
-        -:  189:
-        4:  190:            LIST_STATIONS.DELETE_LAST(A => stations_list);
-        4:  191:            if LIST_STATIONS.CONTAINS(A => visted_list,
-        4:  192:                                      D => getStationByName(stations_list        => r_system.All_Stations,
-        -:  193:                                                            stationLocation => temp_Location)) then
-    #####:  194:               Print_Station_Locations("already visted: ",temp_Location);
-        -:  195:            else
-        4:  196:               station:=  getStationByName(stations_list   => r_system.All_Stations,
-        -:  197:                                           stationLocation => temp_Location);
-        4:  198:               if station.Location /= TYPES.No and station.ID > 0 and station.ID< 101 then
-        4:  199:                  LIST_STATIONS.APPEND(A  => visted_list,
-        -:  200:                                       D  => station,
-        -:  201:                                       ID => station.ID);
-        -:  202:               end if;
-        4:  203:               if temp_Location = train.Destination then
-        2:  204:                  return True;
-        -:  205:               end if;
-       34:  206:               for Index in 1 .. Stations.LIST_TRACKS.GET_SIZE(A => r_system.All_Tracks)
-       34:  207:               loop
-       32:  208:                  if Stations.LIST_TRACKS.GET_ELEMENT(A        => r_system.All_Tracks,
-       32:  209:                                                      LOCATION => Index).Origin = temp_Location then
-        -:  210:
-        4:  211:                     station2:=  getStationByName(stations_list   => r_system.All_Stations,
-        4:  212:                                                  stationLocation => Stations.LIST_TRACKS.GET_ELEMENT(A        => r_system.All_Tracks,
-        -:  213:                                                                                                      LOCATION => Index).Destination);
-        4:  214:                     Print_Station_Locations("destination",Stations.LIST_TRACKS.GET_ELEMENT(A        => r_system.All_Tracks,
-        -:  215:                                                                                            LOCATION => Index).Destination);
-        4:  216:                     if station2.Location /= TYPES.No and station2.ID > 0 and station2.ID< 101 then
-        4:  217:                        LIST_STATIONS.APPEND(A  => Stations_list,
-        -:  218:                                             D  => station2,
-        -:  219:                                             ID => station2.ID);
-        4:  220:                        Print_Station_Locations("add",station2.Location);
-        -:  221:                     end if;
-        -:  222:                  end if;
-       32:  223:               end loop;
-        -:  224:            end if;
-        2:  225:         end loop;
-    #####:  226:         return False;
-        -:  227:      end if;
-    #####:  228:      return False;
-        2:  229:   end dfs_station_reachability_by_train;
-        -:  230:   --------------------------------------------
-        -:  231:   -- deep first search - check reachability --
+       16:  182:            while LIST_STATIONS.GET_SIZE(A => stations_list) /=0
+        -:  183:            loop
+       16:  184:               temp_Location:=LIST_STATIONS.GET_ELEMENT(A        => stations_list,
+       16:  185:                                                        LOCATION => LIST_STATIONS.GET_SIZE(A => stations_list)).Location;
+       16:  186:               Print_Station_Locations("temp_Location", temp_Location);
+        -:  187:
+       16:  188:               LIST_STATIONS.DELETE_LAST(A => stations_list);
+       16:  189:               if not LIST_STATIONS.CONTAINS(A => visted_list,
+       16:  190:                                             D => getStationByName(stations_list        => r_system.All_Stations,
+        -:  191:                                                                   stationLocation => temp_Location)) then
+        -:  192:                  --                    Print_Station_Locations("already visted: ",temp_Location);
+       10:  193:                  station:=  getStationByName(stations_list   => r_system.All_Stations,
+        -:  194:                                              stationLocation => temp_Location);
+       10:  195:                  if station.Location /= TYPES.No and station.ID > 0 and station.ID< 101 then
+       10:  196:                     LIST_STATIONS.APPEND(A  => visted_list,
+        -:  197:                                          D  => station,
+        -:  198:                                          ID => station.ID);
+        -:  199:                  end if;
+       10:  200:                  if temp_Location = train.Destination then
+        2:  201:                     train.isReachable:=False;
+        2:  202:                     if train.ID>0 and train.ID<101 then
+        2:  203:                        replaceTrain(r_system => r_system,
+        -:  204:                                     train    => train);
+        -:  205:                     end if;
+        2:  206:                     return;
+        -:  207:                  end if;
+      136:  208:                  for Index in 1 .. Stations.LIST_TRACKS.GET_SIZE(A => r_system.All_Tracks)
+      136:  209:                  loop
+      128:  210:                     if Stations.LIST_TRACKS.GET_ELEMENT(A        => r_system.All_Tracks,
+      128:  211:                                                         LOCATION => Index).Origin = temp_Location then
+        -:  212:
+       16:  213:                        station2:=  getStationByName(stations_list   => r_system.All_Stations,
+       16:  214:                                                     stationLocation => Stations.LIST_TRACKS.GET_ELEMENT(A        => r_system.All_Tracks,
+        -:  215:                                                                                                         LOCATION => Index).Destination);
+       16:  216:                        Print_Station_Locations("destination",Stations.LIST_TRACKS.GET_ELEMENT(A        => r_system.All_Tracks,
+        -:  217:                                                                                               LOCATION => Index).Destination);
+       16:  218:                        if station2.Location /= TYPES.No and station2.ID > 0 and station2.ID< 101 then
+       16:  219:                           LIST_STATIONS.APPEND(A  => Stations_list,
+        -:  220:                                                D  => station2,
+        -:  221:                                                ID => station2.ID);
+       16:  222:                           Print_Station_Locations("add",station2.Location);
+        -:  223:                        end if;
+        -:  224:                     end if;
+      128:  225:                  end loop;
+        -:  226:               end if;
+       14:  227:            end loop;
+        -:  228:         end if;
+        -:  229:      end if;
+        -:  230:
+        2:  231:   end dfs_station_reachability_by_train;
         -:  232:   --------------------------------------------
-        -:  233:
-        8:  234:   function dfs_station_reachability_by_stations(r_system: in RailSystem; from_station: in TYPES.Station_Locations; to_Station: in TYPES.Station_Locations)
-        -:  235:                                                 return Boolean
-        -:  236:   is
-        -:  237:      base_Location: TYPES.Station_Locations;
-        -:  238:      temp_Location: TYPES.Station_Locations;
-        8:  239:      stations_list: LIST_STATIONS.List_PTR(MAX_SIZE=>100);
-        8:  240:      visted_list:   LIST_STATIONS.List_PTR(MAX_SIZE=>100);
-        8:  241:      station: Stations.Station;
-        8:  242:      station2: Stations.Station;
-        -:  243:   begin
-        8:  244:      if from_station /= TYPES.No and to_Station /= TYPES.No then
-        8:  245:         base_Location:= from_station;
-        8:  246:         if getStationByName(stations_list   => stations_list,
-        8:  247:                             stationLocation => base_Location).ID = 0
-        -:  248:         then
-        -:  249:
-        8:  250:            station:=  getStationByName(stations_list   => r_system.All_Stations,
-        -:  251:                                        stationLocation => base_Location);
-        8:  252:            station.Location := base_Location;
-        8:  253:            if station.Location /= TYPES.No and station.ID > 0 and station.ID< 101 then
-        8:  254:               LIST_STATIONS.APPEND(A  => stations_list,
-        -:  255:                                    D  => station,
-        -:  256:                                    ID => station.ID);
-        -:  257:            end if;
-        -:  258:
-        -:  259:         end if;
-        -:  260:
-       54:  261:         while LIST_STATIONS.GET_SIZE(A => stations_list) /=0
-        -:  262:         loop
-       54:  263:            temp_Location:=LIST_STATIONS.GET_ELEMENT(A        => stations_list,
-       54:  264:                                                     LOCATION => LIST_STATIONS.GET_SIZE(A => stations_list)).Location;
-       54:  265:            Print_Station_Locations("temp_Location", temp_Location);
+        -:  233:   -- deep first search - check reachability --
+        -:  234:   --------------------------------------------
+        -:  235:
+        8:  236:   procedure dfs_station_reachability_by_stations(r_system: in out RailSystem; from_station: in TYPES.Station_Locations; to_Station: in TYPES.Station_Locations)
+        -:  237:
+        -:  238:   is
+        -:  239:      base_Location: TYPES.Station_Locations;
+        -:  240:      temp_Location: TYPES.Station_Locations;
+        8:  241:      stations_list: LIST_STATIONS.List_PTR(MAX_SIZE=>100);
+        8:  242:      visted_list:   LIST_STATIONS.List_PTR(MAX_SIZE=>100);
+        8:  243:      station: Stations.Station;
+        8:  244:      station2: Stations.Station;
+        8:  245:      tempStation: Stations.Station;
+        -:  246:   begin
+        8:  247:      if from_station /= TYPES.No and to_Station /= TYPES.No then
+        8:  248:         base_Location:= from_station;
+        8:  249:         if getStationByName(stations_list   => stations_list,
+        8:  250:                             stationLocation => base_Location).ID = 0
+        -:  251:         then
+        -:  252:
+        8:  253:            station:=  getStationByName(stations_list   => r_system.All_Stations,
+        -:  254:                                        stationLocation => base_Location);
+        8:  255:            station.Location := base_Location;
+        8:  256:            if station.Location /= TYPES.No and station.ID > 0 and station.ID< 101 then
+        8:  257:               LIST_STATIONS.APPEND(A  => stations_list,
+        -:  258:                                    D  => station,
+        -:  259:                                    ID => station.ID);
+        -:  260:            end if;
+       54:  261:            while LIST_STATIONS.GET_SIZE(A => stations_list) /=0
+        -:  262:            loop
+       54:  263:               temp_Location:=LIST_STATIONS.GET_ELEMENT(A        => stations_list,
+       54:  264:                                                        LOCATION => LIST_STATIONS.GET_SIZE(A => stations_list)).Location;
+       54:  265:               Print_Station_Locations("temp_Location", temp_Location);
         -:  266:
-       54:  267:            LIST_STATIONS.DELETE_LAST(A => stations_list);
-       54:  268:            if LIST_STATIONS.CONTAINS(A => visted_list,
-       54:  269:                                      D => getStationByName(stations_list        => r_system.All_Stations,
-        -:  270:                                                            stationLocation => temp_Location)) then
-       18:  271:               Print_Station_Locations("already visted: ",temp_Location);
-        -:  272:            else
-       36:  273:               station:=  getStationByName(stations_list   => r_system.All_Stations,
-        -:  274:                                           stationLocation => temp_Location);
-       36:  275:               if station.Location /= TYPES.No and station.ID > 0 and station.ID< 101 then
-       36:  276:                  LIST_STATIONS.APPEND(A  => visted_list,
-        -:  277:                                       D  => station,
-        -:  278:                                       ID => station.ID);
-        -:  279:               end if;
-       36:  280:               if temp_Location = to_Station then
-        8:  281:                  return True;
-        -:  282:               end if;
-      476:  283:               for Index in 1 .. Stations.LIST_TRACKS.GET_SIZE(A => r_system.All_Tracks)
-      476:  284:               loop
-      448:  285:                  if Stations.LIST_TRACKS.GET_ELEMENT(A        => r_system.All_Tracks,
-      448:  286:                                                      LOCATION => Index).Origin = temp_Location then
-        -:  287:
-       56:  288:                     station2:=  getStationByName(stations_list   => r_system.All_Stations,
-       56:  289:                                                  stationLocation => Stations.LIST_TRACKS.GET_ELEMENT(A        => r_system.All_Tracks,
-        -:  290:                                                                                                      LOCATION => Index).Destination);
-       56:  291:                     Print_Station_Locations("destination",Stations.LIST_TRACKS.GET_ELEMENT(A        => r_system.All_Tracks,
-        -:  292:                                                                                            LOCATION => Index).Destination);
-       56:  293:                     if station2.Location /= TYPES.No and station2.ID > 0 and station2.ID< 101 then
-       56:  294:                        LIST_STATIONS.APPEND(A  => Stations_list,
-        -:  295:                                             D  => station2,
-        -:  296:                                             ID => station2.ID);
-       56:  297:                        Print_Station_Locations("add",station2.Location);
-        -:  298:                     end if;
-        -:  299:                  end if;
-      448:  300:               end loop;
-        -:  301:            end if;
-       46:  302:         end loop;
-    #####:  303:         return False;
-        -:  304:      end if;
-        -:  305:
-    #####:  306:      return False;
-        8:  307:   end dfs_station_reachability_by_stations;
-        -:  308:
-        -:  309:
-        -:  310:   --------------------
-        -:  311:   -- Prepare Train --
-        -:  312:   --------------------
-       40:  313:   procedure prepareTrain(r_system: in out RailSystem;
-        -:  314:                          train: in out Trains.Train;
-        -:  315:                          Origin: in TYPES.Station_Locations;
-        -:  316:                          Destination: in TYPES.Station_Locations;
-        -:  317:                          StartTime: in TYPES.TimeTable)
-        -:  318:
-        -:  319:   is
-        -:  320:
-       10:  321:      tempOriginStation: Stations.Station;
-        -:  322:
-        -:  323:   begin
-        -:  324:
-       10:  325:      train.Origin := Origin;
-        -:  326:
-       10:  327:      train.Destination := Destination;
-       10:  328:      train.State:=TYPES.Open;
-       10:  329:      train.Start_Run_Time:=StartTime;
-       10:  330:      train.Location.currentLocation:="Station";
-       10:  331:      train.Location.Station := getStationByName(r_system.All_Stations, Origin);
-       10:  332:      train.Location.Station.TrainID:= train.ID;
-       10:  333:      train.Location.Track.TrainID :=0;
-       10:  334:      tempOriginStation:= getStationByName(stations_list   => r_system.All_Stations,
-        -:  335:                                           stationLocation => Origin);
-       10:  336:      tempOriginStation.TrainID:= train.ID;
-       10:  337:      if tempOriginStation.ID>0 and tempOriginStation.ID<101 and tempOriginStation.Location /= TYPES.No then
-       10:  338:         replaceStation(r_system, tempOriginStation);
-        -:  339:      end if;
-       10:  340:      if train.ID>0 and train.ID<101 then
-       10:  341:         replaceTrain(r_system => r_system,
-        -:  342:                      train    => train);
-        -:  343:      end if;
-        -:  344:      --        end if;
-        -:  345:
-       10:  346:   end prepareTrain;
-        -:  347:
-        -:  348:   ---------------------------------
-        -:  349:   -- get station by station name --
-        -:  350:   ---------------------------------
-        -:  351:
-      388:  352:   function getStationByName(stations_list: in RailSystems.LIST_STATIONS.List_PTR;
-        -:  353:                             stationLocation: in TYPES.Station_Locations)
-        -:  354:                          return Stations.Station
-        -:  355:   is
-      388:  356:      temp: Stations.Station;
-        -:  357:
-        -:  358:   begin
-        -:  359:      pragma Warnings(Off, temp);
-      388:  360:      if stationLocation /=TYPES.No then
-      382:  361:         for i in 1 .. RailSystems.LIST_STATIONS.GET_SIZE(stations_list) loop
-     1354:  362:            if RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(stations_list, i).Location = stationLocation then
-      372:  363:               return RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(stations_list, i);
-        -:  364:            end if;
-      982:  365:         end loop;
-        -:  366:      end  if;
-       16:  367:      return temp;
-      388:  368:   end getStationByName;
-        -:  369:
-        -:  370:   ---------------------------------
-        -:  371:   -- get track by station name --
-        -:  372:   ---------------------------------
-        -:  373:
-       46:  374:   function getTrackByName(r_system: in RailSystem;
-        -:  375:                           Origin: in TYPES.Station_Locations;
-        -:  376:                           Destination: in TYPES.Station_Locations)
-        -:  377:                        return Tracks.Track
-        -:  378:   is
-       46:  379:      temp: Tracks.Track;
-        -:  380:   begin
-        -:  381:      --        InitTrack(temp);
-        -:  382:      --        temp.ID:=0;
-        -:  383:      --        temp.Origin:= TYPES.No;
-        -:  384:      --        temp.Destination:=TYPES.No;
-        -:  385:      --        temp.TrainID:=0;
-       46:  386:      for i in 1 .. Stations.LIST_TRACKS.GET_SIZE(r_system.All_Tracks) loop
-      592:  387:         if Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(r_system.All_Tracks, i).Origin = Origin
-      592:  388:           and Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(r_system.All_Tracks,i).Destination = Destination then
-       44:  389:            temp:= Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(r_system.All_Tracks, i);
-        -:  390:         end if;
-      592:  391:      end loop;
-       92:  392:      return temp;
-       46:  393:   end getTrackByName;
-        -:  394:
-        -:  395:
-        -:  396:   --------------
-        -:  397:   -- addTrack --
-        -:  398:   --------------
+       54:  267:               LIST_STATIONS.DELETE_LAST(A => stations_list);
+       54:  268:               if LIST_STATIONS.CONTAINS(A => visted_list,
+       54:  269:                                         D => getStationByName(stations_list        => r_system.All_Stations,
+        -:  270:                                                               stationLocation => temp_Location)) then
+       18:  271:                  Print_Station_Locations("already visted: ",temp_Location);
+        -:  272:               else
+       36:  273:                  station:=  getStationByName(stations_list   => r_system.All_Stations,
+        -:  274:                                              stationLocation => temp_Location);
+       36:  275:                  if station.Location /= TYPES.No and station.ID > 0 and station.ID< 101 then
+       36:  276:                     LIST_STATIONS.APPEND(A  => visted_list,
+        -:  277:                                          D  => station,
+        -:  278:                                          ID => station.ID);
+        -:  279:                  end if;
+       36:  280:                  if temp_Location = to_Station then
+        8:  281:                     tempStation:=getStationByName(stations_list   => r_system.All_Stations,
+        -:  282:                                                   stationLocation => to_Station);
+        8:  283:                     tempStation.isReachable:=True;
+        8:  284:                     if tempStation.ID>0 and tempStation.ID<101 and tempStation.Location /= TYPES.No then
+        8:  285:                     replaceStation(r_system => r_system,
+        -:  286:                                    station  => tempStation);
+        -:  287:                     end if;
+        8:  288:                     return;
+        -:  289:                  end if;
+      476:  290:                  for Index in 1 .. Stations.LIST_TRACKS.GET_SIZE(A => r_system.All_Tracks)
+      476:  291:                  loop
+      448:  292:                     if Stations.LIST_TRACKS.GET_ELEMENT(A        => r_system.All_Tracks,
+      448:  293:                                                         LOCATION => Index).Origin = temp_Location then
+        -:  294:
+       56:  295:                        station2:=  getStationByName(stations_list   => r_system.All_Stations,
+       56:  296:                                                     stationLocation => Stations.LIST_TRACKS.GET_ELEMENT(A        => r_system.All_Tracks,
+        -:  297:                                                                                                         LOCATION => Index).Destination);
+       56:  298:                        Print_Station_Locations("destination",Stations.LIST_TRACKS.GET_ELEMENT(A        => r_system.All_Tracks,
+        -:  299:                                                                                               LOCATION => Index).Destination);
+       56:  300:                        if station2.Location /= TYPES.No and station2.ID > 0 and station2.ID< 101 then
+       56:  301:                           LIST_STATIONS.APPEND(A  => Stations_list,
+        -:  302:                                                D  => station2,
+        -:  303:                                                ID => station2.ID);
+       56:  304:                           Print_Station_Locations("add",station2.Location);
+        -:  305:                        end if;
+        -:  306:                     end if;
+      448:  307:                  end loop;
+        -:  308:               end if;
+       46:  309:            end loop;
+        -:  310:         end if;
+        -:  311:      end if;
+        8:  312:   end dfs_station_reachability_by_stations;
+        -:  313:
+        -:  314:
+        -:  315:   --------------------
+        -:  316:   -- Prepare Train --
+        -:  317:   --------------------
+       52:  318:   procedure prepareTrain(r_system: in out RailSystem;
+        -:  319:                          train: in out Trains.Train;
+        -:  320:                          Origin: in TYPES.Station_Locations;
+        -:  321:                          Destination: in TYPES.Station_Locations;
+        -:  322:                          StartTime: in TYPES.TimeTable)
+        -:  323:
+        -:  324:   is
+        -:  325:
+       14:  326:      tempOriginStation: Stations.Station;
+        -:  327:
+        -:  328:   begin
+        -:  329:
+       14:  330:      train.Origin := Origin;
+        -:  331:
+       14:  332:      train.Destination := Destination;
+       14:  333:      train.State:=TYPES.Open;
+       14:  334:      train.Start_Run_Time:=StartTime;
+       14:  335:      train.Location.currentLocation:="Station";
+       14:  336:      train.Location.Station := getStationByName(r_system.All_Stations, Origin);
+       14:  337:      train.Location.Station.TrainID:= train.ID;
+       14:  338:      train.Location.Track.TrainID :=0;
+       14:  339:      tempOriginStation:= getStationByName(stations_list   => r_system.All_Stations,
+        -:  340:                                           stationLocation => Origin);
+       14:  341:      tempOriginStation.TrainID:= train.ID;
+       14:  342:      if tempOriginStation.ID>0 and tempOriginStation.ID<101 and tempOriginStation.Location /= TYPES.No then
+       14:  343:         replaceStation(r_system, tempOriginStation);
+        -:  344:      end if;
+       14:  345:      if train.ID>0 and train.ID<101 then
+       14:  346:         replaceTrain(r_system => r_system,
+        -:  347:                      train    => train);
+        -:  348:      end if;
+        -:  349:      --        end if;
+        -:  350:
+       14:  351:   end prepareTrain;
+        -:  352:
+        -:  353:   ---------------------------------
+        -:  354:   -- get station by station name --
+        -:  355:   ---------------------------------
+        -:  356:
+      464:  357:   function getStationByName(stations_list: in RailSystems.LIST_STATIONS.List_PTR;
+        -:  358:                             stationLocation: in TYPES.Station_Locations)
+        -:  359:                             return Stations.Station
+        -:  360:   is
+      464:  361:      temp: Stations.Station;
+        -:  362:
+        -:  363:   begin
+        -:  364:      pragma Warnings(Off, temp);
+      464:  365:      if stationLocation /=TYPES.No then
+      456:  366:         for i in 1 .. RailSystems.LIST_STATIONS.GET_SIZE(stations_list) loop
+     1546:  367:            if RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(stations_list, i).Location = stationLocation then
+      446:  368:               return RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(stations_list, i);
+        -:  369:            end if;
+     1100:  370:         end loop;
+        -:  371:      end  if;
+       18:  372:      return temp;
+      464:  373:   end getStationByName;
+        -:  374:
+        -:  375:   ---------------------------------
+        -:  376:   -- get track by station name --
+        -:  377:   ---------------------------------
+        -:  378:
+       46:  379:   function getTrackByName(r_system: in RailSystem;
+        -:  380:                           Origin: in TYPES.Station_Locations;
+        -:  381:                           Destination: in TYPES.Station_Locations)
+        -:  382:                              return Tracks.Track
+        -:  383:   is
+       46:  384:      temp: Tracks.Track;
+        -:  385:   begin
+        -:  386:      --        InitTrack(temp);
+        -:  387:      --        temp.ID:=0;
+        -:  388:      --        temp.Origin:= TYPES.No;
+        -:  389:      --        temp.Destination:=TYPES.No;
+        -:  390:      --        temp.TrainID:=0;
+       46:  391:      for i in 1 .. Stations.LIST_TRACKS.GET_SIZE(r_system.All_Tracks) loop
+      592:  392:         if Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(r_system.All_Tracks, i).Origin = Origin
+      592:  393:           and Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(r_system.All_Tracks,i).Destination = Destination then
+       44:  394:            temp:= Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(r_system.All_Tracks, i);
+        -:  395:         end if;
+      592:  396:      end loop;
+       92:  397:      return temp;
+       46:  398:   end getTrackByName;
         -:  399:
-      262:  400:   procedure addTrack(r_system: in out RailSystem;
-        -:  401:                      ID: in Natural;
-        -:  402:                      Origin: in TYPES.Station_Locations;
-        -:  403:                      Destination: in TYPES.Station_Locations;
-        -:  404:                      LineOrigin: in TYPES.Station_Locations;
-        -:  405:                      LineDestination: in TYPES.Station_Locations)
-        -:  406:   is
-      248:  407:      track: Tracks.Track;
-        -:  408:   begin
-      248:  409:      track.ID:=ID;
-      248:  410:      track.Origin:= Origin;
-      248:  411:      track.Destination:= Destination;
-      248:  412:      track.TracksLineOrigin:= LineOrigin;
-      248:  413:      track.TracksLineDestination:=LineDestination;
-      248:  414:      if Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(r_system.All_Tracks, ID).ID = 0 then
-      248:  415:         if track.ID /=0 and track.Origin /=TYPES.No and track.Destination /= types.No and track.TrainID = 0 and track.TracksLineOrigin /=types.No and track.TracksLineDestination/= TYPES.No then
-      248:  416:            Stations.LIST_TRACKS.APPEND(r_system.All_Tracks,track, ID);
-        -:  417:         end if;
-        -:  418:      end if;
-        -:  419:
-      248:  420:   end addTrack;
-        -:  421:
-        -:  422:   --------------
-        -:  423:   -- addTrain --
-        -:  424:   --------------
-        -:  425:
-       40:  426:   procedure addTrain (r_system: in out RailSystem;
-        -:  427:                       ID: in Natural)
-        -:  428:   is
-       36:  429:      train: Trains.Train;
-       36:  430:      ID_Out_Of_Range_Exception: Exception;
-        -:  431:
-        -:  432:   begin
-        -:  433:      --        if ID <1 or ID>100 then
-        -:  434:      --           Print("ADD TRAIN: ID should between 1 and 100");
-        -:  435:      --           Raise ID_Out_Of_Range_Exception;
-        -:  436:      --        end if;
-       36:  437:      train.ID := ID;
-       36:  438:      if LIST_TRAINS.GET_ELEMENT_BY_ID(r_system.All_Trains, ID).ID = 0 then
-       36:  439:         if train.ID /=0 then
-       36:  440:            LIST_TRAINS.APPEND(r_system.All_Trains, train,ID);
-        -:  441:         end if;
-        -:  442:
-        -:  443:      end if;
-       36:  444:   end addTrain;
-        -:  445:
-        -:  446:   ---------------------
-        -:  447:   -- get train by id --
-        -:  448:   ---------------------
-       36:  449:   function getTrainById(r_system: in RailSystem; ID: in Natural)
-        -:  450:                      return Trains.Train
-        -:  451:   is
-       32:  452:      Get_Train_By_ID_ID_Out_Of_Range_Exception: Exception;
-       32:  453:      train: Trains.train;
-        -:  454:   begin
-       32:  455:      train:= RailSystems.LIST_TRAINS.GET_ELEMENT_BY_ID(r_system.All_Trains, ID);
-       64:  456:      return train;
-       36:  457:   end getTrainById;
-        -:  458:
-        -:  459:----------------
-        -:  460:-- addStation --
-        -:  461:----------------
-        -:  462:
-      156:  463:procedure addStation
-        -:  464:  (r_system: in out RailSystem;
-        -:  465:   ID: in Natural;
-        -:  466:   Location: in TYPES.Station_Locations)
-        -:  467:is
-      148:  468:   station: Stations.Station;
-        -:  469:begin
-        -:  470:
-      148:  471:   station.ID := ID;
-      148:  472:   station.Location := Location;
-      148:  473:   if LIST_STATIONS.GET_ELEMENT_BY_ID(r_system.All_Stations, ID).ID = 0 then
-      148:  474:      if Station.Location /= TYPES.No then
-      148:  475:         LIST_STATIONS.APPEND(r_system.All_Stations, station,ID);
-        -:  476:      end if;
-        -:  477:   end if;
-        -:  478:
-        -:  479:
-        -:  480:
-        -:  481:
-      148:  482:end addStation;
+        -:  400:
+        -:  401:   --------------
+        -:  402:   -- addTrack --
+        -:  403:   --------------
+        -:  404:
+      294:  405:   procedure addTrack(r_system: in out RailSystem;
+        -:  406:                      ID: in Natural;
+        -:  407:                      Origin: in TYPES.Station_Locations;
+        -:  408:                      Destination: in TYPES.Station_Locations;
+        -:  409:                      LineOrigin: in TYPES.Station_Locations;
+        -:  410:                      LineDestination: in TYPES.Station_Locations)
+        -:  411:   is
+      280:  412:      track: Tracks.Track;
+        -:  413:   begin
+      280:  414:      track.ID:=ID;
+      280:  415:      track.Origin:= Origin;
+      280:  416:      track.Destination:= Destination;
+      280:  417:      track.TracksLineOrigin:= LineOrigin;
+      280:  418:      track.TracksLineDestination:=LineDestination;
+      280:  419:      if Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(r_system.All_Tracks, ID).ID = 0 then
+      280:  420:         if track.ID /=0 and track.Origin /=TYPES.No and track.Destination /= types.No and track.TrainID = 0 and track.TracksLineOrigin /=types.No and track.TracksLineDestination/= TYPES.No then
+      280:  421:            Stations.LIST_TRACKS.APPEND(r_system.All_Tracks,track, ID);
+        -:  422:         end if;
+        -:  423:      end if;
+        -:  424:
+      280:  425:   end addTrack;
+        -:  426:
+        -:  427:   --------------
+        -:  428:   -- addTrain --
+        -:  429:   --------------
+        -:  430:
+       44:  431:   procedure addTrain (r_system: in out RailSystem;
+        -:  432:                       ID: in Natural)
+        -:  433:   is
+       40:  434:      train: Trains.Train;
+       40:  435:      ID_Out_Of_Range_Exception: Exception;
+        -:  436:
+        -:  437:   begin
+        -:  438:      --        if ID <1 or ID>100 then
+        -:  439:      --           Print("ADD TRAIN: ID should between 1 and 100");
+        -:  440:      --           Raise ID_Out_Of_Range_Exception;
+        -:  441:      --        end if;
+       40:  442:      train.ID := ID;
+       40:  443:      if LIST_TRAINS.GET_ELEMENT_BY_ID(r_system.All_Trains, ID).ID = 0 then
+       40:  444:         if train.ID /=0 then
+       40:  445:            LIST_TRAINS.APPEND(r_system.All_Trains, train,ID);
+        -:  446:         end if;
+        -:  447:
+        -:  448:      end if;
+       40:  449:   end addTrain;
+        -:  450:
+        -:  451:   ---------------------
+        -:  452:   -- get train by id --
+        -:  453:   ---------------------
+       40:  454:   function getTrainById(r_system: in RailSystem; ID: in Natural)
+        -:  455:                            return Trains.Train
+        -:  456:   is
+       36:  457:      Get_Train_By_ID_ID_Out_Of_Range_Exception: Exception;
+       36:  458:      train: Trains.train;
+        -:  459:   begin
+       36:  460:      train:= RailSystems.LIST_TRAINS.GET_ELEMENT_BY_ID(r_system.All_Trains, ID);
+       72:  461:      return train;
+       40:  462:   end getTrainById;
+        -:  463:
+        -:  464:   ----------------
+        -:  465:   -- addStation --
+        -:  466:   ----------------
+        -:  467:
+      176:  468:   procedure addStation
+        -:  469:     (r_system: in out RailSystem;
+        -:  470:      ID: in Natural;
+        -:  471:      Location: in TYPES.Station_Locations)
+        -:  472:   is
+      168:  473:      station: Stations.Station;
+        -:  474:   begin
+        -:  475:
+      168:  476:      station.ID := ID;
+      168:  477:      station.Location := Location;
+      168:  478:      if LIST_STATIONS.GET_ELEMENT_BY_ID(r_system.All_Stations, ID).ID = 0 then
+      168:  479:         if Station.Location /= TYPES.No then
+      168:  480:            LIST_STATIONS.APPEND(r_system.All_Stations, station,ID);
+        -:  481:         end if;
+        -:  482:      end if;
         -:  483:
         -:  484:
-        -:  485:--------------------------------------------
-        -:  486:-- replace Track ---------------------------
-        -:  487:--------------------------------------------
-       36:  488:procedure replaceTrack(r_system: in out RailSystem;
-        -:  489:                       track: in Tracks.Track)
-        -:  490:is
-        -:  491:begin
-       36:  492:   for i in 1..Stations.LIST_TRACKS.GET_SIZE(A => r_system.All_Tracks) loop
-      504:  493:      if Stations.LIST_TRACKS.GET_ELEMENT(A        => r_system.All_Tracks,
-      504:  494:                                          LOCATION => i).Origin = track.Origin
-     1008:  495:        and  Stations.LIST_TRACKS.GET_ELEMENT(A        => r_system.All_Tracks,
-      504:  496:                                              LOCATION => i).Destination = track.Destination
-     1008:  497:        and Stations.LIST_TRACKS.GET_ELEMENT(A        => r_system.All_Tracks,
-      504:  498:                                             LOCATION => i).ID = track.ID then
-       36:  499:         Stations.LIST_TRACKS.REPLACE_BY_ID(r_system.All_Tracks,track.ID,track);
-        -:  500:      end if;
-        -:  501:
-      504:  502:   end loop;
-        -:  503:
-       36:  504:end replaceTrack;
-        -:  505:
-        -:  506:--------------------------------------------
-        -:  507:-- replace Train ----------------------------
-        -:  508:--------------------------------------------
-       46:  509:procedure replaceTrain(r_system: in out RailSystem;
-        -:  510:                       train: in Trains.Train)
-        -:  511:is
-        -:  512:begin
-       46:  513:   if train.Location.Station.ID>0 and train.Location.Station.ID <101 then
-       26:  514:      for i in 1.. LIST_TRAINS.GET_SIZE(A => r_system.All_Trains) loop
-       48:  515:         if LIST_TRAINS.GET_ELEMENT(A        => r_system.All_Trains,
-       48:  516:                                    LOCATION => i).ID = train.ID then
-       26:  517:            LIST_TRAINS.REPLACE_BY_ID(r_system.All_Trains,train.ID,train);
-        -:  518:         end if;
-       48:  519:      end loop;
-        -:  520:   end if;
-        -:  521:
-       46:  522:end replaceTrain;
-        -:  523:--------------------------------------------
-        -:  524:-- replace Station -------------------------
-        -:  525:--------------------------------------------
-      184:  526:procedure replaceStation(r_system: in out RailSystem;
-        -:  527:                         station: in Stations.Station)
-        -:  528:is
-        -:  529:begin
-      184:  530:   if station.ID /=0 then
-      184:  531:      for i in 1..LIST_STATIONS.GET_SIZE(A => r_system.All_Stations) loop
-     1296:  532:         if LIST_STATIONS.GET_ELEMENT(A        => r_system.All_Stations,
-     1296:  533:                                      LOCATION => i).Location = station.Location
-     2592:  534:           and LIST_STATIONS.GET_ELEMENT(A        => r_system.All_Stations,
-     1296:  535:                                         LOCATION => i).ID = station.ID then
-      184:  536:            LIST_STATIONS.REPLACE_BY_ID(r_system.All_Stations,station.ID,station);
-        -:  537:
-        -:  538:         end if;
-     1296:  539:      end loop;
-        -:  540:   end if;
-        -:  541:
-      184:  542:end replaceStation;
-        -:  543:
-        -:  544:
-        -:  545:-----------------------------------------
-        -:  546:-- addIncomingOutgoingTracksForStation --
-        -:  547:-----------------------------------------
-       22:  548:procedure addIncomingOutgoingTracksForEachStation(r_system: in out RailSystem)
-        -:  549:is
-       22:  550:   tempStation: Stations.Station;
-       22:  551:   tempTrack: Tracks.Track;
-       22:  552:   od_record: TYPES.ODRecord;
-        -:  553:   size: Natural;
-        -:  554:   found: Boolean;
-        -:  555:   --        NotFindIDException : Exception;
-        -:  556:   --        AlreadyAddTrackException : Exception;
-        -:  557:   --        StationIDNotExistException: Exception;
-        -:  558:
-        -:  559:begin
-        -:  560:
-       22:  561:   for i in 1 .. LIST_STATIONS.GET_SIZE(r_system.All_Stations) loop
-      136:  562:      tempStation:= LIST_STATIONS.GET_ELEMENT_BY_ID(r_system.All_Stations, i);
+        -:  485:
+        -:  486:
+      168:  487:   end addStation;
+        -:  488:
+        -:  489:
+        -:  490:   --------------------------------------------
+        -:  491:   -- replace Track ---------------------------
+        -:  492:   --------------------------------------------
+       36:  493:   procedure replaceTrack(r_system: in out RailSystem;
+        -:  494:                          track: in Tracks.Track)
+        -:  495:   is
+        -:  496:      begin
+       36:  497:         for i in 1..Stations.LIST_TRACKS.GET_SIZE(A => r_system.All_Tracks) loop
+      504:  498:            if Stations.LIST_TRACKS.GET_ELEMENT(A        => r_system.All_Tracks,
+      504:  499:                                                LOCATION => i).Origin = track.Origin
+     1008:  500:              and  Stations.LIST_TRACKS.GET_ELEMENT(A        => r_system.All_Tracks,
+      504:  501:                                                    LOCATION => i).Destination = track.Destination
+     1008:  502:              and Stations.LIST_TRACKS.GET_ELEMENT(A        => r_system.All_Tracks,
+      504:  503:                                                   LOCATION => i).ID = track.ID then
+       36:  504:               Stations.LIST_TRACKS.REPLACE_BY_ID(r_system.All_Tracks,track.ID,track);
+        -:  505:            end if;
+        -:  506:
+      504:  507:         end loop;
+        -:  508:
+       36:  509:      end replaceTrack;
+        -:  510:
+        -:  511:      --------------------------------------------
+        -:  512:      -- replace Train ----------------------------
+        -:  513:      --------------------------------------------
+       54:  514:      procedure replaceTrain(r_system: in out RailSystem;
+        -:  515:                             train: in Trains.Train)
+        -:  516:      is
+        -:  517:      begin
+       54:  518:         if train.Location.Station.ID>0 and train.Location.Station.ID <101 then
+       34:  519:            for i in 1.. LIST_TRAINS.GET_SIZE(A => r_system.All_Trains) loop
+       56:  520:               if LIST_TRAINS.GET_ELEMENT(A        => r_system.All_Trains,
+       56:  521:                                          LOCATION => i).ID = train.ID then
+       34:  522:                  LIST_TRAINS.REPLACE_BY_ID(r_system.All_Trains,train.ID,train);
+        -:  523:               end if;
+       56:  524:            end loop;
+        -:  525:         end if;
+        -:  526:
+       54:  527:      end replaceTrain;
+        -:  528:      --------------------------------------------
+        -:  529:      -- replace Station -------------------------
+        -:  530:      --------------------------------------------
+      218:  531:      procedure replaceStation(r_system: in out RailSystem;
+        -:  532:                               station: in Stations.Station)
+        -:  533:      is
+        -:  534:      begin
+      216:  535:         if station.ID /=0 then
+      216:  536:            for i in 1..LIST_STATIONS.GET_SIZE(A => r_system.All_Stations) loop
+     1480:  537:               if LIST_STATIONS.GET_ELEMENT(A        => r_system.All_Stations,
+     1480:  538:                                            LOCATION => i).Location = station.Location
+     2960:  539:                 and LIST_STATIONS.GET_ELEMENT(A        => r_system.All_Stations,
+     1480:  540:                                               LOCATION => i).ID = station.ID then
+      216:  541:                  LIST_STATIONS.REPLACE_BY_ID(r_system.All_Stations,station.ID,station);
+        -:  542:
+        -:  543:               end if;
+     1480:  544:            end loop;
+        -:  545:         end if;
+        -:  546:
+      216:  547:      end replaceStation;
+        -:  548:
+        -:  549:
+        -:  550:      -----------------------------------------
+        -:  551:      -- addIncomingOutgoingTracksForStation --
+        -:  552:      -----------------------------------------
+       26:  553:      procedure addIncomingOutgoingTracksForEachStation(r_system: in out RailSystem)
+        -:  554:      is
+       26:  555:         tempStation: Stations.Station;
+       26:  556:         tempTrack: Tracks.Track;
+       26:  557:         od_record: TYPES.ODRecord;
+        -:  558:         size: Natural;
+        -:  559:         found: Boolean;
+        -:  560:         --        NotFindIDException : Exception;
+        -:  561:         --        AlreadyAddTrackException : Exception;
+        -:  562:         --        StationIDNotExistException: Exception;
         -:  563:
-      136:  564:      for j in 1 ..Stations.LIST_TRACKS.GET_SIZE(r_system.All_Tracks) loop
-     1680:  565:         tempTrack:= Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(r_system.All_Tracks, j);
-     1680:  566:         if tempTrack.Origin = tempStation.Location then
-      240:  567:            if Stations.LIST_TRACKS.CONTAINS(tempStation.Outgoing, tempTrack) = False then
-      240:  568:               if tempTrack.ID /=0 and tempTrack.Origin /=TYPES.No and tempTrack.Destination /= types.No and tempTrack.TrainID = 0 and tempTrack.TracksLineOrigin /=types.No and tempTrack.TracksLineDestination/= TYPES.No
-      240:  569:                 and tempTrack.Origin /=tempTrack.Destination and tempTrack.TracksLineOrigin /= tempTrack.TracksLineDestination
-        -:  570:               then
-      240:  571:                  if tempTrack.ID>0 and tempTrack.ID<101 then
-      240:  572:                     Stations.LIST_TRACKS.APPEND(tempStation.Outgoing, tempTrack, tempTrack.ID);
-        -:  573:                  end if;
-        -:  574:
-        -:  575:               end if;
-        -:  576:
-      240:  577:               od_record.Origin:= tempTrack.TracksLineOrigin;
-      240:  578:               od_record.Destination:=TempTrack.TracksLineDestination;
-      240:  579:               size:=TYPES.LIST_OD.GET_SIZE(tempStation.TracksLineOriginAndDestination);
-      240:  580:               if size<1 then
-      136:  581:                  TYPES.LIST_OD.APPEND(tempStation.TracksLineOriginAndDestination, od_record,1);
-        -:  582:               elsif size>0 then
-      104:  583:                  found:=False;
-      104:  584:                  for w in 1 .. size loop
-      104:  585:                     if (TYPES.LIST_OD.GET_ELEMENT(tempStation.TracksLineOriginAndDestination,w).Origin = od_record.Origin
-      104:  586:                         and  TYPES.LIST_OD.GET_ELEMENT(tempStation.TracksLineOriginAndDestination,w).Destination = od_record.Destination)
-      208:  587:                       or (TYPES.LIST_OD.GET_ELEMENT(tempStation.TracksLineOriginAndDestination,w).Origin = od_record.Destination
-      104:  588:                           and  TYPES.LIST_OD.GET_ELEMENT(tempStation.TracksLineOriginAndDestination,w).Destination = od_record.Origin) then
-       80:  589:                        found:=True;
-        -:  590:                     end if;
-      104:  591:                  end loop;
-      104:  592:                  if found = False then
-       24:  593:                     if od_record.Origin /= od_record.Destination then
-       24:  594:                        TYPES.LIST_OD.APPEND(tempStation.TracksLineOriginAndDestination, od_record,1);
-        -:  595:                     end if;
-        -:  596:
-        -:  597:                  end if;
-        -:  598:               end if;
-        -:  599:            end if;
-     1440:  600:         elsif tempTrack.Destination = tempStation.Location then
-      240:  601:            if Stations.LIST_TRACKS.CONTAINS(tempStation.Incoming, tempTrack) = False then
-      240:  602:               if tempTrack.ID /=0 and tempTrack.Origin /=TYPES.No and tempTrack.Destination /= types.No and tempTrack.TrainID = 0 and tempTrack.TracksLineOrigin /=types.No and tempTrack.TracksLineDestination/= TYPES.No
-      240:  603:                 and tempTrack.TracksLineOrigin /= tempTrack.TracksLineDestination then
-      240:  604:                  if tempTrack.ID>0 and tempTrack.ID<101 then
-      240:  605:                     Stations.LIST_TRACKS.APPEND(tempStation.Incoming, tempTrack, tempTrack.ID);
-        -:  606:                  end if;
-        -:  607:
-        -:  608:               end if;
-        -:  609:
-        -:  610:            end if;
-        -:  611:         end if;
-     1680:  612:      end loop;
-      136:  613:      if tempStation.ID>0 and tempStation.ID<101 and tempStation.Location /= TYPES.No then
-      136:  614:         replaceStation(r_system,tempStation);
-        -:  615:      end if;
-        -:  616:
-      136:  617:   end loop;
-       22:  618:end addIncomingOutgoingTracksForEachStation;
-        -:  619:
-        -:  620:end RailSystems;
+        -:  564:      begin
+        -:  565:
+       26:  566:         for i in 1 .. LIST_STATIONS.GET_SIZE(r_system.All_Stations) loop
+      156:  567:            tempStation:= LIST_STATIONS.GET_ELEMENT_BY_ID(r_system.All_Stations, i);
+        -:  568:
+      156:  569:            for j in 1 ..Stations.LIST_TRACKS.GET_SIZE(r_system.All_Tracks) loop
+     1840:  570:               tempTrack:= Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(r_system.All_Tracks, j);
+     1840:  571:               if tempTrack.Origin = tempStation.Location then
+      272:  572:                  if Stations.LIST_TRACKS.CONTAINS(tempStation.Outgoing, tempTrack) = False then
+      272:  573:                     if tempTrack.ID /=0 and tempTrack.Origin /=TYPES.No and tempTrack.Destination /= types.No and tempTrack.TrainID = 0 and tempTrack.TracksLineOrigin /=types.No and tempTrack.TracksLineDestination/= TYPES.No
+      272:  574:                       and tempTrack.Origin /=tempTrack.Destination and tempTrack.TracksLineOrigin /= tempTrack.TracksLineDestination
+        -:  575:                     then
+      272:  576:                        if tempTrack.ID>0 and tempTrack.ID<101 then
+      272:  577:                           Stations.LIST_TRACKS.APPEND(tempStation.Outgoing, tempTrack, tempTrack.ID);
+        -:  578:                        end if;
+        -:  579:
+        -:  580:                     end if;
+        -:  581:
+      272:  582:                     od_record.Origin:= tempTrack.TracksLineOrigin;
+      272:  583:                     od_record.Destination:=TempTrack.TracksLineDestination;
+      272:  584:                     size:=TYPES.LIST_OD.GET_SIZE(tempStation.TracksLineOriginAndDestination);
+      272:  585:                     if size<1 then
+      156:  586:                        TYPES.LIST_OD.APPEND(tempStation.TracksLineOriginAndDestination, od_record,1);
+        -:  587:                     elsif size>0 then
+      116:  588:                        found:=False;
+      116:  589:                        for w in 1 .. size loop
+      116:  590:                           if (TYPES.LIST_OD.GET_ELEMENT(tempStation.TracksLineOriginAndDestination,w).Origin = od_record.Origin
+      116:  591:                               and  TYPES.LIST_OD.GET_ELEMENT(tempStation.TracksLineOriginAndDestination,w).Destination = od_record.Destination)
+      232:  592:                             or (TYPES.LIST_OD.GET_ELEMENT(tempStation.TracksLineOriginAndDestination,w).Origin = od_record.Destination
+      116:  593:                                 and  TYPES.LIST_OD.GET_ELEMENT(tempStation.TracksLineOriginAndDestination,w).Destination = od_record.Origin) then
+       92:  594:                              found:=True;
+        -:  595:                           end if;
+      116:  596:                        end loop;
+      116:  597:                        if found = False then
+       24:  598:                           if od_record.Origin /= od_record.Destination then
+       24:  599:                              TYPES.LIST_OD.APPEND(tempStation.TracksLineOriginAndDestination, od_record,1);
+        -:  600:                           end if;
+        -:  601:
+        -:  602:                        end if;
+        -:  603:                     end if;
+        -:  604:                  end if;
+     1568:  605:               elsif tempTrack.Destination = tempStation.Location then
+      272:  606:                  if Stations.LIST_TRACKS.CONTAINS(tempStation.Incoming, tempTrack) = False then
+      272:  607:                     if tempTrack.ID /=0 and tempTrack.Origin /=TYPES.No and tempTrack.Destination /= types.No and tempTrack.TrainID = 0 and tempTrack.TracksLineOrigin /=types.No and tempTrack.TracksLineDestination/= TYPES.No
+      272:  608:                       and tempTrack.TracksLineOrigin /= tempTrack.TracksLineDestination then
+      272:  609:                        if tempTrack.ID>0 and tempTrack.ID<101 then
+      272:  610:                           Stations.LIST_TRACKS.APPEND(tempStation.Incoming, tempTrack, tempTrack.ID);
+        -:  611:                        end if;
+        -:  612:
+        -:  613:                     end if;
+        -:  614:
+        -:  615:                  end if;
+        -:  616:               end if;
+     1840:  617:            end loop;
+      156:  618:            if tempStation.ID>0 and tempStation.ID<101 and tempStation.Location /= TYPES.No then
+      156:  619:               replaceStation(r_system,tempStation);
+        -:  620:            end if;
+        -:  621:
+      156:  622:         end loop;
+       26:  623:      end addIncomingOutgoingTracksForEachStation;
+        -:  624:
+        -:  625:   end RailSystems;

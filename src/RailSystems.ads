@@ -134,14 +134,17 @@ with SPARK_Mode=>On is
               and train.State = TYPES.Open);
 
 
-   --function
-   function dfs_station_reachability_by_train(r_system: in RailSystem; train: in Trains.Train) return Boolean
+   -- deep first search by given a train, and train has origin and destionation
+   -- initial station will be the train's origin and will search all the stations to find train's destination
+   -- once found train.isreachable = True
+   procedure dfs_station_reachability_by_train(r_system: in out RailSystem; train: in out Trains.Train)
      with
        pre =>(
                 train.ID/=0
               and train.Origin /=TYPES.No
               and train.Destination /= TYPES.No
               and train.State /= types.Close
+              and train.Location.Station.TrainID /=0
               and train.Origin /= train.Destination
               and RailSystems.LIST_TRAINS.GET_SIZE(A => r_system.All_Trains) >0
               and RailSystems.LIST_STATIONS.GET_SIZE(A => r_system.All_Stations)>1
@@ -157,8 +160,9 @@ with SPARK_Mode=>On is
    --                   (for some Index in 1 .. LIST_STATIONS.GET_SIZE(r_system.All_Stations)
    --                    => LIST_STATIONS.GET_ELEMENT(r_system.All_Stations,Index).Location = dfs_station_reachability'Result )
 --              );
---
-   function dfs_station_reachability_by_stations(r_system: in RailSystem; from_station: in TYPES.Station_Locations; to_Station: in TYPES.Station_Locations) return Boolean
+
+   -- deep first search by given two stations (if reachable - to_Station.isReachable = True)
+   procedure dfs_station_reachability_by_stations(r_system: in out RailSystem; from_station: in TYPES.Station_Locations; to_Station: in TYPES.Station_Locations)
      with
        pre => (
                  from_station /=TYPES.No
@@ -169,18 +173,18 @@ with SPARK_Mode=>On is
                and (for some Index in 1 ..RailSystems.LIST_STATIONS.GET_SIZE(A => r_system.All_Stations)
                  => LIST_STATIONS.GET_ELEMENT(r_system.All_Stations, Index).Location = to_Station)
               );
---         post => (
---                    if from_station /=TYPES.No
---                  and to_Station /=TYPES.No
---                  and RailSystems.LIST_STATIONS.GET_SIZE(A => r_system.All_Stations)>1
---                  and (for some Index in 1 ..RailSystems.LIST_STATIONS.GET_SIZE(A => r_system.All_Stations)
---                    => LIST_STATIONS.GET_ELEMENT(r_system.All_Stations, Index).Location = from_station)
---                  and (for some Index in 1 ..RailSystems.LIST_STATIONS.GET_SIZE(A => r_system.All_Stations)
---                    => LIST_STATIONS.GET_ELEMENT(r_system.All_Stations, Index).Location = to_Station) then
---                    dfs_station_reachability_by_stations'Result = True
---                 )
---     ;
-
+   --         post => (
+   --                    if from_station /=TYPES.No
+   --                  and to_Station /=TYPES.No
+   --                  and RailSystems.LIST_STATIONS.GET_SIZE(A => r_system.All_Stations)>1
+   --                  and (for some Index in 1 ..RailSystems.LIST_STATIONS.GET_SIZE(A => r_system.All_Stations)
+   --                    => LIST_STATIONS.GET_ELEMENT(r_system.All_Stations, Index).Location = from_station)
+   --                  and (for some Index in 1 ..RailSystems.LIST_STATIONS.GET_SIZE(A => r_system.All_Stations)
+   --                    => LIST_STATIONS.GET_ELEMENT(r_system.All_Stations, Index).Location = to_Station) then
+   --                    dfs_station_reachability_by_stations'Result = True
+   --                 )
+   --     ;
+   --function
    function getStationByName(stations_list: in RailSystems.LIST_STATIONS.List_PTR; stationLocation: in TYPES.Station_Locations) return Stations.Station;
 
    function getTrackByName(r_system: in RailSystem; Origin: in TYPES.Station_Locations; Destination: in TYPES.Station_Locations) return Tracks.Track

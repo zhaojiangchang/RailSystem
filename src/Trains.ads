@@ -22,6 +22,7 @@ with SPARK_Mode=>On is
          Destination: TYPES.Station_Locations:=TYPES.No;
          State: TYPES.Train_State:=TYPES.Close;
          Start_Run_Time: TYPES.TimeTable:=TYPES.S8;
+         isReachable: Boolean:=False;
       end record;
 
 --     procedure SET_LOCATION(train_r: in out Train; ID: in Natural; location: in Train_Location);

@@ -43,7 +43,7 @@
         -:   41:   --  Record result. A result object is associated with the execution of a
         -:   42:   --  top-level test suite.
         -:   43:
-    #####:   44:   type Test_Failure is record
+        4:   44:   type Test_Failure is record
         -:   45:      Message     : Message_String;
         -:   46:      Source_Name : Message_String;
         -:   47:      Line        : Natural;
@@ -61,7 +61,7 @@
         -:   59:   pragma No_Strict_Aliasing (Test_Error_Access);
         -:   60:   --  Description of unexpected exceptions
         -:   61:
-       66:   62:   type Test_Result is record
+       70:   62:   type Test_Result is record
         -:   63:      Test_Name    : Message_String;
         -:   64:      Routine_Name : Message_String;
         -:   65:      Failure      : Test_Failure_Access;

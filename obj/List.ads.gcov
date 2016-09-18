@@ -50,7 +50,7 @@
         -:   48:   ---------------------
         -:   49:   function CONTAINS ( A: LIST_PTR; D: in DATA_TYPE) return Boolean;
         -:   50:
-        -:   51:   function GET_LAST(A: LIST_PTR) return DATA_TYPE;
+        -:   51:--     function GET_LAST(A: LIST_PTR) return DATA_TYPE;
         -:   52:
         -:   53:   function GET_SIZE ( A: LIST_PTR ) return Natural;
         -:   54:   --  Returns the current size of the list, which is 0 if empty
@@ -66,8 +66,8 @@
         -:   64:
         -:   65:   procedure APPEND ( A: in out  LIST_PTR ; D: in DATA_TYPE; ID: in Natural  )
         -:   66:   with
-      738:   67:       Pre =>(ID > 0
-      738:   68:              and ID <= A.MAX_SIZE
+      838:   67:       Pre =>(ID > 0
+      838:   68:              and ID <= A.MAX_SIZE
         -:   69:--                and (if ID > 0  and ID < 101 then ( for all Index in 1 .. GET_SIZE(A)
         -:   70:--                  =>GET_ELEMENT(A,Index) /= D))
         -:   71:         );
@@ -77,7 +77,7 @@
         -:   75:--     procedure APPEND_TO_FIRST ( A: in out  LIST_PTR ; D: in DATA_TYPE; ID: in Natural);
         -:   76:   --  Add the new element at the first of the list and increments the list size
         -:   77:
-        -:   78:   procedure DELETE_ALL (A: in out LIST_PTR );
+        -:   78:--     procedure DELETE_ALL (A: in out LIST_PTR );
         -:   79:   --  Empty the list and put its size to 0
         -:   80:
         -:   81:--     procedure SWAP( A: in out LIST_PTR; FIRST: Natural; SECOND: Natural);
@@ -97,20 +97,20 @@
         -:   95:
         -:   96:private
         -:   97:
-  1763600:   98: type DATA is
+  1908200:   98: type DATA is
         -:   99:      record
-   881800:  100:         DATA: DATA_TYPE;
+   954100:  100:         DATA: DATA_TYPE;
         -:  101:         ID: Natural:=E_ID;
         -:  102:      end record;
         -:  103:   -- List implementation
         -:  104:
         -:  105:
-   881800:  106:   type List_Array is array (Positive range <>) of DATA;
-  1772418:  107:   type LIST_PTR(MAX_SIZE: Positive ) is
+   954100:  106:   type List_Array is array (Positive range <>) of DATA;
+  1917741:  107:   type LIST_PTR(MAX_SIZE: Positive ) is
         -:  108:--     type LIST_PTR is
         -:  109:      record
         -:  110:         SIZE: Natural:=E_ID;
-     8818:  111:         ELEMENTS: List_Array(1 .. MAX_SIZE);
+     9541:  111:         ELEMENTS: List_Array(1 .. MAX_SIZE);
         -:  112:         HEAD: Positive:=1;
         -:  113:      end record;
         -:  114:

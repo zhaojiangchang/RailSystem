@@ -7,57 +7,58 @@
         -:    5:--  is
         -:    6:with SPARK_Mode=>On is
         -:    7:
-      394:    8:   type Train_Location is
+      416:    8:   type Train_Location is
         -:    9:      record
         -:   10:         currentLocation:String(1..7):="None   ";
         -:   11:         None: String(1..4):="None";
-      394:   12:         Track: Tracks.Track;
-      394:   13:         Station: Stations.Station;
+      416:   12:         Track: Tracks.Track;
+      416:   13:         Station: Stations.Station;
         -:   14:
         -:   15:      end record;
         -:   16:
-      788:   17:   type Train is
+      832:   17:   type Train is
         -:   18:      record
         -:   19:         ID: Natural:=0;
-      394:   20:         Location: Train_Location;
+      416:   20:         Location: Train_Location;
         -:   21:         Origin: TYPES.Station_Locations:=TYPES.No;
         -:   22:         Destination: TYPES.Station_Locations:=TYPES.No;
         -:   23:         State: TYPES.Train_State:=TYPES.Close;
         -:   24:         Start_Run_Time: TYPES.TimeTable:=TYPES.S8;
-        -:   25:      end record;
-        -:   26:
-        -:   27:--     procedure SET_LOCATION(train_r: in out Train; ID: in Natural; location: in Train_Location);
-        -:   28:--     procedure Init(train_r: in out Train);
-        -:   29:end Trains;
-        -:   30:--  :=(
-        -:   31:--                                      currentLocation=>"None   ",
-        -:   32:--                                      None=>"None",
-        -:   33:--                                      Track=>(
-        -:   34:--                                              ID=>0,
-        -:   35:--                                              Origin => TYPES.No,
-        -:   36:--                                              Destination=>TYPES.No,
-        -:   37:--                                              TrainID=>0
-        -:   38:--                                             ),
-        -:   39:--                                      Station=>(
-        -:   40:--                                                ID=>0,
-        -:   41:--                                                Location=>TYPES.No,
-        -:   42:--                                                TrainID=>0,
-        -:   43:--                                                Incoming=>inTracks,
-        -:   44:--                                                Outgoing=>outTracks
-        -:   45:--
-        -:   46:--                                               )
-        -:   47:--                                     )
-        -:   48:--  :=(
-        -:   49:--                                       ID=>0,
-        -:   50:--                                       Location=>TYPES.No,
-        -:   51:--                                       TrainID=>0,
-        -:   52:--                                       Incoming=>inTracks,
-        -:   53:--                                       Outgoing=>outTracks
-        -:   54:--    )
-        -:   55:--
-        -:   56:--  :=(
-        -:   57:--                                 ID=>0,
-        -:   58:--                                 Origin => TYPES.No,
-        -:   59:--                                 Destination=>TYPES.No,
-        -:   60:--                                 TrainID=>0
-        -:   61:--                                )
+        -:   25:         isReachable: Boolean:=False;
+        -:   26:      end record;
+        -:   27:
+        -:   28:--     procedure SET_LOCATION(train_r: in out Train; ID: in Natural; location: in Train_Location);
+        -:   29:--     procedure Init(train_r: in out Train);
+        -:   30:end Trains;
+        -:   31:--  :=(
+        -:   32:--                                      currentLocation=>"None   ",
+        -:   33:--                                      None=>"None",
+        -:   34:--                                      Track=>(
+        -:   35:--                                              ID=>0,
+        -:   36:--                                              Origin => TYPES.No,
+        -:   37:--                                              Destination=>TYPES.No,
+        -:   38:--                                              TrainID=>0
+        -:   39:--                                             ),
+        -:   40:--                                      Station=>(
+        -:   41:--                                                ID=>0,
+        -:   42:--                                                Location=>TYPES.No,
+        -:   43:--                                                TrainID=>0,
+        -:   44:--                                                Incoming=>inTracks,
+        -:   45:--                                                Outgoing=>outTracks
+        -:   46:--
+        -:   47:--                                               )
+        -:   48:--                                     )
+        -:   49:--  :=(
+        -:   50:--                                       ID=>0,
+        -:   51:--                                       Location=>TYPES.No,
+        -:   52:--                                       TrainID=>0,
+        -:   53:--                                       Incoming=>inTracks,
+        -:   54:--                                       Outgoing=>outTracks
+        -:   55:--    )
+        -:   56:--
+        -:   57:--  :=(
+        -:   58:--                                 ID=>0,
+        -:   59:--                                 Origin => TYPES.No,
+        -:   60:--                                 Destination=>TYPES.No,
+        -:   61:--                                 TrainID=>0
+        -:   62:--                                )

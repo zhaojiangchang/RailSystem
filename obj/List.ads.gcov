@@ -22,8 +22,8 @@
         -:   20:generic
         -:   21:
         -:   22:   type DATA_TYPE is PRIVATE;
-        -:   23:   E_ID:Natural;
-        -:   24:   MAX_SIZE:Positive;
+        5:   23:   E_ID:Natural;
+        -:   24:--     MAX_SIZE:Positive;
         6:   25:   NO_FOUND: DATA_TYPE;
         -:   26:
         -:   27:package LIST is
@@ -40,8 +40,8 @@
         -:   38:   --  Raised when accesing elements outside the valid range of the list
         -:   39:
         -:   40:
-        -:   41:   --     type LIST_PTR(MAX_SIZE: Positive ) is private ;
-        -:   42:   type List_PTR is private;
+        -:   41:      type LIST_PTR(MAX_SIZE: Positive ) is private ;
+        -:   42:--     type List_PTR is private;
         -:   43:   --  Private type for a List
         -:   44:
         -:   45:
@@ -50,66 +50,68 @@
         -:   48:   ---------------------
         -:   49:   function CONTAINS ( A: LIST_PTR; D: in DATA_TYPE) return Boolean;
         -:   50:
-        -:   51:
-        -:   52:   function GET_SIZE ( A: LIST_PTR ) return Natural;
-        -:   53:   --  Returns the current size of the list, which is 0 if empty
-        -:   54:
-        -:   55:   function GET_ELEMENT( A: LIST_PTR ; LOCATION: Natural ) return DATA_TYPE;
-        -:   56:   --  Returns an element at the specified LOCATION.
-        -:   57:   --  If the element don't exist it returns NO_FOUND. Don't raise OUT_OF_BOUNDS
-        -:   58:   function GET_ELEMENT_BY_ID( A: LIST_PTR ; ID: Natural ) return DATA_TYPE;
-        -:   59:
-        -:   60:   function FULL ( A : in LIST_PTR) return Boolean;
-        -:   61:
-        -:   62:   procedure APPEND ( A: in out  LIST_PTR ; D: in DATA_TYPE; ID: in Natural  )
-        -:   63:   with
-      466:   64:       Pre =>(ID > 0
-      466:   65:              and ID <= MAX_SIZE
-        -:   66:--                and (if ID > 0  and ID < 101 then ( for all Index in 1 .. GET_SIZE(A)
-        -:   67:--                  =>GET_ELEMENT(A,Index) /= D))
-        -:   68:         );
-        -:   69:
-        -:   70:   --  Add the new element at the back of the list and increments the list size
-        -:   71:
-        -:   72:--     procedure APPEND_TO_FIRST ( A: in out  LIST_PTR ; D: in DATA_TYPE; ID: in Natural);
-        -:   73:   --  Add the new element at the first of the list and increments the list size
+        -:   51:   function GET_LAST(A: LIST_PTR) return DATA_TYPE;
+        -:   52:
+        -:   53:   function GET_SIZE ( A: LIST_PTR ) return Natural;
+        -:   54:   --  Returns the current size of the list, which is 0 if empty
+        -:   55:
+        -:   56:   function GET_ELEMENT( A: LIST_PTR ; LOCATION: Natural ) return DATA_TYPE;
+        -:   57:   --  Returns an element at the specified LOCATION.
+        -:   58:   --  If the element don't exist it returns NO_FOUND. Don't raise OUT_OF_BOUNDS
+        -:   59:   function GET_ELEMENT_BY_ID( A: LIST_PTR ; ID: Natural ) return DATA_TYPE;
+        -:   60:
+        -:   61:   function FULL ( A : in LIST_PTR) return Boolean;
+        -:   62:
+        -:   63:   procedure DELETE_LAST(A: in out LIST_PTR);
+        -:   64:
+        -:   65:   procedure APPEND ( A: in out  LIST_PTR ; D: in DATA_TYPE; ID: in Natural  )
+        -:   66:   with
+      738:   67:       Pre =>(ID > 0
+      738:   68:              and ID <= A.MAX_SIZE
+        -:   69:--                and (if ID > 0  and ID < 101 then ( for all Index in 1 .. GET_SIZE(A)
+        -:   70:--                  =>GET_ELEMENT(A,Index) /= D))
+        -:   71:         );
+        -:   72:
+        -:   73:   --  Add the new element at the back of the list and increments the list size
         -:   74:
-        -:   75:   procedure DELETE_ALL (A: in out LIST_PTR );
-        -:   76:   --  Empty the list and put its size to 0
+        -:   75:--     procedure APPEND_TO_FIRST ( A: in out  LIST_PTR ; D: in DATA_TYPE; ID: in Natural);
+        -:   76:   --  Add the new element at the first of the list and increments the list size
         -:   77:
-        -:   78:--     procedure SWAP( A: in out LIST_PTR; FIRST: Natural; SECOND: Natural);
-        -:   79:   --  Interchange elements inside the list.
-        -:   80:   --  If the first and second positions are out of bound then
-        -:   81:   --  OUT_OF_BOUNDS is raised.
-        -:   82:
-        -:   83:--     procedure REPLACE( A: in out LIST_PTR; LOCATION: Natural; NEWVALUE: DATA );
-        -:   84:   --  Replace an element inside the list with a new value in the specified
-        -:   85:   --  location.
-        -:   86:   --  If location is out of bounds then OUT_OF_BOUNDS is raised.
-        -:   87:   procedure REPLACE_BY_ID( A: in out LIST_PTR; ID: Natural; NEWVALUE: DATA_TYPE );
-        -:   88:   --  Replace an element inside the list with a new value in the specified
-        -:   89:   --  location.
-        -:   90:   --  If location is out of bounds then OUT_OF_BOUNDS is raised.
-        -:   91:   procedure Init(A: in out LIST_PTR);
-        -:   92:
-        -:   93:private
-        -:   94:
-   628800:   95: type DATA is
-        -:   96:      record
-   314400:   97:         DATA: DATA_TYPE;
-        -:   98:         ID: Natural:=E_ID;
-        -:   99:      end record;
-        -:  100:   -- List implementation
-        -:  101:
-        -:  102:
-   314400:  103:   type List_Array is array (Positive range <>) of DATA;
-        -:  104:--     type LIST_PTR(MAX_SIZE: Positive ) is
-   631944:  105:   type LIST_PTR is
-        -:  106:      record
-        -:  107:         SIZE: Natural:=E_ID;
-     3144:  108:         ELEMENTS: List_Array(1 .. MAX_SIZE);
-        -:  109:         HEAD: Positive:=1;
-        -:  110:         LIST_MAX_SIZE :Positive:= MAX_SIZE;
-        -:  111:      end record;
-        -:  112:
-        -:  113:end LIST;
+        -:   78:   procedure DELETE_ALL (A: in out LIST_PTR );
+        -:   79:   --  Empty the list and put its size to 0
+        -:   80:
+        -:   81:--     procedure SWAP( A: in out LIST_PTR; FIRST: Natural; SECOND: Natural);
+        -:   82:   --  Interchange elements inside the list.
+        -:   83:   --  If the first and second positions are out of bound then
+        -:   84:   --  OUT_OF_BOUNDS is raised.
+        -:   85:
+        -:   86:--     procedure REPLACE( A: in out LIST_PTR; LOCATION: Natural; NEWVALUE: DATA );
+        -:   87:   --  Replace an element inside the list with a new value in the specified
+        -:   88:   --  location.
+        -:   89:   --  If location is out of bounds then OUT_OF_BOUNDS is raised.
+        -:   90:   procedure REPLACE_BY_ID( A: in out LIST_PTR; ID: Natural; NEWVALUE: DATA_TYPE );
+        -:   91:   --  Replace an element inside the list with a new value in the specified
+        -:   92:   --  location.
+        -:   93:   --  If location is out of bounds then OUT_OF_BOUNDS is raised.
+        -:   94:   procedure Init(A: in out LIST_PTR);
+        -:   95:
+        -:   96:private
+        -:   97:
+  1763600:   98: type DATA is
+        -:   99:      record
+   881800:  100:         DATA: DATA_TYPE;
+        -:  101:         ID: Natural:=E_ID;
+        -:  102:      end record;
+        -:  103:   -- List implementation
+        -:  104:
+        -:  105:
+   881800:  106:   type List_Array is array (Positive range <>) of DATA;
+  1772418:  107:   type LIST_PTR(MAX_SIZE: Positive ) is
+        -:  108:--     type LIST_PTR is
+        -:  109:      record
+        -:  110:         SIZE: Natural:=E_ID;
+     8818:  111:         ELEMENTS: List_Array(1 .. MAX_SIZE);
+        -:  112:         HEAD: Positive:=1;
+        -:  113:      end record;
+        -:  114:
+        -:  115:end LIST;

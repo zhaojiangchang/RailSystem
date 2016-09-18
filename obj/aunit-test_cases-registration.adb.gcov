@@ -40,19 +40,19 @@
         -:   38:   -- Register_Routine --
         -:   39:   ----------------------
         -:   40:
-       62:   41:   procedure Register_Routine
+       66:   41:   procedure Register_Routine
         -:   42:     (Test    : in out Test_Case'Class;
         -:   43:      Routine : Test_Routine;
         -:   44:      Name    : String) is
         -:   45:
-       62:   46:      Formatted_Name : constant Message_String := Format (Name);
-       62:   47:      Val : Routine_Spec;
+       66:   46:      Formatted_Name : constant Message_String := Format (Name);
+       66:   47:      Val : Routine_Spec;
         -:   48:      use Routine_Lists;
         -:   49:
         -:   50:   begin
-       62:   51:      Val  := (Routine, Formatted_Name);
-       62:   52:      Add_Routine (Test, Val);
-       62:   53:   end Register_Routine;
+       66:   51:      Val  := (Routine, Formatted_Name);
+       66:   52:      Add_Routine (Test, Val);
+       66:   53:   end Register_Routine;
         -:   54:
         -:   55:   -------------------
         -:   56:   -- Routine_Count --

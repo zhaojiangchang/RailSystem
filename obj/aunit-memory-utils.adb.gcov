@@ -37,9 +37,9 @@
         -:   35:   -- Gen_Alloc --
         -:   36:   ---------------
         -:   37:
-      126:   38:   function Gen_Alloc return Name is
+      134:   38:   function Gen_Alloc return Name is
         -:   39:   begin
-      126:   40:      return new Object;
+      134:   40:      return new Object;
         -:   41:   end Gen_Alloc;
         -:   42:
         -:   43:end AUnit.Memory.Utils;

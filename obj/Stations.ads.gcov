@@ -8,23 +8,23 @@
         -:    6:with SPARK_Mode=>On is
         -:    7:
         -:    8:   tk : Tracks.Track;
-        -:    9:
+        -:    9:   ID: Natural;
         -:   10:   package LIST_TRACKS is new LIST
         -:   11:     ( DATA_TYPE => Tracks.Track,
-        -:   12:       E_ID=>0,
-        -:   13:       MAX_SIZE=>100,
+        -:   12:       E_ID=>ID,
+        -:   13:--         MAX_SIZE=>100,
         -:   14:       NO_FOUND => tk);
-        1:   15:   inTracks:LIST_TRACKS.LIST_PTR;
-        1:   16:   outTracks:LIST_TRACKS.LIST_PTR;
+        -:   15:--     inTracks:LIST_TRACKS.LIST_PTR;
+        -:   16:--     outTracks:LIST_TRACKS.LIST_PTR;
         -:   17:
-     1045:   18:   type Station is
+     2931:   18:   type Station is
         -:   19:      record
         -:   20:         ID: Natural:=0;
         -:   21:         Location: TYPES.Station_Locations:=TYPES.No;
         -:   22:         TrainID: Natural:=0;
-     1045:   23:         Incoming: LIST_TRACKS.LIST_PTR;
-     1045:   24:         Outgoing: LIST_TRACKS.LIST_PTR;
-     1045:   25:         TracksLineOriginAndDestination: TYPES.LIST_OD.LIST_PTR;
+     2931:   23:         Incoming: LIST_TRACKS.LIST_PTR(MAX_SIZE => 100);
+     2931:   24:         Outgoing: LIST_TRACKS.LIST_PTR(MAX_SIZE => 100);
+     2931:   25:         TracksLineOriginAndDestination: TYPES.LIST_OD.LIST_PTR(MAX_SIZE => 100);
         -:   26:      end record;
         -:   27:--     procedure Init(station_r: in out Station);
         -:   28:   --     procedure Add_IncomingTrack(Station_r: in out Station; track_r: in Tracks.Track);

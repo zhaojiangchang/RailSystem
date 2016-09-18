@@ -4,14 +4,14 @@ with Stations;
 package Trains
 --  is
 with SPARK_Mode=>On is
-   inTracks:Stations.LIST_TRACKS.LIST_PTR;
-   outTracks:Stations.LIST_TRACKS.LIST_PTR;
+
    type Train_Location is
       record
          currentLocation:String(1..7):="None   ";
          None: String(1..4):="None";
          Track: Tracks.Track;
          Station: Stations.Station;
+
       end record;
 
    type Train is

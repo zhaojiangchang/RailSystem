@@ -39,13 +39,13 @@
         -:   37:
         -:   38:   Current_Id : Test_Id := 1;
         -:   39:
-       62:   40:   procedure Init_Test (T : in out Test) is
+       66:   40:   procedure Init_Test (T : in out Test) is
         -:   41:   begin
-       62:   42:      if T.Id = Null_Id then
+       66:   42:      if T.Id = Null_Id then
         2:   43:         T.Id := Current_Id;
         2:   44:         Current_Id := Current_Id + 1;
         -:   45:      end if;
-       62:   46:   end Init_Test;
+       66:   46:   end Init_Test;
         -:   47:
         -:   48:   The_Current_Test : Test_Access := null;
         -:   49:
@@ -53,35 +53,35 @@
         -:   51:   -- Assert --
         -:   52:   ------------
         -:   53:
-       40:   54:   procedure Assert
+       50:   54:   procedure Assert
         -:   55:     (Condition : Boolean;
         -:   56:      Message   : String;
         -:   57:      Source    : String := GNAT.Source_Info.File;
         -:   58:      Line      : Natural := GNAT.Source_Info.Line) is
         -:   59:   begin
-       40:   60:      if not Assert (Condition, Message, Source, Line) then
+       50:   60:      if not Assert (Condition, Message, Source, Line) then
     #####:   61:         raise Assertion_Error;
         -:   62:      end if;
-       40:   63:   end Assert;
+       50:   63:   end Assert;
         -:   64:
         -:   65:   ------------
         -:   66:   -- Assert --
         -:   67:   ------------
         -:   68:
-       40:   69:   function Assert
+       50:   69:   function Assert
         -:   70:     (Condition : Boolean;
         -:   71:      Message   : String;
         -:   72:      Source    : String := GNAT.Source_Info.File;
         -:   73:      Line      : Natural := GNAT.Source_Info.Line) return Boolean is
         -:   74:   begin
-       40:   75:      if not Condition then
+       50:   75:      if not Condition then
     #####:   76:         Failure_Lists.Append
         -:   77:           (Failures,
     #####:   78:            (Failure => (Format (Message), Format (Source), Line),
     #####:   79:             Id      => The_Current_Test.Id));
         -:   80:      end if;
         -:   81:
-       40:   82:      return Condition;
+       50:   82:      return Condition;
         -:   83:   end Assert;
         -:   84:
         -:   85:   ----------------------
@@ -118,12 +118,12 @@
         -:  116:   -- Clear_Failures --
         -:  117:   --------------------
         -:  118:
-       62:  119:   procedure Clear_Failures (T : Test) is
-       62:  120:      C, N : Failure_Lists.Cursor;
+       66:  119:   procedure Clear_Failures (T : Test) is
+       66:  120:      C, N : Failure_Lists.Cursor;
         -:  121:   begin
-       62:  122:      C := Failure_Lists.First (Failures);
+       66:  122:      C := Failure_Lists.First (Failures);
         -:  123:
-       62:  124:      while Failure_Lists.Has_Element (C) loop
+       66:  124:      while Failure_Lists.Has_Element (C) loop
     #####:  125:         N := Failure_Lists.Next (C);
         -:  126:
     #####:  127:         if Failure_Lists.Element (C).Id = T.Id then
@@ -132,27 +132,27 @@
         -:  130:
     #####:  131:         C := N;
     #####:  132:      end loop;
-       62:  133:   end Clear_Failures;
+       66:  133:   end Clear_Failures;
         -:  134:
         -:  135:   ------------------
         -:  136:   -- Has_Failures --
         -:  137:   ------------------
         -:  138:
-       62:  139:   function Has_Failures (T : Test) return Boolean is
+       66:  139:   function Has_Failures (T : Test) return Boolean is
         -:  140:   begin
-      124:  141:      return Has_Failure (First_Failure (T));
-       62:  142:   end Has_Failures;
+      132:  141:      return Has_Failure (First_Failure (T));
+       66:  142:   end Has_Failures;
         -:  143:
         -:  144:   -------------------
         -:  145:   -- First_Failure --
         -:  146:   -------------------
         -:  147:
-       62:  148:   function First_Failure (T : Test) return Failure_Iter is
-       62:  149:      C : Failure_Lists.Cursor;
+       66:  148:   function First_Failure (T : Test) return Failure_Iter is
+       66:  149:      C : Failure_Lists.Cursor;
         -:  150:   begin
-       62:  151:      C := Failure_Lists.First (Failures);
+       66:  151:      C := Failure_Lists.First (Failures);
         -:  152:
-       62:  153:      while Failure_Lists.Has_Element (C) loop
+       66:  153:      while Failure_Lists.Has_Element (C) loop
     #####:  154:         if Failure_Lists.Element (C).Id = T.Id then
     #####:  155:            return Failure_Iter (C);
         -:  156:         end if;
@@ -160,16 +160,16 @@
     #####:  158:         Failure_Lists.Next (C);
     #####:  159:      end loop;
         -:  160:
-       62:  161:      return Failure_Iter (Failure_Lists.No_Element);
-       62:  162:   end First_Failure;
+       66:  161:      return Failure_Iter (Failure_Lists.No_Element);
+       66:  162:   end First_Failure;
         -:  163:
         -:  164:   -----------------
         -:  165:   -- Has_Failure --
         -:  166:   -----------------
         -:  167:
-       62:  168:   function Has_Failure (I : Failure_Iter) return Boolean is
+       66:  168:   function Has_Failure (I : Failure_Iter) return Boolean is
         -:  169:   begin
-       62:  170:      return Failure_Lists.Has_Element (Failure_Lists.Cursor (I));
+       66:  170:      return Failure_Lists.Has_Element (Failure_Lists.Cursor (I));
         -:  171:   end Has_Failure;
         -:  172:
     #####:  173:   function Get_Failure
@@ -202,19 +202,19 @@
         -:  200:   -- Current_Test --
         -:  201:   ------------------
         -:  202:
-       62:  203:   function Current_Test return Test_Access is
+       66:  203:   function Current_Test return Test_Access is
         -:  204:   begin
-       62:  205:      return The_Current_Test;
+       66:  205:      return The_Current_Test;
         -:  206:   end Current_Test;
         -:  207:
         -:  208:   ----------------------
         -:  209:   -- Set_Current_Test --
         -:  210:   ----------------------
         -:  211:
-      124:  212:   procedure Set_Current_Test (T : Test_Access) is
+      132:  212:   procedure Set_Current_Test (T : Test_Access) is
         -:  213:   begin
-      124:  214:      The_Current_Test := T;
-      124:  215:   end Set_Current_Test;
+      132:  214:      The_Current_Test := T;
+      132:  215:   end Set_Current_Test;
         -:  216:
         -:  217:   -------------
         -:  218:   -- Copy_Id --

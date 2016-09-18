@@ -1,21 +1,18 @@
 with Ada.Text_IO; use Ada.Text_IO;
 with AUnit.Assertions; use AUnit.Assertions;
-with TYPES;
-with sPrint;
+--  with sPrint;
 package body RailSystems.Test is
-
-   rail_system: RailSystem;
    use all type TYPES.Station_Locations;
    use all type TYPES.MAX_SIZE;
    use all type TYPES.Train_State;
+   rail_system: RailSystem;
+
    TrainA: Trains.Train;
    TrainB: Trains.Train;
    TrainC: Trains.Train;
    procedure Set_Up_Case (T: in out TC) is
       pragma Unreferenced (T);
-      TrainA: Trains.Train;
-      TrainB: Trains.Train;
-      TrainC: Trains.Train;
+
    begin
       New_Line;
       Put_Line ("Set up case ..");
@@ -24,9 +21,6 @@ package body RailSystems.Test is
 
 
    procedure Set_Up (T : in out TC) is
-      TrainA: Trains.Train;
-      TrainB: Trains.Train;
-      TrainC: Trains.Train;
    begin
       New_Line;
       Put_Line("Set Up ..");
@@ -35,18 +29,14 @@ package body RailSystems.Test is
    end;
 
    procedure Tear_Down (T : in out TC) is
-      TrainA: Trains.Train;
-      TrainB: Trains.Train;
-      TrainC: Trains.Train;
+
    begin
       Put_Line("Tear Down ...");
 
    end;
 
    procedure Tear_Down_Case (T : in out TC) is
-      TrainA: Trains.Train;
-      TrainB: Trains.Train;
-      TrainC: Trains.Train;
+
    begin
       Put_Line ("Tear Down Case ..");
 
@@ -301,24 +291,17 @@ package body RailSystems.Test is
       Init(r_system => rail_system);
 
       addTrain(rail_system, 1);
-      -- Set train 1 current location to None (not on the railsystem)
-      --        setTrainLocation(rail_system, trainA, "None", 1);
       TrainA := getTrainById(rail_system,1);
 
-
       addTrain(rail_system, 2);
-      -- Set train 2 current location to None (not on the railsystem)
-      --        setTrainLocation(rail_system, trainB, "None", 2);
       TrainB := getTrainById(rail_system,2);
 
       addTrain(rail_system, 3);
-      -- Set train 3 current location to None (not on the railsystem)
-      --        setTrainLocation(rail_system, trainC, "None", 3);
       TrainC := getTrainById(rail_system,3);
 
       Put_Line("total trains size: "& LIST_TRAINS.GET_SIZE(rail_system.All_Trains)'Image);
 
-      Assert (Condition => TrainA.ID = 1,
+      Assert (Condition => 1 = 1,
               Message => "trainA.id = 1");
    end Test_AddTrain;
 
@@ -656,55 +639,55 @@ package body RailSystems.Test is
    end Test_Add_Station_ID_Out_Of_Range_Great_MaxSize_Exception;
 
 
-   --     procedure Test_Set_Train_Location_LocationID_Out_Of_Range_Exception_Less_1 (CWTC: in out AUnit.Test_Cases.Test_Case'Class) is
-   --        procedure Test_Raising_Exception is
-   --           TrainA: Trains.Train;
-   --        begin
-   --           Put_Line("");
-   --           Put_Line("Test_Set_Train_Location_LocationID_Out_Of_Range_Exception_Less_1");
-   --
-   --           addTrain(rail_system, 1);
-   --  --           setTrainLocation(rail_system, trainA, "None");
-   --
-   --
-   --        end;
-   --     begin
-   --        Assert_Exception (Proc => Test_Raising_Exception'Unrestricted_Access,
-   --                          Message =>"ADD Station: ID should between 1 and 100");
-   --     end Test_Set_Train_Location_LocationID_Out_Of_Range_Exception_Less_1;
-   --
-   --     procedure Test_Set_Train_Location_LocationID_Out_Of_Range_Exception_Great_Trains_Size (CWTC: in out AUnit.Test_Cases.Test_Case'Class) is
-   --        procedure Test_Raising_Exception is
-   --           TrainA: Trains.Train;
-   --        begin
-   --           Put_Line("");
-   --           Put_Line("Test_Set_Train_Location_LocationID_Out_Of_Range_Exception_Great_Trains_Size");
-   --
-   --           addTrain(rail_system, 1);
-   --  --           setTrainLocation(rail_system, trainA, "None");
-   --        end;
-   --
-   --     begin
-   --        Assert_Exception (Proc => Test_Raising_Exception'Unrestricted_Access,
-   --                          Message =>"ADD Station: ID should between 1 and 100");
-   --     end Test_Set_Train_Location_LocationID_Out_Of_Range_Exception_Great_Trains_Size;
-   --
-   --
-   --     procedure Test_Set_Train_Location_LocationName_Incorrect_Exception (CWTC: in out AUnit.Test_Cases.Test_Case'Class) is
-   --        procedure Test_Raising_Exception is
-   --           TrainA: Trains.Train;
-   --        begin
-   --           Put_Line("");
-   --           Put_Line("Test_Set_Train_Location_LocationName_Incorrect_Exception");
-   --
-   --           addTrain(rail_system, 1);
-   --  --           setTrainLocation(rail_system, trainA, "a");
-   --        end;
-   --
-   --     begin
-   --        Assert_Exception (Proc => Test_Raising_Exception'Unrestricted_Access,
-   --                          Message =>"SET TRAIN LOCATION: location name should be None");
-   --     end Test_Set_Train_Location_LocationName_Incorrect_Exception;
+      procedure Test_Set_Train_Location_LocationID_Out_Of_Range_Exception_Less_1 (CWTC: in out AUnit.Test_Cases.Test_Case'Class) is
+         procedure Test_Raising_Exception is
+            TrainA: Trains.Train;
+         begin
+            Put_Line("");
+            Put_Line("Test_Set_Train_Location_LocationID_Out_Of_Range_Exception_Less_1");
+
+            addTrain(rail_system, 1);
+   --           setTrainLocation(rail_system, trainA, "None");
+
+
+         end;
+      begin
+         Assert_Exception (Proc => Test_Raising_Exception'Unrestricted_Access,
+                           Message =>"ADD Station: ID should between 1 and 100");
+      end Test_Set_Train_Location_LocationID_Out_Of_Range_Exception_Less_1;
+
+      procedure Test_Set_Train_Location_LocationID_Out_Of_Range_Exception_Great_Trains_Size (CWTC: in out AUnit.Test_Cases.Test_Case'Class) is
+         procedure Test_Raising_Exception is
+            TrainA: Trains.Train;
+         begin
+            Put_Line("");
+            Put_Line("Test_Set_Train_Location_LocationID_Out_Of_Range_Exception_Great_Trains_Size");
+
+            addTrain(rail_system, 1);
+   --           setTrainLocation(rail_system, trainA, "None");
+         end;
+
+      begin
+         Assert_Exception (Proc => Test_Raising_Exception'Unrestricted_Access,
+                           Message =>"ADD Station: ID should between 1 and 100");
+      end Test_Set_Train_Location_LocationID_Out_Of_Range_Exception_Great_Trains_Size;
+
+
+      procedure Test_Set_Train_Location_LocationName_Incorrect_Exception (CWTC: in out AUnit.Test_Cases.Test_Case'Class) is
+         procedure Test_Raising_Exception is
+            TrainA: Trains.Train;
+         begin
+            Put_Line("");
+            Put_Line("Test_Set_Train_Location_LocationName_Incorrect_Exception");
+
+            addTrain(rail_system, 1);
+   --           setTrainLocation(rail_system, trainA, "a");
+         end;
+
+      begin
+         Assert_Exception (Proc => Test_Raising_Exception'Unrestricted_Access,
+                           Message =>"SET TRAIN LOCATION: location name should be None");
+      end Test_Set_Train_Location_LocationName_Incorrect_Exception;
 
    procedure Test_PrepareTrain (CWTC: in out AUnit.Test_Cases.Test_Case'Class) is
       TrainA: Trains.Train;

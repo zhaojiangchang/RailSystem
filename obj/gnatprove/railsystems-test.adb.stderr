@@ -1,1 +1,0 @@
-railsystems-test.ads:16:14: class-wide input "the heap" must also be a class-wide input of overridden subprogram "Register_Tests" at aunit-test_cases.ads:54 (SPARK RM 6.1.6)[#0]

@@ -10,6 +10,7 @@ procedure Main is
    TrainA: Trains.Train;
    TrainB: Trains.Train;
    TrainC: Trains.Train;
+   TrainD: Trains.train;
    timeTable: TYPES.TimeTable:=TYPES.S8;
 
    size: Positive;
@@ -90,7 +91,8 @@ begin
       RailSystems.resetIsReachable(rail_system);
       Print("");
       Print("");
-
+      trainD:=RailSystems.LIST_TRAINS.GET_ELEMENT(A        => rail_system.All_Trains,
+                                          LOCATION => 0);
       print("total stations size: "& RailSystems.LIST_STATIONS.GET_SIZE(rail_system.All_Stations)'Image);
 
       RailSystems.addIncomingOutgoingTracksForEachStation(rail_system);
@@ -134,23 +136,41 @@ begin
       RailSystems.prepareTrain(rail_system, trainB, Types.Wellington, Types.Johnsonville, TYPES.S8);
       --set TrainC from Upper Hutt to Wellington
       RailSystems.prepareTrain(rail_system, trainC, Types.UpperHutt, Types.Wellington, TYPES.S8);
-      --Train A start run;
-      Print("Train A start Run: From Wellington to Upper Hutt");
-      RailSystems.go(rail_system, trainA,10);
-      Print("");
-      Print("");
-      Print("");
-      Print("Train B start Run: From Wellington to Johnsonville");
-      RailSystems.go(rail_system, trainB,10);
-      Print("");
-      Print("");
-      Print("");
-      --        Print("test Collide, - Train A stopped on the route from upper hutt and wellington");
-      --        Print("Train C start Run: From Upper hutt to Wellington");
-      --  --        RailSystems.go(rail_system, trainC,10);
-      --        Print("");
-      --        Print("");
-      --        Print("");
+      RailSystems.dfs_station_reachability_by_train(r_system => rail_system,
+                                                    train    => trainA);
+      if trainA.isReachable = true then
+
+         --Train A start run;
+         Print("Train A start Run: From Wellington to Upper Hutt");
+         RailSystems.go(rail_system, trainA,10);
+         Print("");
+         Print("");
+         Print("");
+      end if;
+      RailSystems.resetIsReachable(rail_system);
+      RailSystems.dfs_station_reachability_by_train(r_system => rail_system,
+                                                    train    => trainB);
+      if trainB.isReachable = true then
+
+         Print("Train B start Run: From Wellington to Johnsonville");
+         RailSystems.go(rail_system, trainB,10);
+         Print("");
+         Print("");
+         Print("");
+      end if;
+      RailSystems.resetIsReachable(rail_system);
+      RailSystems.dfs_station_reachability_by_train(r_system => rail_system,
+                                                    train    => trainC);
+      if trainC.isReachable = True then
+         Print("test Collide, - Train 3 stopped at the station 4 to avoid collide, Train 1 on the track 9 (Lower hutt to Petone track)");
+         Print("Train C start Run: From Upper hutt to Wellington");
+         RailSystems.go(rail_system, trainC,10);
+         Print("");
+         Print("");
+         Print("");
+      end if;
+      RailSystems.resetIsReachable(rail_system);
+
    end if;
 
 

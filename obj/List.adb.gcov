@@ -1,5 +1,5 @@
-        -:    0:Source:C:/Users/JackyChang/Desktop/tutorial/RailSystem/src/List.adb
-        -:    0:Programs:38
+        -:    0:Source:C:/Users/JackyChang/Desktop/RailSystem2/src/List/List.adb
+        -:    0:Programs:9
         -:    1:
         -:    2:-- The list is implemented using the CELL_PTR access type
         -:    3:-- of the CELL type. a Cell contatins the data of the user
@@ -16,26 +16,26 @@
         -:   14:   ---------------
         -:   15:   -- CONTAINS --
         -:   16:   ---------------
-      344:   17:   function CONTAINS (A: LIST_PTR; D: DATA_TYPE) return Boolean
+      118:   17:   function CONTAINS (A: LIST_PTR; D: DATA_TYPE) return Boolean
         -:   18:   is
         -:   19:      size: Natural;
         -:   20:      contain:Boolean;
         -:   21:   begin
-      344:   22:      size:= A.SIZE;
-      344:   23:      contain:=False;
-      344:   24:      for i in 1 .. size loop
-      258:   25:         if i < A.MAX_SIZE then
-      258:   26:            if A.ELEMENTS(i).ID /=0 then
-      336:   27:               if A.ELEMENTS(i).DATA = D then
+      118:   22:      size:= A.SIZE;
+      118:   23:      contain:=False;
+      118:   24:      for i in 1 .. size loop
+      198:   25:         if i < A.MAX_SIZE then
+      198:   26:            if A.ELEMENTS(i).ID /=0 then
+      276:   27:               if A.ELEMENTS(i).DATA = D then
        26:   28:                  contain:= True;
        26:   29:                  return contain;
         -:   30:               end if;
         -:   31:            end if;
         -:   32:         end if;
         -:   33:
-      232:   34:         pragma Loop_Invariant(contain = False);
-      232:   35:      end loop;
-      318:   36:      return contain;
+      172:   34:         pragma Loop_Invariant(contain = False);
+      172:   35:      end loop;
+       92:   36:      return contain;
         -:   37:   end CONTAINS;
         -:   38:
         -:   39:   -----------------------
@@ -52,51 +52,51 @@
         -:   50:   -- Delete element  --
         -:   51:   ---------------------
         -:   52:
-       70:   53:   procedure DELETE_LAST(A: in out LIST_PTR)
+       86:   53:   procedure DELETE_LAST(A: in out LIST_PTR)
         -:   54:   is
         -:   55:   begin
-       70:   56:      if A.SIZE > 0 then
-       70:   57:         A.SIZE := A.SIZE -1;
+       86:   56:      if A.SIZE > 0 then
+       86:   57:         A.SIZE := A.SIZE -1;
         -:   58:      end if;
         -:   59:
-       70:   60:   end DELETE_LAST;
+       86:   60:   end DELETE_LAST;
         -:   61:
         -:   62:   ---------------
         -:   63:   -- GET_SIZE  --
         -:   64:   ---------------
         -:   65:
-     1803:   66:   function GET_SIZE ( A: LIST_PTR )
+     1051:   66:   function GET_SIZE ( A: LIST_PTR )
         -:   67:                      return Natural
         -:   68:   is
         -:   69:   begin
-     1803:   70:      return A.SIZE;
+     1051:   70:      return A.SIZE;
         -:   71:   end GET_SIZE;
         -:   72:
         -:   73:   ---------------
         -:   74:   -- FULL  --
         -:   75:   ---------------
-      838:   76:   function FULL ( A : in LIST_PTR) return Boolean is
+      249:   76:   function FULL ( A : in LIST_PTR) return Boolean is
         -:   77:   begin
-      838:   78:      return A.SIZE = A.MAX_SIZE;
+      249:   78:      return A.SIZE = A.MAX_SIZE;
         -:   79:   end FULL;
         -:   80:   ---------------
         -:   81:   -- APPEND    --
         -:   82:   ---------------
         -:   83:
-      838:   84:   procedure APPEND ( A: in out LIST_PTR; D: in DATA_TYPE; ID: in Natural)
+      249:   84:   procedure APPEND ( A: in out LIST_PTR; D: in DATA_TYPE; ID: in Natural)
         -:   85:   is
         -:   86:   begin
         -:   87:
         -:   88:      -- create a new cell to store the new element
-      838:   89:      if not FULL(A) then
-      838:   90:         if A.SIZE < A.MAX_SIZE then
-      838:   91:            A.SIZE:= A.SIZE +1;
-      838:   92:            A.ELEMENTS(A.SIZE).DATA := D;
-      838:   93:            A.ELEMENTS(A.SIZE).ID:= ID;
+      249:   89:      if not FULL(A) then
+      249:   90:         if A.SIZE < A.MAX_SIZE then
+      249:   91:            A.SIZE:= A.SIZE +1;
+      249:   92:            A.ELEMENTS(A.SIZE).DATA := D;
+      249:   93:            A.ELEMENTS(A.SIZE).ID:= ID;
         -:   94:         end if;
         -:   95:
         -:   96:      end if;
-      838:   97:   end APPEND;
+      249:   97:   end APPEND;
         -:   98:
         -:   99:   ---------------
         -:  100:   -- APPEND  TO FIRST  --
@@ -137,16 +137,16 @@
         -:  135:   -- GET_ELEMENT --
         -:  136:   -----------------
         -:  137:
-     6229:  138:   function GET_ELEMENT( A: LIST_PTR ;LOCATION: Natural )
+     4401:  138:   function GET_ELEMENT( A: LIST_PTR ;LOCATION: Natural )
         -:  139:                        return DATA_TYPE
         -:  140:   is
         -:  141:   begin
-     6229:  142:      if  A.SIZE = 0 or LOCATION <= 0  or LOCATION >A.SIZE or LOCATION > A.MAX_SIZE then
+     4401:  142:      if  A.SIZE = 0 or LOCATION <= 0  or LOCATION >A.SIZE or LOCATION > A.MAX_SIZE then
         -:  143:
         -:  144:         -- If element is not in the list at this location
         2:  145:         return NO_FOUND;
         -:  146:      else
-     6227:  147:         return A.ELEMENTS(LOCATION).DATA;
+     4399:  147:         return A.ELEMENTS(LOCATION).DATA;
         -:  148:      end if;
         -:  149:
         -:  150:   end GET_ELEMENT;
@@ -155,32 +155,32 @@
         -:  153:   -- GET_ELEMENT_BY_ID--
         -:  154:   ----------------------
         -:  155:
-     4499:  156:   function GET_ELEMENT_BY_ID( A: LIST_PTR ;ID: Natural )
+     3710:  156:   function GET_ELEMENT_BY_ID( A: LIST_PTR ;ID: Natural )
         -:  157:                        return DATA_TYPE
         -:  158:   is
-     4499:  159:      data: DATA_TYPE;
+     3710:  159:      data: DATA_TYPE;
         -:  160:   begin
         -:  161:
         -:  162:
-     4499:  163:      if  A.SIZE = 0 or ID <= 0  or ID >A.SIZE then
+     3710:  163:      if  A.SIZE = 0 or ID <= 0  or ID >A.SIZE then
         -:  164:
         -:  165:         -- If element is not in the list at this location
-      664:  166:         return NO_FOUND;
+       70:  166:         return NO_FOUND;
         -:  167:
         -:  168:      else
         -:  169:
-     3835:  170:         for i in 1 .. A.SIZE loop
-    38043:  171:            if i< A.MAX_SIZE then
-    38043:  172:               if A.ELEMENTS(i).ID = ID then
-     3835:  173:                  data:=A.ELEMENTS(i).DATA;
+     3640:  170:         for i in 1 .. A.SIZE loop
+    38028:  171:            if i< A.MAX_SIZE then
+    38028:  172:               if A.ELEMENTS(i).ID = ID then
+     3640:  173:                  data:=A.ELEMENTS(i).DATA;
         -:  174:               end if;
         -:  175:            end if;
-    38043:  176:         end loop;
-     3835:  177:         return data;
+    38028:  176:         end loop;
+     3640:  177:         return data;
         -:  178:
         -:  179:      end if;
         -:  180:
-     4499:  181:   end GET_ELEMENT_BY_ID;
+     3710:  181:   end GET_ELEMENT_BY_ID;
         -:  182:
         -:  183:
         -:  184:--     ----------
@@ -233,26 +233,26 @@
         -:  231:   -- REPLACE_BY_ID --
         -:  232:   -------------
         -:  233:
-      268:  234:   procedure REPLACE_BY_ID (A: in out LIST_PTR; ID: Natural; NEWVALUE: DATA_TYPE )
+      200:  234:   procedure REPLACE_BY_ID (A: in out LIST_PTR; ID: Natural; NEWVALUE: DATA_TYPE )
         -:  235:   is
         -:  236:   begin
-      268:  237:      if  A.SIZE > 0 or ID > 0 or ID <= A.SIZE then
-      268:  238:         for i in 1 .. A.SIZE loop
-      996:  239:            if i <A.MAX_SIZE then
-      996:  240:               if A.ELEMENTS(i).ID = ID then
-      268:  241:                  A.ELEMENTS(i).DATA := NEWVALUE;
-      268:  242:                  return;
+      200:  237:      if  A.SIZE > 0 or ID > 0 or ID <= A.SIZE then
+      200:  238:         for i in 1 .. A.SIZE loop
+      793:  239:            if i <A.MAX_SIZE then
+      793:  240:               if A.ELEMENTS(i).ID = ID then
+      200:  241:                  A.ELEMENTS(i).DATA := NEWVALUE;
+      200:  242:                  return;
         -:  243:               end if;
         -:  244:            end if;
-      728:  245:         end loop;
+      593:  245:         end loop;
         -:  246:      end if;
         -:  247:
         -:  248:   end REPLACE_BY_ID;
         -:  249:
         -:  250:
-      170:  251:   procedure Init (A : in out LIST_PTR) is
+        5:  251:   procedure Init (A : in out LIST_PTR) is
         -:  252:   begin
-      170:  253:      A.Head := 1;
-      170:  254:      A.Size := 0;
-      170:  255:   end Init;
+        5:  253:      A.Head := 1;
+        5:  254:      A.Size := 0;
+        5:  255:   end Init;
         -:  256:end LIST;

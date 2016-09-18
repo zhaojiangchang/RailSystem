@@ -7485,642 +7485,6 @@
   ],
   "proof": [
     {
-      "file": "trains.ads",
-      "line": 10,
-      "col": 40,
-      "rule": "VC_LENGTH_CHECK",
-      "severity": "info",
-      "entity": {
-        "name": "RailSystems.addTrain",
-        "sloc": [
-          {
-            "file": "railsystems.ads",
-            "line": 39
-          }
-        ]
-      },
-      "how_proved": "prover",
-      "stats": {
-        "CVC4": {
-          "count": 1,
-          "max_steps": 1,
-          "max_time": 1.09999999403954E-01
-        }
-      }
-    },
-    {
-      "file": "railsystems.adb",
-      "line": 164,
-      "col": 55,
-      "rule": "VC_RANGE_CHECK",
-      "severity": "info",
-      "entity": {
-        "name": "RailSystems.dfs_station_reachability_by_train",
-        "sloc": [
-          {
-            "file": "railsystems.ads",
-            "line": 140
-          }
-        ]
-      },
-      "how_proved": "prover",
-      "stats": {
-        "CVC4": {
-          "count": 1,
-          "max_steps": 1,
-          "max_time": 1.59999996423721E-01
-        }
-      }
-    },
-    {
-      "file": "list.adb",
-      "line": 240,
-      "col": 30,
-      "rule": "VC_INDEX_CHECK",
-      "severity": "info",
-      "entity": {
-        "name": "RailSystems.LIST_STATIONS.REPLACE_BY_ID",
-        "sloc": [
-          {
-            "file": "list.ads",
-            "line": 90
-          },
-          {
-            "file": "railsystems.ads",
-            "line": 23
-          }
-        ]
-      },
-      "how_proved": "prover",
-      "stats": {
-        "CVC4": {
-          "count": 1,
-          "max_steps": 1,
-          "max_time": 7.99999982118607E-02
-        }
-      }
-    },
-    {
-      "file": "list.adb",
-      "line": 241,
-      "col": 30,
-      "rule": "VC_INDEX_CHECK",
-      "severity": "info",
-      "entity": {
-        "name": "RailSystems.LIST_STATIONS.REPLACE_BY_ID",
-        "sloc": [
-          {
-            "file": "list.ads",
-            "line": 90
-          },
-          {
-            "file": "railsystems.ads",
-            "line": 23
-          }
-        ]
-      },
-      "how_proved": "prover",
-      "stats": {
-        "CVC4": {
-          "count": 1,
-          "max_steps": 1,
-          "max_time": 5.00000007450581E-02
-        }
-      }
-    },
-    {
-      "file": "list.adb",
-      "line": 172,
-      "col": 30,
-      "rule": "VC_INDEX_CHECK",
-      "severity": "info",
-      "entity": {
-        "name": "RailSystems.LIST_TRAINS.GET_ELEMENT_BY_ID",
-        "sloc": [
-          {
-            "file": "list.ads",
-            "line": 59
-          },
-          {
-            "file": "railsystems.ads",
-            "line": 16
-          }
-        ]
-      },
-      "how_proved": "prover",
-      "stats": {
-        "CVC4": {
-          "count": 1,
-          "max_steps": 1,
-          "max_time": 7.99999982118607E-02
-        }
-      }
-    },
-    {
-      "file": "railsystems.adb",
-      "line": 621,
-      "col": 16,
-      "rule": "VC_PRECONDITION",
-      "severity": "info",
-      "entity": {
-        "name": "RailSystems.addIncomingOutgoingTracksForEachStation",
-        "sloc": [
-          {
-            "file": "railsystems.ads",
-            "line": 211
-          }
-        ]
-      },
-      "how_proved": "prover",
-      "stats": {
-        "CVC4": {
-          "count": 1,
-          "max_steps": 1,
-          "max_time": 2.80000001192093E-01
-        }
-      }
-    },
-    {
-      "file": "list.adb",
-      "line": 93,
-      "col": 25,
-      "rule": "VC_INDEX_CHECK",
-      "severity": "info",
-      "entity": {
-        "name": "RailSystems.LIST_STATIONS.APPEND",
-        "sloc": [
-          {
-            "file": "list.ads",
-            "line": 65
-          },
-          {
-            "file": "railsystems.ads",
-            "line": 23
-          }
-        ]
-      },
-      "how_proved": "prover",
-      "stats": {
-        "CVC4": {
-          "count": 1,
-          "max_steps": 1,
-          "max_time": 7.99999982118607E-02
-        }
-      }
-    },
-    {
-      "file": "list.adb",
-      "line": 173,
-      "col": 36,
-      "rule": "VC_INDEX_CHECK",
-      "severity": "info",
-      "entity": {
-        "name": "RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID",
-        "sloc": [
-          {
-            "file": "list.ads",
-            "line": 59
-          },
-          {
-            "file": "railsystems.ads",
-            "line": 23
-          }
-        ]
-      },
-      "how_proved": "prover",
-      "stats": {
-        "CVC4": {
-          "count": 1,
-          "max_steps": 1,
-          "max_time": 5.99999986588955E-02
-        }
-      }
-    },
-    {
-      "file": "list.adb",
-      "line": 240,
-      "col": 30,
-      "rule": "VC_INDEX_CHECK",
-      "severity": "info",
-      "entity": {
-        "name": "RailSystems.LIST_TRAINS.REPLACE_BY_ID",
-        "sloc": [
-          {
-            "file": "list.ads",
-            "line": 90
-          },
-          {
-            "file": "railsystems.ads",
-            "line": 16
-          }
-        ]
-      },
-      "how_proved": "prover",
-      "stats": {
-        "CVC4": {
-          "count": 1,
-          "max_steps": 1,
-          "max_time": 7.99999982118607E-02
-        }
-      }
-    },
-    {
-      "file": "list.adb",
-      "line": 93,
-      "col": 25,
-      "rule": "VC_INDEX_CHECK",
-      "severity": "info",
-      "entity": {
-        "name": "RailSystems.LIST_TRAINS.APPEND",
-        "sloc": [
-          {
-            "file": "list.ads",
-            "line": 65
-          },
-          {
-            "file": "railsystems.ads",
-            "line": 16
-          }
-        ]
-      },
-      "how_proved": "prover",
-      "stats": {
-        "CVC4": {
-          "count": 1,
-          "max_steps": 1,
-          "max_time": 7.99999982118607E-02
-        }
-      }
-    },
-    {
-      "file": "list.adb",
-      "line": 241,
-      "col": 30,
-      "rule": "VC_INDEX_CHECK",
-      "severity": "info",
-      "entity": {
-        "name": "RailSystems.LIST_TRAINS.REPLACE_BY_ID",
-        "sloc": [
-          {
-            "file": "list.ads",
-            "line": 90
-          },
-          {
-            "file": "railsystems.ads",
-            "line": 16
-          }
-        ]
-      },
-      "how_proved": "prover",
-      "stats": {
-        "CVC4": {
-          "count": 1,
-          "max_steps": 1,
-          "max_time": 7.99999982118607E-02
-        }
-      }
-    },
-    {
-      "file": "list.adb",
-      "line": 92,
-      "col": 25,
-      "rule": "VC_INDEX_CHECK",
-      "severity": "info",
-      "entity": {
-        "name": "RailSystems.LIST_TRAINS.APPEND",
-        "sloc": [
-          {
-            "file": "list.ads",
-            "line": 65
-          },
-          {
-            "file": "railsystems.ads",
-            "line": 16
-          }
-        ]
-      },
-      "how_proved": "prover",
-      "stats": {
-        "CVC4": {
-          "count": 1,
-          "max_steps": 1,
-          "max_time": 1.09999999403954E-01
-        }
-      }
-    },
-    {
-      "file": "railsystems.adb",
-      "line": 250,
-      "col": 55,
-      "rule": "VC_RANGE_CHECK",
-      "severity": "info",
-      "entity": {
-        "name": "RailSystems.dfs_station_reachability_by_stations",
-        "sloc": [
-          {
-            "file": "railsystems.ads",
-            "line": 165
-          }
-        ]
-      },
-      "how_proved": "prover",
-      "stats": {
-        "CVC4": {
-          "count": 1,
-          "max_steps": 1,
-          "max_time": 1.29999995231628E-01
-        }
-      }
-    },
-    {
-      "file": "list.adb",
-      "line": 172,
-      "col": 30,
-      "rule": "VC_INDEX_CHECK",
-      "severity": "info",
-      "entity": {
-        "name": "RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID",
-        "sloc": [
-          {
-            "file": "list.ads",
-            "line": 59
-          },
-          {
-            "file": "railsystems.ads",
-            "line": 23
-          }
-        ]
-      },
-      "how_proved": "prover",
-      "stats": {
-        "CVC4": {
-          "count": 1,
-          "max_steps": 1,
-          "max_time": 7.99999982118607E-02
-        }
-      }
-    },
-    {
-      "file": "trains.ads",
-      "line": 11,
-      "col": 30,
-      "rule": "VC_LENGTH_CHECK",
-      "severity": "info",
-      "entity": {
-        "name": "RailSystems.addTrain",
-        "sloc": [
-          {
-            "file": "railsystems.ads",
-            "line": 39
-          }
-        ]
-      },
-      "how_proved": "prover",
-      "stats": {
-        "CVC4": {
-          "count": 1,
-          "max_steps": 1,
-          "max_time": 9.00000035762787E-02
-        }
-      }
-    },
-    {
-      "file": "railsystems.adb",
-      "line": 251,
-      "col": 55,
-      "rule": "VC_RANGE_CHECK",
-      "severity": "info",
-      "entity": {
-        "name": "RailSystems.dfs_station_reachability_by_stations",
-        "sloc": [
-          {
-            "file": "railsystems.ads",
-            "line": 165
-          }
-        ]
-      },
-      "how_proved": "prover",
-      "stats": {
-        "CVC4": {
-          "count": 1,
-          "max_steps": 1,
-          "max_time": 1.29999995231628E-01
-        }
-      }
-    },
-    {
-      "file": "list.adb",
-      "line": 91,
-      "col": 29,
-      "rule": "VC_OVERFLOW_CHECK",
-      "severity": "info",
-      "entity": {
-        "name": "RailSystems.LIST_TRAINS.APPEND",
-        "sloc": [
-          {
-            "file": "list.ads",
-            "line": 65
-          },
-          {
-            "file": "railsystems.ads",
-            "line": 16
-          }
-        ]
-      },
-      "how_proved": "prover",
-      "stats": {
-        "CVC4": {
-          "count": 1,
-          "max_steps": 1,
-          "max_time": 9.00000035762787E-02
-        }
-      }
-    },
-    {
-      "file": "list.adb",
-      "line": 91,
-      "col": 29,
-      "rule": "VC_OVERFLOW_CHECK",
-      "severity": "info",
-      "entity": {
-        "name": "RailSystems.LIST_STATIONS.APPEND",
-        "sloc": [
-          {
-            "file": "list.ads",
-            "line": 65
-          },
-          {
-            "file": "railsystems.ads",
-            "line": 23
-          }
-        ]
-      },
-      "how_proved": "prover",
-      "stats": {
-        "CVC4": {
-          "count": 1,
-          "max_steps": 1,
-          "max_time": 7.99999982118607E-02
-        }
-      }
-    },
-    {
-      "file": "railsystems.adb",
-      "line": 165,
-      "col": 55,
-      "rule": "VC_RANGE_CHECK",
-      "severity": "info",
-      "entity": {
-        "name": "RailSystems.dfs_station_reachability_by_train",
-        "sloc": [
-          {
-            "file": "railsystems.ads",
-            "line": 140
-          }
-        ]
-      },
-      "how_proved": "prover",
-      "stats": {
-        "CVC4": {
-          "count": 1,
-          "max_steps": 1,
-          "max_time": 1.29999995231628E-01
-        }
-      }
-    },
-    {
-      "file": "list.adb",
-      "line": 173,
-      "col": 36,
-      "rule": "VC_INDEX_CHECK",
-      "severity": "info",
-      "entity": {
-        "name": "RailSystems.LIST_TRAINS.GET_ELEMENT_BY_ID",
-        "sloc": [
-          {
-            "file": "list.ads",
-            "line": 59
-          },
-          {
-            "file": "railsystems.ads",
-            "line": 16
-          }
-        ]
-      },
-      "how_proved": "prover",
-      "stats": {
-        "CVC4": {
-          "count": 1,
-          "max_steps": 1,
-          "max_time": 9.00000035762787E-02
-        }
-      }
-    },
-    {
-      "file": "list.adb",
-      "line": 92,
-      "col": 25,
-      "rule": "VC_INDEX_CHECK",
-      "severity": "info",
-      "entity": {
-        "name": "RailSystems.LIST_STATIONS.APPEND",
-        "sloc": [
-          {
-            "file": "list.ads",
-            "line": 65
-          },
-          {
-            "file": "railsystems.ads",
-            "line": 23
-          }
-        ]
-      },
-      "how_proved": "prover",
-      "stats": {
-        "CVC4": {
-          "count": 1,
-          "max_steps": 1,
-          "max_time": 7.99999982118607E-02
-        }
-      }
-    },
-    {
-      "file": "railsystems.adb",
-      "line": 294,
-      "col": 22,
-      "rule": "VC_PRECONDITION",
-      "severity": "info",
-      "entity": {
-        "name": "RailSystems.dfs_station_reachability_by_stations",
-        "sloc": [
-          {
-            "file": "railsystems.ads",
-            "line": 165
-          }
-        ]
-      },
-      "how_proved": "prover",
-      "stats": {
-        "CVC4": {
-          "count": 1,
-          "max_steps": 1,
-          "max_time": 2.19999998807907E-01
-        }
-      }
-    },
-    {
-      "file": "railsystems.adb",
-      "line": 211,
-      "col": 25,
-      "rule": "VC_PRECONDITION",
-      "severity": "info",
-      "entity": {
-        "name": "RailSystems.dfs_station_reachability_by_train",
-        "sloc": [
-          {
-            "file": "railsystems.ads",
-            "line": 140
-          }
-        ]
-      },
-      "how_proved": "prover",
-      "stats": {
-        "CVC4": {
-          "count": 1,
-          "max_steps": 1,
-          "max_time": 1.70000001788139E-01
-        }
-      }
-    },
-    {
-      "file": "list.adb",
-      "line": 34,
-      "col": 10,
-      "rule": "VC_LOOP_INVARIANT_PRESERV",
-      "severity": "info",
-      "entity": {
-        "name": "RailSystems.LIST_STATIONS.CONTAINS",
-        "sloc": [
-          {
-            "file": "list.ads",
-            "line": 49
-          },
-          {
-            "file": "railsystems.ads",
-            "line": 23
-          }
-        ]
-      },
-      "how_proved": "prover",
-      "stats": {
-        "CVC4": {
-          "count": 1,
-          "max_steps": 1,
-          "max_time": 7.99999982118607E-02
-        }
-      }
-    },
-    {
       "file": "list.adb",
       "line": 26,
       "col": 27,
@@ -8144,63 +7508,7 @@
         "CVC4": {
           "count": 2,
           "max_steps": 1,
-          "max_time": 9.00000035762787E-02
-        }
-      }
-    },
-    {
-      "file": "list.adb",
-      "line": 17,
-      "col": 13,
-      "rule": "VC_RANGE_CHECK",
-      "severity": "info",
-      "entity": {
-        "name": "RailSystems.LIST_STATIONS.CONTAINS",
-        "sloc": [
-          {
-            "file": "list.ads",
-            "line": 49
-          },
-          {
-            "file": "railsystems.ads",
-            "line": 23
-          }
-        ]
-      },
-      "how_proved": "prover",
-      "stats": {
-        "CVC4": {
-          "count": 1,
-          "max_steps": 1,
-          "max_time": 5.99999986588955E-02
-        }
-      }
-    },
-    {
-      "file": "list.adb",
-      "line": 34,
-      "col": 10,
-      "rule": "VC_LOOP_INVARIANT_INIT",
-      "severity": "info",
-      "entity": {
-        "name": "RailSystems.LIST_TRAINS.CONTAINS",
-        "sloc": [
-          {
-            "file": "list.ads",
-            "line": 49
-          },
-          {
-            "file": "railsystems.ads",
-            "line": 16
-          }
-        ]
-      },
-      "how_proved": "prover",
-      "stats": {
-        "CVC4": {
-          "count": 1,
-          "max_steps": 1,
-          "max_time": 9.00000035762787E-02
+          "max_time": 7.99999982118607E-02
         }
       }
     },
@@ -8234,6 +7542,170 @@
     },
     {
       "file": "list.adb",
+      "line": 26,
+      "col": 27,
+      "rule": "VC_INDEX_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "RailSystems.LIST_TRAINS.CONTAINS",
+        "sloc": [
+          {
+            "file": "list.ads",
+            "line": 49
+          },
+          {
+            "file": "railsystems.ads",
+            "line": 16
+          }
+        ]
+      },
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 2,
+          "max_steps": 1,
+          "max_time": 1.29999995231628E-01
+        }
+      }
+    },
+    {
+      "file": "list.adb",
+      "line": 27,
+      "col": 30,
+      "rule": "VC_INDEX_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "RailSystems.LIST_STATIONS.CONTAINS",
+        "sloc": [
+          {
+            "file": "list.ads",
+            "line": 49
+          },
+          {
+            "file": "railsystems.ads",
+            "line": 23
+          }
+        ]
+      },
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 2,
+          "max_steps": 1,
+          "max_time": 9.00000035762787E-02
+        }
+      }
+    },
+    {
+      "file": "list.adb",
+      "line": 34,
+      "col": 10,
+      "rule": "VC_LOOP_INVARIANT_PRESERV",
+      "severity": "info",
+      "entity": {
+        "name": "RailSystems.LIST_STATIONS.CONTAINS",
+        "sloc": [
+          {
+            "file": "list.ads",
+            "line": 49
+          },
+          {
+            "file": "railsystems.ads",
+            "line": 23
+          }
+        ]
+      },
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 9.00000035762787E-02
+        }
+      }
+    },
+    {
+      "file": "list.adb",
+      "line": 17,
+      "col": 13,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "RailSystems.LIST_STATIONS.CONTAINS",
+        "sloc": [
+          {
+            "file": "list.ads",
+            "line": 49
+          },
+          {
+            "file": "railsystems.ads",
+            "line": 23
+          }
+        ]
+      },
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 7.99999982118607E-02
+        }
+      }
+    },
+    {
+      "file": "list.adb",
+      "line": 34,
+      "col": 10,
+      "rule": "VC_LOOP_INVARIANT_INIT",
+      "severity": "info",
+      "entity": {
+        "name": "RailSystems.LIST_TRAINS.CONTAINS",
+        "sloc": [
+          {
+            "file": "list.ads",
+            "line": 49
+          },
+          {
+            "file": "railsystems.ads",
+            "line": 16
+          }
+        ]
+      },
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 7.99999982118607E-02
+        }
+      }
+    },
+    {
+      "file": "trains.ads",
+      "line": 10,
+      "col": 40,
+      "rule": "VC_LENGTH_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "RailSystems.addTrain",
+        "sloc": [
+          {
+            "file": "railsystems.ads",
+            "line": 39
+          }
+        ]
+      },
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 1.29999995231628E-01
+        }
+      }
+    },
+    {
+      "file": "list.adb",
       "line": 34,
       "col": 10,
       "rule": "VC_LOOP_INVARIANT_INIT",
@@ -8244,6 +7716,58 @@
           {
             "file": "list.ads",
             "line": 49
+          },
+          {
+            "file": "railsystems.ads",
+            "line": 23
+          }
+        ]
+      },
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 7.99999982118607E-02
+        }
+      }
+    },
+    {
+      "file": "railsystems.adb",
+      "line": 164,
+      "col": 55,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "RailSystems.dfs_station_reachability_by_train",
+        "sloc": [
+          {
+            "file": "railsystems.ads",
+            "line": 140
+          }
+        ]
+      },
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 1.40000000596046E-01
+        }
+      }
+    },
+    {
+      "file": "list.adb",
+      "line": 240,
+      "col": 30,
+      "rule": "VC_INDEX_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "RailSystems.LIST_STATIONS.REPLACE_BY_ID",
+        "sloc": [
+          {
+            "file": "list.ads",
+            "line": 90
           },
           {
             "file": "railsystems.ads",
@@ -8284,6 +7808,34 @@
         "CVC4": {
           "count": 1,
           "max_steps": 1,
+          "max_time": 9.00000035762787E-02
+        }
+      }
+    },
+    {
+      "file": "list.adb",
+      "line": 241,
+      "col": 30,
+      "rule": "VC_INDEX_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "RailSystems.LIST_STATIONS.REPLACE_BY_ID",
+        "sloc": [
+          {
+            "file": "list.ads",
+            "line": 90
+          },
+          {
+            "file": "railsystems.ads",
+            "line": 23
+          }
+        ]
+      },
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
           "max_time": 7.99999982118607E-02
         }
       }
@@ -8308,7 +7860,7 @@
         "CVC4": {
           "count": 1,
           "max_steps": 1,
-          "max_time": 1.40000000596046E-01
+          "max_time": 1.89999997615814E-01
         }
       }
     },
@@ -8332,7 +7884,7 @@
         "CVC4": {
           "count": 1,
           "max_steps": 1,
-          "max_time": 2.30000004172325E-01
+          "max_time": 2.50000000000000E-01
         }
       }
     },
@@ -8388,7 +7940,7 @@
         "CVC4": {
           "count": 1,
           "max_steps": 1,
-          "max_time": 9.00000035762787E-02
+          "max_time": 1.09999999403954E-01
         }
       }
     },
@@ -8436,7 +7988,7 @@
         "CVC4": {
           "count": 1,
           "max_steps": 1,
-          "max_time": 2.19999998807907E-01
+          "max_time": 2.50000000000000E-01
         }
       }
     },
@@ -8460,7 +8012,7 @@
         "CVC4": {
           "count": 1,
           "max_steps": 1,
-          "max_time": 1.09999999403954E-01
+          "max_time": 1.40000000596046E-01
         }
       }
     },
@@ -8484,7 +8036,7 @@
         "CVC4": {
           "count": 1,
           "max_steps": 1,
-          "max_time": 5.00000007450581E-02
+          "max_time": 7.99999982118607E-02
         }
       }
     },
@@ -8500,6 +8052,34 @@
           {
             "file": "list.ads",
             "line": 49
+          },
+          {
+            "file": "railsystems.ads",
+            "line": 16
+          }
+        ]
+      },
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 1.09999999403954E-01
+        }
+      }
+    },
+    {
+      "file": "list.adb",
+      "line": 172,
+      "col": 30,
+      "rule": "VC_INDEX_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "RailSystems.LIST_TRAINS.GET_ELEMENT_BY_ID",
+        "sloc": [
+          {
+            "file": "list.ads",
+            "line": 59
           },
           {
             "file": "railsystems.ads",
@@ -8536,7 +8116,31 @@
         "CVC4": {
           "count": 1,
           "max_steps": 1,
-          "max_time": 1.09999999403954E-01
+          "max_time": 1.29999995231628E-01
+        }
+      }
+    },
+    {
+      "file": "railsystems.adb",
+      "line": 621,
+      "col": 16,
+      "rule": "VC_PRECONDITION",
+      "severity": "info",
+      "entity": {
+        "name": "RailSystems.addIncomingOutgoingTracksForEachStation",
+        "sloc": [
+          {
+            "file": "railsystems.ads",
+            "line": 211
+          }
+        ]
+      },
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 3.30000013113022E-01
         }
       }
     },
@@ -8560,7 +8164,35 @@
         "CVC4": {
           "count": 1,
           "max_steps": 1,
-          "max_time": 2.19999998807907E-01
+          "max_time": 2.30000004172325E-01
+        }
+      }
+    },
+    {
+      "file": "list.adb",
+      "line": 93,
+      "col": 25,
+      "rule": "VC_INDEX_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "RailSystems.LIST_STATIONS.APPEND",
+        "sloc": [
+          {
+            "file": "list.ads",
+            "line": 65
+          },
+          {
+            "file": "railsystems.ads",
+            "line": 23
+          }
+        ]
+      },
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 9.00000035762787E-02
         }
       }
     },
@@ -8618,6 +8250,62 @@
     },
     {
       "file": "list.adb",
+      "line": 173,
+      "col": 36,
+      "rule": "VC_INDEX_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID",
+        "sloc": [
+          {
+            "file": "list.ads",
+            "line": 59
+          },
+          {
+            "file": "railsystems.ads",
+            "line": 23
+          }
+        ]
+      },
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 7.99999982118607E-02
+        }
+      }
+    },
+    {
+      "file": "list.adb",
+      "line": 240,
+      "col": 30,
+      "rule": "VC_INDEX_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "RailSystems.LIST_TRAINS.REPLACE_BY_ID",
+        "sloc": [
+          {
+            "file": "list.ads",
+            "line": 90
+          },
+          {
+            "file": "railsystems.ads",
+            "line": 16
+          }
+        ]
+      },
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 1.09999999403954E-01
+        }
+      }
+    },
+    {
+      "file": "list.adb",
       "line": 66,
       "col": 13,
       "rule": "VC_RANGE_CHECK",
@@ -8640,7 +8328,7 @@
         "CVC4": {
           "count": 1,
           "max_steps": 1,
-          "max_time": 7.99999982118607E-02
+          "max_time": 9.00000035762787E-02
         }
       }
     },
@@ -8664,7 +8352,7 @@
         "CVC4": {
           "count": 1,
           "max_steps": 1,
-          "max_time": 2.80000001192093E-01
+          "max_time": 3.10000002384186E-01
         }
       }
     },
@@ -8693,6 +8381,90 @@
       }
     },
     {
+      "file": "list.adb",
+      "line": 93,
+      "col": 25,
+      "rule": "VC_INDEX_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "RailSystems.LIST_TRAINS.APPEND",
+        "sloc": [
+          {
+            "file": "list.ads",
+            "line": 65
+          },
+          {
+            "file": "railsystems.ads",
+            "line": 16
+          }
+        ]
+      },
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 1.09999999403954E-01
+        }
+      }
+    },
+    {
+      "file": "list.adb",
+      "line": 241,
+      "col": 30,
+      "rule": "VC_INDEX_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "RailSystems.LIST_TRAINS.REPLACE_BY_ID",
+        "sloc": [
+          {
+            "file": "list.ads",
+            "line": 90
+          },
+          {
+            "file": "railsystems.ads",
+            "line": 16
+          }
+        ]
+      },
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 9.00000035762787E-02
+        }
+      }
+    },
+    {
+      "file": "list.adb",
+      "line": 92,
+      "col": 25,
+      "rule": "VC_INDEX_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "RailSystems.LIST_TRAINS.APPEND",
+        "sloc": [
+          {
+            "file": "list.ads",
+            "line": 65
+          },
+          {
+            "file": "railsystems.ads",
+            "line": 16
+          }
+        ]
+      },
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 1.09999999403954E-01
+        }
+      }
+    },
+    {
       "file": "railsystems.adb",
       "line": 120,
       "col": 22,
@@ -8712,7 +8484,7 @@
         "CVC4": {
           "count": 1,
           "max_steps": 1,
-          "max_time": 2.50000000000000E-01
+          "max_time": 2.70000010728836E-01
         }
       }
     },
@@ -8736,7 +8508,31 @@
         "CVC4": {
           "count": 1,
           "max_steps": 1,
-          "max_time": 1.70000001788139E-01
+          "max_time": 1.89999997615814E-01
+        }
+      }
+    },
+    {
+      "file": "railsystems.adb",
+      "line": 250,
+      "col": 55,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "RailSystems.dfs_station_reachability_by_stations",
+        "sloc": [
+          {
+            "file": "railsystems.ads",
+            "line": 165
+          }
+        ]
+      },
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 1.29999995231628E-01
         }
       }
     },
@@ -8764,35 +8560,7 @@
         "CVC4": {
           "count": 1,
           "max_steps": 1,
-          "max_time": 9.00000035762787E-02
-        }
-      }
-    },
-    {
-      "file": "list.adb",
-      "line": 26,
-      "col": 27,
-      "rule": "VC_INDEX_CHECK",
-      "severity": "info",
-      "entity": {
-        "name": "RailSystems.LIST_TRAINS.CONTAINS",
-        "sloc": [
-          {
-            "file": "list.ads",
-            "line": 49
-          },
-          {
-            "file": "railsystems.ads",
-            "line": 16
-          }
-        ]
-      },
-      "how_proved": "prover",
-      "stats": {
-        "CVC4": {
-          "count": 2,
-          "max_steps": 1,
-          "max_time": 1.29999995231628E-01
+          "max_time": 1.09999999403954E-01
         }
       }
     },
@@ -8816,7 +8584,7 @@
         "CVC4": {
           "count": 1,
           "max_steps": 1,
-          "max_time": 1.89999997615814E-01
+          "max_time": 2.50000000000000E-01
         }
       }
     },
@@ -8844,7 +8612,7 @@
         "CVC4": {
           "count": 1,
           "max_steps": 1,
-          "max_time": 9.00000035762787E-02
+          "max_time": 1.09999999403954E-01
         }
       }
     },
@@ -8872,7 +8640,7 @@
         "CVC4": {
           "count": 1,
           "max_steps": 1,
-          "max_time": 7.99999982118607E-02
+          "max_time": 9.00000035762787E-02
         }
       }
     },
@@ -8896,7 +8664,7 @@
         "CVC4": {
           "count": 1,
           "max_steps": 1,
-          "max_time": 5.00000007450581E-02
+          "max_time": 9.00000035762787E-02
         }
       }
     },
@@ -8924,7 +8692,7 @@
         "CVC4": {
           "count": 1,
           "max_steps": 1,
-          "max_time": 7.99999982118607E-02
+          "max_time": 9.00000035762787E-02
         }
       }
     },
@@ -8952,7 +8720,35 @@
         "CVC4": {
           "count": 1,
           "max_steps": 1,
-          "max_time": 9.00000035762787E-02
+          "max_time": 1.09999999403954E-01
+        }
+      }
+    },
+    {
+      "file": "list.adb",
+      "line": 172,
+      "col": 30,
+      "rule": "VC_INDEX_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID",
+        "sloc": [
+          {
+            "file": "list.ads",
+            "line": 59
+          },
+          {
+            "file": "railsystems.ads",
+            "line": 23
+          }
+        ]
+      },
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 1.09999999403954E-01
         }
       }
     },
@@ -8976,7 +8772,55 @@
         "CVC4": {
           "count": 1,
           "max_steps": 1,
-          "max_time": 2.50000000000000E-01
+          "max_time": 3.30000013113022E-01
+        }
+      }
+    },
+    {
+      "file": "trains.ads",
+      "line": 11,
+      "col": 30,
+      "rule": "VC_LENGTH_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "RailSystems.addTrain",
+        "sloc": [
+          {
+            "file": "railsystems.ads",
+            "line": 39
+          }
+        ]
+      },
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 1.29999995231628E-01
+        }
+      }
+    },
+    {
+      "file": "railsystems.adb",
+      "line": 251,
+      "col": 55,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "RailSystems.dfs_station_reachability_by_stations",
+        "sloc": [
+          {
+            "file": "railsystems.ads",
+            "line": 165
+          }
+        ]
+      },
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 1.59999996423721E-01
         }
       }
     },
@@ -9000,7 +8844,7 @@
         "CVC4": {
           "count": 1,
           "max_steps": 1,
-          "max_time": 9.00000035762787E-02
+          "max_time": 1.29999995231628E-01
         }
       }
     },
@@ -9016,6 +8860,34 @@
           {
             "file": "railsystems.ads",
             "line": 213
+          }
+        ]
+      },
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 1.59999996423721E-01
+        }
+      }
+    },
+    {
+      "file": "list.adb",
+      "line": 91,
+      "col": 29,
+      "rule": "VC_OVERFLOW_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "RailSystems.LIST_TRAINS.APPEND",
+        "sloc": [
+          {
+            "file": "list.ads",
+            "line": 65
+          },
+          {
+            "file": "railsystems.ads",
+            "line": 16
           }
         ]
       },
@@ -9052,7 +8924,35 @@
         "CVC4": {
           "count": 1,
           "max_steps": 1,
-          "max_time": 7.99999982118607E-02
+          "max_time": 9.00000035762787E-02
+        }
+      }
+    },
+    {
+      "file": "list.adb",
+      "line": 91,
+      "col": 29,
+      "rule": "VC_OVERFLOW_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "RailSystems.LIST_STATIONS.APPEND",
+        "sloc": [
+          {
+            "file": "list.ads",
+            "line": 65
+          },
+          {
+            "file": "railsystems.ads",
+            "line": 23
+          }
+        ]
+      },
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 9.00000035762787E-02
         }
       }
     },
@@ -9104,7 +9004,31 @@
         "CVC4": {
           "count": 1,
           "max_steps": 1,
-          "max_time": 2.00000002980232E-01
+          "max_time": 2.19999998807907E-01
+        }
+      }
+    },
+    {
+      "file": "railsystems.adb",
+      "line": 165,
+      "col": 55,
+      "rule": "VC_RANGE_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "RailSystems.dfs_station_reachability_by_train",
+        "sloc": [
+          {
+            "file": "railsystems.ads",
+            "line": 140
+          }
+        ]
+      },
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 1.40000000596046E-01
         }
       }
     },
@@ -9129,6 +9053,62 @@
           "count": 1,
           "max_steps": 1,
           "max_time": 1.89999997615814E-01
+        }
+      }
+    },
+    {
+      "file": "list.adb",
+      "line": 173,
+      "col": 36,
+      "rule": "VC_INDEX_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "RailSystems.LIST_TRAINS.GET_ELEMENT_BY_ID",
+        "sloc": [
+          {
+            "file": "list.ads",
+            "line": 59
+          },
+          {
+            "file": "railsystems.ads",
+            "line": 16
+          }
+        ]
+      },
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 9.00000035762787E-02
+        }
+      }
+    },
+    {
+      "file": "list.adb",
+      "line": 92,
+      "col": 25,
+      "rule": "VC_INDEX_CHECK",
+      "severity": "info",
+      "entity": {
+        "name": "RailSystems.LIST_STATIONS.APPEND",
+        "sloc": [
+          {
+            "file": "list.ads",
+            "line": 65
+          },
+          {
+            "file": "railsystems.ads",
+            "line": 23
+          }
+        ]
+      },
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 9.00000035762787E-02
         }
       }
     },
@@ -9180,7 +9160,7 @@
         "CVC4": {
           "count": 1,
           "max_steps": 1,
-          "max_time": 1.09999999403954E-01
+          "max_time": 1.29999995231628E-01
         }
       }
     },
@@ -9228,7 +9208,7 @@
         "CVC4": {
           "count": 1,
           "max_steps": 1,
-          "max_time": 1.89999997615814E-01
+          "max_time": 2.00000002980232E-01
         }
       }
     },
@@ -9252,7 +9232,7 @@
         "CVC4": {
           "count": 1,
           "max_steps": 1,
-          "max_time": 1.09999999403954E-01
+          "max_time": 1.29999995231628E-01
         }
       }
     },
@@ -9280,35 +9260,31 @@
         "CVC4": {
           "count": 1,
           "max_steps": 1,
-          "max_time": 7.99999982118607E-02
+          "max_time": 9.00000035762787E-02
         }
       }
     },
     {
-      "file": "list.adb",
-      "line": 27,
-      "col": 30,
-      "rule": "VC_INDEX_CHECK",
+      "file": "railsystems.adb",
+      "line": 294,
+      "col": 22,
+      "rule": "VC_PRECONDITION",
       "severity": "info",
       "entity": {
-        "name": "RailSystems.LIST_STATIONS.CONTAINS",
+        "name": "RailSystems.dfs_station_reachability_by_stations",
         "sloc": [
           {
-            "file": "list.ads",
-            "line": 49
-          },
-          {
             "file": "railsystems.ads",
-            "line": 23
+            "line": 165
           }
         ]
       },
       "how_proved": "prover",
       "stats": {
         "CVC4": {
-          "count": 2,
+          "count": 1,
           "max_steps": 1,
-          "max_time": 7.99999982118607E-02
+          "max_time": 2.30000004172325E-01
         }
       }
     },
@@ -9332,7 +9308,31 @@
         "CVC4": {
           "count": 1,
           "max_steps": 1,
-          "max_time": 1.08000004291534E+00
+          "max_time": 1.13999998569489E+00
+        }
+      }
+    },
+    {
+      "file": "railsystems.adb",
+      "line": 211,
+      "col": 25,
+      "rule": "VC_PRECONDITION",
+      "severity": "info",
+      "entity": {
+        "name": "RailSystems.dfs_station_reachability_by_train",
+        "sloc": [
+          {
+            "file": "railsystems.ads",
+            "line": 140
+          }
+        ]
+      },
+      "how_proved": "prover",
+      "stats": {
+        "CVC4": {
+          "count": 1,
+          "max_steps": 1,
+          "max_time": 1.89999997615814E-01
         }
       }
     },
@@ -9419,11 +9419,11 @@
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
-            "name": "RailSystems.LIST_TRAINS.APPEND",
+            "name": "RailSystems.LIST_TRAINS.GET_SIZE",
             "sloc": [
               {
                 "file": "list.ads",
-                "line": 65
+                "line": 53
               },
               {
                 "file": "railsystems.ads",
@@ -9435,11 +9435,11 @@
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
-            "name": "RailSystems.LIST_TRAINS.GET_ELEMENT",
+            "name": "RailSystems.LIST_TRAINS.APPEND",
             "sloc": [
               {
                 "file": "list.ads",
-                "line": 56
+                "line": 65
               },
               {
                 "file": "railsystems.ads",
@@ -9467,6 +9467,38 @@
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
+            "name": "RailSystems.LIST_TRAINS.GET_ELEMENT",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 56
+              },
+              {
+                "file": "railsystems.ads",
+                "line": 16
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "RailSystems.addTrain",
+          "sloc": [
+            {
+              "file": "railsystems.ads",
+              "line": 39
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
             "name": "RailSystems.LIST_TRAINS.GET_SIZE",
             "sloc": [
               {
@@ -9479,10 +9511,122 @@
               }
             ]
           }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "RailSystems.LIST_TRAINS.GET_SIZE",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 53
+              },
+              {
+                "file": "railsystems.ads",
+                "line": 16
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "RailSystems.LIST_TRAINS.APPEND",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 65
+              },
+              {
+                "file": "railsystems.ads",
+                "line": 16
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "RailSystems.LIST_TRAINS.APPEND",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 65
+              },
+              {
+                "file": "railsystems.ads",
+                "line": 16
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "RailSystems.LIST_TRAINS.GET_ELEMENT_BY_ID",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 59
+              },
+              {
+                "file": "railsystems.ads",
+                "line": 16
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "RailSystems.LIST_TRAINS.GET_ELEMENT_BY_ID",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 59
+              },
+              {
+                "file": "railsystems.ads",
+                "line": 16
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "RailSystems.LIST_TRAINS.GET_ELEMENT",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 56
+              },
+              {
+                "file": "railsystems.ads",
+                "line": 16
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "RailSystems.LIST_TRAINS.GET_ELEMENT",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 56
+              },
+              {
+                "file": "railsystems.ads",
+                "line": 16
+              }
+            ]
+          }
         }
       ],
       "claim": {
-        "predicate": "CLAIM_EFFECTS",
+        "predicate": "CLAIM_AORTE",
         "arg": {
           "name": "RailSystems.addTrain",
           "sloc": [
@@ -9531,11 +9675,11 @@
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
-            "name": "Stations.LIST_TRACKS.GET_SIZE",
+            "name": "Stations.LIST_TRACKS.APPEND",
             "sloc": [
               {
                 "file": "list.ads",
-                "line": 53
+                "line": 65
               },
               {
                 "file": "stations.ads",
@@ -9547,11 +9691,11 @@
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
-            "name": "Stations.LIST_TRACKS.APPEND",
+            "name": "Stations.LIST_TRACKS.GET_SIZE",
             "sloc": [
               {
                 "file": "list.ads",
-                "line": 65
+                "line": 53
               },
               {
                 "file": "stations.ads",
@@ -9659,150 +9803,6 @@
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
-            "name": "RailSystems.LIST_TRAINS.APPEND",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 65
-              },
-              {
-                "file": "railsystems.ads",
-                "line": 16
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_AORTE",
-          "arg": {
-            "name": "RailSystems.LIST_TRAINS.APPEND",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 65
-              },
-              {
-                "file": "railsystems.ads",
-                "line": 16
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "RailSystems.LIST_TRAINS.GET_ELEMENT",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 56
-              },
-              {
-                "file": "railsystems.ads",
-                "line": 16
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_AORTE",
-          "arg": {
-            "name": "RailSystems.LIST_TRAINS.GET_ELEMENT",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 56
-              },
-              {
-                "file": "railsystems.ads",
-                "line": 16
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "RailSystems.LIST_TRAINS.GET_ELEMENT_BY_ID",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 59
-              },
-              {
-                "file": "railsystems.ads",
-                "line": 16
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "RailSystems.LIST_TRAINS.GET_SIZE",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 53
-              },
-              {
-                "file": "railsystems.ads",
-                "line": 16
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_AORTE",
-          "arg": {
-            "name": "RailSystems.LIST_TRAINS.GET_ELEMENT_BY_ID",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 59
-              },
-              {
-                "file": "railsystems.ads",
-                "line": 16
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_AORTE",
-          "arg": {
-            "name": "RailSystems.LIST_TRAINS.GET_SIZE",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 53
-              },
-              {
-                "file": "railsystems.ads",
-                "line": 16
-              }
-            ]
-          }
-        }
-      ],
-      "claim": {
-        "predicate": "CLAIM_AORTE",
-        "arg": {
-          "name": "RailSystems.addTrain",
-          "sloc": [
-            {
-              "file": "railsystems.ads",
-              "line": 39
-            }
-          ]
-        }
-      }
-    },
-    {
-      "assumptions": [
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
             "name": "Stations.LIST_TRACKS.GET_ELEMENT_BY_ID",
             "sloc": [
               {
@@ -9867,11 +9867,11 @@
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
-            "name": "Stations.LIST_TRACKS.GET_SIZE",
+            "name": "Stations.LIST_TRACKS.APPEND",
             "sloc": [
               {
                 "file": "list.ads",
-                "line": 53
+                "line": 65
               },
               {
                 "file": "stations.ads",
@@ -9883,11 +9883,11 @@
         {
           "predicate": "CLAIM_AORTE",
           "arg": {
-            "name": "Stations.LIST_TRACKS.GET_SIZE",
+            "name": "Stations.LIST_TRACKS.APPEND",
             "sloc": [
               {
                 "file": "list.ads",
-                "line": 53
+                "line": 65
               },
               {
                 "file": "stations.ads",
@@ -9899,11 +9899,11 @@
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
-            "name": "Stations.LIST_TRACKS.APPEND",
+            "name": "Stations.LIST_TRACKS.GET_SIZE",
             "sloc": [
               {
                 "file": "list.ads",
-                "line": 65
+                "line": 53
               },
               {
                 "file": "stations.ads",
@@ -9915,11 +9915,11 @@
         {
           "predicate": "CLAIM_AORTE",
           "arg": {
-            "name": "Stations.LIST_TRACKS.APPEND",
+            "name": "Stations.LIST_TRACKS.GET_SIZE",
             "sloc": [
               {
                 "file": "list.ads",
-                "line": 65
+                "line": 53
               },
               {
                 "file": "stations.ads",
@@ -9947,6 +9947,50 @@
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
+            "name": "RailSystems.replaceStation",
+            "sloc": [
+              {
+                "file": "railsystems.ads",
+                "line": 199
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "Stations.LIST_TRACKS.GET_ELEMENT_BY_ID",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 59
+              },
+              {
+                "file": "stations.ads",
+                "line": 10
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "TYPES.LIST_OD.APPEND",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 65
+              },
+              {
+                "file": "types.ads",
+                "line": 21
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
             "name": "TYPES.LIST_OD.GET_SIZE",
             "sloc": [
               {
@@ -9963,11 +10007,27 @@
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
-            "name": "Stations.LIST_TRACKS.GET_ELEMENT_BY_ID",
+            "name": "RailSystems.LIST_STATIONS.GET_SIZE",
             "sloc": [
               {
                 "file": "list.ads",
-                "line": 59
+                "line": 53
+              },
+              {
+                "file": "railsystems.ads",
+                "line": 23
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "Stations.LIST_TRACKS.APPEND",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 65
               },
               {
                 "file": "stations.ads",
@@ -9995,54 +10055,6 @@
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
-            "name": "RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 59
-              },
-              {
-                "file": "railsystems.ads",
-                "line": 23
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "RailSystems.LIST_STATIONS.GET_SIZE",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 53
-              },
-              {
-                "file": "railsystems.ads",
-                "line": 23
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "TYPES.LIST_OD.APPEND",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 65
-              },
-              {
-                "file": "types.ads",
-                "line": 21
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
             "name": "Stations.LIST_TRACKS.CONTAINS",
             "sloc": [
               {
@@ -10059,6 +10071,22 @@
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
+            "name": "RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 59
+              },
+              {
+                "file": "railsystems.ads",
+                "line": 23
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
             "name": "Stations.LIST_TRACKS.GET_SIZE",
             "sloc": [
               {
@@ -10068,34 +10096,6 @@
               {
                 "file": "stations.ads",
                 "line": 10
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "Stations.LIST_TRACKS.APPEND",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 65
-              },
-              {
-                "file": "stations.ads",
-                "line": 10
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "RailSystems.replaceStation",
-            "sloc": [
-              {
-                "file": "railsystems.ads",
-                "line": 199
               }
             ]
           }
@@ -10119,15 +10119,23 @@
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
-            "name": "TYPES.LIST_OD.GET_SIZE",
+            "name": "RailSystems.replaceStation",
             "sloc": [
               {
-                "file": "list.ads",
-                "line": 53
-              },
+                "file": "railsystems.ads",
+                "line": 199
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "RailSystems.replaceStation",
+            "sloc": [
               {
-                "file": "types.ads",
-                "line": 21
+                "file": "railsystems.ads",
+                "line": 199
               }
             ]
           }
@@ -10151,6 +10159,86 @@
         {
           "predicate": "CLAIM_AORTE",
           "arg": {
+            "name": "Stations.LIST_TRACKS.GET_ELEMENT_BY_ID",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 59
+              },
+              {
+                "file": "stations.ads",
+                "line": 10
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "TYPES.LIST_OD.APPEND",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 65
+              },
+              {
+                "file": "types.ads",
+                "line": 21
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "TYPES.LIST_OD.APPEND",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 65
+              },
+              {
+                "file": "types.ads",
+                "line": 21
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "TYPES.LIST_OD.GET_SIZE",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 53
+              },
+              {
+                "file": "types.ads",
+                "line": 21
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "RailSystems.LIST_STATIONS.GET_SIZE",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 53
+              },
+              {
+                "file": "railsystems.ads",
+                "line": 23
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
             "name": "TYPES.LIST_OD.GET_SIZE",
             "sloc": [
               {
@@ -10167,11 +10255,43 @@
         {
           "predicate": "CLAIM_AORTE",
           "arg": {
-            "name": "Stations.LIST_TRACKS.GET_ELEMENT_BY_ID",
+            "name": "RailSystems.LIST_STATIONS.GET_SIZE",
             "sloc": [
               {
                 "file": "list.ads",
-                "line": 59
+                "line": 53
+              },
+              {
+                "file": "railsystems.ads",
+                "line": 23
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "Stations.LIST_TRACKS.APPEND",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 65
+              },
+              {
+                "file": "stations.ads",
+                "line": 10
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "Stations.LIST_TRACKS.APPEND",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 65
               },
               {
                 "file": "stations.ads",
@@ -10215,102 +10335,6 @@
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
-            "name": "RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 59
-              },
-              {
-                "file": "railsystems.ads",
-                "line": 23
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_AORTE",
-          "arg": {
-            "name": "RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 59
-              },
-              {
-                "file": "railsystems.ads",
-                "line": 23
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "RailSystems.LIST_STATIONS.GET_SIZE",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 53
-              },
-              {
-                "file": "railsystems.ads",
-                "line": 23
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_AORTE",
-          "arg": {
-            "name": "RailSystems.LIST_STATIONS.GET_SIZE",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 53
-              },
-              {
-                "file": "railsystems.ads",
-                "line": 23
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "TYPES.LIST_OD.APPEND",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 65
-              },
-              {
-                "file": "types.ads",
-                "line": 21
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_AORTE",
-          "arg": {
-            "name": "TYPES.LIST_OD.APPEND",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 65
-              },
-              {
-                "file": "types.ads",
-                "line": 21
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
             "name": "Stations.LIST_TRACKS.CONTAINS",
             "sloc": [
               {
@@ -10343,6 +10367,38 @@
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
+            "name": "RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 59
+              },
+              {
+                "file": "railsystems.ads",
+                "line": 23
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 59
+              },
+              {
+                "file": "railsystems.ads",
+                "line": 23
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
             "name": "Stations.LIST_TRACKS.GET_SIZE",
             "sloc": [
               {
@@ -10368,62 +10424,6 @@
               {
                 "file": "stations.ads",
                 "line": 10
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "Stations.LIST_TRACKS.APPEND",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 65
-              },
-              {
-                "file": "stations.ads",
-                "line": 10
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_AORTE",
-          "arg": {
-            "name": "Stations.LIST_TRACKS.APPEND",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 65
-              },
-              {
-                "file": "stations.ads",
-                "line": 10
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "RailSystems.replaceStation",
-            "sloc": [
-              {
-                "file": "railsystems.ads",
-                "line": 199
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_AORTE",
-          "arg": {
-            "name": "RailSystems.replaceStation",
-            "sloc": [
-              {
-                "file": "railsystems.ads",
-                "line": 199
               }
             ]
           }
@@ -10479,94 +10479,6 @@
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
-            "name": "TYPES.LIST_OD.GET_SIZE",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 53
-              },
-              {
-                "file": "types.ads",
-                "line": 21
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_AORTE",
-          "arg": {
-            "name": "TYPES.LIST_OD.GET_SIZE",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 53
-              },
-              {
-                "file": "types.ads",
-                "line": 21
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "TYPES.LIST_OD.GET_ELEMENT",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 56
-              },
-              {
-                "file": "types.ads",
-                "line": 21
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "RailSystems.getStationByName",
-            "sloc": [
-              {
-                "file": "railsystems.ads",
-                "line": 188
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_AORTE",
-          "arg": {
-            "name": "TYPES.LIST_OD.GET_ELEMENT",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 56
-              },
-              {
-                "file": "types.ads",
-                "line": 21
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_AORTE",
-          "arg": {
-            "name": "RailSystems.getStationByName",
-            "sloc": [
-              {
-                "file": "railsystems.ads",
-                "line": 188
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
             "name": "RailSystems.replaceStation",
             "sloc": [
               {
@@ -10608,6 +10520,94 @@
               {
                 "file": "railsystems.ads",
                 "line": 203
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "TYPES.LIST_OD.GET_SIZE",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 53
+              },
+              {
+                "file": "types.ads",
+                "line": 21
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "TYPES.LIST_OD.GET_SIZE",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 53
+              },
+              {
+                "file": "types.ads",
+                "line": 21
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "RailSystems.getStationByName",
+            "sloc": [
+              {
+                "file": "railsystems.ads",
+                "line": 188
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "RailSystems.getStationByName",
+            "sloc": [
+              {
+                "file": "railsystems.ads",
+                "line": 188
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "TYPES.LIST_OD.GET_ELEMENT",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 56
+              },
+              {
+                "file": "types.ads",
+                "line": 21
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "TYPES.LIST_OD.GET_ELEMENT",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 56
+              },
+              {
+                "file": "types.ads",
+                "line": 21
               }
             ]
           }
@@ -10631,15 +10631,11 @@
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
-            "name": "TYPES.LIST_OD.GET_SIZE",
+            "name": "RailSystems.replaceStation",
             "sloc": [
               {
-                "file": "list.ads",
-                "line": 53
-              },
-              {
-                "file": "types.ads",
-                "line": 21
+                "file": "railsystems.ads",
+                "line": 199
               }
             ]
           }
@@ -10647,11 +10643,23 @@
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
-            "name": "TYPES.LIST_OD.GET_ELEMENT",
+            "name": "RailSystems.replaceTrain",
+            "sloc": [
+              {
+                "file": "railsystems.ads",
+                "line": 203
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "TYPES.LIST_OD.GET_SIZE",
             "sloc": [
               {
                 "file": "list.ads",
-                "line": 56
+                "line": 53
               },
               {
                 "file": "types.ads",
@@ -10675,23 +10683,15 @@
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
-            "name": "RailSystems.replaceStation",
+            "name": "TYPES.LIST_OD.GET_ELEMENT",
             "sloc": [
               {
-                "file": "railsystems.ads",
-                "line": 199
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "RailSystems.replaceTrain",
-            "sloc": [
+                "file": "list.ads",
+                "line": 56
+              },
               {
-                "file": "railsystems.ads",
-                "line": 203
+                "file": "types.ads",
+                "line": 21
               }
             ]
           }
@@ -10715,94 +10715,6 @@
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
-            "name": "TYPES.LIST_OD.GET_SIZE",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 53
-              },
-              {
-                "file": "types.ads",
-                "line": 21
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_AORTE",
-          "arg": {
-            "name": "TYPES.LIST_OD.GET_SIZE",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 53
-              },
-              {
-                "file": "types.ads",
-                "line": 21
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "TYPES.LIST_OD.GET_ELEMENT",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 56
-              },
-              {
-                "file": "types.ads",
-                "line": 21
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "RailSystems.getStationByName",
-            "sloc": [
-              {
-                "file": "railsystems.ads",
-                "line": 188
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_AORTE",
-          "arg": {
-            "name": "TYPES.LIST_OD.GET_ELEMENT",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 56
-              },
-              {
-                "file": "types.ads",
-                "line": 21
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_AORTE",
-          "arg": {
-            "name": "RailSystems.getStationByName",
-            "sloc": [
-              {
-                "file": "railsystems.ads",
-                "line": 188
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
             "name": "RailSystems.replaceStation",
             "sloc": [
               {
@@ -10844,6 +10756,94 @@
               {
                 "file": "railsystems.ads",
                 "line": 203
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "TYPES.LIST_OD.GET_SIZE",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 53
+              },
+              {
+                "file": "types.ads",
+                "line": 21
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "TYPES.LIST_OD.GET_SIZE",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 53
+              },
+              {
+                "file": "types.ads",
+                "line": 21
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "RailSystems.getStationByName",
+            "sloc": [
+              {
+                "file": "railsystems.ads",
+                "line": 188
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "RailSystems.getStationByName",
+            "sloc": [
+              {
+                "file": "railsystems.ads",
+                "line": 188
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "TYPES.LIST_OD.GET_ELEMENT",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 56
+              },
+              {
+                "file": "types.ads",
+                "line": 21
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "TYPES.LIST_OD.GET_ELEMENT",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 56
+              },
+              {
+                "file": "types.ads",
+                "line": 21
               }
             ]
           }
@@ -10867,34 +10867,6 @@
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
-            "name": "Stations.LIST_TRACKS.GET_ELEMENT",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 56
-              },
-              {
-                "file": "stations.ads",
-                "line": 10
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "sPrint.Print_Station_Locations",
-            "sloc": [
-              {
-                "file": "sprint.ads",
-                "line": 6
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
             "name": "RailSystems.replaceTrack",
             "sloc": [
               {
@@ -10907,11 +10879,35 @@
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
-            "name": "sPrint.Print_Natural",
+            "name": "RailSystems.replaceStation",
+            "sloc": [
+              {
+                "file": "railsystems.ads",
+                "line": 199
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "RailSystems.replaceTrain",
+            "sloc": [
+              {
+                "file": "railsystems.ads",
+                "line": 203
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "sPrint.Print_Train_State",
             "sloc": [
               {
                 "file": "sprint.ads",
-                "line": 4
+                "line": 5
               }
             ]
           }
@@ -10931,11 +10927,27 @@
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
-            "name": "RailSystems.getTrackByName",
+            "name": "sPrint.Print_Station_Locations",
             "sloc": [
               {
-                "file": "railsystems.ads",
-                "line": 190
+                "file": "sprint.ads",
+                "line": 6
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "Stations.LIST_TRACKS.GET_ELEMENT",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 56
+              },
+              {
+                "file": "stations.ads",
+                "line": 10
               }
             ]
           }
@@ -10959,18 +10971,6 @@
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
-            "name": "sPrint.Print_Train_State",
-            "sloc": [
-              {
-                "file": "sprint.ads",
-                "line": 5
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
             "name": "Stations.LIST_TRACKS.GET_SIZE",
             "sloc": [
               {
@@ -10980,18 +10980,6 @@
               {
                 "file": "stations.ads",
                 "line": 10
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "RailSystems.replaceStation",
-            "sloc": [
-              {
-                "file": "railsystems.ads",
-                "line": 199
               }
             ]
           }
@@ -11011,11 +10999,23 @@
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
-            "name": "RailSystems.replaceTrain",
+            "name": "RailSystems.getTrackByName",
             "sloc": [
               {
                 "file": "railsystems.ads",
-                "line": 203
+                "line": 190
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "sPrint.Print_Natural",
+            "sloc": [
+              {
+                "file": "sprint.ads",
+                "line": 4
               }
             ]
           }
@@ -11037,45 +11037,13 @@
     {
       "assumptions": [
         {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "Stations.LIST_TRACKS.GET_ELEMENT",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 56
-              },
-              {
-                "file": "stations.ads",
-                "line": 10
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "sPrint.Print_Station_Locations",
-            "sloc": [
-              {
-                "file": "sprint.ads",
-                "line": 6
-              }
-            ]
-          }
-        },
-        {
           "predicate": "CLAIM_AORTE",
           "arg": {
-            "name": "Stations.LIST_TRACKS.GET_ELEMENT",
+            "name": "RailSystems.getTrackByName",
             "sloc": [
               {
-                "file": "list.ads",
-                "line": 56
-              },
-              {
-                "file": "stations.ads",
-                "line": 10
+                "file": "railsystems.ads",
+                "line": 190
               }
             ]
           }
@@ -11095,11 +11063,23 @@
         {
           "predicate": "CLAIM_AORTE",
           "arg": {
-            "name": "sPrint.Print_Station_Locations",
+            "name": "sPrint.Print_Natural",
             "sloc": [
               {
                 "file": "sprint.ads",
-                "line": 6
+                "line": 4
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "RailSystems.replaceStation",
+            "sloc": [
+              {
+                "file": "railsystems.ads",
+                "line": 199
               }
             ]
           }
@@ -11117,13 +11097,25 @@
           }
         },
         {
-          "predicate": "CLAIM_EFFECTS",
+          "predicate": "CLAIM_AORTE",
           "arg": {
-            "name": "sPrint.Print_Natural",
+            "name": "RailSystems.replaceStation",
             "sloc": [
               {
-                "file": "sprint.ads",
-                "line": 4
+                "file": "railsystems.ads",
+                "line": 199
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "RailSystems.replaceTrain",
+            "sloc": [
+              {
+                "file": "railsystems.ads",
+                "line": 203
               }
             ]
           }
@@ -11131,11 +11123,35 @@
         {
           "predicate": "CLAIM_AORTE",
           "arg": {
-            "name": "sPrint.Print_Natural",
+            "name": "RailSystems.replaceTrain",
+            "sloc": [
+              {
+                "file": "railsystems.ads",
+                "line": 203
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "sPrint.Print_Train_State",
             "sloc": [
               {
                 "file": "sprint.ads",
-                "line": 4
+                "line": 5
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "sPrint.Print_Train_State",
+            "sloc": [
+              {
+                "file": "sprint.ads",
+                "line": 5
               }
             ]
           }
@@ -11153,18 +11169,6 @@
           }
         },
         {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "RailSystems.getTrackByName",
-            "sloc": [
-              {
-                "file": "railsystems.ads",
-                "line": 190
-              }
-            ]
-          }
-        },
-        {
           "predicate": "CLAIM_AORTE",
           "arg": {
             "name": "RailSystems.getStationByName",
@@ -11177,13 +11181,57 @@
           }
         },
         {
-          "predicate": "CLAIM_AORTE",
+          "predicate": "CLAIM_EFFECTS",
           "arg": {
-            "name": "RailSystems.getTrackByName",
+            "name": "sPrint.Print_Station_Locations",
             "sloc": [
               {
-                "file": "railsystems.ads",
-                "line": 190
+                "file": "sprint.ads",
+                "line": 6
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "sPrint.Print_Station_Locations",
+            "sloc": [
+              {
+                "file": "sprint.ads",
+                "line": 6
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "Stations.LIST_TRACKS.GET_ELEMENT",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 56
+              },
+              {
+                "file": "stations.ads",
+                "line": 10
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "Stations.LIST_TRACKS.GET_ELEMENT",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 56
+              },
+              {
+                "file": "stations.ads",
+                "line": 10
               }
             ]
           }
@@ -11223,30 +11271,6 @@
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
-            "name": "sPrint.Print_Train_State",
-            "sloc": [
-              {
-                "file": "sprint.ads",
-                "line": 5
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_AORTE",
-          "arg": {
-            "name": "sPrint.Print_Train_State",
-            "sloc": [
-              {
-                "file": "sprint.ads",
-                "line": 5
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
             "name": "Stations.LIST_TRACKS.GET_SIZE",
             "sloc": [
               {
@@ -11279,47 +11303,11 @@
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
-            "name": "RailSystems.replaceStation",
-            "sloc": [
-              {
-                "file": "railsystems.ads",
-                "line": 199
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_AORTE",
-          "arg": {
-            "name": "RailSystems.replaceStation",
-            "sloc": [
-              {
-                "file": "railsystems.ads",
-                "line": 199
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
             "name": "sPrint.Print",
             "sloc": [
               {
                 "file": "sprint.ads",
                 "line": 3
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "RailSystems.replaceTrain",
-            "sloc": [
-              {
-                "file": "railsystems.ads",
-                "line": 203
               }
             ]
           }
@@ -11337,13 +11325,25 @@
           }
         },
         {
-          "predicate": "CLAIM_AORTE",
+          "predicate": "CLAIM_EFFECTS",
           "arg": {
-            "name": "RailSystems.replaceTrain",
+            "name": "RailSystems.getTrackByName",
             "sloc": [
               {
                 "file": "railsystems.ads",
-                "line": 203
+                "line": 190
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "sPrint.Print_Natural",
+            "sloc": [
+              {
+                "file": "sprint.ads",
+                "line": 4
               }
             ]
           }
@@ -11387,22 +11387,6 @@
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
-            "name": "Stations.LIST_TRACKS.Init",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 94
-              },
-              {
-                "file": "stations.ads",
-                "line": 10
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
             "name": "RailSystems.LIST_TRAINS.Init",
             "sloc": [
               {
@@ -11428,6 +11412,22 @@
               {
                 "file": "railsystems.ads",
                 "line": 23
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "Stations.LIST_TRACKS.Init",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 94
+              },
+              {
+                "file": "stations.ads",
+                "line": 10
               }
             ]
           }
@@ -11471,38 +11471,6 @@
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
-            "name": "Stations.LIST_TRACKS.Init",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 94
-              },
-              {
-                "file": "stations.ads",
-                "line": 10
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_AORTE",
-          "arg": {
-            "name": "Stations.LIST_TRACKS.Init",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 94
-              },
-              {
-                "file": "stations.ads",
-                "line": 10
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
             "name": "RailSystems.LIST_TRAINS.Init",
             "sloc": [
               {
@@ -11560,6 +11528,38 @@
               {
                 "file": "railsystems.ads",
                 "line": 23
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "Stations.LIST_TRACKS.Init",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 94
+              },
+              {
+                "file": "stations.ads",
+                "line": 10
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "Stations.LIST_TRACKS.Init",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 94
+              },
+              {
+                "file": "stations.ads",
+                "line": 10
               }
             ]
           }
@@ -11711,22 +11711,6 @@
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
-            "name": "RailSystems.LIST_STATIONS.GET_ELEMENT",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 56
-              },
-              {
-                "file": "railsystems.ads",
-                "line": 23
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
             "name": "RailSystems.LIST_STATIONS.REPLACE_BY_ID",
             "sloc": [
               {
@@ -11748,6 +11732,22 @@
               {
                 "file": "list.ads",
                 "line": 53
+              },
+              {
+                "file": "railsystems.ads",
+                "line": 23
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "RailSystems.LIST_STATIONS.GET_ELEMENT",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 56
               },
               {
                 "file": "railsystems.ads",
@@ -11811,118 +11811,6 @@
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
-            "name": "RailSystems.LIST_STATIONS.GET_ELEMENT",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 56
-              },
-              {
-                "file": "railsystems.ads",
-                "line": 23
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_AORTE",
-          "arg": {
-            "name": "RailSystems.LIST_STATIONS.GET_ELEMENT",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 56
-              },
-              {
-                "file": "railsystems.ads",
-                "line": 23
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "RailSystems.LIST_STATIONS.REPLACE_BY_ID",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 90
-              },
-              {
-                "file": "railsystems.ads",
-                "line": 23
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_AORTE",
-          "arg": {
-            "name": "RailSystems.LIST_STATIONS.REPLACE_BY_ID",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 90
-              },
-              {
-                "file": "railsystems.ads",
-                "line": 23
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "RailSystems.LIST_STATIONS.GET_SIZE",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 53
-              },
-              {
-                "file": "railsystems.ads",
-                "line": 23
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_AORTE",
-          "arg": {
-            "name": "RailSystems.LIST_STATIONS.GET_SIZE",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 53
-              },
-              {
-                "file": "railsystems.ads",
-                "line": 23
-              }
-            ]
-          }
-        }
-      ],
-      "claim": {
-        "predicate": "CLAIM_AORTE",
-        "arg": {
-          "name": "RailSystems.replaceStation",
-          "sloc": [
-            {
-              "file": "railsystems.ads",
-              "line": 199
-            }
-          ]
-        }
-      }
-    },
-    {
-      "assumptions": [
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
             "name": "RailSystems.LIST_TRAINS.FULL",
             "sloc": [
               {
@@ -11975,19 +11863,115 @@
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
-            "name": "RailSystems.LIST_TRAINS.GET_ELEMENT_BY_ID",
+            "name": "RailSystems.LIST_STATIONS.REPLACE_BY_ID",
             "sloc": [
               {
                 "file": "list.ads",
-                "line": 59
+                "line": 90
               },
               {
                 "file": "railsystems.ads",
-                "line": 16
+                "line": 23
               }
             ]
           }
         },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "RailSystems.LIST_STATIONS.REPLACE_BY_ID",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 90
+              },
+              {
+                "file": "railsystems.ads",
+                "line": 23
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "RailSystems.LIST_STATIONS.GET_SIZE",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 53
+              },
+              {
+                "file": "railsystems.ads",
+                "line": 23
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "RailSystems.LIST_STATIONS.GET_SIZE",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 53
+              },
+              {
+                "file": "railsystems.ads",
+                "line": 23
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "RailSystems.LIST_STATIONS.GET_ELEMENT",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 56
+              },
+              {
+                "file": "railsystems.ads",
+                "line": 23
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "RailSystems.LIST_STATIONS.GET_ELEMENT",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 56
+              },
+              {
+                "file": "railsystems.ads",
+                "line": 23
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "RailSystems.replaceStation",
+          "sloc": [
+            {
+              "file": "railsystems.ads",
+              "line": 199
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
@@ -11996,6 +11980,22 @@
               {
                 "file": "list.ads",
                 "line": 53
+              },
+              {
+                "file": "railsystems.ads",
+                "line": 16
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "RailSystems.LIST_TRAINS.GET_ELEMENT_BY_ID",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 59
               },
               {
                 "file": "railsystems.ads",
@@ -12023,11 +12023,27 @@
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
-            "name": "RailSystems.LIST_TRAINS.GET_ELEMENT_BY_ID",
+            "name": "RailSystems.LIST_TRAINS.GET_SIZE",
             "sloc": [
               {
                 "file": "list.ads",
-                "line": 59
+                "line": 53
+              },
+              {
+                "file": "railsystems.ads",
+                "line": 16
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "RailSystems.LIST_TRAINS.GET_SIZE",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 53
               },
               {
                 "file": "railsystems.ads",
@@ -12039,22 +12055,6 @@
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
-            "name": "RailSystems.LIST_TRAINS.GET_SIZE",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 53
-              },
-              {
-                "file": "railsystems.ads",
-                "line": 16
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_AORTE",
-          "arg": {
             "name": "RailSystems.LIST_TRAINS.GET_ELEMENT_BY_ID",
             "sloc": [
               {
@@ -12071,11 +12071,11 @@
         {
           "predicate": "CLAIM_AORTE",
           "arg": {
-            "name": "RailSystems.LIST_TRAINS.GET_SIZE",
+            "name": "RailSystems.LIST_TRAINS.GET_ELEMENT_BY_ID",
             "sloc": [
               {
                 "file": "list.ads",
-                "line": 53
+                "line": 59
               },
               {
                 "file": "railsystems.ads",
@@ -12140,6 +12140,22 @@
     },
     {
       "assumptions": [
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "Stations.LIST_TRACKS.REPLACE_BY_ID",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 90
+              },
+              {
+                "file": "stations.ads",
+                "line": 10
+              }
+            ]
+          }
+        },
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
@@ -12164,22 +12180,6 @@
               {
                 "file": "list.ads",
                 "line": 53
-              },
-              {
-                "file": "stations.ads",
-                "line": 10
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "Stations.LIST_TRACKS.REPLACE_BY_ID",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 90
               },
               {
                 "file": "stations.ads",
@@ -12207,6 +12207,38 @@
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
+            "name": "Stations.LIST_TRACKS.REPLACE_BY_ID",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 90
+              },
+              {
+                "file": "stations.ads",
+                "line": 10
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "Stations.LIST_TRACKS.REPLACE_BY_ID",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 90
+              },
+              {
+                "file": "stations.ads",
+                "line": 10
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
             "name": "Stations.LIST_TRACKS.GET_ELEMENT",
             "sloc": [
               {
@@ -12260,38 +12292,6 @@
               {
                 "file": "list.ads",
                 "line": 53
-              },
-              {
-                "file": "stations.ads",
-                "line": 10
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "Stations.LIST_TRACKS.REPLACE_BY_ID",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 90
-              },
-              {
-                "file": "stations.ads",
-                "line": 10
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_AORTE",
-          "arg": {
-            "name": "Stations.LIST_TRACKS.REPLACE_BY_ID",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 90
               },
               {
                 "file": "stations.ads",
@@ -12396,6 +12396,22 @@
     },
     {
       "assumptions": [
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "RailSystems.LIST_STATIONS.GET_SIZE",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 53
+              },
+              {
+                "file": "railsystems.ads",
+                "line": 23
+              }
+            ]
+          }
+        },
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
@@ -12404,22 +12420,6 @@
               {
                 "file": "list.ads",
                 "line": 59
-              },
-              {
-                "file": "railsystems.ads",
-                "line": 23
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "RailSystems.LIST_STATIONS.GET_SIZE",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 53
               },
               {
                 "file": "railsystems.ads",
@@ -12447,11 +12447,11 @@
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
-            "name": "RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID",
+            "name": "RailSystems.LIST_STATIONS.GET_SIZE",
             "sloc": [
               {
                 "file": "list.ads",
-                "line": 59
+                "line": 53
               },
               {
                 "file": "railsystems.ads",
@@ -12463,11 +12463,11 @@
         {
           "predicate": "CLAIM_AORTE",
           "arg": {
-            "name": "RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID",
+            "name": "RailSystems.LIST_STATIONS.GET_SIZE",
             "sloc": [
               {
                 "file": "list.ads",
-                "line": 59
+                "line": 53
               },
               {
                 "file": "railsystems.ads",
@@ -12479,11 +12479,11 @@
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
-            "name": "RailSystems.LIST_STATIONS.GET_SIZE",
+            "name": "RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID",
             "sloc": [
               {
                 "file": "list.ads",
-                "line": 53
+                "line": 59
               },
               {
                 "file": "railsystems.ads",
@@ -12495,11 +12495,11 @@
         {
           "predicate": "CLAIM_AORTE",
           "arg": {
-            "name": "RailSystems.LIST_STATIONS.GET_SIZE",
+            "name": "RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID",
             "sloc": [
               {
                 "file": "list.ads",
-                "line": 53
+                "line": 59
               },
               {
                 "file": "railsystems.ads",
@@ -12843,50 +12843,6 @@
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
-            "name": "Stations.LIST_TRACKS.GET_ELEMENT",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 56
-              },
-              {
-                "file": "stations.ads",
-                "line": 10
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "RailSystems.LIST_STATIONS.GET_ELEMENT",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 56
-              },
-              {
-                "file": "railsystems.ads",
-                "line": 23
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "sPrint.Print_Station_Locations",
-            "sloc": [
-              {
-                "file": "sprint.ads",
-                "line": 6
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
             "name": "RailSystems.LIST_STATIONS.CONTAINS",
             "sloc": [
               {
@@ -12903,11 +12859,27 @@
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
-            "name": "RailSystems.getStationByName",
+            "name": "RailSystems.LIST_TRAINS.GET_SIZE",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 53
+              },
+              {
+                "file": "railsystems.ads",
+                "line": 16
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "RailSystems.replaceTrain",
             "sloc": [
               {
                 "file": "railsystems.ads",
-                "line": 188
+                "line": 203
               }
             ]
           }
@@ -12931,15 +12903,11 @@
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
-            "name": "RailSystems.LIST_TRAINS.GET_ELEMENT",
+            "name": "RailSystems.getStationByName",
             "sloc": [
               {
-                "file": "list.ads",
-                "line": 56
-              },
-              {
                 "file": "railsystems.ads",
-                "line": 16
+                "line": 188
               }
             ]
           }
@@ -12947,15 +12915,43 @@
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
-            "name": "RailSystems.LIST_STATIONS.DELETE_LAST",
+            "name": "sPrint.Print_Station_Locations",
+            "sloc": [
+              {
+                "file": "sprint.ads",
+                "line": 6
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "RailSystems.LIST_STATIONS.GET_ELEMENT",
             "sloc": [
               {
                 "file": "list.ads",
-                "line": 63
+                "line": 56
               },
               {
                 "file": "railsystems.ads",
                 "line": 23
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "Stations.LIST_TRACKS.GET_ELEMENT",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 56
+              },
+              {
+                "file": "stations.ads",
+                "line": 10
               }
             ]
           }
@@ -12995,11 +12991,79 @@
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
-            "name": "RailSystems.replaceTrain",
+            "name": "RailSystems.LIST_TRAINS.GET_ELEMENT",
             "sloc": [
               {
+                "file": "list.ads",
+                "line": 56
+              },
+              {
                 "file": "railsystems.ads",
-                "line": 203
+                "line": 16
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "RailSystems.LIST_STATIONS.DELETE_LAST",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 63
+              },
+              {
+                "file": "railsystems.ads",
+                "line": 23
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "RailSystems.dfs_station_reachability_by_train",
+          "sloc": [
+            {
+              "file": "railsystems.ads",
+              "line": 140
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "RailSystems.LIST_STATIONS.CONTAINS",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 49
+              },
+              {
+                "file": "railsystems.ads",
+                "line": 23
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "RailSystems.LIST_STATIONS.CONTAINS",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 49
+              },
+              {
+                "file": "railsystems.ads",
+                "line": 23
               }
             ]
           }
@@ -13019,10 +13083,322 @@
               }
             ]
           }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "RailSystems.LIST_TRAINS.GET_SIZE",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 53
+              },
+              {
+                "file": "railsystems.ads",
+                "line": 16
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "RailSystems.replaceTrain",
+            "sloc": [
+              {
+                "file": "railsystems.ads",
+                "line": 203
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "RailSystems.replaceTrain",
+            "sloc": [
+              {
+                "file": "railsystems.ads",
+                "line": 203
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "RailSystems.LIST_STATIONS.GET_SIZE",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 53
+              },
+              {
+                "file": "railsystems.ads",
+                "line": 23
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "RailSystems.LIST_STATIONS.GET_SIZE",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 53
+              },
+              {
+                "file": "railsystems.ads",
+                "line": 23
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "RailSystems.getStationByName",
+            "sloc": [
+              {
+                "file": "railsystems.ads",
+                "line": 188
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "RailSystems.getStationByName",
+            "sloc": [
+              {
+                "file": "railsystems.ads",
+                "line": 188
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "sPrint.Print_Station_Locations",
+            "sloc": [
+              {
+                "file": "sprint.ads",
+                "line": 6
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "sPrint.Print_Station_Locations",
+            "sloc": [
+              {
+                "file": "sprint.ads",
+                "line": 6
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "RailSystems.LIST_STATIONS.GET_ELEMENT",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 56
+              },
+              {
+                "file": "railsystems.ads",
+                "line": 23
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "RailSystems.LIST_STATIONS.GET_ELEMENT",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 56
+              },
+              {
+                "file": "railsystems.ads",
+                "line": 23
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "Stations.LIST_TRACKS.GET_ELEMENT",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 56
+              },
+              {
+                "file": "stations.ads",
+                "line": 10
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "Stations.LIST_TRACKS.GET_ELEMENT",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 56
+              },
+              {
+                "file": "stations.ads",
+                "line": 10
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "RailSystems.LIST_STATIONS.APPEND",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 65
+              },
+              {
+                "file": "railsystems.ads",
+                "line": 23
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "RailSystems.LIST_STATIONS.APPEND",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 65
+              },
+              {
+                "file": "railsystems.ads",
+                "line": 23
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "Stations.LIST_TRACKS.GET_SIZE",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 53
+              },
+              {
+                "file": "stations.ads",
+                "line": 10
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "Stations.LIST_TRACKS.GET_SIZE",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 53
+              },
+              {
+                "file": "stations.ads",
+                "line": 10
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "RailSystems.LIST_TRAINS.GET_ELEMENT",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 56
+              },
+              {
+                "file": "railsystems.ads",
+                "line": 16
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "RailSystems.LIST_TRAINS.GET_ELEMENT",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 56
+              },
+              {
+                "file": "railsystems.ads",
+                "line": 16
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "RailSystems.LIST_STATIONS.DELETE_LAST",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 63
+              },
+              {
+                "file": "railsystems.ads",
+                "line": 23
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "RailSystems.LIST_STATIONS.DELETE_LAST",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 63
+              },
+              {
+                "file": "railsystems.ads",
+                "line": 23
+              }
+            ]
+          }
         }
       ],
       "claim": {
-        "predicate": "CLAIM_EFFECTS",
+        "predicate": "CLAIM_AORTE",
         "arg": {
           "name": "RailSystems.dfs_station_reachability_by_train",
           "sloc": [
@@ -13056,382 +13432,6 @@
     },
     {
       "assumptions": [
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "Stations.LIST_TRACKS.GET_ELEMENT",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 56
-              },
-              {
-                "file": "stations.ads",
-                "line": 10
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "RailSystems.LIST_STATIONS.GET_ELEMENT",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 56
-              },
-              {
-                "file": "railsystems.ads",
-                "line": 23
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "sPrint.Print_Station_Locations",
-            "sloc": [
-              {
-                "file": "sprint.ads",
-                "line": 6
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_AORTE",
-          "arg": {
-            "name": "Stations.LIST_TRACKS.GET_ELEMENT",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 56
-              },
-              {
-                "file": "stations.ads",
-                "line": 10
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_AORTE",
-          "arg": {
-            "name": "RailSystems.LIST_STATIONS.GET_ELEMENT",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 56
-              },
-              {
-                "file": "railsystems.ads",
-                "line": 23
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_AORTE",
-          "arg": {
-            "name": "sPrint.Print_Station_Locations",
-            "sloc": [
-              {
-                "file": "sprint.ads",
-                "line": 6
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "RailSystems.LIST_STATIONS.CONTAINS",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 49
-              },
-              {
-                "file": "railsystems.ads",
-                "line": 23
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "RailSystems.getStationByName",
-            "sloc": [
-              {
-                "file": "railsystems.ads",
-                "line": 188
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_AORTE",
-          "arg": {
-            "name": "RailSystems.LIST_STATIONS.CONTAINS",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 49
-              },
-              {
-                "file": "railsystems.ads",
-                "line": 23
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_AORTE",
-          "arg": {
-            "name": "RailSystems.getStationByName",
-            "sloc": [
-              {
-                "file": "railsystems.ads",
-                "line": 188
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "RailSystems.LIST_STATIONS.GET_SIZE",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 53
-              },
-              {
-                "file": "railsystems.ads",
-                "line": 23
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_AORTE",
-          "arg": {
-            "name": "RailSystems.LIST_STATIONS.GET_SIZE",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 53
-              },
-              {
-                "file": "railsystems.ads",
-                "line": 23
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "RailSystems.LIST_TRAINS.GET_ELEMENT",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 56
-              },
-              {
-                "file": "railsystems.ads",
-                "line": 16
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_AORTE",
-          "arg": {
-            "name": "RailSystems.LIST_TRAINS.GET_ELEMENT",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 56
-              },
-              {
-                "file": "railsystems.ads",
-                "line": 16
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "RailSystems.LIST_STATIONS.DELETE_LAST",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 63
-              },
-              {
-                "file": "railsystems.ads",
-                "line": 23
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_AORTE",
-          "arg": {
-            "name": "RailSystems.LIST_STATIONS.DELETE_LAST",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 63
-              },
-              {
-                "file": "railsystems.ads",
-                "line": 23
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "RailSystems.LIST_STATIONS.APPEND",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 65
-              },
-              {
-                "file": "railsystems.ads",
-                "line": 23
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_AORTE",
-          "arg": {
-            "name": "RailSystems.LIST_STATIONS.APPEND",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 65
-              },
-              {
-                "file": "railsystems.ads",
-                "line": 23
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "Stations.LIST_TRACKS.GET_SIZE",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 53
-              },
-              {
-                "file": "stations.ads",
-                "line": 10
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_AORTE",
-          "arg": {
-            "name": "Stations.LIST_TRACKS.GET_SIZE",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 53
-              },
-              {
-                "file": "stations.ads",
-                "line": 10
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "RailSystems.replaceTrain",
-            "sloc": [
-              {
-                "file": "railsystems.ads",
-                "line": 203
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "RailSystems.LIST_TRAINS.GET_SIZE",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 53
-              },
-              {
-                "file": "railsystems.ads",
-                "line": 16
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_AORTE",
-          "arg": {
-            "name": "RailSystems.replaceTrain",
-            "sloc": [
-              {
-                "file": "railsystems.ads",
-                "line": 203
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_AORTE",
-          "arg": {
-            "name": "RailSystems.LIST_TRAINS.GET_SIZE",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 53
-              },
-              {
-                "file": "railsystems.ads",
-                "line": 16
-              }
-            ]
-          }
-        }
-      ],
-      "claim": {
-        "predicate": "CLAIM_AORTE",
-        "arg": {
-          "name": "RailSystems.dfs_station_reachability_by_train",
-          "sloc": [
-            {
-              "file": "railsystems.ads",
-              "line": 140
-            }
-          ]
-        }
-      }
-    },
-    {
-      "assumptions": [
       ],
       "claim": {
         "predicate": "CLAIM_EFFECTS",
@@ -13455,15 +13455,39 @@
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
-            "name": "RailSystems.LIST_STATIONS.GET_ELEMENT",
+            "name": "RailSystems.replaceStation",
+            "sloc": [
+              {
+                "file": "railsystems.ads",
+                "line": 199
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "RailSystems.LIST_TRAINS.GET_SIZE",
             "sloc": [
               {
                 "file": "list.ads",
-                "line": 56
+                "line": 53
               },
               {
                 "file": "railsystems.ads",
-                "line": 23
+                "line": 16
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "RailSystems.replaceTrain",
+            "sloc": [
+              {
+                "file": "railsystems.ads",
+                "line": 203
               }
             ]
           }
@@ -13487,7 +13511,7 @@
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
-            "name": "RailSystems.LIST_TRAINS.GET_ELEMENT",
+            "name": "RailSystems.LIST_STATIONS.GET_ELEMENT",
             "sloc": [
               {
                 "file": "list.ads",
@@ -13495,7 +13519,7 @@
               },
               {
                 "file": "railsystems.ads",
-                "line": 16
+                "line": 23
               }
             ]
           }
@@ -13503,35 +13527,11 @@
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
-            "name": "RailSystems.replaceStation",
-            "sloc": [
-              {
-                "file": "railsystems.ads",
-                "line": 199
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "RailSystems.replaceTrain",
-            "sloc": [
-              {
-                "file": "railsystems.ads",
-                "line": 203
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "RailSystems.LIST_TRAINS.GET_SIZE",
+            "name": "RailSystems.LIST_TRAINS.GET_ELEMENT",
             "sloc": [
               {
                 "file": "list.ads",
-                "line": 53
+                "line": 56
               },
               {
                 "file": "railsystems.ads",
@@ -13579,15 +13579,11 @@
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
-            "name": "RailSystems.LIST_STATIONS.GET_ELEMENT",
+            "name": "RailSystems.replaceStation",
             "sloc": [
               {
-                "file": "list.ads",
-                "line": 56
-              },
-              {
                 "file": "railsystems.ads",
-                "line": 23
+                "line": 199
               }
             ]
           }
@@ -13595,15 +13591,67 @@
         {
           "predicate": "CLAIM_AORTE",
           "arg": {
-            "name": "RailSystems.LIST_STATIONS.GET_ELEMENT",
+            "name": "RailSystems.replaceStation",
+            "sloc": [
+              {
+                "file": "railsystems.ads",
+                "line": 199
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "RailSystems.LIST_TRAINS.GET_SIZE",
             "sloc": [
               {
                 "file": "list.ads",
-                "line": 56
+                "line": 53
               },
               {
                 "file": "railsystems.ads",
-                "line": 23
+                "line": 16
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "RailSystems.LIST_TRAINS.GET_SIZE",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 53
+              },
+              {
+                "file": "railsystems.ads",
+                "line": 16
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "RailSystems.replaceTrain",
+            "sloc": [
+              {
+                "file": "railsystems.ads",
+                "line": 203
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "RailSystems.replaceTrain",
+            "sloc": [
+              {
+                "file": "railsystems.ads",
+                "line": 203
               }
             ]
           }
@@ -13643,6 +13691,38 @@
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
+            "name": "RailSystems.LIST_STATIONS.GET_ELEMENT",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 56
+              },
+              {
+                "file": "railsystems.ads",
+                "line": 23
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "RailSystems.LIST_STATIONS.GET_ELEMENT",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 56
+              },
+              {
+                "file": "railsystems.ads",
+                "line": 23
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
             "name": "RailSystems.LIST_TRAINS.GET_ELEMENT",
             "sloc": [
               {
@@ -13664,86 +13744,6 @@
               {
                 "file": "list.ads",
                 "line": 56
-              },
-              {
-                "file": "railsystems.ads",
-                "line": 16
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "RailSystems.replaceStation",
-            "sloc": [
-              {
-                "file": "railsystems.ads",
-                "line": 199
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_AORTE",
-          "arg": {
-            "name": "RailSystems.replaceStation",
-            "sloc": [
-              {
-                "file": "railsystems.ads",
-                "line": 199
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "RailSystems.replaceTrain",
-            "sloc": [
-              {
-                "file": "railsystems.ads",
-                "line": 203
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "RailSystems.LIST_TRAINS.GET_SIZE",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 53
-              },
-              {
-                "file": "railsystems.ads",
-                "line": 16
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_AORTE",
-          "arg": {
-            "name": "RailSystems.replaceTrain",
-            "sloc": [
-              {
-                "file": "railsystems.ads",
-                "line": 203
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_AORTE",
-          "arg": {
-            "name": "RailSystems.LIST_TRAINS.GET_SIZE",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 53
               },
               {
                 "file": "railsystems.ads",
@@ -13771,43 +13771,11 @@
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
-            "name": "Stations.LIST_TRACKS.GET_ELEMENT",
+            "name": "RailSystems.replaceStation",
             "sloc": [
-              {
-                "file": "list.ads",
-                "line": 56
-              },
-              {
-                "file": "stations.ads",
-                "line": 10
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "RailSystems.LIST_STATIONS.GET_ELEMENT",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 56
-              },
               {
                 "file": "railsystems.ads",
-                "line": 23
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "sPrint.Print_Station_Locations",
-            "sloc": [
-              {
-                "file": "sprint.ads",
-                "line": 6
+                "line": 199
               }
             ]
           }
@@ -13831,18 +13799,6 @@
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
-            "name": "RailSystems.getStationByName",
-            "sloc": [
-              {
-                "file": "railsystems.ads",
-                "line": 188
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
             "name": "RailSystems.LIST_STATIONS.GET_SIZE",
             "sloc": [
               {
@@ -13859,15 +13815,55 @@
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
-            "name": "RailSystems.LIST_STATIONS.DELETE_LAST",
+            "name": "RailSystems.getStationByName",
+            "sloc": [
+              {
+                "file": "railsystems.ads",
+                "line": 188
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "sPrint.Print_Station_Locations",
+            "sloc": [
+              {
+                "file": "sprint.ads",
+                "line": 6
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "RailSystems.LIST_STATIONS.GET_ELEMENT",
             "sloc": [
               {
                 "file": "list.ads",
-                "line": 63
+                "line": 56
               },
               {
                 "file": "railsystems.ads",
                 "line": 23
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "Stations.LIST_TRACKS.GET_ELEMENT",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 56
+              },
+              {
+                "file": "stations.ads",
+                "line": 10
               }
             ]
           }
@@ -13907,11 +13903,15 @@
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
-            "name": "RailSystems.replaceStation",
+            "name": "RailSystems.LIST_STATIONS.DELETE_LAST",
             "sloc": [
               {
+                "file": "list.ads",
+                "line": 63
+              },
+              {
                 "file": "railsystems.ads",
-                "line": 199
+                "line": 23
               }
             ]
           }
@@ -13935,43 +13935,11 @@
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
-            "name": "Stations.LIST_TRACKS.GET_ELEMENT",
+            "name": "RailSystems.replaceStation",
             "sloc": [
-              {
-                "file": "list.ads",
-                "line": 56
-              },
-              {
-                "file": "stations.ads",
-                "line": 10
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "RailSystems.LIST_STATIONS.GET_ELEMENT",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 56
-              },
               {
                 "file": "railsystems.ads",
-                "line": 23
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "sPrint.Print_Station_Locations",
-            "sloc": [
-              {
-                "file": "sprint.ads",
-                "line": 6
+                "line": 199
               }
             ]
           }
@@ -13979,43 +13947,11 @@
         {
           "predicate": "CLAIM_AORTE",
           "arg": {
-            "name": "Stations.LIST_TRACKS.GET_ELEMENT",
+            "name": "RailSystems.replaceStation",
             "sloc": [
-              {
-                "file": "list.ads",
-                "line": 56
-              },
-              {
-                "file": "stations.ads",
-                "line": 10
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_AORTE",
-          "arg": {
-            "name": "RailSystems.LIST_STATIONS.GET_ELEMENT",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 56
-              },
               {
                 "file": "railsystems.ads",
-                "line": 23
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_AORTE",
-          "arg": {
-            "name": "sPrint.Print_Station_Locations",
-            "sloc": [
-              {
-                "file": "sprint.ads",
-                "line": 6
+                "line": 199
               }
             ]
           }
@@ -14037,18 +13973,6 @@
           }
         },
         {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "RailSystems.getStationByName",
-            "sloc": [
-              {
-                "file": "railsystems.ads",
-                "line": 188
-              }
-            ]
-          }
-        },
-        {
           "predicate": "CLAIM_AORTE",
           "arg": {
             "name": "RailSystems.LIST_STATIONS.CONTAINS",
@@ -14060,18 +13984,6 @@
               {
                 "file": "railsystems.ads",
                 "line": 23
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_AORTE",
-          "arg": {
-            "name": "RailSystems.getStationByName",
-            "sloc": [
-              {
-                "file": "railsystems.ads",
-                "line": 188
               }
             ]
           }
@@ -14111,11 +14023,59 @@
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
-            "name": "RailSystems.LIST_STATIONS.DELETE_LAST",
+            "name": "RailSystems.getStationByName",
+            "sloc": [
+              {
+                "file": "railsystems.ads",
+                "line": 188
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "RailSystems.getStationByName",
+            "sloc": [
+              {
+                "file": "railsystems.ads",
+                "line": 188
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "sPrint.Print_Station_Locations",
+            "sloc": [
+              {
+                "file": "sprint.ads",
+                "line": 6
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "sPrint.Print_Station_Locations",
+            "sloc": [
+              {
+                "file": "sprint.ads",
+                "line": 6
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "RailSystems.LIST_STATIONS.GET_ELEMENT",
             "sloc": [
               {
                 "file": "list.ads",
-                "line": 63
+                "line": 56
               },
               {
                 "file": "railsystems.ads",
@@ -14127,15 +14087,47 @@
         {
           "predicate": "CLAIM_AORTE",
           "arg": {
-            "name": "RailSystems.LIST_STATIONS.DELETE_LAST",
+            "name": "RailSystems.LIST_STATIONS.GET_ELEMENT",
             "sloc": [
               {
                 "file": "list.ads",
-                "line": 63
+                "line": 56
               },
               {
                 "file": "railsystems.ads",
                 "line": 23
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "Stations.LIST_TRACKS.GET_ELEMENT",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 56
+              },
+              {
+                "file": "stations.ads",
+                "line": 10
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "Stations.LIST_TRACKS.GET_ELEMENT",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 56
+              },
+              {
+                "file": "stations.ads",
+                "line": 10
               }
             ]
           }
@@ -14207,11 +14199,15 @@
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
-            "name": "RailSystems.replaceStation",
+            "name": "RailSystems.LIST_STATIONS.DELETE_LAST",
             "sloc": [
               {
+                "file": "list.ads",
+                "line": 63
+              },
+              {
                 "file": "railsystems.ads",
-                "line": 199
+                "line": 23
               }
             ]
           }
@@ -14219,11 +14215,15 @@
         {
           "predicate": "CLAIM_AORTE",
           "arg": {
-            "name": "RailSystems.replaceStation",
+            "name": "RailSystems.LIST_STATIONS.DELETE_LAST",
             "sloc": [
               {
+                "file": "list.ads",
+                "line": 63
+              },
+              {
                 "file": "railsystems.ads",
-                "line": 199
+                "line": 23
               }
             ]
           }
@@ -14266,6 +14266,26 @@
       "assumptions": [
       ],
       "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "RailSystems.LIST_TRAINS.REPLACE_BY_ID",
+          "sloc": [
+            {
+              "file": "list.ads",
+              "line": 90
+            },
+            {
+              "file": "railsystems.ads",
+              "line": 16
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
         "predicate": "CLAIM_AORTE",
         "arg": {
           "name": "RailSystems.LIST_TRAINS.FULL",
@@ -14286,26 +14306,6 @@
       "assumptions": [
       ],
       "claim": {
-        "predicate": "CLAIM_EFFECTS",
-        "arg": {
-          "name": "RailSystems.LIST_TRAINS.REPLACE_BY_ID",
-          "sloc": [
-            {
-              "file": "list.ads",
-              "line": 90
-            },
-            {
-              "file": "railsystems.ads",
-              "line": 16
-            }
-          ]
-        }
-      }
-    },
-    {
-      "assumptions": [
-      ],
-      "claim": {
         "predicate": "CLAIM_AORTE",
         "arg": {
           "name": "RailSystems.LIST_TRAINS.REPLACE_BY_ID",
@@ -14324,6 +14324,22 @@
     },
     {
       "assumptions": [
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "RailSystems.LIST_TRAINS.GET_SIZE",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 53
+              },
+              {
+                "file": "railsystems.ads",
+                "line": 16
+              }
+            ]
+          }
+        },
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
@@ -14348,22 +14364,6 @@
               {
                 "file": "list.ads",
                 "line": 56
-              },
-              {
-                "file": "railsystems.ads",
-                "line": 16
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "RailSystems.LIST_TRAINS.GET_SIZE",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 53
               },
               {
                 "file": "railsystems.ads",
@@ -14391,6 +14391,38 @@
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
+            "name": "RailSystems.LIST_TRAINS.GET_SIZE",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 53
+              },
+              {
+                "file": "railsystems.ads",
+                "line": 16
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "RailSystems.LIST_TRAINS.GET_SIZE",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 53
+              },
+              {
+                "file": "railsystems.ads",
+                "line": 16
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
             "name": "RailSystems.LIST_TRAINS.REPLACE_BY_ID",
             "sloc": [
               {
@@ -14444,38 +14476,6 @@
               {
                 "file": "list.ads",
                 "line": 56
-              },
-              {
-                "file": "railsystems.ads",
-                "line": 16
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "RailSystems.LIST_TRAINS.GET_SIZE",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 53
-              },
-              {
-                "file": "railsystems.ads",
-                "line": 16
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_AORTE",
-          "arg": {
-            "name": "RailSystems.LIST_TRAINS.GET_SIZE",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 53
               },
               {
                 "file": "railsystems.ads",
@@ -14500,6 +14500,22 @@
     },
     {
       "assumptions": [
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "RailSystems.LIST_STATIONS.GET_SIZE",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 53
+              },
+              {
+                "file": "railsystems.ads",
+                "line": 23
+              }
+            ]
+          }
+        },
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
@@ -14508,6 +14524,22 @@
               {
                 "file": "list.ads",
                 "line": 56
+              },
+              {
+                "file": "railsystems.ads",
+                "line": 23
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "RailSystems.LIST_STATIONS.APPEND",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 65
               },
               {
                 "file": "railsystems.ads",
@@ -14524,38 +14556,6 @@
               {
                 "file": "list.ads",
                 "line": 59
-              },
-              {
-                "file": "railsystems.ads",
-                "line": 23
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "RailSystems.LIST_STATIONS.GET_SIZE",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 53
-              },
-              {
-                "file": "railsystems.ads",
-                "line": 23
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "RailSystems.LIST_STATIONS.APPEND",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 65
               },
               {
                 "file": "railsystems.ads",
@@ -14583,70 +14583,6 @@
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
-            "name": "RailSystems.LIST_STATIONS.GET_ELEMENT",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 56
-              },
-              {
-                "file": "railsystems.ads",
-                "line": 23
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_AORTE",
-          "arg": {
-            "name": "RailSystems.LIST_STATIONS.GET_ELEMENT",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 56
-              },
-              {
-                "file": "railsystems.ads",
-                "line": 23
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
-            "name": "RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 59
-              },
-              {
-                "file": "railsystems.ads",
-                "line": 23
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_AORTE",
-          "arg": {
-            "name": "RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID",
-            "sloc": [
-              {
-                "file": "list.ads",
-                "line": 59
-              },
-              {
-                "file": "railsystems.ads",
-                "line": 23
-              }
-            ]
-          }
-        },
-        {
-          "predicate": "CLAIM_EFFECTS",
-          "arg": {
             "name": "RailSystems.LIST_STATIONS.GET_SIZE",
             "sloc": [
               {
@@ -14679,6 +14615,38 @@
         {
           "predicate": "CLAIM_EFFECTS",
           "arg": {
+            "name": "RailSystems.LIST_STATIONS.GET_ELEMENT",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 56
+              },
+              {
+                "file": "railsystems.ads",
+                "line": 23
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "RailSystems.LIST_STATIONS.GET_ELEMENT",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 56
+              },
+              {
+                "file": "railsystems.ads",
+                "line": 23
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
             "name": "RailSystems.LIST_STATIONS.APPEND",
             "sloc": [
               {
@@ -14700,6 +14668,38 @@
               {
                 "file": "list.ads",
                 "line": 65
+              },
+              {
+                "file": "railsystems.ads",
+                "line": 23
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 59
+              },
+              {
+                "file": "railsystems.ads",
+                "line": 23
+              }
+            ]
+          }
+        },
+        {
+          "predicate": "CLAIM_AORTE",
+          "arg": {
+            "name": "RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID",
+            "sloc": [
+              {
+                "file": "list.ads",
+                "line": 59
               },
               {
                 "file": "railsystems.ads",

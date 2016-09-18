@@ -1,5 +1,5 @@
-        -:    0:Source:C:/Users/JackyChang/Desktop/tutorial/RailSystem/src/stations.ads
-        -:    0:Programs:38
+        -:    0:Source:C:/Users/JackyChang/Desktop/RailSystem2/src/stations.ads
+        -:    0:Programs:9
         -:    1:with Tracks;
         -:    2:with list;
         -:    3:with TYPES;
@@ -17,14 +17,14 @@
         -:   15:--     inTracks:LIST_TRACKS.LIST_PTR;
         -:   16:--     outTracks:LIST_TRACKS.LIST_PTR;
         -:   17:
-     6344:   18:   type Station is
+     5870:   18:   type Station is
         -:   19:      record
         -:   20:         ID: Natural:=0;
         -:   21:         Location: TYPES.Station_Locations:=TYPES.No;
         -:   22:         TrainID: Natural:=0;
-     3172:   23:         Incoming: LIST_TRACKS.LIST_PTR(MAX_SIZE => 100);
-     3172:   24:         Outgoing: LIST_TRACKS.LIST_PTR(MAX_SIZE => 100);
-     3172:   25:         TracksLineOriginAndDestination: TYPES.LIST_OD.LIST_PTR(MAX_SIZE => 100);
+     2935:   23:         Incoming: LIST_TRACKS.LIST_PTR(MAX_SIZE => 100);
+     2935:   24:         Outgoing: LIST_TRACKS.LIST_PTR(MAX_SIZE => 100);
+     2935:   25:         TracksLineOriginAndDestination: TYPES.LIST_OD.LIST_PTR(MAX_SIZE => 100);
         -:   26:         isReachable: Boolean:=False;
         -:   27:      end record;
         -:   28:--     procedure Init(station_r: in out Station);

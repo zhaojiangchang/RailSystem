@@ -1,5 +1,5 @@
-        -:    0:Source:C:/Users/JackyChang/Desktop/tutorial/RailSystem/src/RailSystems.ads
-        -:    0:Programs:38
+        -:    0:Source:C:/Users/JackyChang/Desktop/RailSystem2/src/RailSystems.ads
+        -:    0:Programs:9
         -:    1:with Trains;
         -:    2:with Stations;
         -:    3:with Tracks;
@@ -40,26 +40,26 @@
         -:   38:   procedure Init(r_system: in out RailSystem);
         -:   39:   procedure addTrain (r_system: in out RailSystem; ID: in Natural)
         -:   40:   with
-       48:   41:       Pre =>(ID > 0
-       44:   42:              and ID < 101
-       44:   43:              and (
-       44:   44:                      for all Index in 1 .. RailSystems.LIST_TRAINS.GET_SIZE(r_system.All_Trains)
-       12:   45:                =>RailSystems.LIST_TRAINS.GET_ELEMENT(r_system.All_Trains,Index).ID /= ID )
+        6:   41:       Pre =>(ID > 0
+        6:   42:              and ID < 101
+        6:   43:              and (
+        6:   44:                      for all Index in 1 .. RailSystems.LIST_TRAINS.GET_SIZE(r_system.All_Trains)
+        6:   45:                =>RailSystems.LIST_TRAINS.GET_ELEMENT(r_system.All_Trains,Index).ID /= ID )
         -:   46:             );
         -:   47:
         -:   48:   procedure addTrack(r_system: in out RailSystem; ID: in Natural; Origin: in TYPES.Station_Locations; Destination: in TYPES.Station_Locations; LineOrigin: in TYPES.Station_Locations; LineDestination: in TYPES.Station_Locations)
         -:   49:     with
-      308:   50:       Pre =>(ID >=1
-      294:   51:              and ID<=100
-      294:   52:              and Origin /= TYPES.No
-      294:   53:              and Destination /= TYPES.No
-      294:   54:              and LineOrigin /= TYPES.No
-      294:   55:              and LineDestination /= TYPES.No
-      294:   56:              and Origin /= Destination
-      294:   57:              and LineOrigin /= LineDestination
-      294:   58:              and (if ID/=0 then Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(r_system.All_Tracks, ID).id = 0)
-      298:   59:              and (for all Index in 1 .. Stations.LIST_TRACKS.GET_SIZE(r_system.All_Tracks)
-     1532:   60:                => Stations.LIST_TRACKS.GET_ELEMENT(r_system.All_Tracks,Index).ID /= ID ));
+       32:   50:       Pre =>(ID >=1
+       32:   51:              and ID<=100
+       32:   52:              and Origin /= TYPES.No
+       32:   53:              and Destination /= TYPES.No
+       32:   54:              and LineOrigin /= TYPES.No
+       32:   55:              and LineDestination /= TYPES.No
+       32:   56:              and Origin /= Destination
+       32:   57:              and LineOrigin /= LineDestination
+       32:   58:              and (if ID/=0 then Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(r_system.All_Tracks, ID).id = 0)
+       32:   59:              and (for all Index in 1 .. Stations.LIST_TRACKS.GET_SIZE(r_system.All_Tracks)
+      240:   60:                => Stations.LIST_TRACKS.GET_ELEMENT(r_system.All_Tracks,Index).ID /= ID ));
         -:   61:--       post => (Stations.LIST_TRACKS.CONTAINS(r_system.All_Tracks,Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(r_system.All_Tracks,ID)));
         -:   62:--       post => (Stations.LIST_TRACKS.GET_ELEMENT_BY_ID(r_system.All_Tracks,ID).Origin = Origin );
         -:   63:--       post =>(if Stations.LIST_TRACKS.GET_SIZE(r_system'Old.All_Tracks )< 100 and Stations.LIST_TRACKS.GET_SIZE(r_system'Old.All_Tracks )>=0
@@ -72,16 +72,16 @@
         -:   70:--                 and Stations.LIST_TRACKS.GET_ELEMENT(r_system.All_Tracks,Index).Destination =Destination));
         -:   71:   procedure addStation(r_system: in out RailSystem; ID: in Natural; Location: TYPES.Station_Locations)
         -:   72:     with
-      184:   73:       pre =>(ID >=1
-      176:   74:              and ID <=100
-      176:   75:              and (if ID /= 0 then LIST_STATIONS.GET_ELEMENT_BY_ID(r_system.All_Stations, ID).ID = 0)
-      176:   76:              and (
-      178:   77:                      for all Index in 1 .. LIST_STATIONS.GET_SIZE(r_system.All_Stations)
-      440:   78:                => LIST_STATIONS.GET_ELEMENT(r_system.All_Stations,Index).ID /= ID )
+       16:   73:       pre =>(ID >=1
+       16:   74:              and ID <=100
+       16:   75:              and (if ID /= 0 then LIST_STATIONS.GET_ELEMENT_BY_ID(r_system.All_Stations, ID).ID = 0)
+       16:   76:              and (
+       16:   77:                      for all Index in 1 .. LIST_STATIONS.GET_SIZE(r_system.All_Stations)
+       56:   78:                => LIST_STATIONS.GET_ELEMENT(r_system.All_Stations,Index).ID /= ID )
         -:   79:
-      176:   80:              and (
-      178:   81:                      for all Index in 1 .. LIST_STATIONS.GET_SIZE(r_system.All_Stations)
-      440:   82:                => LIST_STATIONS.GET_ELEMENT(r_system.All_Stations,Index).Location /= Location )
+       16:   80:              and (
+       16:   81:                      for all Index in 1 .. LIST_STATIONS.GET_SIZE(r_system.All_Stations)
+       56:   82:                => LIST_STATIONS.GET_ELEMENT(r_system.All_Stations,Index).Location /= Location )
         -:   83:             );
         -:   84:   --       post =>(if LIST_STATIONS.GET_SIZE(r_system'Old.All_Stations )< 100 and LIST_STATIONS.GET_SIZE(r_system'Old.All_Stations )>=0
         -:   85:   --                   then LIST_STATIONS.GET_SIZE(r_system'Old.All_Stations ) <= LIST_STATIONS.GET_SIZE(r_system.All_Stations)
@@ -90,18 +90,18 @@
         -:   88:
         -:   89:   procedure go(r_system: in out RailSystem; train: in out Trains.Train; count: in Positive)
         -:   90:     with
-        8:   91:       pre =>(train.ID /=0
+        6:   91:       pre =>(train.ID /=0
         6:   92:              and train.Origin /= TYPES.No
         6:   93:              and train.Destination /= types.No
         6:   94:              and train.State = Open
         6:   95:              and (
         6:   96:                      if train.Location.currentLocation = "Station"
         6:   97:                and train.Location.Station.ID /=0 then
-        8:   98:                  (for all Index in 1 .. Stations.LIST_TRACKS.GET_SIZE(LIST_STATIONS.GET_ELEMENT_BY_ID(r_system.All_Stations, train.Location.Station.ID).Outgoing)
+        6:   98:                  (for all Index in 1 .. Stations.LIST_TRACKS.GET_SIZE(LIST_STATIONS.GET_ELEMENT_BY_ID(r_system.All_Stations, train.Location.Station.ID).Outgoing)
         -:   99:                   =>
-       10:  100:                     (if Stations.LIST_TRACKS.GET_ELEMENT(RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(r_system.All_Stations, train.Location.Station.ID).Outgoing, Index).TracksLineDestination = train.Destination
-       10:  101:                      and Stations.LIST_TRACKS.GET_ELEMENT(RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(r_system.All_Stations, train.Location.Station.ID).Outgoing, Index).Origin /=TYPES.No
-       10:  102:                      and Stations.LIST_TRACKS.GET_ELEMENT(RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(r_system.All_Stations, train.Location.Station.ID).Outgoing, Index).Destination /=TYPES.No
+       12:  100:                     (if Stations.LIST_TRACKS.GET_ELEMENT(RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(r_system.All_Stations, train.Location.Station.ID).Outgoing, Index).TracksLineDestination = train.Destination
+       12:  101:                      and Stations.LIST_TRACKS.GET_ELEMENT(RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(r_system.All_Stations, train.Location.Station.ID).Outgoing, Index).Origin /=TYPES.No
+       12:  102:                      and Stations.LIST_TRACKS.GET_ELEMENT(RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(r_system.All_Stations, train.Location.Station.ID).Outgoing, Index).Destination /=TYPES.No
         -:  103:                        then
        12:  104:                          RailSystems.getTrackByName(r_system,
         6:  105:                        Stations.LIST_TRACKS.GET_ELEMENT(RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(r_system.All_Stations, train.Location.Station.ID).Outgoing, Index).Origin,
@@ -122,18 +122,18 @@
         -:  120:
         -:  121:   procedure prepareTrain(r_system: in out RailSystem; train: in out Trains.Train; Origin: in TYPES.Station_Locations; Destination: in TYPES.Station_Locations; StartTime: in TYPES.TimeTable)
         -:  122:     with
-       34:  123:       pre =>(Origin /= TYPES.No
-       24:  124:              and Destination /= TYPES.No
-       24:  125:              and Origin /= Destination
-       24:  126:              and train.Location.Station.TrainID = 0
-       40:  127:              and (if Origin /=TYPES.No then (for some Index in 1.. TYPES.LIST_OD.GET_SIZE(RailSystems.getStationByName(r_system.All_Stations,Origin).TracksLineOriginAndDestination)
-       28:  128:                =>(TYPES.LIST_OD.GET_ELEMENT(RailSystems.getStationByName(r_system.All_Stations,Origin).TracksLineOriginAndDestination, Index).Origin = Origin
-       28:  129:                   or TYPES.LIST_OD.GET_ELEMENT(RailSystems.getStationByName(r_system.All_Stations,Origin).TracksLineOriginAndDestination, Index).Destination = Origin)
-       56:  130:                and (TYPES.LIST_OD.GET_ELEMENT(RailSystems.getStationByName(r_system.All_Stations,Origin).TracksLineOriginAndDestination, Index).Origin = Destination
-       28:  131:                  or TYPES.LIST_OD.GET_ELEMENT(RailSystems.getStationByName(r_system.All_Stations,Origin).TracksLineOriginAndDestination, Index).Destination = Destination)))),
-       14:  132:     post => (train.Origin = Origin
-       14:  133:              and train.Destination = Destination
-       14:  134:              and train.State = TYPES.Open);
+        6:  123:       pre =>(Origin /= TYPES.No
+        6:  124:              and Destination /= TYPES.No
+        6:  125:              and Origin /= Destination
+        6:  126:              and train.Location.Station.TrainID = 0
+       12:  127:              and (if Origin /=TYPES.No then (for some Index in 1.. TYPES.LIST_OD.GET_SIZE(RailSystems.getStationByName(r_system.All_Stations,Origin).TracksLineOriginAndDestination)
+        8:  128:                =>(TYPES.LIST_OD.GET_ELEMENT(RailSystems.getStationByName(r_system.All_Stations,Origin).TracksLineOriginAndDestination, Index).Origin = Origin
+        8:  129:                   or TYPES.LIST_OD.GET_ELEMENT(RailSystems.getStationByName(r_system.All_Stations,Origin).TracksLineOriginAndDestination, Index).Destination = Origin)
+       16:  130:                and (TYPES.LIST_OD.GET_ELEMENT(RailSystems.getStationByName(r_system.All_Stations,Origin).TracksLineOriginAndDestination, Index).Origin = Destination
+        8:  131:                  or TYPES.LIST_OD.GET_ELEMENT(RailSystems.getStationByName(r_system.All_Stations,Origin).TracksLineOriginAndDestination, Index).Destination = Destination)))),
+        6:  132:     post => (train.Origin = Origin
+        6:  133:              and train.Destination = Destination
+        6:  134:              and train.State = TYPES.Open);
         -:  135:
         -:  136:
         -:  137:   -- deep first search by given a train, and train has origin and destionation
@@ -143,19 +143,19 @@
         -:  141:     with
         -:  142:       pre =>(
         6:  143:                train.ID/=0
-        4:  144:              and train.Origin /=TYPES.No
-        4:  145:              and train.Destination /= TYPES.No
-        4:  146:              and train.State /= types.Close
-        4:  147:              and train.Location.Station.TrainID /=0
-        4:  148:              and train.Origin /= train.Destination
-        4:  149:              and RailSystems.LIST_TRAINS.GET_SIZE(A => r_system.All_Trains) >0
-        4:  150:              and RailSystems.LIST_STATIONS.GET_SIZE(A => r_system.All_Stations)>1
-        8:  151:              and  (for some Index in 1 ..RailSystems.LIST_TRAINS.GET_SIZE(A => r_system.All_Trains)
-        4:  152:                => LIST_TRAINS.GET_ELEMENT(r_system.All_Trains, Index).ID = train.ID)
-        8:  153:              and (for some Index in 1 ..RailSystems.LIST_STATIONS.GET_SIZE(A => r_system.All_Stations)
-        4:  154:                => LIST_STATIONS.GET_ELEMENT(r_system.All_Stations, Index).Location = train.Origin)
-        8:  155:              and (for some Index in 1 ..RailSystems.LIST_STATIONS.GET_SIZE(A => r_system.All_Stations)
-        8:  156:                => LIST_STATIONS.GET_ELEMENT(r_system.All_Stations, Index).Location = train.Destination)
+        6:  144:              and train.Origin /=TYPES.No
+        6:  145:              and train.Destination /= TYPES.No
+        6:  146:              and train.State /= types.Close
+        6:  147:              and train.Location.Station.TrainID /=0
+        6:  148:              and train.Origin /= train.Destination
+        6:  149:              and RailSystems.LIST_TRAINS.GET_SIZE(A => r_system.All_Trains) >0
+        6:  150:              and RailSystems.LIST_STATIONS.GET_SIZE(A => r_system.All_Stations)>1
+       12:  151:              and  (for some Index in 1 ..RailSystems.LIST_TRAINS.GET_SIZE(A => r_system.All_Trains)
+       12:  152:                => LIST_TRAINS.GET_ELEMENT(r_system.All_Trains, Index).ID = train.ID)
+       12:  153:              and (for some Index in 1 ..RailSystems.LIST_STATIONS.GET_SIZE(A => r_system.All_Stations)
+       10:  154:                => LIST_STATIONS.GET_ELEMENT(r_system.All_Stations, Index).Location = train.Origin)
+       12:  155:              and (for some Index in 1 ..RailSystems.LIST_STATIONS.GET_SIZE(A => r_system.All_Stations)
+       12:  156:                => LIST_STATIONS.GET_ELEMENT(r_system.All_Stations, Index).Location = train.Destination)
         -:  157:             );
         -:  158:   --       post =>(
         -:  159:   --                 if dfs_station_reachability'Result =train.Destination then
@@ -167,13 +167,13 @@
         -:  165:   procedure dfs_station_reachability_by_stations(r_system: in out RailSystem; from_station: in TYPES.Station_Locations; to_Station: in TYPES.Station_Locations)
         -:  166:     with
         -:  167:       pre => (
-        8:  168:                 from_station /=TYPES.No
-        8:  169:               and to_Station /=TYPES.No
-        8:  170:               and RailSystems.LIST_STATIONS.GET_SIZE(A => r_system.All_Stations)>1
-       16:  171:               and (for some Index in 1 ..RailSystems.LIST_STATIONS.GET_SIZE(A => r_system.All_Stations)
-       12:  172:                 => LIST_STATIONS.GET_ELEMENT(r_system.All_Stations, Index).Location = from_station)
-       16:  173:               and (for some Index in 1 ..RailSystems.LIST_STATIONS.GET_SIZE(A => r_system.All_Stations)
-       18:  174:                 => LIST_STATIONS.GET_ELEMENT(r_system.All_Stations, Index).Location = to_Station)
+        6:  168:                 from_station /=TYPES.No
+        6:  169:               and to_Station /=TYPES.No
+        6:  170:               and RailSystems.LIST_STATIONS.GET_SIZE(A => r_system.All_Stations)>1
+       12:  171:               and (for some Index in 1 ..RailSystems.LIST_STATIONS.GET_SIZE(A => r_system.All_Stations)
+        8:  172:                 => LIST_STATIONS.GET_ELEMENT(r_system.All_Stations, Index).Location = from_station)
+       12:  173:               and (for some Index in 1 ..RailSystems.LIST_STATIONS.GET_SIZE(A => r_system.All_Stations)
+       16:  174:                 => LIST_STATIONS.GET_ELEMENT(r_system.All_Stations, Index).Location = to_Station)
         -:  175:              );
         -:  176:   --         post => (
         -:  177:   --                    if from_station /=TYPES.No
@@ -191,24 +191,26 @@
         -:  189:
         -:  190:   function getTrackByName(r_system: in RailSystem; Origin: in TYPES.Station_Locations; Destination: in TYPES.Station_Locations) return Tracks.Track
         -:  191:     with
-       46:  192:       pre => (Origin/= TYPES.No
-       46:  193:               and Destination /= TYPES.No);
+       60:  192:       pre => (Origin/= TYPES.No
+       60:  193:               and Destination /= TYPES.No);
         -:  194:
         -:  195:   function getTrainById(r_system: in RailSystem; ID: in Natural) return Trains.Train
         -:  196:     with
-       44:  197:       pre => (ID >=1
-       40:  198:               and ID <= LIST_TRAINS.GET_SIZE(r_system.All_Trains));
+        6:  197:       pre => (ID >=1
+        6:  198:               and ID <= LIST_TRAINS.GET_SIZE(r_system.All_Trains));
         -:  199:    procedure replaceStation(r_system: in out RailSystem; station: in Stations.Station)
         -:  200:     with
-      218:  201:       pre => station.ID /=0;
+      132:  201:       pre => station.ID /=0;
         -:  202:
         -:  203:   procedure replaceTrain(r_system: in out RailSystem; train: in Trains.Train)
         -:  204:     with
-       54:  205:       pre => train.ID > 0;
+       76:  205:       pre => train.ID > 0;
         -:  206:
         -:  207:   procedure replaceTrack(r_system: in out RailSystem;track: in Tracks.Track)
         -:  208:     with
-       36:  209:       pre => track.ID > 0;
+       40:  209:       pre => track.ID > 0;
         -:  210:
         -:  211:   procedure addIncomingOutgoingTracksForEachStation(r_system: in out RailSystem);
-        2:  212:end RailSystems;
+        -:  212:
+        -:  213:   procedure resetIsReachable(r_system: in out RailSystem);
+        2:  214:end RailSystems;

@@ -63,17 +63,17 @@
         -:   61:   -- New_Node --
         -:   62:   --------------
         -:   63:
-      144:   64:   function New_Node_Type
+      142:   64:   function New_Node_Type
         -:   65:     (Element : Element_Type;
         -:   66:      Next    : Node_Access;
         -:   67:      Prev    : Node_Access) return Node_Access
         -:   68:   is
-      144:   69:      Res : constant Node_Access := New_Node_Type;
+      142:   69:      Res : constant Node_Access := New_Node_Type;
         -:   70:   begin
-      144:   71:      Res.Element := Element;
-      144:   72:      Res.Next    := Next;
-      144:   73:      Res.Prev    := Prev;
-      144:   74:      return Res;
+      142:   71:      Res.Element := Element;
+      142:   72:      Res.Next    := Next;
+      142:   73:      Res.Prev    := Prev;
+      142:   74:      return Res;
         -:   75:   end New_Node_Type;
         -:   76:
         -:   77:   ---------
@@ -109,24 +109,24 @@
         -:  107:   -- Append --
         -:  108:   ------------
         -:  109:
-      144:  110:   procedure Append
+      142:  110:   procedure Append
         -:  111:     (Container : in out List;
         -:  112:      New_Item  : Element_Type;
         -:  113:      Count     : Count_Type := 1)
         -:  114:   is
         -:  115:   begin
-      144:  116:      Insert (Container, No_Element, New_Item, Count);
-      144:  117:   end Append;
+      142:  116:      Insert (Container, No_Element, New_Item, Count);
+      142:  117:   end Append;
         -:  118:
         -:  119:   -----------
         -:  120:   -- Clear --
         -:  121:   -----------
         -:  122:
-        6:  123:   procedure Clear (Container : in out List) is
-        6:  124:      X : Node_Access;
+        4:  123:   procedure Clear (Container : in out List) is
+        4:  124:      X : Node_Access;
         -:  125:
         -:  126:   begin
-        6:  127:      if Container.Length = 0 then
+        4:  127:      if Container.Length = 0 then
         4:  128:         pragma Assert (Container.First = null);
         4:  129:         pragma Assert (Container.Last = null);
         4:  130:         pragma Assert (Container.Busy = 0);
@@ -134,14 +134,14 @@
         4:  132:         return;
         -:  133:      end if;
         -:  134:
-        2:  135:      pragma Assert (Container.First.Prev = null);
-        2:  136:      pragma Assert (Container.Last.Next = null);
+    #####:  135:      pragma Assert (Container.First.Prev = null);
+    #####:  136:      pragma Assert (Container.Last.Next = null);
         -:  137:
-        2:  138:      if Container.Busy > 0 then
+    #####:  138:      if Container.Busy > 0 then
     #####:  139:         raise Program_Error;
         -:  140:      end if;
         -:  141:
-        2:  142:      while Container.Length > 1 loop
+    #####:  142:      while Container.Length > 1 loop
     #####:  143:         X := Container.First;
     #####:  144:         pragma Assert (X.Next.Prev = Container.First);
         -:  145:
@@ -153,14 +153,14 @@
     #####:  151:         AUnit_Free (X.all'Address);
     #####:  152:      end loop;
         -:  153:
-        2:  154:      X := Container.First;
-        2:  155:      pragma Assert (X = Container.Last);
+    #####:  154:      X := Container.First;
+    #####:  155:      pragma Assert (X = Container.Last);
         -:  156:
-        2:  157:      Container.First := null;
-        2:  158:      Container.Last := null;
-        2:  159:      Container.Length := 0;
+    #####:  157:      Container.First := null;
+    #####:  158:      Container.Last := null;
+    #####:  159:      Container.Length := 0;
         -:  160:
-        2:  161:      AUnit_Free (X.all'Address);
+    #####:  161:      AUnit_Free (X.all'Address);
         -:  162:   end Clear;
         -:  163:
         -:  164:   --------------
@@ -179,28 +179,28 @@
         -:  177:   -- Delete --
         -:  178:   ------------
         -:  179:
-        2:  180:   procedure Delete
+    #####:  180:   procedure Delete
         -:  181:     (Container : in out List;
         -:  182:      Position  : in out Cursor;
         -:  183:      Count     : Count_Type := 1)
         -:  184:   is
-        2:  185:      X : Node_Access;
+    #####:  185:      X : Node_Access;
         -:  186:
         -:  187:   begin
-        2:  188:      if Position.Node = null then
+    #####:  188:      if Position.Node = null then
     #####:  189:         raise Constraint_Error;
         -:  190:      end if;
         -:  191:
-        2:  192:      if Position.Container /= Container'Unrestricted_Access then
+    #####:  192:      if Position.Container /= Container'Unrestricted_Access then
     #####:  193:         raise Program_Error;
         -:  194:      end if;
         -:  195:
-        2:  196:      pragma Assert (Vet (Position), "bad cursor in Delete");
+    #####:  196:      pragma Assert (Vet (Position), "bad cursor in Delete");
         -:  197:
-        2:  198:      if Position.Node = Container.First then
-        2:  199:         Delete_First (Container, Count);
-        2:  200:         Position := No_Element; --  Post-York behavior
-        2:  201:         return;
+    #####:  198:      if Position.Node = Container.First then
+    #####:  199:         Delete_First (Container, Count);
+    #####:  200:         Position := No_Element; --  Post-York behavior
+    #####:  201:         return;
         -:  202:      end if;
         -:  203:
     #####:  204:      if Count = 0 then
@@ -235,22 +235,22 @@
     #####:  233:      end loop;
         -:  234:
     #####:  235:      Position := No_Element;  --  Post-York behavior
-        2:  236:   end Delete;
+    #####:  236:   end Delete;
         -:  237:
         -:  238:   ------------------
         -:  239:   -- Delete_First --
         -:  240:   ------------------
         -:  241:
-        2:  242:   procedure Delete_First
+    #####:  242:   procedure Delete_First
         -:  243:     (Container : in out List;
         -:  244:      Count     : Count_Type := 1)
         -:  245:   is
-        2:  246:      X : Node_Access;
+    #####:  246:      X : Node_Access;
         -:  247:
         -:  248:   begin
-        2:  249:      if Count >= Container.Length then
-        2:  250:         Clear (Container);
-        2:  251:         return;
+    #####:  249:      if Count >= Container.Length then
+    #####:  250:         Clear (Container);
+    #####:  251:         return;
         -:  252:      end if;
         -:  253:
     #####:  254:      if Count = 0 then
@@ -315,15 +315,15 @@
         -:  313:   -- Element --
         -:  314:   -------------
         -:  315:
-      576:  316:   function Element (Position : Cursor) return Element_Type is
+      564:  316:   function Element (Position : Cursor) return Element_Type is
         -:  317:   begin
-      576:  318:      if Position.Node = null then
+      564:  318:      if Position.Node = null then
     #####:  319:         raise Constraint_Error;
         -:  320:      end if;
         -:  321:
-      576:  322:      pragma Assert (Vet (Position), "bad cursor in Element");
+      564:  322:      pragma Assert (Vet (Position), "bad cursor in Element");
         -:  323:
-      576:  324:      return Position.Node.Element;
+      564:  324:      return Position.Node.Element;
         -:  325:   end Element;
         -:  326:
         -:  327:   ----------
@@ -364,13 +364,13 @@
         -:  362:   -- First --
         -:  363:   -----------
         -:  364:
-      222:  365:   function First (Container : List) return Cursor is
+      226:  365:   function First (Container : List) return Cursor is
         -:  366:   begin
-      222:  367:      if Container.First = null then
-      142:  368:         return No_Element;
+      226:  367:      if Container.First = null then
+      150:  368:         return No_Element;
         -:  369:      end if;
         -:  370:
-       80:  371:      return Cursor'(Container'Unchecked_Access, Container.First);
+       76:  371:      return Cursor'(Container'Unchecked_Access, Container.First);
         -:  372:   end First;
         -:  373:
         -:  374:   -------------------
@@ -565,27 +565,27 @@
         -:  563:   -- Has_Element --
         -:  564:   -----------------
         -:  565:
-      458:  566:   function Has_Element (Position : Cursor) return Boolean is
+      444:  566:   function Has_Element (Position : Cursor) return Boolean is
         -:  567:   begin
-      458:  568:      pragma Assert (Vet (Position), "bad cursor in Has_Element");
-      458:  569:      return Position.Node /= null;
+      444:  568:      pragma Assert (Vet (Position), "bad cursor in Has_Element");
+      444:  569:      return Position.Node /= null;
         -:  570:   end Has_Element;
         -:  571:
         -:  572:   ------------
         -:  573:   -- Insert --
         -:  574:   ------------
         -:  575:
-      144:  576:   procedure Insert
+      142:  576:   procedure Insert
         -:  577:     (Container : in out List;
         -:  578:      Before    : Cursor;
         -:  579:      New_Item  : Element_Type;
         -:  580:      Position  : out Cursor;
         -:  581:      Count     : Count_Type := 1)
         -:  582:   is
-      144:  583:      New_Node : Node_Access;
+      142:  583:      New_Node : Node_Access;
         -:  584:
         -:  585:   begin
-      144:  586:      if Before.Container /= null then
+      142:  586:      if Before.Container /= null then
     #####:  587:         if Before.Container /= Container'Unrestricted_Access then
     #####:  588:            raise Program_Error;
         -:  589:         end if;
@@ -593,41 +593,41 @@
     #####:  591:         pragma Assert (Vet (Before), "bad cursor in Insert");
         -:  592:      end if;
         -:  593:
-      144:  594:      if Count = 0 then
+      142:  594:      if Count = 0 then
     #####:  595:         Position := Before;
     #####:  596:         return;
         -:  597:      end if;
         -:  598:
-      144:  599:      if Container.Length > Count_Type'Last - Count then
+      142:  599:      if Container.Length > Count_Type'Last - Count then
     #####:  600:         raise Constraint_Error;
         -:  601:      end if;
         -:  602:
-      144:  603:      if Container.Busy > 0 then
+      142:  603:      if Container.Busy > 0 then
     #####:  604:         raise Program_Error;
         -:  605:      end if;
         -:  606:
-      144:  607:      New_Node := New_Node_Type (New_Item, null, null);
-      144:  608:      Insert_Internal (Container, Before.Node, New_Node);
+      142:  607:      New_Node := New_Node_Type (New_Item, null, null);
+      142:  608:      Insert_Internal (Container, Before.Node, New_Node);
         -:  609:
-      144:  610:      Position := Cursor'(Container'Unchecked_Access, New_Node);
+      142:  610:      Position := Cursor'(Container'Unchecked_Access, New_Node);
         -:  611:
-      144:  612:      for J in Count_Type'(2) .. Count loop
+      142:  612:      for J in Count_Type'(2) .. Count loop
     #####:  613:         New_Node := New_Node_Type (New_Item, null, null);
     #####:  614:         Insert_Internal (Container, Before.Node, New_Node);
     #####:  615:      end loop;
-      144:  616:   end Insert;
+      142:  616:   end Insert;
         -:  617:
-      144:  618:   procedure Insert
+      142:  618:   procedure Insert
         -:  619:     (Container : in out List;
         -:  620:      Before    : Cursor;
         -:  621:      New_Item  : Element_Type;
         -:  622:      Count     : Count_Type := 1)
         -:  623:   is
-      144:  624:      Position : Cursor;
+      142:  624:      Position : Cursor;
         -:  625:      pragma Unreferenced (Position);
         -:  626:   begin
-      144:  627:      Insert (Container, Before, New_Item, Position, Count);
-      144:  628:   end Insert;
+      142:  627:      Insert (Container, Before, New_Item, Position, Count);
+      142:  628:   end Insert;
         -:  629:
     #####:  630:   procedure Insert
         -:  631:     (Container : in out List;
@@ -674,19 +674,19 @@
         -:  672:   -- Insert_Internal --
         -:  673:   ---------------------
         -:  674:
-      144:  675:   procedure Insert_Internal
+      142:  675:   procedure Insert_Internal
         -:  676:     (Container : in out List;
         -:  677:      Before    : Node_Access;
         -:  678:      New_Node  : Node_Access)
         -:  679:   is
         -:  680:   begin
-      144:  681:      if Container.Length = 0 then
-        8:  682:         pragma Assert (Before = null);
-        8:  683:         pragma Assert (Container.First = null);
-        8:  684:         pragma Assert (Container.Last = null);
+      142:  681:      if Container.Length = 0 then
+        6:  682:         pragma Assert (Before = null);
+        6:  683:         pragma Assert (Container.First = null);
+        6:  684:         pragma Assert (Container.Last = null);
         -:  685:
-        8:  686:         Container.First := New_Node;
-        8:  687:         Container.Last := New_Node;
+        6:  686:         Container.First := New_Node;
+        6:  687:         Container.Last := New_Node;
         -:  688:
       136:  689:      elsif Before = null then
       136:  690:         pragma Assert (Container.Last.Next = null);
@@ -715,8 +715,8 @@
     #####:  713:         Before.Prev := New_Node;
         -:  714:      end if;
         -:  715:
-      144:  716:      Container.Length := Container.Length + 1;
-      144:  717:   end Insert_Internal;
+      142:  716:      Container.Length := Container.Length + 1;
+      142:  717:   end Insert_Internal;
         -:  718:
         -:  719:   --------------
         -:  720:   -- Is_Empty --
@@ -821,27 +821,27 @@
         -:  819:   -- Next --
         -:  820:   ----------
         -:  821:
-      146:  822:   procedure Next (Position : in out Cursor) is
+      142:  822:   procedure Next (Position : in out Cursor) is
         -:  823:   begin
-      146:  824:      Position := Next (Position);
-      146:  825:   end Next;
+      142:  824:      Position := Next (Position);
+      142:  825:   end Next;
         -:  826:
-      154:  827:   function Next (Position : Cursor) return Cursor is
+      142:  827:   function Next (Position : Cursor) return Cursor is
         -:  828:   begin
-      154:  829:      if Position.Node = null then
+      142:  829:      if Position.Node = null then
     #####:  830:         return No_Element;
         -:  831:      end if;
         -:  832:
-      154:  833:      pragma Assert (Vet (Position), "bad cursor in Next");
+      142:  833:      pragma Assert (Vet (Position), "bad cursor in Next");
         -:  834:
         -:  835:      declare
-      154:  836:         Next_Node : constant Node_Access := Position.Node.Next;
+      142:  836:         Next_Node : constant Node_Access := Position.Node.Next;
         -:  837:      begin
-      154:  838:         if Next_Node = null then
-       14:  839:            return No_Element;
+      142:  838:         if Next_Node = null then
+        6:  839:            return No_Element;
         -:  840:         end if;
         -:  841:
-      140:  842:         return Cursor'(Position.Container, Next_Node);
+      136:  842:         return Cursor'(Position.Container, Next_Node);
         -:  843:      end;
         -:  844:   end Next;
         -:  845:
@@ -1255,46 +1255,46 @@
         -: 1253:      end if;
         -: 1254:
        70: 1255:      if Position.Node = Source.First then
-       64: 1256:         Source.First := Position.Node.Next;
+       70: 1256:         Source.First := Position.Node.Next;
         -: 1257:
-       64: 1258:         if Position.Node = Source.Last then
+       70: 1258:         if Position.Node = Source.Last then
         2: 1259:            pragma Assert (Source.First = null);
         2: 1260:            pragma Assert (Source.Length = 1);
         2: 1261:            Source.Last := null;
         -: 1262:
         -: 1263:         else
-       62: 1264:            Source.First.Prev := null;
+       68: 1264:            Source.First.Prev := null;
         -: 1265:         end if;
         -: 1266:
-        6: 1267:      elsif Position.Node = Source.Last then
-        2: 1268:         pragma Assert (Source.Length >= 2);
-        2: 1269:         Source.Last := Position.Node.Prev;
-        2: 1270:         Source.Last.Next := null;
+    #####: 1267:      elsif Position.Node = Source.Last then
+    #####: 1268:         pragma Assert (Source.Length >= 2);
+    #####: 1269:         Source.Last := Position.Node.Prev;
+    #####: 1270:         Source.Last.Next := null;
         -: 1271:
         -: 1272:      else
-        4: 1273:         pragma Assert (Source.Length >= 3);
-        4: 1274:         Position.Node.Prev.Next := Position.Node.Next;
-        4: 1275:         Position.Node.Next.Prev := Position.Node.Prev;
+    #####: 1273:         pragma Assert (Source.Length >= 3);
+    #####: 1274:         Position.Node.Prev.Next := Position.Node.Next;
+    #####: 1275:         Position.Node.Next.Prev := Position.Node.Prev;
         -: 1276:      end if;
         -: 1277:
        70: 1278:      if Target.Length = 0 then
-        4: 1279:         pragma Assert (Target.First = null);
-        4: 1280:         pragma Assert (Target.Last = null);
-        4: 1281:         pragma Assert (Before = No_Element);
+        2: 1279:         pragma Assert (Target.First = null);
+        2: 1280:         pragma Assert (Target.Last = null);
+        2: 1281:         pragma Assert (Before = No_Element);
         -: 1282:
-        4: 1283:         Target.First := Position.Node;
-        4: 1284:         Target.Last := Position.Node;
+        2: 1283:         Target.First := Position.Node;
+        2: 1284:         Target.Last := Position.Node;
         -: 1285:
-        4: 1286:         Target.First.Prev := null;
-        4: 1287:         Target.Last.Next := null;
+        2: 1286:         Target.First.Prev := null;
+        2: 1287:         Target.Last.Next := null;
         -: 1288:
-       66: 1289:      elsif Before.Node = null then
-       66: 1290:         pragma Assert (Target.Last.Next = null);
-       66: 1291:         Target.Last.Next := Position.Node;
-       66: 1292:         Position.Node.Prev := Target.Last;
+       68: 1289:      elsif Before.Node = null then
+       68: 1290:         pragma Assert (Target.Last.Next = null);
+       68: 1291:         Target.Last.Next := Position.Node;
+       68: 1292:         Position.Node.Prev := Target.Last;
         -: 1293:
-       66: 1294:         Target.Last := Position.Node;
-       66: 1295:         Target.Last.Next := null;
+       68: 1294:         Target.Last := Position.Node;
+       68: 1295:         Target.Last.Next := null;
         -: 1296:
     #####: 1297:      elsif Before.Node = Target.First then
     #####: 1298:         pragma Assert (Target.First.Prev = null);
@@ -1433,138 +1433,138 @@
         -: 1431:   -- Vet --
         -: 1432:   ---------
         -: 1433:
-     1260: 1434:   function Vet (Position : Cursor) return Boolean is
+     1220: 1434:   function Vet (Position : Cursor) return Boolean is
         -: 1435:   begin
-     1260: 1436:      if Position.Node = null then
-      228: 1437:         return Position.Container = null;
+     1220: 1436:      if Position.Node = null then
+      230: 1437:         return Position.Container = null;
         -: 1438:      end if;
         -: 1439:
-     1032: 1440:      if Position.Container = null then
+      990: 1440:      if Position.Container = null then
     #####: 1441:         return False;
         -: 1442:      end if;
         -: 1443:
-     1032: 1444:      if Position.Node.Next = Position.Node then
+      990: 1444:      if Position.Node.Next = Position.Node then
     #####: 1445:         return False;
         -: 1446:      end if;
         -: 1447:
-     1032: 1448:      if Position.Node.Prev = Position.Node then
+      990: 1448:      if Position.Node.Prev = Position.Node then
     #####: 1449:         return False;
         -: 1450:      end if;
         -: 1451:
         -: 1452:      declare
-     1032: 1453:         L : List renames Position.Container.all;
+      990: 1453:         L : List renames Position.Container.all;
         -: 1454:      begin
-     1032: 1455:         if L.Length = 0 then
+      990: 1455:         if L.Length = 0 then
     #####: 1456:            return False;
         -: 1457:         end if;
         -: 1458:
-     1032: 1459:         if L.First = null then
+      990: 1459:         if L.First = null then
     #####: 1460:            return False;
         -: 1461:         end if;
         -: 1462:
-     1032: 1463:         if L.Last = null then
+      990: 1463:         if L.Last = null then
     #####: 1464:            return False;
         -: 1465:         end if;
         -: 1466:
-     1032: 1467:         if L.First.Prev /= null then
+      990: 1467:         if L.First.Prev /= null then
     #####: 1468:            return False;
         -: 1469:         end if;
         -: 1470:
-     1032: 1471:         if L.Last.Next /= null then
+      990: 1471:         if L.Last.Next /= null then
     #####: 1472:            return False;
         -: 1473:         end if;
         -: 1474:
-     1032: 1475:         if Position.Node.Prev = null
-      334: 1476:           and then Position.Node /= L.First
+      990: 1475:         if Position.Node.Prev = null
+      310: 1476:           and then Position.Node /= L.First
         -: 1477:         then
     #####: 1478:            return False;
         -: 1479:         end if;
         -: 1480:
-     1032: 1481:         if Position.Node.Next = null
-       80: 1482:           and then Position.Node /= L.Last
+      990: 1481:         if Position.Node.Next = null
+       36: 1482:           and then Position.Node /= L.Last
         -: 1483:         then
     #####: 1484:            return False;
         -: 1485:         end if;
         -: 1486:
-     1032: 1487:         if L.Length = 1 then
-       52: 1488:            return L.First = L.Last;
+      990: 1487:         if L.Length = 1 then
+       16: 1488:            return L.First = L.Last;
         -: 1489:         end if;
         -: 1490:
-      980: 1491:         if L.First = L.Last then
+      974: 1491:         if L.First = L.Last then
     #####: 1492:            return False;
         -: 1493:         end if;
         -: 1494:
-      980: 1495:         if L.First.Next = null then
+      974: 1495:         if L.First.Next = null then
     #####: 1496:            return False;
         -: 1497:         end if;
         -: 1498:
-      980: 1499:         if L.Last.Prev = null then
+      974: 1499:         if L.Last.Prev = null then
     #####: 1500:            return False;
         -: 1501:         end if;
         -: 1502:
-      980: 1503:         if L.First.Next.Prev /= L.First then
+      974: 1503:         if L.First.Next.Prev /= L.First then
     #####: 1504:            return False;
         -: 1505:         end if;
         -: 1506:
-      980: 1507:         if L.Last.Prev.Next /= L.Last then
+      974: 1507:         if L.Last.Prev.Next /= L.Last then
     #####: 1508:            return False;
         -: 1509:         end if;
         -: 1510:
-      980: 1511:         if L.Length = 2 then
-       10: 1512:            if L.First.Next /= L.Last then
+      974: 1511:         if L.Length = 2 then
+        8: 1512:            if L.First.Next /= L.Last then
     #####: 1513:               return False;
         -: 1514:            end if;
         -: 1515:
-       10: 1516:            if L.Last.Prev /= L.First then
+        8: 1516:            if L.Last.Prev /= L.First then
     #####: 1517:               return False;
         -: 1518:            end if;
         -: 1519:
-       10: 1520:            return True;
+        8: 1520:            return True;
         -: 1521:         end if;
         -: 1522:
-      970: 1523:         if L.First.Next = L.Last then
+      966: 1523:         if L.First.Next = L.Last then
     #####: 1524:            return False;
         -: 1525:         end if;
         -: 1526:
-      970: 1527:         if L.Last.Prev = L.First then
+      966: 1527:         if L.Last.Prev = L.First then
     #####: 1528:            return False;
         -: 1529:         end if;
         -: 1530:
-      970: 1531:         if Position.Node = L.First then
-      280: 1532:            return True;
+      966: 1531:         if Position.Node = L.First then
+      286: 1532:            return True;
         -: 1533:         end if;
         -: 1534:
-      690: 1535:         if Position.Node = L.Last then
+      680: 1535:         if Position.Node = L.Last then
        20: 1536:            return True;
         -: 1537:         end if;
         -: 1538:
-      670: 1539:         if Position.Node.Next = null then
+      660: 1539:         if Position.Node.Next = null then
     #####: 1540:            return False;
         -: 1541:         end if;
         -: 1542:
-      670: 1543:         if Position.Node.Prev = null then
+      660: 1543:         if Position.Node.Prev = null then
     #####: 1544:            return False;
         -: 1545:         end if;
         -: 1546:
-      670: 1547:         if Position.Node.Next.Prev /= Position.Node then
+      660: 1547:         if Position.Node.Next.Prev /= Position.Node then
     #####: 1548:            return False;
         -: 1549:         end if;
         -: 1550:
-      670: 1551:         if Position.Node.Prev.Next /= Position.Node then
+      660: 1551:         if Position.Node.Prev.Next /= Position.Node then
     #####: 1552:            return False;
         -: 1553:         end if;
         -: 1554:
-      670: 1555:         if L.Length = 3 then
-        8: 1556:            if L.First.Next /= Position.Node then
+      660: 1555:         if L.Length = 3 then
+    #####: 1556:            if L.First.Next /= Position.Node then
     #####: 1557:               return False;
         -: 1558:            end if;
         -: 1559:
-        8: 1560:            if L.Last.Prev /= Position.Node then
+    #####: 1560:            if L.Last.Prev /= Position.Node then
     #####: 1561:               return False;
         -: 1562:            end if;
         -: 1563:         end if;
         -: 1564:
-      670: 1565:         return True;
+      660: 1565:         return True;
         -: 1566:      end;
         -: 1567:   end Vet;
         -: 1568:

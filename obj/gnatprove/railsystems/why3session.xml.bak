@@ -2553,6 +2553,14 @@
 </theory>
 <theory name="Railsystems__addincomingoutgoingtracksforeachstation__L_14__T57b" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
+<theory name="Railsystems__resetisreachable__L_15__R58b" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Railsystems__resetisreachable__L_15__T59b" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Railsystems__resetisreachable__L_16__R60b" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Railsystems__resetisreachable__L_16__T61b" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
 <theory name="Types__od" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Types__od__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
@@ -2981,6 +2989,14 @@
 </theory>
 <theory name="Railsystems__addincomingoutgoingtracksforeachstation__r_system__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
+<theory name="Railsystems__resetisreachable__r_system" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Railsystems__resetisreachable__r_system__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Railsystems__max_size" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Railsystems__max_size__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
 <theory name="Railsystems__go__track" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Railsystems__go__track__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
@@ -3144,6 +3160,22 @@
 <theory name="Railsystems__addincomingoutgoingtracksforeachstation__L_14__w" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Railsystems__addincomingoutgoingtracksforeachstation__L_14__w__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Railsystems__resetisreachable__tempstation" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Railsystems__resetisreachable__tempstation__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Railsystems__resetisreachable__temptrain" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Railsystems__resetisreachable__temptrain__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Railsystems__resetisreachable__L_15__i" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Railsystems__resetisreachable__L_15__i__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Railsystems__resetisreachable__L_16__i" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Railsystems__resetisreachable__L_16__i__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Stations__list_tracks__get_element_by_id__data" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
@@ -3515,6 +3547,8 @@
 </theory>
 <theory name="Railsystems__addincomingoutgoingtracksforeachstation" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
+<theory name="Railsystems__resetisreachable" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
 <theory name="Railsystems__go__L_1" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Railsystems__go__L_1__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
@@ -3570,6 +3604,14 @@
 <theory name="Railsystems__addincomingoutgoingtracksforeachstation__L_14" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Railsystems__addincomingoutgoingtracksforeachstation__L_14__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Railsystems__resetisreachable__L_15" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Railsystems__resetisreachable__L_15__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Railsystems__resetisreachable__L_16" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Railsystems__resetisreachable__L_16__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Types__Tmax_sizeB__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
@@ -4125,6 +4167,10 @@
 </theory>
 <theory name="Railsystems__addincomingoutgoingtracksforeachstation__L_14__T57b__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
+<theory name="Railsystems__resetisreachable__L_15__T59b__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Railsystems__resetisreachable__L_16__T61b__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
 <theory name="Temp___1724" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Temp___1747" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
@@ -4408,6 +4454,10 @@
 <theory name="Railsystems__addincomingoutgoingtracksforeachstation__L_13__R54b__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Railsystems__addincomingoutgoingtracksforeachstation__L_14__R56b__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Railsystems__resetisreachable__L_15__R58b__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Railsystems__resetisreachable__L_16__R60b__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Types__list_od__contains__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
@@ -4907,14 +4957,16 @@
 </theory>
 <theory name="Railsystems__addincomingoutgoingtracksforeachstation__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__package_def" sum="851405ffb5d7688053c203de6d7a349e" expanded="true">
+<theory name="Railsystems__resetisreachable__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Railsystems__package_def" sum="9c854b39520fc24d080446e3a0fd1050" expanded="true">
  <goal name="WP_parameter def" expl="VC for def" expanded="true">
  <transf name="split_goal_wp" expanded="true">
   <goal name="WP_parameter def.1" expl="1. assertion">
-  <proof prover="0"><result status="valid" time="0.06" steps="0"/></proof>
+  <proof prover="0"><result status="valid" time="0.05" steps="0"/></proof>
   </goal>
   <goal name="WP_parameter def.2" expl="2. assertion">
-  <proof prover="0"><result status="valid" time="0.08" steps="0"/></proof>
+  <proof prover="0"><result status="valid" time="0.05" steps="0"/></proof>
   </goal>
  </transf>
  </goal>
@@ -5099,7 +5151,7 @@
  </transf>
  </goal>
 </theory>
-<theory name="Railsystems__list_stations__get_element_by_id__subprogram_def" sum="fbc85472d889817e467ce0b8a1001575" expanded="true">
+<theory name="Railsystems__list_stations__get_element_by_id__subprogram_def" sum="92f3d73bdaa380527be39cb9571f2ed8" expanded="true">
  <goal name="WP_parameter def" expl="VC for def" expanded="true">
  <transf name="split_goal_wp" expanded="true">
   <goal name="WP_parameter def.1" expl="1. precondition">
@@ -5147,14 +5199,14 @@
  </transf>
  </goal>
 </theory>
-<theory name="Railsystems__list_stations__replace_by_id__subprogram_def" sum="bba1bb6030c888909bffc7f395348e65" expanded="true">
+<theory name="Railsystems__list_stations__replace_by_id__subprogram_def" sum="c939e608742dfbae534f81c25d2159f0" expanded="true">
  <goal name="WP_parameter def" expl="VC for def" expanded="true">
  <transf name="split_goal_wp" expanded="true">
   <goal name="WP_parameter def.1" expl="1. assertion">
   <proof prover="0"><result status="valid" time="0.08" steps="50"/></proof>
   </goal>
   <goal name="WP_parameter def.2" expl="2. assertion">
-  <proof prover="0"><result status="valid" time="0.05" steps="0"/></proof>
+  <proof prover="0"><result status="valid" time="0.06" steps="0"/></proof>
   </goal>
  </transf>
  </goal>
@@ -5216,14 +5268,14 @@
  </transf>
  </goal>
 </theory>
-<theory name="Railsystems__go__subprogram_def" sum="d298d3d6c3a22aebb097eb62466b6d87" expanded="true">
+<theory name="Railsystems__go__subprogram_def" sum="f6008d470b9e2e040d4cc7f743d28797" expanded="true">
  <goal name="WP_parameter def" expl="VC for def" expanded="true">
  <transf name="split_goal_wp" expanded="true">
   <goal name="WP_parameter def.1" expl="1. precondition">
-  <proof prover="0"><result status="valid" time="0.17" steps="380"/></proof>
+  <proof prover="0"><result status="valid" time="0.19" steps="380"/></proof>
   </goal>
   <goal name="WP_parameter def.2" expl="2. precondition">
-  <proof prover="0"><result status="valid" time="0.16" steps="0"/></proof>
+  <proof prover="0"><result status="valid" time="0.19" steps="0"/></proof>
   </goal>
   <goal name="WP_parameter def.3" expl="3. assertion">
   <proof prover="0"><result status="valid" time="0.11" steps="0"/></proof>
@@ -5232,19 +5284,19 @@
   <proof prover="0"><result status="valid" time="0.25" steps="0"/></proof>
   </goal>
   <goal name="WP_parameter def.5" expl="5. precondition">
-  <proof prover="0"><result status="valid" time="0.20" steps="0"/></proof>
+  <proof prover="0"><result status="valid" time="0.22" steps="0"/></proof>
   </goal>
   <goal name="WP_parameter def.6" expl="6. precondition">
-  <proof prover="0"><result status="valid" time="0.20" steps="0"/></proof>
+  <proof prover="0"><result status="valid" time="0.23" steps="0"/></proof>
   </goal>
   <goal name="WP_parameter def.7" expl="7. precondition">
   <proof prover="0"><result status="valid" time="0.28" steps="0"/></proof>
   </goal>
   <goal name="WP_parameter def.8" expl="8. assertion">
-  <proof prover="0"><result status="valid" time="0.09" steps="0"/></proof>
+  <proof prover="0"><result status="valid" time="0.11" steps="0"/></proof>
   </goal>
   <goal name="WP_parameter def.9" expl="9. precondition">
-  <proof prover="0"><result status="valid" time="0.23" steps="0"/></proof>
+  <proof prover="0"><result status="valid" time="0.25" steps="0"/></proof>
   </goal>
   <goal name="WP_parameter def.10" expl="10. precondition">
   <proof prover="0"><result status="valid" time="0.19" steps="0"/></proof>
@@ -5256,12 +5308,12 @@
   <proof prover="0"><result status="valid" time="0.20" steps="0"/></proof>
   </goal>
   <goal name="WP_parameter def.13" expl="13. precondition">
-  <proof prover="0"><result status="valid" time="1.03" steps="50"/></proof>
+  <proof prover="0"><result status="valid" time="1.08" steps="50"/></proof>
   </goal>
  </transf>
  </goal>
 </theory>
-<theory name="Railsystems__preparetrain__subprogram_def" sum="36770bf4d2a68afb78fabb7fea9b81f4" expanded="true">
+<theory name="Railsystems__preparetrain__subprogram_def" sum="564f194122ca269fe9c10baf1b9544f1" expanded="true">
  <goal name="WP_parameter def" expl="VC for def" expanded="true">
  <transf name="split_goal_wp" expanded="true">
   <goal name="WP_parameter def.1" expl="1. assertion">
@@ -5271,15 +5323,15 @@
   <proof prover="0"><result status="valid" time="0.22" steps="0"/></proof>
   </goal>
   <goal name="WP_parameter def.3" expl="3. precondition">
-  <proof prover="0"><result status="valid" time="0.17" steps="0"/></proof>
+  <proof prover="0"><result status="valid" time="0.19" steps="0"/></proof>
   </goal>
   <goal name="WP_parameter def.4" expl="4. postcondition">
-  <proof prover="0"><result status="valid" time="0.22" steps="0"/></proof>
+  <proof prover="0"><result status="valid" time="0.25" steps="0"/></proof>
   </goal>
  </transf>
  </goal>
 </theory>
-<theory name="Railsystems__dfs_station_reachability_by_train__subprogram_def" sum="63813bb64463b78c02464840242e051e" expanded="true">
+<theory name="Railsystems__dfs_station_reachability_by_train__subprogram_def" sum="8b65ddae5c720c49f4c63d561af26491" expanded="true">
  <goal name="WP_parameter def" expl="VC for def" expanded="true">
  <transf name="split_goal_wp" expanded="true">
   <goal name="WP_parameter def.1" expl="1. precondition">
@@ -5289,42 +5341,48 @@
   <proof prover="0"><result status="valid" time="0.14" steps="0"/></proof>
   </goal>
   <goal name="WP_parameter def.3" expl="3. precondition">
-  <proof prover="0"><result status="valid" time="0.17" steps="0"/></proof>
+  <proof prover="0"><result status="unknown" time="0.38" steps="24980"/></proof>
+  <proof prover="1"><result status="unknown" time="0.78" steps="75020"/></proof>
   </goal>
   <goal name="WP_parameter def.4" expl="4. precondition">
-  <proof prover="0"><result status="valid" time="0.23" steps="0"/></proof>
+  <proof prover="0"><result status="unknown" time="0.81" steps="65670"/></proof>
+  <proof prover="1"><result status="unknown" time="1.09" steps="75030"/></proof>
   </goal>
   <goal name="WP_parameter def.5" expl="5. precondition">
-  <proof prover="0"><result status="valid" time="0.17" steps="0"/></proof>
+  <proof prover="0"><result status="valid" time="0.19" steps="0"/></proof>
   <proof prover="1" obsolete="true"><result status="unknown" time="1.17" steps="75080"/></proof>
   </goal>
   <goal name="WP_parameter def.6" expl="6. precondition">
-  <proof prover="0"><result status="valid" time="0.27" steps="0"/></proof>
+  <proof prover="0"><result status="unknown" time="0.66" steps="75060"/></proof>
+  <proof prover="1"><result status="unknown" time="1.39" steps="75030"/></proof>
   </goal>
  </transf>
  </goal>
 </theory>
-<theory name="Railsystems__dfs_station_reachability_by_stations__subprogram_def" sum="0ec7c31b3bf4be331f67a3b3dbf99597" expanded="true">
+<theory name="Railsystems__dfs_station_reachability_by_stations__subprogram_def" sum="ee8dda37ff094a371c530fcfab022186" expanded="true">
  <goal name="WP_parameter def" expl="VC for def" expanded="true">
  <transf name="split_goal_wp" expanded="true">
   <goal name="WP_parameter def.1" expl="1. precondition">
-  <proof prover="0"><result status="valid" time="0.09" steps="0"/></proof>
+  <proof prover="0"><result status="valid" time="0.14" steps="0"/></proof>
   </goal>
   <goal name="WP_parameter def.2" expl="2. precondition">
   <proof prover="0"><result status="valid" time="0.14" steps="0"/></proof>
   </goal>
   <goal name="WP_parameter def.3" expl="3. precondition">
-  <proof prover="0"><result status="valid" time="0.20" steps="0"/></proof>
+  <proof prover="0"><result status="unknown" time="0.30" steps="12810"/></proof>
+  <proof prover="1"><result status="unknown" time="0.55" steps="31330"/></proof>
   </goal>
   <goal name="WP_parameter def.4" expl="4. precondition">
-  <proof prover="0"><result status="valid" time="0.17" steps="0"/></proof>
+  <proof prover="0"><result status="unknown" time="0.70" steps="49480"/></proof>
+  <proof prover="1"><result status="unknown" time="1.22" steps="75050"/></proof>
   </goal>
   <goal name="WP_parameter def.5" expl="5. precondition">
-  <proof prover="0"><result status="unknown" time="0.73" steps="51680"/></proof>
-  <proof prover="1"><result status="unknown" time="1.22" steps="75020"/></proof>
+  <proof prover="0"><result status="valid" time="0.22" steps="0"/></proof>
+  <proof prover="1" obsolete="true"><result status="unknown" time="1.22" steps="75020"/></proof>
   </goal>
   <goal name="WP_parameter def.6" expl="6. precondition">
-  <proof prover="0"><result status="valid" time="0.22" steps="0"/></proof>
+  <proof prover="0"><result status="unknown" time="1.02" steps="69710"/></proof>
+  <proof prover="1"><result status="unknown" time="1.28" steps="75080"/></proof>
   </goal>
  </transf>
  </goal>
@@ -5347,7 +5405,7 @@
  </transf>
  </goal>
 </theory>
-<theory name="Railsystems__replacetrain__subprogram_def" sum="c6430e4e153bf62e42e4447b3efcffcf" expanded="true">
+<theory name="Railsystems__replacetrain__subprogram_def" sum="7b54fcbfbb99fee04ebdede74536c3ff" expanded="true">
  <goal name="WP_parameter def" expl="VC for def" expanded="true">
  <transf name="split_goal_wp" expanded="true">
  </transf>
@@ -5359,11 +5417,12 @@
  </transf>
  </goal>
 </theory>
-<theory name="Railsystems__addincomingoutgoingtracksforeachstation__subprogram_def" sum="9993d3f7e79c31e1855469ba43d87fa5" expanded="true">
+<theory name="Railsystems__addincomingoutgoingtracksforeachstation__subprogram_def" sum="090e68068f1f1fe13515ad4429f629bf" expanded="true">
  <goal name="WP_parameter def" expl="VC for def" expanded="true">
  <transf name="split_goal_wp" expanded="true">
   <goal name="WP_parameter def.1" expl="1. precondition">
-  <proof prover="0"><result status="valid" time="0.14" steps="0"/></proof>
+  <proof prover="0"><result status="unknown" time="0.19" steps="11120"/></proof>
+  <proof prover="1"><result status="unknown" time="0.53" steps="35490"/></proof>
   </goal>
   <goal name="WP_parameter def.2" expl="2. precondition">
   <proof prover="0"><result status="valid" time="0.19" steps="200"/></proof>
@@ -5372,10 +5431,29 @@
   <proof prover="0"><result status="valid" time="0.19" steps="230"/></proof>
   </goal>
   <goal name="WP_parameter def.4" expl="4. precondition">
-  <proof prover="0"><result status="valid" time="0.14" steps="0"/></proof>
+  <proof prover="0"><result status="unknown" time="0.22" steps="11150"/></proof>
+  <proof prover="1"><result status="unknown" time="0.55" steps="34890"/></proof>
   </goal>
   <goal name="WP_parameter def.5" expl="5. precondition">
-  <proof prover="0"><result status="valid" time="0.31" steps="0"/></proof>
+  <proof prover="0"><result status="valid" time="0.30" steps="0"/></proof>
+  </goal>
+ </transf>
+ </goal>
+</theory>
+<theory name="Railsystems__resetisreachable__subprogram_def" sum="bbd83a8dc8dc3b2e94e810ac9d472083" expanded="true">
+ <goal name="WP_parameter def" expl="VC for def" expanded="true">
+ <transf name="split_goal_wp" expanded="true">
+  <goal name="WP_parameter def.1" expl="1. assertion">
+  <proof prover="0"><result status="valid" time="0.11" steps="0"/></proof>
+  </goal>
+  <goal name="WP_parameter def.2" expl="2. assertion">
+  <proof prover="0"><result status="valid" time="0.11" steps="0"/></proof>
+  </goal>
+  <goal name="WP_parameter def.3" expl="3. precondition">
+  <proof prover="0"><result status="valid" time="0.17" steps="0"/></proof>
+  </goal>
+  <goal name="WP_parameter def.4" expl="4. precondition">
+  <proof prover="0"><result status="valid" time="0.14" steps="0"/></proof>
   </goal>
  </transf>
  </goal>

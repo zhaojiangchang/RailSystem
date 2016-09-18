@@ -139,8 +139,8 @@
         -:  137:   type Test_Id is new Natural;
         -:  138:   Null_Id : constant Test_Id := 0;
         -:  139:
-        4:  140:   type Failure_Elt is record
-        2:  141:      Failure : Test_Failure;
+    #####:  140:   type Failure_Elt is record
+    #####:  141:      Failure : Test_Failure;
         -:  142:      Id      : Test_Id := Null_Id;
         -:  143:   end record;
         -:  144:

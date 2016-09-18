@@ -217,8 +217,8 @@
         -:  215:   type Node_Access is access Node_Type;
         -:  216:   pragma No_Strict_Aliasing (Node_Access);
         -:  217:
-      288:  218:   type Node_Type is limited record
-      144:  219:      Element : Element_Type;
+      284:  218:   type Node_Type is limited record
+      142:  219:      Element : Element_Type;
         -:  220:      Next    : Node_Access;
         -:  221:      Prev    : Node_Access;
         -:  222:   end record;
@@ -233,7 +233,7 @@
         -:  231:
         -:  232:   type List_Access is access constant List;
         -:  233:
-      370:  234:   type Cursor is record
+      366:  234:   type Cursor is record
         -:  235:      Container : List_Access;
         -:  236:      Node      : Node_Access;
         -:  237:   end record;

@@ -78,12 +78,12 @@
         -:   76:   -- Indent --
         -:   77:   ------------
         -:   78:
-        4:   79:   procedure Indent (N : Natural) is
+    #####:   79:   procedure Indent (N : Natural) is
         -:   80:   begin
-        4:   81:      for J in 1 .. N loop
-        4:   82:         Put ("    ");
-        4:   83:      end loop;
-        4:   84:   end Indent;
+    #####:   81:      for J in 1 .. N loop
+    #####:   82:         Put ("    ");
+    #####:   83:      end loop;
+    #####:   84:   end Indent;
         -:   85:
         -:   86:   ----------------------
         -:   87:   -- Dump_Result_List --
@@ -96,7 +96,7 @@
         6:   94:      C : Cursor := First (L);
         -:   95:   begin
         6:   96:      if Has_Element (C) then
-        4:   97:         New_Line;
+        2:   97:         New_Line;
         -:   98:      end if;
         -:   99:
         -:  100:      --  Note: can't use Iterate because it violates restriction
@@ -232,16 +232,16 @@
        70:  230:      New_Line;
         -:  231:
        70:  232:      if Test.Failure /= null then
-        2:  233:         Indent (1);
-        2:  234:         Put_Line (Test.Failure.Message.all);
-        2:  235:         Indent (1);
-        2:  236:         Put ("at ");
-        2:  237:         Put (Test.Failure.Source_Name.all);
-        2:  238:         Put (":");
-        2:  239:         Put (Test.Failure.Line);
-        2:  240:         New_Line;
+    #####:  233:         Indent (1);
+    #####:  234:         Put_Line (Test.Failure.Message.all);
+    #####:  235:         Indent (1);
+    #####:  236:         Put ("at ");
+    #####:  237:         Put (Test.Failure.Source_Name.all);
+    #####:  238:         Put (":");
+    #####:  239:         Put (Test.Failure.Line);
+    #####:  240:         New_Line;
         -:  241:
-       68:  242:      elsif Test.Error /= null then
+       70:  242:      elsif Test.Error /= null then
     #####:  243:         Indent (1);
     #####:  244:         Put_Line (Test.Error.Exception_Name.all);
         -:  245:

@@ -82,7 +82,7 @@
        70:   80:   procedure Iterate_Failure (Position : Result_Lists.Cursor) is
         -:   81:   begin
        70:   82:      if Result_Lists.Element (Position).Failure /= null then
-        2:   83:         F_Count := F_Count + 1;
+    #####:   83:         F_Count := F_Count + 1;
         -:   84:      end if;
        70:   85:   end Iterate_Failure;
         -:   86:
@@ -95,7 +95,7 @@
        70:   93:      if Result_Lists.Element (Position).Error = null
        70:   94:        and then Result_Lists.Element (Position).Failure = null
         -:   95:      then
-       68:   96:         S_Count := S_Count + 1;
+       70:   96:         S_Count := S_Count + 1;
         -:   97:      end if;
        70:   98:   end Iterate_Success;
         -:   99:
@@ -114,23 +114,23 @@
         6:  112:      C := First (R.Result_List);
         6:  113:      Prev := No_Element;
         -:  114:
-       78:  115:      while Has_Element (C) loop
-       72:  116:         if Test (C) then
+       76:  115:      while Has_Element (C) loop
+       70:  116:         if Test (C) then
        70:  117:            Splice (Target   => E,
         -:  118:                    Before   => No_Element,
         -:  119:                    Source   => R.Result_List,
         -:  120:                    Position => C);
         -:  121:
        70:  122:            if Prev = No_Element then
-       64:  123:               C := First (R.Result_List);
+       70:  123:               C := First (R.Result_List);
         -:  124:            else
-        6:  125:               C := Next (Prev);
+    #####:  125:               C := Next (Prev);
         -:  126:            end if;
         -:  127:         else
-        2:  128:            Prev := C;
-        2:  129:            Next (C);
+    #####:  128:            Prev := C;
+    #####:  129:            Next (C);
         -:  130:         end if;
-       72:  131:      end loop;
+       70:  131:      end loop;
         6:  132:   end Gen_Extract;
         -:  133:
         -:  134:   --------------
@@ -146,10 +146,10 @@
         -:  144:   -- Is_Failure --
         -:  145:   ----------------
         -:  146:
-       72:  147:   function Is_Failure (Position : Result_Lists.Cursor) return Boolean is
+       70:  147:   function Is_Failure (Position : Result_Lists.Cursor) return Boolean is
         -:  148:   begin
-      144:  149:      return Result_Lists.Element (Position).Failure /= null;
-       72:  150:   end Is_Failure;
+      140:  149:      return Result_Lists.Element (Position).Failure /= null;
+       70:  150:   end Is_Failure;
         -:  151:
         -:  152:   ----------------
         -:  153:   -- Is_Success --
@@ -186,41 +186,41 @@
         -:  184:   -- Add_Failure --
         -:  185:   -----------------
         -:  186:
-        2:  187:   procedure Add_Failure
+    #####:  187:   procedure Add_Failure
         -:  188:     (R            : in out Result;
         -:  189:      Test_Name    : Message_String;
         -:  190:      Routine_Name : Message_String;
         -:  191:      Failure      : Test_Failure;
         -:  192:      Elapsed      : Time) is
         -:  193:
-        4:  194:      Val : constant Test_Result := (Test_Name, Routine_Name,
-        2:  195:                                     Failure => Alloc_Failure,
+    #####:  194:      Val : constant Test_Result := (Test_Name, Routine_Name,
+    #####:  195:                                     Failure => Alloc_Failure,
         -:  196:                                     Error   => null,
         -:  197:                                     Elapsed => Elapsed);
         -:  198:      use Result_Lists;
         -:  199:   begin
         -:  200:
-        2:  201:      Val.Failure.all := Failure;
-        2:  202:      Append (R.Result_List, Val);
-        2:  203:   end Add_Failure;
+    #####:  201:      Val.Failure.all := Failure;
+    #####:  202:      Append (R.Result_List, Val);
+    #####:  203:   end Add_Failure;
         -:  204:
         -:  205:   -----------------
         -:  206:   -- Add_Success --
         -:  207:   -----------------
         -:  208:
-       68:  209:   procedure Add_Success
+       70:  209:   procedure Add_Success
         -:  210:     (R                       : in out Result;
         -:  211:      Test_Name               : Message_String;
         -:  212:      Routine_Name            : Message_String;
         -:  213:      Elapsed                 : Time) is
         -:  214:
-       68:  215:      Val : constant Test_Result :=
+       70:  215:      Val : constant Test_Result :=
         -:  216:              (Test_Name, Routine_Name, null, null, Elapsed);
         -:  217:      use Result_Lists;
         -:  218:
         -:  219:   begin
-       68:  220:      Append (R.Result_List, Val);
-       68:  221:   end Add_Success;
+       70:  220:      Append (R.Result_List, Val);
+       70:  221:   end Add_Success;
         -:  222:
         -:  223:   -----------------
         -:  224:   -- Set_Elapsed --

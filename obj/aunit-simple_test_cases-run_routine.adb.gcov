@@ -64,13 +64,13 @@
         -:   62:
        70:   63:      Run_Test (Test.all);
         -:   64:
-       68:   65:      if Options.Test_Case_Timer then
+       70:   65:      if Options.Test_Case_Timer then
     #####:   66:         Stop_Measure (Time);
         -:   67:      end if;
         -:   68:
         -:   69:   exception
-        4:   70:      when Assertion_Error =>
-        2:   71:         if Options.Test_Case_Timer then
+    #####:   70:      when Assertion_Error =>
+    #####:   71:         if Options.Test_Case_Timer then
     #####:   72:            Stop_Measure (Time);
         -:   73:         end if;
         -:   74:
@@ -91,22 +91,22 @@
         -:   89:   end;
         -:   90:
        70:   91:   if not Unexpected_Exception and then not Has_Failures (Test.all) then
-       68:   92:      Outcome := Success;
-       68:   93:      Add_Success (R, Name (Test.all), Routine_Name (Test.all), Time);
+       70:   92:      Outcome := Success;
+       70:   93:      Add_Success (R, Name (Test.all), Routine_Name (Test.all), Time);
         -:   94:   else
-        2:   95:      Outcome := Failure;
+    #####:   95:      Outcome := Failure;
         -:   96:      declare
-        2:   97:         C : Failure_Iter := First_Failure (Test.all);
+    #####:   97:         C : Failure_Iter := First_Failure (Test.all);
         -:   98:      begin
-        4:   99:         while Has_Failure (C) loop
-        8:  100:            Add_Failure (R,
-        4:  101:                         Name (Test.all),
-        2:  102:                         Routine_Name (Test.all),
-        2:  103:                         Get_Failure (C),
+    #####:   99:         while Has_Failure (C) loop
+    #####:  100:            Add_Failure (R,
+    #####:  101:                         Name (Test.all),
+    #####:  102:                         Routine_Name (Test.all),
+    #####:  103:                         Get_Failure (C),
         -:  104:                         Time);
-        2:  105:            Next (C);
-        2:  106:         end loop;
-        2:  107:      end;
+    #####:  105:            Next (C);
+    #####:  106:         end loop;
+    #####:  107:      end;
         -:  108:   end if;
         -:  109:
        70:  110:end Run_Routine;

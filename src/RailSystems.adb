@@ -8,7 +8,11 @@ use Ada.Calendar; -- for the "-" and "+" operations on Time
 package body RailSystems with SPARK_Mode=>On is
    use all type TYPES.MAX_SIZE;
    use all type TYPES.Station_Locations;
-
+   MAX_SIZE:Natural:=101;
+   --------------------------------------------------
+   -- Init all lists(Stations, tracks, and trains)---
+   -- by Set list size = 0                        ---
+   --------------------------------------------------
    procedure Init(r_system: in out RailSystem)
    is
    begin
@@ -17,9 +21,13 @@ package body RailSystems with SPARK_Mode=>On is
       Stations.LIST_TRACKS.Init(r_system.All_Tracks);
    end Init;
 
-   --------------------
-   -- Go (For train) --
-   --------------------
+   ----------------------------------------------------------------------------------
+   -- Go (For train): train will start from the trian's origin                     --
+   -- once reached train's destination, train's origin will changed                --
+   -- to destination and train's destination will changed to orign                 --
+   -- before call Go procedure - need call dfs_station_reachability_by_train       --
+   -- prodedure to make sure the train can travel from orign to destination station--
+   ----------------------------------------------------------------------------------
    procedure go(r_system: in out RailSystem; train: in out Trains.Train; count: in Positive)
    is
       --        Trains: Trains.Train;
@@ -60,16 +68,16 @@ package body RailSystems with SPARK_Mode=>On is
                               station:= getStationByName(stations_list   => r_system.All_Stations,
                                                          stationLocation => track.Destination);
                               station.TrainID:=0;
-                              if station.ID >0 and station.ID<101 and station.Location /=TYPES.No then
+                              if station.ID >0 and station.ID<MAX_SIZE and station.Location /=TYPES.No then
                                  replaceStation(r_system => r_system,
                                                 station  => station);
                               end if;
 
                               track.TrainID:=train.ID;
-                              if track.ID >0 and track.ID<101 then
+                              if track.ID >0 and track.ID<MAX_SIZE then
                                  replaceTrack(r_system,track);
                               end if;
-                              if train.ID>0 and train.ID<101 then
+                              if train.ID>0 and train.ID<MAX_SIZE then
                                  replaceTrain(r_system,train);
                               end if;
                               Print_Natural("Train ID:  ", train.ID);
@@ -108,7 +116,7 @@ package body RailSystems with SPARK_Mode=>On is
                   train.Location.Station.TrainID:= train.ID;
                   station.TrainID:=train.ID;
 
-                  if station.ID >0 and station.ID<101 and station.Location /= TYPES.No then
+                  if station.ID >0 and station.ID<MAX_SIZE and station.Location /= TYPES.No then
                      replaceStation(r_system,station);
                   end if;
                   if train.Location.Track.Origin /= TYPES.No and train.Location.Track.Destination /= TYPES.No then
@@ -118,10 +126,10 @@ package body RailSystems with SPARK_Mode=>On is
                   end if;
 
                   track.TrainID:=0;
-                  if track.ID >0 and track.ID<101 then
+                  if track.ID >0 and track.ID<MAX_SIZE then
                      replaceTrack(r_system,track);
                   end if;
-                  if train.ID>0 and train.ID<101 then
+                  if train.ID>0 and train.ID<MAX_SIZE then
                      replaceTrain(r_system,train);
                   end if;
                   Print_Natural("Train state:  ", train.ID);
@@ -142,13 +150,13 @@ package body RailSystems with SPARK_Mode=>On is
 
          station_count:=station_count+1;
       end loop;
-
-
    end go;
-   --------------------------------------------
-   -- deep first search - check reachability --
-   --------------------------------------------
 
+
+   --------------------------------------------------------------------------------------
+   -- deep first search - check reachability from train's origin to train's destination--
+   -- if reachable - train.isReachable = True                                          --
+   --------------------------------------------------------------------------------------
    procedure dfs_station_reachability_by_train(r_system: in out RailSystem; train: in out Trains.Train)
    is
       base_Location: TYPES.Station_Locations;
@@ -171,7 +179,7 @@ package body RailSystems with SPARK_Mode=>On is
                station:=  getStationByName(stations_list   => r_system.All_Stations,
                                            stationLocation => base_Location);
                station.Location := base_Location;
-               if station.Location /= TYPES.No and station.ID > 0 and station.ID< 101 then
+               if station.Location /= TYPES.No and station.ID > 0 and station.ID< MAX_SIZE then
                   LIST_STATIONS.APPEND(A  => stations_list,
                                        D  => station,
                                        ID => station.ID);
@@ -192,14 +200,14 @@ package body RailSystems with SPARK_Mode=>On is
                   --                    Print_Station_Locations("already visted: ",temp_Location);
                   station:=  getStationByName(stations_list   => r_system.All_Stations,
                                               stationLocation => temp_Location);
-                  if station.Location /= TYPES.No and station.ID > 0 and station.ID< 101 then
+                  if station.Location /= TYPES.No and station.ID > 0 and station.ID< MAX_SIZE then
                      LIST_STATIONS.APPEND(A  => visted_list,
                                           D  => station,
                                           ID => station.ID);
                   end if;
                   if temp_Location = train.Destination then
                      train.isReachable:=True;
-                     if train.ID>0 and train.ID<101 then
+                     if train.ID>0 and train.ID<MAX_SIZE then
                         replaceTrain(r_system => r_system,
                                      train    => train);
                      end if;
@@ -215,7 +223,7 @@ package body RailSystems with SPARK_Mode=>On is
                                                                                                          LOCATION => Index).Destination);
                         Print_Station_Locations("destination",Stations.LIST_TRACKS.GET_ELEMENT(A        => r_system.All_Tracks,
                                                                                                LOCATION => Index).Destination);
-                        if station2.Location /= TYPES.No and station2.ID > 0 and station2.ID< 101 then
+                        if station2.Location /= TYPES.No and station2.ID > 0 and station2.ID< MAX_SIZE then
                            LIST_STATIONS.APPEND(A  => Stations_list,
                                                 D  => station2,
                                                 ID => station2.ID);
@@ -229,10 +237,11 @@ package body RailSystems with SPARK_Mode=>On is
       end if;
 
    end dfs_station_reachability_by_train;
-   --------------------------------------------
-   -- deep first search - check reachability --
-   --------------------------------------------
 
+   --------------------------------------------------------------------------------------
+   -- deep first search - check reachability from a station to another station         --
+   -- if reachable - to_station.isReachable = True                                     --
+   --------------------------------------------------------------------------------------
    procedure dfs_station_reachability_by_stations(r_system: in out RailSystem; from_station: in TYPES.Station_Locations; to_Station: in TYPES.Station_Locations)
 
    is
@@ -253,7 +262,7 @@ package body RailSystems with SPARK_Mode=>On is
             station:=  getStationByName(stations_list   => r_system.All_Stations,
                                         stationLocation => base_Location);
             station.Location := base_Location;
-            if station.Location /= TYPES.No and station.ID > 0 and station.ID< 101 then
+            if station.Location /= TYPES.No and station.ID > 0 and station.ID< MAX_SIZE then
                LIST_STATIONS.APPEND(A  => stations_list,
                                     D  => station,
                                     ID => station.ID);
@@ -272,7 +281,7 @@ package body RailSystems with SPARK_Mode=>On is
                else
                   station:=  getStationByName(stations_list   => r_system.All_Stations,
                                               stationLocation => temp_Location);
-                  if station.Location /= TYPES.No and station.ID > 0 and station.ID< 101 then
+                  if station.Location /= TYPES.No and station.ID > 0 and station.ID< MAX_SIZE then
                      LIST_STATIONS.APPEND(A  => visted_list,
                                           D  => station,
                                           ID => station.ID);
@@ -281,7 +290,7 @@ package body RailSystems with SPARK_Mode=>On is
                      tempStation:=getStationByName(stations_list   => r_system.All_Stations,
                                                    stationLocation => to_Station);
                      tempStation.isReachable:=True;
-                     if tempStation.ID>0 and tempStation.ID<101 and tempStation.Location /= TYPES.No then
+                     if tempStation.ID>0 and tempStation.ID<MAX_SIZE and tempStation.Location /= TYPES.No then
                      replaceStation(r_system => r_system,
                                     station  => tempStation);
                      end if;
@@ -297,7 +306,7 @@ package body RailSystems with SPARK_Mode=>On is
                                                                                                          LOCATION => Index).Destination);
                         Print_Station_Locations("destination",Stations.LIST_TRACKS.GET_ELEMENT(A        => r_system.All_Tracks,
                                                                                                LOCATION => Index).Destination);
-                        if station2.Location /= TYPES.No and station2.ID > 0 and station2.ID< 101 then
+                        if station2.Location /= TYPES.No and station2.ID > 0 and station2.ID< MAX_SIZE then
                            LIST_STATIONS.APPEND(A  => Stations_list,
                                                 D  => station2,
                                                 ID => station2.ID);
@@ -312,23 +321,19 @@ package body RailSystems with SPARK_Mode=>On is
    end dfs_station_reachability_by_stations;
 
 
-   --------------------
-   -- Prepare Train --
-   --------------------
+   -----------------------------------------------------------------
+   -- Prepare Train: set train origin, destination and atart time --
+   -----------------------------------------------------------------
    procedure prepareTrain(r_system: in out RailSystem;
                           train: in out Trains.Train;
                           Origin: in TYPES.Station_Locations;
                           Destination: in TYPES.Station_Locations;
                           StartTime: in TYPES.TimeTable)
-
    is
-
       tempOriginStation: Stations.Station;
 
    begin
-
       train.Origin := Origin;
-
       train.Destination := Destination;
       train.State:=TYPES.Open;
       train.Start_Run_Time:=StartTime;
@@ -339,20 +344,20 @@ package body RailSystems with SPARK_Mode=>On is
       tempOriginStation:= getStationByName(stations_list   => r_system.All_Stations,
                                            stationLocation => Origin);
       tempOriginStation.TrainID:= train.ID;
-      if tempOriginStation.ID>0 and tempOriginStation.ID<101 and tempOriginStation.Location /= TYPES.No then
+      if tempOriginStation.ID>0 and tempOriginStation.ID<MAX_SIZE and tempOriginStation.Location /= TYPES.No then
          replaceStation(r_system, tempOriginStation);
       end if;
-      if train.ID>0 and train.ID<101 then
+      if train.ID>0 and train.ID<MAX_SIZE then
          replaceTrain(r_system => r_system,
                       train    => train);
       end if;
-      --        end if;
 
    end prepareTrain;
 
-   ---------------------------------
-   -- get station by station name --
-   ---------------------------------
+   ---------------------------------------------------------
+   -- get station by station name                         --
+   -- search through the list find station by station name--
+   ---------------------------------------------------------
 
    function getStationByName(stations_list: in RailSystems.LIST_STATIONS.List_PTR;
                              stationLocation: in TYPES.Station_Locations)
@@ -398,9 +403,9 @@ package body RailSystems with SPARK_Mode=>On is
    end getTrackByName;
 
 
-   --------------
-   -- addTrack --
-   --------------
+   -------------------------------------------------------------------------
+   -- addTrack: if id exist  or origin and destination exist will not add --
+   -------------------------------------------------------------------------
 
    procedure addTrack(r_system: in out RailSystem;
                       ID: in Natural;
@@ -424,9 +429,9 @@ package body RailSystems with SPARK_Mode=>On is
 
    end addTrack;
 
-   --------------
-   -- addTrain --
-   --------------
+   ---------------------------------------------
+   -- addTrain: if train id exist will not add--
+   ---------------------------------------------
 
    procedure addTrain (r_system: in out RailSystem;
                        ID: in Natural)
@@ -435,10 +440,6 @@ package body RailSystems with SPARK_Mode=>On is
       ID_Out_Of_Range_Exception: Exception;
 
    begin
-      --        if ID <1 or ID>100 then
-      --           Print("ADD TRAIN: ID should between 1 and 100");
-      --           Raise ID_Out_Of_Range_Exception;
-      --        end if;
       train.ID := ID;
       if LIST_TRAINS.GET_ELEMENT_BY_ID(r_system.All_Trains, ID).ID = 0 then
          if train.ID /=0 then
@@ -487,9 +488,10 @@ package body RailSystems with SPARK_Mode=>On is
    end addStation;
 
 
-   --------------------------------------------
-   -- replace Track ---------------------------
-   --------------------------------------------
+   -------------------------------------------------------
+   -- replace Track: this procedure is going to make  ----
+   -- sure to update railsysem once track modified    ----
+   -------------------------------------------------------
    procedure replaceTrack(r_system: in out RailSystem;
                           track: in Tracks.Track)
    is
@@ -508,14 +510,15 @@ package body RailSystems with SPARK_Mode=>On is
 
       end replaceTrack;
 
-      --------------------------------------------
-      -- replace Train ----------------------------
-      --------------------------------------------
+   -------------------------------------------------------
+   -- replace train: this procedure is going to make  ----
+   -- sure to update railsysem once train modified    ----
+   -------------------------------------------------------
       procedure replaceTrain(r_system: in out RailSystem;
                              train: in Trains.Train)
       is
       begin
-         if train.Location.Station.ID>0 and train.Location.Station.ID <101 then
+         if train.Location.Station.ID>0 and train.Location.Station.ID <MAX_SIZE then
             for i in 1.. LIST_TRAINS.GET_SIZE(A => r_system.All_Trains) loop
                if LIST_TRAINS.GET_ELEMENT(A        => r_system.All_Trains,
                                           LOCATION => i).ID = train.ID then
@@ -525,9 +528,10 @@ package body RailSystems with SPARK_Mode=>On is
          end if;
 
       end replaceTrain;
-      --------------------------------------------
-      -- replace Station -------------------------
-      --------------------------------------------
+   ---------------------------------------------------------
+   -- replace station: this procedure is going to make  ----
+   -- sure to update railsysem once station modified    ----
+   ---------------------------------------------------------
       procedure replaceStation(r_system: in out RailSystem;
                                station: in Stations.Station)
       is
@@ -547,9 +551,11 @@ package body RailSystems with SPARK_Mode=>On is
       end replaceStation;
 
 
-      -----------------------------------------
-      -- addIncomingOutgoingTracksForStation --
-      -----------------------------------------
+      --------------------------------------------------------------------------------
+      --- addIncomingOutgoingTracksForStation: go through each station and tracks ----
+      --- add all the same tracks origin to origin station and add all same tracks----
+      --- destination to destination station                                      ----
+      --------------------------------------------------------------------------------
       procedure addIncomingOutgoingTracksForEachStation(r_system: in out RailSystem)
       is
          tempStation: Stations.Station;
@@ -557,10 +563,6 @@ package body RailSystems with SPARK_Mode=>On is
          od_record: TYPES.ODRecord;
          size: Natural;
          found: Boolean;
-         --        NotFindIDException : Exception;
-         --        AlreadyAddTrackException : Exception;
-         --        StationIDNotExistException: Exception;
-
       begin
 
          for i in 1 .. LIST_STATIONS.GET_SIZE(r_system.All_Stations) loop
@@ -573,7 +575,7 @@ package body RailSystems with SPARK_Mode=>On is
                      if tempTrack.ID /=0 and tempTrack.Origin /=TYPES.No and tempTrack.Destination /= types.No and tempTrack.TrainID = 0 and tempTrack.TracksLineOrigin /=types.No and tempTrack.TracksLineDestination/= TYPES.No
                        and tempTrack.Origin /=tempTrack.Destination and tempTrack.TracksLineOrigin /= tempTrack.TracksLineDestination
                      then
-                        if tempTrack.ID>0 and tempTrack.ID<101 then
+                        if tempTrack.ID>0 and tempTrack.ID<MAX_SIZE then
                            Stations.LIST_TRACKS.APPEND(tempStation.Outgoing, tempTrack, tempTrack.ID);
                         end if;
 
@@ -606,7 +608,7 @@ package body RailSystems with SPARK_Mode=>On is
                   if Stations.LIST_TRACKS.CONTAINS(tempStation.Incoming, tempTrack) = False then
                      if tempTrack.ID /=0 and tempTrack.Origin /=TYPES.No and tempTrack.Destination /= types.No and tempTrack.TrainID = 0 and tempTrack.TracksLineOrigin /=types.No and tempTrack.TracksLineDestination/= TYPES.No
                        and tempTrack.TracksLineOrigin /= tempTrack.TracksLineDestination then
-                        if tempTrack.ID>0 and tempTrack.ID<101 then
+                        if tempTrack.ID>0 and tempTrack.ID<MAX_SIZE then
                            Stations.LIST_TRACKS.APPEND(tempStation.Incoming, tempTrack, tempTrack.ID);
                         end if;
 
@@ -615,11 +617,40 @@ package body RailSystems with SPARK_Mode=>On is
                   end if;
                end if;
             end loop;
-            if tempStation.ID>0 and tempStation.ID<101 and tempStation.Location /= TYPES.No then
+            if tempStation.ID>0 and tempStation.ID<MAX_SIZE and tempStation.Location /= TYPES.No then
                replaceStation(r_system,tempStation);
             end if;
 
          end loop;
       end addIncomingOutgoingTracksForEachStation;
+
+
+   procedure resetIsReachable(r_system: in out RailSystem)
+   is
+      tempStation: Stations.Station;
+      tempTrain: Trains.Train;
+   begin
+      for i in 1 .. LIST_STATIONS.GET_SIZE(A => r_system.All_Stations) loop
+         tempStation:=LIST_STATIONS.GET_ELEMENT(A        => r_system.All_Stations,
+                                                LOCATION => i);
+         tempStation.isReachable:= False;
+         if tempStation.ID >0 and tempStation.ID<MAX_SIZE and tempStation.Location /=TYPES.No then
+            replaceStation(r_system => r_system,
+                           station  => tempStation);
+         end if;
+      end loop;
+
+      for i in 1 .. LIST_TRAINS.GET_SIZE(A => r_system.All_Trains) loop
+         tempTrain:=LIST_TRAINS.GET_ELEMENT(A        => r_system.All_Trains,
+                                            LOCATION => i);
+         tempTrain.isReachable:= False;
+         if tempTrain.ID>0 and tempTrain.ID<MAX_SIZE then
+            replaceTrain(r_system => r_system,
+                         train    =>tempTrain);
+         end if;
+      end loop;
+
+   end resetIsReachable;
+
 
    end RailSystems;

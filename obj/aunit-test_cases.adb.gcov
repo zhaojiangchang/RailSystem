@@ -55,7 +55,7 @@
        70:   53:   procedure Run_Test (Test : in out Test_Case) is
         -:   54:   begin
        70:   55:      Test.Routine.Routine (Test);
-       68:   56:   end Run_Test;
+       70:   56:   end Run_Test;
         -:   57:
         -:   58:   ---------
         -:   59:   -- Run --
@@ -88,7 +88,7 @@
         -:   86:               Options, R, Result);
         -:   87:
        70:   88:            if Result = Failure then
-        2:   89:               Outcome := Failure;
+    #####:   89:               Outcome := Failure;
         -:   90:            end if;
         -:   91:         end if;
         -:   92:

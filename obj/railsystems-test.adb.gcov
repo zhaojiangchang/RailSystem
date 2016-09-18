@@ -104,7 +104,7 @@
         2:  102:      dfs_station_reachability_by_train(rail_system, trainA);
         2:  103:      Assert (Condition => (trainA.isReachable) = True,
         -:  104:              Message => "Test_dfs_station_reachability_by_train: reachable from wellington to johnsonvile");
-    #####:  105:   end Test_dfs_station_reachability_by_train;
+        2:  105:   end Test_dfs_station_reachability_by_train;
         -:  106:
         2:  107:   procedure Test_dfs_station_reachability_by_train_station_trainid_equls_zero_Exception (CWTC: in out AUnit.Test_Cases.Test_Case'Class) is
         2:  108:      procedure Test_Raising_Exception is

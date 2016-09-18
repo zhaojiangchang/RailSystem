@@ -1,0 +1,45 @@
+[GENERATED OBJECT FILE]
+b__railsystems_harness.o
+[PROJECT FILES]
+C:\Users\JackyChang\Desktop\tutorial\RailSystem\railsystem.gpr
+20160915095706
+[BOUND OBJECT FILES]
+C:\Users\JackyChang\Desktop\tutorial\RailSystem\obj\ada_containers.o
+C:\Users\JackyChang\Desktop\tutorial\RailSystem\obj\aunit-memory.o
+C:\Users\JackyChang\Desktop\tutorial\RailSystem\obj\aunit.o
+C:\Users\JackyChang\Desktop\tutorial\RailSystem\obj\aunit-memory-utils.o
+C:\Users\JackyChang\Desktop\tutorial\RailSystem\obj\ada_containers-aunit_lists.o
+C:\Users\JackyChang\Desktop\tutorial\RailSystem\obj\aunit-tests.o
+C:\Users\JackyChang\Desktop\tutorial\RailSystem\obj\aunit-options.o
+C:\Users\JackyChang\Desktop\tutorial\RailSystem\obj\aunit-time_measure.o
+C:\Users\JackyChang\Desktop\tutorial\RailSystem\obj\aunit-test_results.o
+C:\Users\JackyChang\Desktop\tutorial\RailSystem\obj\aunit-assertions.o
+C:\Users\JackyChang\Desktop\tutorial\RailSystem\obj\aunit-reporter.o
+C:\Users\JackyChang\Desktop\tutorial\RailSystem\obj\aunit-reporter-text.o
+C:\Users\JackyChang\Desktop\tutorial\RailSystem\obj\aunit-simple_test_cases.o
+C:\Users\JackyChang\Desktop\tutorial\RailSystem\obj\aunit-test_filters.o
+C:\Users\JackyChang\Desktop\tutorial\RailSystem\obj\aunit-test_cases.o
+C:\Users\JackyChang\Desktop\tutorial\RailSystem\obj\aunit-test_suites.o
+C:\Users\JackyChang\Desktop\tutorial\RailSystem\obj\aunit-run.o
+C:\Users\JackyChang\Desktop\tutorial\RailSystem\obj\List.o
+C:\Users\JackyChang\Desktop\tutorial\RailSystem\obj\RailSystems_harness.o
+C:\Users\JackyChang\Desktop\tutorial\RailSystem\obj\types.o
+C:\Users\JackyChang\Desktop\tutorial\RailSystem\obj\sPrint.o
+C:\Users\JackyChang\Desktop\tutorial\RailSystem\obj\Tracks.o
+C:\Users\JackyChang\Desktop\tutorial\RailSystem\obj\Stations.o
+C:\Users\JackyChang\Desktop\tutorial\RailSystem\obj\Trains.o
+C:\Users\JackyChang\Desktop\tutorial\RailSystem\obj\RailSystems.o
+C:\Users\JackyChang\Desktop\tutorial\RailSystem\obj\RailSystems-test.o
+C:\Users\JackyChang\Desktop\tutorial\RailSystem\obj\RailSystems_suite.o
+[GENERATED SOURCE FILES]
+b__railsystems_harness.ads
+b__railsystems_harness.adb
+b__railsystems_harness.ali
+[RESULTING OPTIONS]
+-LC:\Users\JackyChang\Desktop\tutorial\RailSystem\obj\
+-LC:\Users\JackyChang\Desktop\tutorial\RailSystem\obj\
+-LC:/gnat/2016/lib/gcc/i686-pc-mingw32/4.9.4/adalib/
+-static
+-static-libgcc
+C:/gnat/2016/lib/gcc/i686-pc-mingw32/4.9.4/adalib/libgnat.a
+-Wl,--stack=0x2000000

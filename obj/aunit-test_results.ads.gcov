@@ -43,7 +43,7 @@
         -:   41:   --  Record result. A result object is associated with the execution of a
         -:   42:   --  top-level test suite.
         -:   43:
-        4:   44:   type Test_Failure is record
+    #####:   44:   type Test_Failure is record
         -:   45:      Message     : Message_String;
         -:   46:      Source_Name : Message_String;
         -:   47:      Line        : Natural;

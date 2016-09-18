@@ -209,4 +209,6 @@ with SPARK_Mode=>On is
        pre => track.ID > 0;
 
    procedure addIncomingOutgoingTracksForEachStation(r_system: in out RailSystem);
+
+   procedure resetIsReachable(r_system: in out RailSystem);
 end RailSystems;

@@ -83,9 +83,9 @@
 </theory>
 <theory name="Types__list_od__list_array" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Types__list_od__list_ptr__T4s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Types__list_od__list_ptr__T3s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Types__list_od__list_ptr__T5s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Types__list_od__list_ptr__T4s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Types__list_od__list_ptr" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
@@ -1953,9 +1953,9 @@
 </theory>
 <theory name="Stations__list_tracks__list_array" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Stations__list_tracks__list_ptr__T4s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Stations__list_tracks__list_ptr__T3s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Stations__list_tracks__list_ptr__T5s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Stations__list_tracks__list_ptr__T4s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Stations__list_tracks__list_ptr" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
@@ -2017,23 +2017,23 @@
 </theory>
 <theory name="Stations__list_tracks__replace_by_id__newvalue__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Stations__station__T6s__TT7sP1" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Stations__station__T5s__TT6sP1" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Stations__station__T6s__T7s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Stations__station__T5s__T6s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Stations__station__T6s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Stations__station__T5s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Stations__station__T8s__TT9sP1" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Stations__station__T7s__TT8sP1" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Stations__station__T8s__T9s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Stations__station__T7s__T8s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Stations__station__T8s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Stations__station__T7s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Stations__station__T10s__TT11sP1" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Stations__station__T9s__TT10sP1" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Stations__station__T10s__T11s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Stations__station__T9s__T10s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Stations__station__T10s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Stations__station__T9s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Stations__station" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
@@ -2065,9 +2065,9 @@
 </theory>
 <theory name="Railsystems__list_trains__list_array" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_trains__list_ptr__T4s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_trains__list_ptr__T3s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_trains__list_ptr__T5s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_trains__list_ptr__T4s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Railsystems__list_trains__list_ptr" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
@@ -2129,47 +2129,47 @@
 </theory>
 <theory name="Railsystems__list_trains__replace_by_id__newvalue__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_trains__contains__S55s__TT56sP1" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_trains__contains__S53s__TT54sP1" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_trains__contains__S55s__T56s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_trains__contains__S53s__T54s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_trains__contains__S55s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_trains__contains__S53s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_trains__contains__L_1__R57s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_trains__contains__L_1__R55s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_trains__contains__L_1__T58s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_trains__contains__L_1__T56s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_trains__get_size__S61s__TT62sP1" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_trains__get_size__S59s__TT60sP1" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_trains__get_size__S61s__T62s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_trains__get_size__S59s__T60s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_trains__get_size__S61s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_trains__get_size__S59s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_trains__full__S64s__TT65sP1" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_trains__full__S62s__TT63sP1" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_trains__full__S64s__T65s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_trains__full__S62s__T63s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_trains__full__S64s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_trains__full__S62s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_trains__get_element__S67s__TT68sP1" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_trains__get_element__S65s__TT66sP1" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_trains__get_element__S67s__T68s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_trains__get_element__S65s__T66s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_trains__get_element__S67s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_trains__get_element__S65s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_trains__get_element_by_id__S71s__TT72sP1" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_trains__get_element_by_id__S69s__TT70sP1" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_trains__get_element_by_id__S71s__T72s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_trains__get_element_by_id__S69s__T70s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_trains__get_element_by_id__S71s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_trains__get_element_by_id__S69s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_trains__get_element_by_id__L_2__R74s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_trains__get_element_by_id__L_2__R72s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_trains__get_element_by_id__L_2__T75s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_trains__get_element_by_id__L_2__T73s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_trains__replace_by_id__L_3__R77s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_trains__replace_by_id__L_3__R75s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_trains__replace_by_id__L_3__T78s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_trains__replace_by_id__L_3__T76s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Railsystems__list_stations__data_type" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
@@ -2183,9 +2183,9 @@
 </theory>
 <theory name="Railsystems__list_stations__list_array" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_stations__list_ptr__T9s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_stations__list_ptr__T7s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_stations__list_ptr__T10s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_stations__list_ptr__T8s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Railsystems__list_stations__list_ptr" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
@@ -2247,47 +2247,53 @@
 </theory>
 <theory name="Railsystems__list_stations__replace_by_id__newvalue__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_stations__contains__S80s__TT81sP1" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_stations__contains__S78s__TT79sP1" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_stations__contains__S80s__T81s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_stations__contains__S78s__T79s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_stations__contains__S80s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_stations__contains__S78s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_stations__contains__L_1__R82s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_stations__contains__L_1__R80s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_stations__contains__L_1__T83s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_stations__contains__L_1__T81s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_stations__get_size__S86s__TT87sP1" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_stations__get_size__S84s__TT85sP1" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_stations__get_size__S86s__T87s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_stations__get_size__S84s__T85s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_stations__get_size__S86s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_stations__get_size__S84s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_stations__full__S89s__TT90sP1" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_stations__full__S87s__TT88sP1" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_stations__full__S89s__T90s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_stations__full__S87s__T88s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_stations__full__S89s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_stations__full__S87s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_stations__get_element__S92s__TT93sP1" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_stations__get_element__S90s__TT91sP1" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_stations__get_element__S92s__T93s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_stations__get_element__S90s__T91s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_stations__get_element__S92s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_stations__get_element__S90s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_stations__get_element_by_id__S96s__TT97sP1" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_stations__get_element_by_id__S94s__TT95sP1" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_stations__get_element_by_id__S96s__T97s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_stations__get_element_by_id__S94s__T95s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_stations__get_element_by_id__S96s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_stations__get_element_by_id__S94s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_stations__get_element_by_id__L_2__R99s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_stations__get_element_by_id__L_2__R97s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_stations__get_element_by_id__L_2__T100s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_stations__get_element_by_id__L_2__T98s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_stations__replace_by_id__L_3__R102s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_stations__replace_by_id__L_3__R100s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_stations__replace_by_id__L_3__T103s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_stations__replace_by_id__L_3__T101s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Railsystems__railsystem__T9s__TT10sP1" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Railsystems__railsystem__T9s__T10s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Railsystems__railsystem__T9s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Railsystems__railsystem__T11s__TT12sP1" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
@@ -2301,19 +2307,13 @@
 </theory>
 <theory name="Railsystems__railsystem__T13s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__railsystem__T15s__TT16sP1" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Railsystems__railsystem__T15s__T16s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Railsystems__railsystem__T15s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
 <theory name="Railsystems__railsystem" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Railsystems__addtrain__id" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Railsystems__addtrain__id__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__addtrain__L30s__T31s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__addtrain__L28s__T29s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Railsystems__addtrack__id" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
@@ -2335,7 +2335,7 @@
 </theory>
 <theory name="Railsystems__addtrack__linedestination__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__addtrack__L32s__T33s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__addtrack__L30s__T31s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Railsystems__addstation__id" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
@@ -2345,17 +2345,17 @@
 </theory>
 <theory name="Railsystems__addstation__location__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__addstation__L34s__T35s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__addstation__L32s__T33s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__addstation__L36s__T37s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__addstation__L34s__T35s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Railsystems__go__count" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Railsystems__go__count__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__go__T42s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__go__T40s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__go__L39s__T40s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__go__L37s__T38s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Railsystems__gettrackbyname__r_system" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
@@ -2393,13 +2393,13 @@
 </theory>
 <theory name="Railsystems__preparetrain__starttime__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__preparetrain__L43s__T44s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__preparetrain__L41s__T42s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Railsystems__dfs_station_reachability_by_train__L43s__T44s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Railsystems__dfs_station_reachability_by_train__L45s__T46s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Railsystems__dfs_station_reachability_by_train__L47s__T48s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Railsystems__dfs_station_reachability_by_train__L49s__T50s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Railsystems__dfs_station_reachability_by_stations__from_station" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
@@ -2409,9 +2409,9 @@
 </theory>
 <theory name="Railsystems__dfs_station_reachability_by_stations__to_station__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__dfs_station_reachability_by_stations__L51s__T52s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__dfs_station_reachability_by_stations__L49s__T50s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__dfs_station_reachability_by_stations__L53s__T54s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__dfs_station_reachability_by_stations__L51s__T52s" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Railsystems__gettrainbyid__r_system" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
@@ -2552,6 +2552,14 @@
 <theory name="Railsystems__addincomingoutgoingtracksforeachstation__L_14__R56b" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Railsystems__addincomingoutgoingtracksforeachstation__L_14__T57b" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Railsystems__resetisreachable__L_15__R58b" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Railsystems__resetisreachable__L_15__T59b" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Railsystems__resetisreachable__L_16__R60b" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Railsystems__resetisreachable__L_16__T61b" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Types__od" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
@@ -2981,6 +2989,14 @@
 </theory>
 <theory name="Railsystems__addincomingoutgoingtracksforeachstation__r_system__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
+<theory name="Railsystems__resetisreachable__r_system" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Railsystems__resetisreachable__r_system__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Railsystems__max_size" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Railsystems__max_size__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
 <theory name="Railsystems__go__track" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Railsystems__go__track__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
@@ -3144,6 +3160,22 @@
 <theory name="Railsystems__addincomingoutgoingtracksforeachstation__L_14__w" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Railsystems__addincomingoutgoingtracksforeachstation__L_14__w__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Railsystems__resetisreachable__tempstation" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Railsystems__resetisreachable__tempstation__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Railsystems__resetisreachable__temptrain" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Railsystems__resetisreachable__temptrain__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Railsystems__resetisreachable__L_15__i" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Railsystems__resetisreachable__L_15__i__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Railsystems__resetisreachable__L_16__i" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Railsystems__resetisreachable__L_16__i__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Stations__list_tracks__get_element_by_id__data" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
@@ -3515,6 +3547,8 @@
 </theory>
 <theory name="Railsystems__addincomingoutgoingtracksforeachstation" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
+<theory name="Railsystems__resetisreachable" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
 <theory name="Railsystems__go__L_1" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Railsystems__go__L_1__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
@@ -3571,6 +3605,14 @@
 </theory>
 <theory name="Railsystems__addincomingoutgoingtracksforeachstation__L_14__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
+<theory name="Railsystems__resetisreachable__L_15" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Railsystems__resetisreachable__L_15__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Railsystems__resetisreachable__L_16" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Railsystems__resetisreachable__L_16__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
 <theory name="Types__Tmax_sizeB__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Types__max_size__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
@@ -3589,9 +3631,9 @@
 </theory>
 <theory name="Types__list_od__list_array__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Types__list_od__list_ptr__T4s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Types__list_od__list_ptr__T3s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Types__list_od__list_ptr__T5s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Types__list_od__list_ptr__T4s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Types__list_od__list_ptr__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
@@ -3841,29 +3883,29 @@
 </theory>
 <theory name="Stations__list_tracks__list_array__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Stations__list_tracks__list_ptr__T4s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Stations__list_tracks__list_ptr__T3s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Stations__list_tracks__list_ptr__T5s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Stations__list_tracks__list_ptr__T4s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Stations__list_tracks__list_ptr__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Stations__station__T6s__TT7sP1__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Stations__station__T5s__TT6sP1__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Stations__station__T6s__T7s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Stations__station__T5s__T6s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Stations__station__T6s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Stations__station__T5s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Stations__station__T8s__TT9sP1__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Stations__station__T7s__TT8sP1__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Stations__station__T8s__T9s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Stations__station__T7s__T8s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Stations__station__T8s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Stations__station__T7s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Stations__station__T10s__TT11sP1__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Stations__station__T9s__TT10sP1__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Stations__station__T10s__T11s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Stations__station__T9s__T10s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Stations__station__T10s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Stations__station__T9s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Stations__station__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
@@ -3893,47 +3935,47 @@
 </theory>
 <theory name="Railsystems__list_trains__list_array__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_trains__list_ptr__T4s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_trains__list_ptr__T3s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_trains__list_ptr__T5s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_trains__list_ptr__T4s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Railsystems__list_trains__list_ptr__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_trains__contains__S55s__TT56sP1__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_trains__contains__S53s__TT54sP1__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_trains__contains__S55s__T56s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_trains__contains__S53s__T54s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_trains__contains__S55s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_trains__contains__S53s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_trains__contains__L_1__T58s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_trains__contains__L_1__T56s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_trains__get_size__S61s__TT62sP1__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_trains__get_size__S59s__TT60sP1__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_trains__get_size__S61s__T62s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_trains__get_size__S59s__T60s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_trains__get_size__S61s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_trains__get_size__S59s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_trains__full__S64s__TT65sP1__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_trains__full__S62s__TT63sP1__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_trains__full__S64s__T65s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_trains__full__S62s__T63s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_trains__full__S64s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_trains__full__S62s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_trains__get_element__S67s__TT68sP1__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_trains__get_element__S65s__TT66sP1__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_trains__get_element__S67s__T68s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_trains__get_element__S65s__T66s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_trains__get_element__S67s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_trains__get_element__S65s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_trains__get_element_by_id__S71s__TT72sP1__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_trains__get_element_by_id__S69s__TT70sP1__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_trains__get_element_by_id__S71s__T72s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_trains__get_element_by_id__S69s__T70s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_trains__get_element_by_id__S71s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_trains__get_element_by_id__S69s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_trains__get_element_by_id__L_2__T75s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_trains__get_element_by_id__L_2__T73s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_trains__replace_by_id__L_3__T78s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_trains__replace_by_id__L_3__T76s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Railsystems__list_stations__data_type__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
@@ -3941,47 +3983,53 @@
 </theory>
 <theory name="Railsystems__list_stations__list_array__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_stations__list_ptr__T9s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_stations__list_ptr__T7s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_stations__list_ptr__T10s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_stations__list_ptr__T8s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Railsystems__list_stations__list_ptr__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_stations__contains__S80s__TT81sP1__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_stations__contains__S78s__TT79sP1__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_stations__contains__S80s__T81s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_stations__contains__S78s__T79s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_stations__contains__S80s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_stations__contains__S78s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_stations__contains__L_1__T83s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_stations__contains__L_1__T81s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_stations__get_size__S86s__TT87sP1__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_stations__get_size__S84s__TT85sP1__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_stations__get_size__S86s__T87s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_stations__get_size__S84s__T85s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_stations__get_size__S86s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_stations__get_size__S84s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_stations__full__S89s__TT90sP1__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_stations__full__S87s__TT88sP1__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_stations__full__S89s__T90s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_stations__full__S87s__T88s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_stations__full__S89s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_stations__full__S87s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_stations__get_element__S92s__TT93sP1__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_stations__get_element__S90s__TT91sP1__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_stations__get_element__S92s__T93s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_stations__get_element__S90s__T91s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_stations__get_element__S92s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_stations__get_element__S90s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_stations__get_element_by_id__S96s__TT97sP1__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_stations__get_element_by_id__S94s__TT95sP1__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_stations__get_element_by_id__S96s__T97s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_stations__get_element_by_id__S94s__T95s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_stations__get_element_by_id__S96s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_stations__get_element_by_id__S94s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_stations__get_element_by_id__L_2__T100s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_stations__get_element_by_id__L_2__T98s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_stations__replace_by_id__L_3__T103s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_stations__replace_by_id__L_3__T101s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Railsystems__railsystem__T9s__TT10sP1__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Railsystems__railsystem__T9s__T10s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Railsystems__railsystem__T9s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Railsystems__railsystem__T11s__TT12sP1__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
@@ -3995,39 +4043,33 @@
 </theory>
 <theory name="Railsystems__railsystem__T13s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__railsystem__T15s__TT16sP1__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Railsystems__railsystem__T15s__T16s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Railsystems__railsystem__T15s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
 <theory name="Railsystems__railsystem__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__addtrain__L30s__T31s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__addtrain__L28s__T29s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__addtrack__L32s__T33s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__addtrack__L30s__T31s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Railsystems__addstation__L32s__T33s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Railsystems__addstation__L34s__T35s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__addstation__L36s__T37s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__go__T40s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__go__T42s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Railsystems__go__L39s__T40s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__go__L37s__T38s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Temp___1469" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__preparetrain__L43s__T44s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__preparetrain__L41s__T42s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Railsystems__dfs_station_reachability_by_train__L43s__T44s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Railsystems__dfs_station_reachability_by_train__L45s__T46s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Railsystems__dfs_station_reachability_by_train__L47s__T48s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__dfs_station_reachability_by_train__L49s__T50s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__dfs_station_reachability_by_stations__L49s__T50s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Railsystems__dfs_station_reachability_by_stations__L51s__T52s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
-</theory>
-<theory name="Railsystems__dfs_station_reachability_by_stations__L53s__T54s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Railsystems__go__L_1__T1b__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
@@ -4124,6 +4166,10 @@
 <theory name="Railsystems__addincomingoutgoingtracksforeachstation__L_13__T55b__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Railsystems__addincomingoutgoingtracksforeachstation__L_14__T57b__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Railsystems__resetisreachable__L_15__T59b__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Railsystems__resetisreachable__L_16__T61b__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Temp___1724" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
@@ -4371,21 +4417,21 @@
 </theory>
 <theory name="Railsystems__list_trains__no_found__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_trains__contains__L_1__R57s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_trains__contains__L_1__R55s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_trains__get_element_by_id__L_2__R74s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_trains__get_element_by_id__L_2__R72s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_trains__replace_by_id__L_3__R77s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_trains__replace_by_id__L_3__R75s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Railsystems__list_stations__e_id__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Railsystems__list_stations__no_found__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_stations__contains__L_1__R82s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_stations__contains__L_1__R80s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_stations__get_element_by_id__L_2__R99s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_stations__get_element_by_id__L_2__R97s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__list_stations__replace_by_id__L_3__R102s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+<theory name="Railsystems__list_stations__replace_by_id__L_3__R100s__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Railsystems__go__L_2__R2b__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
@@ -4408,6 +4454,10 @@
 <theory name="Railsystems__addincomingoutgoingtracksforeachstation__L_13__R54b__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Railsystems__addincomingoutgoingtracksforeachstation__L_14__R56b__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Railsystems__resetisreachable__L_15__R58b__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Railsystems__resetisreachable__L_16__R60b__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
 <theory name="Types__list_od__contains__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
@@ -4907,14 +4957,16 @@
 </theory>
 <theory name="Railsystems__addincomingoutgoingtracksforeachstation__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
 </theory>
-<theory name="Railsystems__package_def" sum="851405ffb5d7688053c203de6d7a349e" expanded="true">
+<theory name="Railsystems__resetisreachable__axiom" sum="d41d8cd98f00b204e9800998ecf8427e" expanded="true">
+</theory>
+<theory name="Railsystems__package_def" sum="9c854b39520fc24d080446e3a0fd1050" expanded="true">
  <goal name="WP_parameter def" expl="VC for def" expanded="true">
  <transf name="split_goal_wp" expanded="true">
   <goal name="WP_parameter def.1" expl="1. assertion">
-  <proof prover="0"><result status="valid" time="0.06" steps="0"/></proof>
+  <proof prover="0"><result status="valid" time="0.05" steps="0"/></proof>
   </goal>
   <goal name="WP_parameter def.2" expl="2. assertion">
-  <proof prover="0"><result status="valid" time="0.08" steps="0"/></proof>
+  <proof prover="0"><result status="valid" time="0.05" steps="0"/></proof>
   </goal>
  </transf>
  </goal>
@@ -4986,7 +5038,7 @@
   <proof prover="0"><result status="valid" time="0.08" steps="0"/></proof>
   </goal>
   <goal name="WP_parameter def.4" expl="4. assertion">
-  <proof prover="0"><result status="valid" time="0.11" steps="50"/></proof>
+  <proof prover="0"><result status="valid" time="0.08" steps="50"/></proof>
   </goal>
   <goal name="WP_parameter def.5" expl="5. assertion">
   <proof prover="0"><result status="valid" time="0.09" steps="0"/></proof>
@@ -5012,26 +5064,26 @@
  </transf>
  </goal>
 </theory>
-<theory name="Railsystems__list_trains__append__subprogram_def" sum="3dba11ce31f107cfb535f89d1677deb8" expanded="true">
+<theory name="Railsystems__list_trains__append__subprogram_def" sum="ca184fc7825c8b7bc33830cc3f0b8432" expanded="true">
  <goal name="WP_parameter def" expl="VC for def" expanded="true">
  <transf name="split_goal_wp" expanded="true">
   <goal name="WP_parameter def.1" expl="1. precondition">
-  <proof prover="0"><result status="valid" time="0.11" steps="500"/></proof>
+  <proof prover="0"><result status="valid" time="0.09" steps="540"/></proof>
   </goal>
   <goal name="WP_parameter def.2" expl="2. assertion">
-  <proof prover="0"><result status="valid" time="0.11" steps="570"/></proof>
+  <proof prover="0"><result status="valid" time="0.11" steps="560"/></proof>
   </goal>
   <goal name="WP_parameter def.3" expl="3. assertion">
-  <proof prover="0"><result status="valid" time="0.11" steps="0"/></proof>
+  <proof prover="0"><result status="valid" time="0.08" steps="0"/></proof>
   </goal>
  </transf>
  </goal>
 </theory>
-<theory name="Railsystems__list_trains__replace_by_id__subprogram_def" sum="a5c298d28ef712e355367a1f94c96d69" expanded="true">
+<theory name="Railsystems__list_trains__replace_by_id__subprogram_def" sum="cf59bacf9ac3d0d9def1ba13371f869f" expanded="true">
  <goal name="WP_parameter def" expl="VC for def" expanded="true">
  <transf name="split_goal_wp" expanded="true">
   <goal name="WP_parameter def.1" expl="1. assertion">
-  <proof prover="0"><result status="valid" time="0.09" steps="50"/></proof>
+  <proof prover="0"><result status="valid" time="0.08" steps="50"/></proof>
   </goal>
   <goal name="WP_parameter def.2" expl="2. assertion">
   <proof prover="0"><result status="valid" time="0.08" steps="0"/></proof>
@@ -5099,14 +5151,14 @@
  </transf>
  </goal>
 </theory>
-<theory name="Railsystems__list_stations__get_element_by_id__subprogram_def" sum="92f3d73bdaa380527be39cb9571f2ed8" expanded="true">
+<theory name="Railsystems__list_stations__get_element_by_id__subprogram_def" sum="fbc85472d889817e467ce0b8a1001575" expanded="true">
  <goal name="WP_parameter def" expl="VC for def" expanded="true">
  <transf name="split_goal_wp" expanded="true">
   <goal name="WP_parameter def.1" expl="1. precondition">
   <proof prover="0"><result status="valid" time="0.08" steps="440"/></proof>
   </goal>
   <goal name="WP_parameter def.2" expl="2. assertion">
-  <proof prover="0"><result status="valid" time="0.09" steps="50"/></proof>
+  <proof prover="0"><result status="valid" time="0.08" steps="50"/></proof>
   </goal>
   <goal name="WP_parameter def.3" expl="3. assertion">
   <proof prover="0"><result status="valid" time="0.06" steps="0"/></proof>
@@ -5132,17 +5184,17 @@
  </transf>
  </goal>
 </theory>
-<theory name="Railsystems__list_stations__append__subprogram_def" sum="4e84301ac2f62a79656c992236fa09c5" expanded="true">
+<theory name="Railsystems__list_stations__append__subprogram_def" sum="664eb7fbb189bbf626bcecc78f2ecb67" expanded="true">
  <goal name="WP_parameter def" expl="VC for def" expanded="true">
  <transf name="split_goal_wp" expanded="true">
   <goal name="WP_parameter def.1" expl="1. precondition">
-  <proof prover="0"><result status="valid" time="0.08" steps="490"/></proof>
+  <proof prover="0"><result status="valid" time="0.08" steps="530"/></proof>
   </goal>
   <goal name="WP_parameter def.2" expl="2. assertion">
-  <proof prover="0"><result status="valid" time="0.09" steps="560"/></proof>
+  <proof prover="0"><result status="valid" time="0.08" steps="550"/></proof>
   </goal>
   <goal name="WP_parameter def.3" expl="3. assertion">
-  <proof prover="0"><result status="valid" time="0.06" steps="0"/></proof>
+  <proof prover="0"><result status="valid" time="0.08" steps="0"/></proof>
   </goal>
  </transf>
  </goal>
@@ -5171,36 +5223,27 @@
  </transf>
  </goal>
 </theory>
-<theory name="Railsystems__addtrain__subprogram_def" sum="6540cf0adec986469c4ea4c0ab33dd20" expanded="true">
+<theory name="Railsystems__addtrain__subprogram_def" sum="f077f8b9d9bbb9daac12327175c7646f" expanded="true">
  <goal name="WP_parameter def" expl="VC for def" expanded="true">
  <transf name="split_goal_wp" expanded="true">
   <goal name="WP_parameter def.1" expl="1. assertion">
-  <proof prover="0"><result status="valid" time="0.13" steps="0"/></proof>
+  <proof prover="0"><result status="valid" time="0.11" steps="0"/></proof>
   </goal>
   <goal name="WP_parameter def.2" expl="2. assertion">
-  <proof prover="0"><result status="valid" time="0.13" steps="0"/></proof>
-  </goal>
-  <goal name="WP_parameter def.3" expl="3. precondition">
-  <proof prover="0"><result status="valid" time="0.16" steps="0"/></proof>
+  <proof prover="0"><result status="valid" time="0.09" steps="0"/></proof>
   </goal>
  </transf>
  </goal>
 </theory>
-<theory name="Railsystems__addtrack__subprogram_def" sum="9fe71e850b7533a7a3328eefa07dea43" expanded="true">
+<theory name="Railsystems__addtrack__subprogram_def" sum="665e1e1f8e1bf4ebdbfc13e888c9aaed" expanded="true">
  <goal name="WP_parameter def" expl="VC for def" expanded="true">
  <transf name="split_goal_wp" expanded="true">
-  <goal name="WP_parameter def.1" expl="1. precondition">
-  <proof prover="0"><result status="valid" time="0.13" steps="0"/></proof>
-  </goal>
  </transf>
  </goal>
 </theory>
-<theory name="Railsystems__addstation__subprogram_def" sum="f9cb39aeae3ea68fa078a598a23f1aaf" expanded="true">
+<theory name="Railsystems__addstation__subprogram_def" sum="22c233ad3bb99b2bc2f4d7baaac50643" expanded="true">
  <goal name="WP_parameter def" expl="VC for def" expanded="true">
  <transf name="split_goal_wp" expanded="true">
-  <goal name="WP_parameter def.1" expl="1. precondition">
-  <proof prover="0"><result status="valid" time="0.16" steps="0"/></proof>
-  </goal>
  </transf>
  </goal>
 </theory>
@@ -5216,17 +5259,17 @@
  </transf>
  </goal>
 </theory>
-<theory name="Railsystems__go__subprogram_def" sum="af733083e37b2073faba60cae704a817" expanded="true">
+<theory name="Railsystems__go__subprogram_def" sum="f6008d470b9e2e040d4cc7f743d28797" expanded="true">
  <goal name="WP_parameter def" expl="VC for def" expanded="true">
  <transf name="split_goal_wp" expanded="true">
   <goal name="WP_parameter def.1" expl="1. precondition">
-  <proof prover="0"><result status="valid" time="0.17" steps="380"/></proof>
+  <proof prover="0"><result status="valid" time="0.19" steps="380"/></proof>
   </goal>
   <goal name="WP_parameter def.2" expl="2. precondition">
-  <proof prover="0"><result status="valid" time="0.16" steps="0"/></proof>
+  <proof prover="0"><result status="valid" time="0.19" steps="0"/></proof>
   </goal>
   <goal name="WP_parameter def.3" expl="3. assertion">
-  <proof prover="0"><result status="valid" time="0.09" steps="0"/></proof>
+  <proof prover="0"><result status="valid" time="0.11" steps="0"/></proof>
   </goal>
   <goal name="WP_parameter def.4" expl="4. precondition">
   <proof prover="0"><result status="valid" time="0.25" steps="0"/></proof>
@@ -5235,19 +5278,19 @@
   <proof prover="0"><result status="valid" time="0.22" steps="0"/></proof>
   </goal>
   <goal name="WP_parameter def.6" expl="6. precondition">
-  <proof prover="0"><result status="valid" time="0.22" steps="0"/></proof>
+  <proof prover="0"><result status="valid" time="0.23" steps="0"/></proof>
   </goal>
   <goal name="WP_parameter def.7" expl="7. precondition">
-  <proof prover="0"><result status="valid" time="0.27" steps="0"/></proof>
+  <proof prover="0"><result status="valid" time="0.28" steps="0"/></proof>
   </goal>
   <goal name="WP_parameter def.8" expl="8. assertion">
-  <proof prover="0"><result status="valid" time="0.09" steps="0"/></proof>
+  <proof prover="0"><result status="valid" time="0.11" steps="0"/></proof>
   </goal>
   <goal name="WP_parameter def.9" expl="9. precondition">
-  <proof prover="0"><result status="valid" time="0.20" steps="0"/></proof>
+  <proof prover="0"><result status="valid" time="0.25" steps="0"/></proof>
   </goal>
   <goal name="WP_parameter def.10" expl="10. precondition">
-  <proof prover="0"><result status="valid" time="0.20" steps="0"/></proof>
+  <proof prover="0"><result status="valid" time="0.19" steps="0"/></proof>
   </goal>
   <goal name="WP_parameter def.11" expl="11. precondition">
   <proof prover="0"><result status="valid" time="0.20" steps="0"/></proof>
@@ -5256,12 +5299,12 @@
   <proof prover="0"><result status="valid" time="0.20" steps="0"/></proof>
   </goal>
   <goal name="WP_parameter def.13" expl="13. precondition">
-  <proof prover="0"><result status="valid" time="1.02" steps="50"/></proof>
+  <proof prover="0"><result status="valid" time="1.08" steps="50"/></proof>
   </goal>
  </transf>
  </goal>
 </theory>
-<theory name="Railsystems__preparetrain__subprogram_def" sum="36770bf4d2a68afb78fabb7fea9b81f4" expanded="true">
+<theory name="Railsystems__preparetrain__subprogram_def" sum="564f194122ca269fe9c10baf1b9544f1" expanded="true">
  <goal name="WP_parameter def" expl="VC for def" expanded="true">
  <transf name="split_goal_wp" expanded="true">
   <goal name="WP_parameter def.1" expl="1. assertion">
@@ -5271,60 +5314,42 @@
   <proof prover="0"><result status="valid" time="0.22" steps="0"/></proof>
   </goal>
   <goal name="WP_parameter def.3" expl="3. precondition">
-  <proof prover="0"><result status="valid" time="0.17" steps="0"/></proof>
+  <proof prover="0"><result status="valid" time="0.19" steps="0"/></proof>
   </goal>
   <goal name="WP_parameter def.4" expl="4. postcondition">
-  <proof prover="0"><result status="valid" time="0.22" steps="0"/></proof>
+  <proof prover="0"><result status="valid" time="0.25" steps="0"/></proof>
   </goal>
  </transf>
  </goal>
 </theory>
-<theory name="Railsystems__dfs_station_reachability_by_train__subprogram_def" sum="5c8825c813ffe483249c93097ce3946c" expanded="true">
+<theory name="Railsystems__dfs_station_reachability_by_train__subprogram_def" sum="aa346792d3536690d199e654b94122c8" expanded="true">
  <goal name="WP_parameter def" expl="VC for def" expanded="true">
  <transf name="split_goal_wp" expanded="true">
   <goal name="WP_parameter def.1" expl="1. precondition">
-  <proof prover="0"><result status="valid" time="0.14" steps="0"/></proof>
+  <proof prover="0"><result status="valid" time="0.16" steps="0"/></proof>
   </goal>
   <goal name="WP_parameter def.2" expl="2. precondition">
-  <proof prover="0"><result status="valid" time="0.14" steps="0"/></proof>
+  <proof prover="0"><result status="valid" time="0.13" steps="0"/></proof>
   </goal>
   <goal name="WP_parameter def.3" expl="3. precondition">
   <proof prover="0"><result status="valid" time="0.17" steps="0"/></proof>
-  </goal>
-  <goal name="WP_parameter def.4" expl="4. precondition">
-  <proof prover="0"><result status="valid" time="0.22" steps="0"/></proof>
-  </goal>
-  <goal name="WP_parameter def.5" expl="5. precondition">
-  <proof prover="0"><result status="valid" time="0.17" steps="0"/></proof>
-  <proof prover="1" obsolete="true"><result status="unknown" time="1.17" steps="75080"/></proof>
-  </goal>
-  <goal name="WP_parameter def.6" expl="6. precondition">
-  <proof prover="0"><result status="valid" time="0.23" steps="0"/></proof>
+  <proof prover="1" obsolete="true"><result status="unknown" time="0.78" steps="75020"/></proof>
   </goal>
  </transf>
  </goal>
 </theory>
-<theory name="Railsystems__dfs_station_reachability_by_stations__subprogram_def" sum="423adc38a32e099438bba34bcb05376e" expanded="true">
+<theory name="Railsystems__dfs_station_reachability_by_stations__subprogram_def" sum="7ece588abb0093afe7d8096cd8c1fb6d" expanded="true">
  <goal name="WP_parameter def" expl="VC for def" expanded="true">
  <transf name="split_goal_wp" expanded="true">
   <goal name="WP_parameter def.1" expl="1. precondition">
   <proof prover="0"><result status="valid" time="0.13" steps="0"/></proof>
   </goal>
   <goal name="WP_parameter def.2" expl="2. precondition">
-  <proof prover="0"><result status="valid" time="0.14" steps="0"/></proof>
+  <proof prover="0"><result status="valid" time="0.13" steps="0"/></proof>
   </goal>
   <goal name="WP_parameter def.3" expl="3. precondition">
-  <proof prover="0"><result status="valid" time="0.17" steps="0"/></proof>
-  </goal>
-  <goal name="WP_parameter def.4" expl="4. precondition">
-  <proof prover="0"><result status="valid" time="0.17" steps="0"/></proof>
-  </goal>
-  <goal name="WP_parameter def.5" expl="5. precondition">
   <proof prover="0"><result status="valid" time="0.22" steps="0"/></proof>
-  <proof prover="1" obsolete="true"><result status="unknown" time="1.22" steps="75020"/></proof>
-  </goal>
-  <goal name="WP_parameter def.6" expl="6. precondition">
-  <proof prover="0"><result status="valid" time="0.22" steps="0"/></proof>
+  <proof prover="1" obsolete="true"><result status="unknown" time="0.55" steps="31330"/></proof>
   </goal>
  </transf>
  </goal>
@@ -5347,7 +5372,7 @@
  </transf>
  </goal>
 </theory>
-<theory name="Railsystems__replacetrain__subprogram_def" sum="c6430e4e153bf62e42e4447b3efcffcf" expanded="true">
+<theory name="Railsystems__replacetrain__subprogram_def" sum="7b54fcbfbb99fee04ebdede74536c3ff" expanded="true">
  <goal name="WP_parameter def" expl="VC for def" expanded="true">
  <transf name="split_goal_wp" expanded="true">
  </transf>
@@ -5359,23 +5384,30 @@
  </transf>
  </goal>
 </theory>
-<theory name="Railsystems__addincomingoutgoingtracksforeachstation__subprogram_def" sum="ababee573e0f097b6991bf8271a4972c" expanded="true">
+<theory name="Railsystems__addincomingoutgoingtracksforeachstation__subprogram_def" sum="f62e96f6783d71556cc0735d81135246" expanded="true">
  <goal name="WP_parameter def" expl="VC for def" expanded="true">
  <transf name="split_goal_wp" expanded="true">
   <goal name="WP_parameter def.1" expl="1. precondition">
-  <proof prover="0"><result status="valid" time="0.14" steps="0"/></proof>
+  <proof prover="0"><result status="valid" time="0.28" steps="0"/></proof>
+  <proof prover="1" obsolete="true"><result status="unknown" time="0.53" steps="35490"/></proof>
   </goal>
-  <goal name="WP_parameter def.2" expl="2. precondition">
-  <proof prover="0"><result status="valid" time="0.17" steps="200"/></proof>
+ </transf>
+ </goal>
+</theory>
+<theory name="Railsystems__resetisreachable__subprogram_def" sum="bbd83a8dc8dc3b2e94e810ac9d472083" expanded="true">
+ <goal name="WP_parameter def" expl="VC for def" expanded="true">
+ <transf name="split_goal_wp" expanded="true">
+  <goal name="WP_parameter def.1" expl="1. assertion">
+  <proof prover="0"><result status="valid" time="0.11" steps="0"/></proof>
+  </goal>
+  <goal name="WP_parameter def.2" expl="2. assertion">
+  <proof prover="0"><result status="valid" time="0.11" steps="0"/></proof>
   </goal>
   <goal name="WP_parameter def.3" expl="3. precondition">
-  <proof prover="0"><result status="valid" time="0.19" steps="230"/></proof>
+  <proof prover="0"><result status="valid" time="0.17" steps="0"/></proof>
   </goal>
   <goal name="WP_parameter def.4" expl="4. precondition">
   <proof prover="0"><result status="valid" time="0.14" steps="0"/></proof>
-  </goal>
-  <goal name="WP_parameter def.5" expl="5. precondition">
-  <proof prover="0"><result status="valid" time="0.30" steps="0"/></proof>
   </goal>
  </transf>
  </goal>

@@ -61,6 +61,7 @@ package body RailSystems.Test is
       TrainA: Trains.Train;
    begin
       Init(r_system => rail_system);
+      resetIsReachable(r_system => rail_system);
       Put_Line("");
       Put_Line("Test_dfs_station_reachability_by_train");
 
@@ -108,32 +109,33 @@ package body RailSystems.Test is
       procedure Test_Raising_Exception is
          TrainA: Trains.Train;
       begin
-           Init(r_system => rail_system);
-      Put_Line("");
-      Put_Line("Test_dfs_station_reachability_by_train_station_trainid_equls_zero_Exception");
+         Init(r_system => rail_system);
+         resetIsReachable(r_system => rail_system);
+         Put_Line("");
+         Put_Line("Test_dfs_station_reachability_by_train_station_trainid_equls_zero_Exception");
 
-      addTrain(rail_system, 1);
-      --           setTrainLocation(rail_system, trainB, "None");
-      TrainA := getTrainById(rail_system,1);
-
-
-      addTrack(rail_system,  1, TYPES.Wellington, TYPES.CroftonDowns, TYPES.Wellington, TYPES.Johnsonville);
-      addTrack(rail_system,  2, TYPES.CroftonDowns, TYPES.Ngaio, TYPES.Wellington, TYPES.Johnsonville);
-      addTrack(rail_system,  3, TYPES.Ngaio, TYPES.Khandallah, TYPES.Wellington, TYPES.Johnsonville);
-      addTrack(rail_system,  4, TYPES.Khandallah, TYPES.Johnsonville, TYPES.Wellington, TYPES.Johnsonville);
-
-      addTrack(rail_system,  5, TYPES.CroftonDowns, TYPES.Wellington, TYPES.Johnsonville, TYPES.Wellington);
-      addTrack(rail_system,  6, TYPES.Ngaio, TYPES.CroftonDowns, TYPES.Johnsonville, TYPES.Wellington);
-      addTrack(rail_system,  7, TYPES.Khandallah, TYPES.Ngaio, TYPES.Johnsonville, TYPES.Wellington);
-      addTrack(rail_system,  8, TYPES.Johnsonville, TYPES.Khandallah, TYPES.Johnsonville, TYPES.Wellington);
+         addTrain(rail_system, 1);
+         --           setTrainLocation(rail_system, trainB, "None");
+         TrainA := getTrainById(rail_system,1);
 
 
-      addStation(rail_system, 1,TYPES.Wellington);
-      addStation(rail_system, 2,TYPES.Johnsonville);
-      addStation(rail_system, 3,TYPES.CroftonDowns);
-      addStation(rail_system, 4,TYPES.Ngaio);
-      addStation(rail_system, 5,TYPES.Khandallah);
-      addIncomingOutgoingTracksForEachStation(rail_system);
+         addTrack(rail_system,  1, TYPES.Wellington, TYPES.CroftonDowns, TYPES.Wellington, TYPES.Johnsonville);
+         addTrack(rail_system,  2, TYPES.CroftonDowns, TYPES.Ngaio, TYPES.Wellington, TYPES.Johnsonville);
+         addTrack(rail_system,  3, TYPES.Ngaio, TYPES.Khandallah, TYPES.Wellington, TYPES.Johnsonville);
+         addTrack(rail_system,  4, TYPES.Khandallah, TYPES.Johnsonville, TYPES.Wellington, TYPES.Johnsonville);
+
+         addTrack(rail_system,  5, TYPES.CroftonDowns, TYPES.Wellington, TYPES.Johnsonville, TYPES.Wellington);
+         addTrack(rail_system,  6, TYPES.Ngaio, TYPES.CroftonDowns, TYPES.Johnsonville, TYPES.Wellington);
+         addTrack(rail_system,  7, TYPES.Khandallah, TYPES.Ngaio, TYPES.Johnsonville, TYPES.Wellington);
+         addTrack(rail_system,  8, TYPES.Johnsonville, TYPES.Khandallah, TYPES.Johnsonville, TYPES.Wellington);
+
+
+         addStation(rail_system, 1,TYPES.Wellington);
+         addStation(rail_system, 2,TYPES.Johnsonville);
+         addStation(rail_system, 3,TYPES.CroftonDowns);
+         addStation(rail_system, 4,TYPES.Ngaio);
+         addStation(rail_system, 5,TYPES.Khandallah);
+         addIncomingOutgoingTracksForEachStation(rail_system);
 
          prepareTrain(rail_system, trainA, Types.Wellington, Types.Johnsonville, TYPES.S8);
          TrainA.Location.Station.Location:= TYPES.No;
@@ -151,32 +153,33 @@ package body RailSystems.Test is
       procedure Test_Raising_Exception is
          TrainA: Trains.Train;
       begin
-           Init(r_system => rail_system);
-      Put_Line("");
-      Put_Line("Test_dfs_station_reachability_by_train_base_location_No_Exception");
+         Init(r_system => rail_system);
+         resetIsReachable(r_system => rail_system);
+         Put_Line("");
+         Put_Line("Test_dfs_station_reachability_by_train_base_location_No_Exception");
 
-      addTrain(rail_system, 1);
-      --           setTrainLocation(rail_system, trainB, "None");
-      TrainA := getTrainById(rail_system,1);
-
-
-      addTrack(rail_system,  1, TYPES.Wellington, TYPES.CroftonDowns, TYPES.Wellington, TYPES.Johnsonville);
-      addTrack(rail_system,  2, TYPES.CroftonDowns, TYPES.Ngaio, TYPES.Wellington, TYPES.Johnsonville);
-      addTrack(rail_system,  3, TYPES.Ngaio, TYPES.Khandallah, TYPES.Wellington, TYPES.Johnsonville);
-      addTrack(rail_system,  4, TYPES.Khandallah, TYPES.Johnsonville, TYPES.Wellington, TYPES.Johnsonville);
-
-      addTrack(rail_system,  5, TYPES.CroftonDowns, TYPES.Wellington, TYPES.Johnsonville, TYPES.Wellington);
-      addTrack(rail_system,  6, TYPES.Ngaio, TYPES.CroftonDowns, TYPES.Johnsonville, TYPES.Wellington);
-      addTrack(rail_system,  7, TYPES.Khandallah, TYPES.Ngaio, TYPES.Johnsonville, TYPES.Wellington);
-      addTrack(rail_system,  8, TYPES.Johnsonville, TYPES.Khandallah, TYPES.Johnsonville, TYPES.Wellington);
+         addTrain(rail_system, 1);
+         --           setTrainLocation(rail_system, trainB, "None");
+         TrainA := getTrainById(rail_system,1);
 
 
-      addStation(rail_system, 1,TYPES.Wellington);
-      addStation(rail_system, 2,TYPES.Johnsonville);
-      addStation(rail_system, 3,TYPES.CroftonDowns);
-      addStation(rail_system, 4,TYPES.Ngaio);
-      addStation(rail_system, 5,TYPES.Khandallah);
-      addIncomingOutgoingTracksForEachStation(rail_system);
+         addTrack(rail_system,  1, TYPES.Wellington, TYPES.CroftonDowns, TYPES.Wellington, TYPES.Johnsonville);
+         addTrack(rail_system,  2, TYPES.CroftonDowns, TYPES.Ngaio, TYPES.Wellington, TYPES.Johnsonville);
+         addTrack(rail_system,  3, TYPES.Ngaio, TYPES.Khandallah, TYPES.Wellington, TYPES.Johnsonville);
+         addTrack(rail_system,  4, TYPES.Khandallah, TYPES.Johnsonville, TYPES.Wellington, TYPES.Johnsonville);
+
+         addTrack(rail_system,  5, TYPES.CroftonDowns, TYPES.Wellington, TYPES.Johnsonville, TYPES.Wellington);
+         addTrack(rail_system,  6, TYPES.Ngaio, TYPES.CroftonDowns, TYPES.Johnsonville, TYPES.Wellington);
+         addTrack(rail_system,  7, TYPES.Khandallah, TYPES.Ngaio, TYPES.Johnsonville, TYPES.Wellington);
+         addTrack(rail_system,  8, TYPES.Johnsonville, TYPES.Khandallah, TYPES.Johnsonville, TYPES.Wellington);
+
+
+         addStation(rail_system, 1,TYPES.Wellington);
+         addStation(rail_system, 2,TYPES.Johnsonville);
+         addStation(rail_system, 3,TYPES.CroftonDowns);
+         addStation(rail_system, 4,TYPES.Ngaio);
+         addStation(rail_system, 5,TYPES.Khandallah);
+         addIncomingOutgoingTracksForEachStation(rail_system);
 
          prepareTrain(rail_system, trainA, Types.Wellington, Types.Johnsonville, TYPES.S8);
          TrainA.Location.Station.TrainID:= 0;
@@ -196,7 +199,7 @@ package body RailSystems.Test is
       Init(r_system => rail_system);
       Put_Line("");
       Put_Line("Test_dfs_station_reachability_by_stations");
-
+      resetIsReachable(r_system => rail_system);
       addTrain(rail_system, 1);
       --           setTrainLocation(rail_system, trainB, "None");
       TrainA := getTrainById(rail_system,1);
@@ -234,18 +237,22 @@ package body RailSystems.Test is
       Assert (Condition => (getStationByName(stations_list   => rail_system.All_Stations,
                                              stationLocation => TYPES.Johnsonville).isReachable) = True,
               Message => "Test_dfs_station_reachability_by_stations: reachable from wellington to johnsonvile");
-       dfs_station_reachability_by_stations(rail_system, TYPES.Wellington, TYPES.UpperHutt);
+      resetIsReachable(r_system => rail_system);
+      dfs_station_reachability_by_stations(rail_system, TYPES.Wellington, TYPES.UpperHutt);
       Assert (Condition => (getStationByName(stations_list   => rail_system.All_Stations,
                                              stationLocation => TYPES.UpperHutt).isReachable) = True,
               Message => "Test_dfs_station_reachability_by_stations: reachable from wellington to UpperHutt");
+      resetIsReachable(r_system => rail_system);
        dfs_station_reachability_by_stations(rail_system, TYPES.Wellington, TYPES.Johnsonville);
       Assert (Condition => (getStationByName(stations_list   => rail_system.All_Stations,
                                              stationLocation => TYPES.Johnsonville).isReachable) = True,
               Message => "Test_dfs_station_reachability_by_stations: reachable from wellington to johnsonvile");
+      resetIsReachable(r_system => rail_system);
        dfs_station_reachability_by_stations(rail_system, TYPES.UpperHutt, TYPES.Johnsonville);
       Assert (Condition => (getStationByName(stations_list   => rail_system.All_Stations,
                                              stationLocation => TYPES.Johnsonville).isReachable) = True,
               Message => "Test_dfs_station_reachability_by_stations: reachable from UpperHutt to johnsonvile");
+      resetIsReachable(r_system => rail_system);
    end Test_dfs_station_reachability_by_stations;
 
    procedure Test_GET_ELEMENT_No_Found (CWTC : in out AUnit.Test_Cases.Test_Case'Class)

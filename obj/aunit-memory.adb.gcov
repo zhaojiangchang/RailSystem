@@ -39,22 +39,22 @@
         -:   37:   -- Alloc --
         -:   38:   -----------
         -:   39:
-      144:   40:   function AUnit_Alloc (Size : size_t) return System.Address is
+      140:   40:   function AUnit_Alloc (Size : size_t) return System.Address is
         -:   41:      function RT_Malloc (Size : size_t) return System.Address;
         -:   42:      pragma Import (C, RT_Malloc, "__gnat_malloc");
         -:   43:   begin
-      144:   44:      return RT_Malloc (Size);
+      140:   44:      return RT_Malloc (Size);
         -:   45:   end AUnit_Alloc;
         -:   46:
         -:   47:   ----------
         -:   48:   -- Free --
         -:   49:   ----------
         -:   50:
-        2:   51:   procedure AUnit_Free (Obj : System.Address) is
+    #####:   51:   procedure AUnit_Free (Obj : System.Address) is
         -:   52:      procedure RT_Free (Obj : System.Address);
         -:   53:      pragma Import (C, RT_Free, "__gnat_free");
         -:   54:   begin
-        2:   55:      RT_Free (Obj);
-        2:   56:   end AUnit_Free;
+    #####:   55:      RT_Free (Obj);
+    #####:   56:   end AUnit_Free;
         -:   57:
         -:   58:end AUnit.Memory;

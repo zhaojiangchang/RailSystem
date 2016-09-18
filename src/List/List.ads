@@ -62,13 +62,13 @@ package LIST is
 
    procedure DELETE_LAST(A: in out LIST_PTR);
 
-   procedure APPEND ( A: in out  LIST_PTR ; D: in DATA_TYPE; ID: in Natural  )
-   with
-       Pre =>(ID > 0
-              and ID <= A.MAX_SIZE
---                and (if ID > 0  and ID < 101 then ( for all Index in 1 .. GET_SIZE(A)
---                  =>GET_ELEMENT(A,Index) /= D))
-         );
+   procedure APPEND ( A: in out  LIST_PTR ; D: in DATA_TYPE; ID: in Natural  );
+--     with
+--         Pre =>(ID > 0
+--                and ID <= A.MAX_SIZE
+--  --                and (if ID > 0  and ID < 101 then ( for all Index in 1 .. GET_SIZE(A)
+--  --                  =>GET_ELEMENT(A,Index) /= D))
+--           );
 
    --  Add the new element at the back of the list and increments the list size
 

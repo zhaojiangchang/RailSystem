@@ -43,7 +43,7 @@
         -:   41:   end record;
         -:   42:   type Bounds_Access is access all Bounds;
         -:   43:
-      144:   44:   type Fat_Pointer is record
+      140:   44:   type Fat_Pointer is record
         -:   45:      Address       : System.Address;
         -:   46:      Bound_Address : Bounds_Access;
         -:   47:   end record;
@@ -53,23 +53,23 @@
         -:   51:   -- Message_Alloc --
         -:   52:   -------------------
         -:   53:
-      144:   54:   function Message_Alloc (Length : Natural) return Message_String is
+      140:   54:   function Message_Alloc (Length : Natural) return Message_String is
         -:   55:      function To_Message is new Ada.Unchecked_Conversion
         -:   56:        (Fat_Pointer, Message_String);
         -:   57:      function To_Bounds_Access is new Ada.Unchecked_Conversion
         -:   58:        (System.Address, Bounds_Access);
         -:   59:      function To_Address is new Ada.Unchecked_Conversion
         -:   60:        (Bounds_Access, System.Address);
-      144:   61:      Ret : Fat_Pointer;
+      140:   61:      Ret : Fat_Pointer;
         -:   62:   begin
-      144:   63:      Ret.Bound_Address := To_Bounds_Access
-      144:   64:        (AUnit.Memory.AUnit_Alloc
-      144:   65:           (size_t (Length + (Bounds'Object_Size / 8))));
-      144:   66:      Ret.Bound_Address.First := 1;
-      144:   67:      Ret.Bound_Address.Last := Length;
-      288:   68:      Ret.Address := To_Address (Ret.Bound_Address) + (Bounds'Size / 8);
-      288:   69:      return To_Message (Ret);
-      144:   70:   end Message_Alloc;
+      140:   63:      Ret.Bound_Address := To_Bounds_Access
+      140:   64:        (AUnit.Memory.AUnit_Alloc
+      140:   65:           (size_t (Length + (Bounds'Object_Size / 8))));
+      140:   66:      Ret.Bound_Address.First := 1;
+      140:   67:      Ret.Bound_Address.Last := Length;
+      280:   68:      Ret.Address := To_Address (Ret.Bound_Address) + (Bounds'Size / 8);
+      280:   69:      return To_Message (Ret);
+      140:   70:   end Message_Alloc;
         -:   71:
         -:   72:   ------------------
         -:   73:   -- Message_Free --
@@ -87,14 +87,14 @@
         -:   85:   -- Format --
         -:   86:   ------------
         -:   87:
-      144:   88:   function Format (S : String) return Message_String is
-      144:   89:      Ptr : constant Message_String := Message_Alloc (S'Length);
+      140:   88:   function Format (S : String) return Message_String is
+      140:   89:      Ptr : constant Message_String := Message_Alloc (S'Length);
         -:   90:   begin
-     4734:   91:      for J in S'Range loop
-     4590:   92:         Ptr (J - S'First + 1) := S (J);
-     4446:   93:      end loop;
+     4530:   91:      for J in S'Range loop
+     4390:   92:         Ptr (J - S'First + 1) := S (J);
+     4250:   93:      end loop;
         -:   94:
-      144:   95:      return Ptr;
+      140:   95:      return Ptr;
         -:   96:   end Format;
         -:   97:
         -:   98:end AUnit;

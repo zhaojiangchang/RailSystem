@@ -1,0 +1,20 @@
+{
+  "spark": [
+    {
+      "name": "Trains",
+      "sloc": [
+        {
+          "file": "trains.ads",
+          "line": 4
+        }
+      ],
+      "spark": "all"
+    }
+  ],
+  "flow": [
+  ],
+  "proof": [
+  ],
+  "assumptions": [
+  ]
+}

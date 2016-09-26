@@ -1,36 +1,36 @@
-        -:    0:Source:C:/Users/JackyChang/Desktop/tutorial/RailSystem/src/sprint.adb
-        -:    0:Programs:38
+        -:    0:Source:C:/Users/JackyChang/Desktop/RailSystem2/src/sprint.adb
+        -:    0:Programs:9
         -:    1:with Ada.Text_IO; use Ada.Text_IO;
         -:    2:package body sPrint is
-       56:    3:   procedure Print(s: in String) is
+      320:    3:   procedure Print(s: in String) is
         -:    4:   begin
-       56:    5:      if s = "" then
-    #####:    6:         New_Line;
+      320:    5:      if s = "" then
+       70:    6:         New_Line;
         -:    7:      else
-       56:    8:         Put_Line(s);
+      250:    8:         Put_Line(s);
         -:    9:      end if;
-       56:   10:   end Print;
+      320:   10:   end Print;
         -:   11:
-       72:   12:   procedure Print_Natural(s: in String; n: in Natural)
+       80:   12:   procedure Print_Natural(s: in String; n: in Natural)
         -:   13:   is
         -:   14:   begin
-       72:   15:      Put_Line(s &":  "& n'Image);
-       72:   16:   end Print_Natural;
+       80:   15:      Put_Line(s &":  "& n'Image);
+       80:   16:   end Print_Natural;
         -:   17:
         -:   18:
-       36:   19:   procedure Print_Train_State(s: in String; n: in TYPES.Train_State)
+       40:   19:   procedure Print_Train_State(s: in String; n: in TYPES.Train_State)
         -:   20:   is
         -:   21:   begin
-       36:   22:      Put_Line(s &":  "& n'Image);
+       40:   22:      Put_Line(s &":  "& n'Image);
         -:   23:
-       36:   24:   end Print_Train_State;
+       40:   24:   end Print_Train_State;
         -:   25:
         -:   26:
-      290:   27:   procedure Print_Station_Locations(s: in String; n: in TYPES.Station_Locations)
+      358:   27:   procedure Print_Station_Locations(s: in String; n: in TYPES.Station_Locations)
         -:   28:   is
         -:   29:   begin
-      290:   30:      Put_Line(s &":  "& n'Image);
-      290:   31:   end Print_Station_Locations;
+      358:   30:      Put_Line(s &":  "& n'Image);
+      358:   31:   end Print_Station_Locations;
         -:   32:
         -:   33:
         -:   34:end sPrint;

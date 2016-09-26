@@ -1,0 +1,181 @@
+        -:    0:Source:C:/Users/JackyChang/Desktop/RailSystem2/src/main.adb
+        -:    0:Programs:9
+        -:    1:with RailSystems;
+        -:    2:with Stations;
+        -:    3:with Tracks;
+        -:    4:with Trains;
+        -:    5:with TYPES;
+        -:    6:with sPrint; use sPrint;
+        -:    7:--  with Ada.Text_IO; use Ada.Text_IO;
+        1:    8:procedure Main is
+        1:    9:   rail_system: RailSystems.RailSystem;
+        1:   10:   TrainA: Trains.Train;
+        1:   11:   TrainB: Trains.Train;
+        1:   12:   TrainC: Trains.Train;
+        1:   13:   TrainD: Trains.train;
+        1:   14:   timeTable: TYPES.TimeTable:=TYPES.S8;
+        -:   15:
+        -:   16:   size: Positive;
+        -:   17:   tempSize: Positive;
+        -:   18:begin
+        1:   19:   RailSystems.Init(rail_system);
+        1:   20:   RailSystems.addTrain(rail_system, 1);
+        -:   21:   -- Set train 1 current location to None (not on the railsystem)
+        1:   22:   TrainA := RailSystems.getTrainById(rail_system,1);
+        -:   23:
+        1:   24:   RailSystems.addTrain(rail_system, 2);
+        -:   25:   -- Set train 2 current location to None (not on the railsystem)
+        1:   26:   TrainB := RailSystems.getTrainById(rail_system,2);
+        -:   27:
+        1:   28:   RailSystems.addTrain(rail_system, 3);
+        -:   29:   -- Set train 3 current location to None (not on the railsystem)
+        1:   30:   TrainC := RailSystems.getTrainById(rail_system,3);
+        -:   31:
+        1:   32:   print("total trains size: "& RailSystems.LIST_TRAINS.GET_SIZE(rail_system.All_Trains)'Image);
+        -:   33:
+        -:   34:   --add tracks
+        1:   35:   RailSystems.addTrack(rail_system,  1, TYPES.Wellington, TYPES.Petone, TYPES.Wellington, TYPES.UpperHutt);
+        1:   36:   RailSystems.addTrack(rail_system,  2, TYPES.Petone, TYPES.LowerHutt, TYPES.Wellington, TYPES.UpperHutt);
+        1:   37:   RailSystems.addTrack(rail_system,  3, TYPES.LowerHutt, TYPES.UpperHutt, TYPES.Wellington, TYPES.UpperHutt);
+        -:   38:
+        1:   39:   RailSystems.addTrack(rail_system,  4, TYPES.Wellington, TYPES.CroftonDowns, TYPES.Wellington, TYPES.Johnsonville);
+        1:   40:   RailSystems.addTrack(rail_system,  5, TYPES.CroftonDowns, TYPES.Ngaio, TYPES.Wellington, TYPES.Johnsonville);
+        1:   41:   RailSystems.addTrack(rail_system,  6, TYPES.Ngaio, TYPES.Khandallah, TYPES.Wellington, TYPES.Johnsonville);
+        1:   42:   RailSystems.addTrack(rail_system,  7, TYPES.Khandallah, TYPES.Johnsonville, TYPES.Wellington, TYPES.Johnsonville);
+        -:   43:
+        1:   44:   RailSystems.addTrack(rail_system,  8, TYPES.Petone, TYPES.Wellington, TYPES.UpperHutt, TYPES.Wellington);
+        1:   45:   RailSystems.addTrack(rail_system,  9, TYPES.LowerHutt, TYPES.Petone, TYPES.UpperHutt, TYPES.Wellington);
+        1:   46:   RailSystems.addTrack(rail_system,  10, TYPES.UpperHutt, TYPES.LowerHutt, TYPES.UpperHutt, TYPES.Wellington);
+        -:   47:
+        1:   48:   RailSystems.addTrack(rail_system,  11, TYPES.CroftonDowns, TYPES.Wellington, TYPES.Johnsonville, TYPES.Wellington);
+        1:   49:   RailSystems.addTrack(rail_system,  12, TYPES.Ngaio, TYPES.CroftonDowns, TYPES.Johnsonville, TYPES.Wellington);
+        1:   50:   RailSystems.addTrack(rail_system,  13, TYPES.Khandallah, TYPES.Ngaio, TYPES.Johnsonville, TYPES.Wellington);
+        1:   51:   RailSystems.addTrack(rail_system,  14, TYPES.Johnsonville, TYPES.Khandallah, TYPES.Johnsonville, TYPES.Wellington);
+        1:   52:   RailSystems.addTrack(rail_system,  15, TYPES.Johnsonville, TYPES.UpperHutt, TYPES.Johnsonville, TYPES.UpperHutt);
+        1:   53:   RailSystems.addTrack(rail_system,  16, TYPES.UpperHutt, TYPES.Johnsonville, TYPES.UpperHutt, TYPES.Johnsonville);
+        -:   54:
+        1:   55:   print("total tracks size: "&Stations.LIST_TRACKS.GET_SIZE(rail_system.All_Tracks)'Image);
+        -:   56:
+        1:   57:   RailSystems.addStation(rail_system, 1,TYPES.Wellington);
+        1:   58:   RailSystems.addStation(rail_system, 2,TYPES.Johnsonville);
+        1:   59:   RailSystems.addStation(rail_system, 3,TYPES.UpperHutt);
+        1:   60:   RailSystems.addStation(rail_system, 4,TYPES.LowerHutt);
+        1:   61:   RailSystems.addStation(rail_system, 5,TYPES.Petone);
+        1:   62:   RailSystems.addStation(rail_system, 6,TYPES.CroftonDowns);
+        1:   63:   RailSystems.addStation(rail_system, 7,TYPES.Ngaio);
+        1:   64:   RailSystems.addStation(rail_system, 8,TYPES.Khandallah);
+        -:   65:
+        -:   66:   -- check reachability between stations
+        1:   67:   Print("");
+        1:   68:   Print("");
+        -:   69:
+        1:   70:   Print("Check reachability between Wellington and Johnsonville");
+        1:   71:   RailSystems.dfs_station_reachability_by_stations(rail_system, TYPES.Wellington, TYPES.Johnsonville);
+        1:   72:   Print("");
+        1:   73:   Print("");
+        -:   74:
+        1:   75:   Print("Check reachability between Wellington and UpperHutt");
+        1:   76:   RailSystems.dfs_station_reachability_by_stations(rail_system, TYPES.Wellington, TYPES.UpperHutt);
+        1:   77:   Print("");
+        1:   78:   Print("");
+        -:   79:
+        1:   80:   Print("Check reachability between Johnsonville and UpperHutt");
+        1:   81:   RailSystems.dfs_station_reachability_by_stations(rail_system, TYPES.Johnsonville, TYPES.UpperHutt);
+        -:   82:
+        -:   83:
+        1:   84:   if RailSystems.getStationByName(stations_list   => rail_system.All_Stations,
+        -:   85:                                   stationLocation => TYPES.Johnsonville).isReachable = True
+        1:   86:     and RailSystems.getStationByName(stations_list   => rail_system.All_Stations,
+        -:   87:                                      stationLocation => TYPES.UpperHutt).isReachable = True
+        1:   88:     and RailSystems.getStationByName(stations_list   => rail_system.All_Stations,
+        -:   89:                                      stationLocation => TYPES.Johnsonville).isReachable = True then
+        -:   90:      -- all reachable then reset isReachable to false
+        1:   91:      RailSystems.resetIsReachable(rail_system);
+        1:   92:      Print("");
+        1:   93:      Print("");
+        1:   94:      trainD:=RailSystems.LIST_TRAINS.GET_ELEMENT(A        => rail_system.All_Trains,
+        -:   95:                                          LOCATION => 0);
+        1:   96:      print("total stations size: "& RailSystems.LIST_STATIONS.GET_SIZE(rail_system.All_Stations)'Image);
+        -:   97:
+        1:   98:      RailSystems.addIncomingOutgoingTracksForEachStation(rail_system);
+        1:   99:      size:= RailSystems.LIST_STATIONS.GET_SIZE(rail_system.All_Stations);
+        1:  100:      print("");
+        1:  101:      print("");
+        1:  102:      print("Station info: ");
+        1:  103:      for i in 1 .. size loop
+        8:  104:         print("  station ID: "& i'Image &"  Location: "& RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(rail_system.All_Stations,i).Location'Image);
+        8:  105:         tempSize:=TYPES.LIST_OD.GET_SIZE(RailSystems.LIST_STATIONS.GET_ELEMENT(rail_system.All_Stations, i).TracksLineOriginAndDestination);
+        8:  106:         for j in 1 .. tempSize loop
+       33:  107:            print("    Route Line Between: "& Stations.LIST_TRACKS.GET_ELEMENT(RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(rail_system.All_Stations,i).Incoming,j).TracksLineOrigin'Image &
+       22:  108:                    " and "&Stations.LIST_TRACKS.GET_ELEMENT(RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(rail_system.All_Stations,i).Incoming,j).TracksLineDestination'Image);
+       11:  109:         end loop;
+        -:  110:
+        8:  111:         print("");
+        8:  112:         print("    incoming tracks size: "&  Stations.LIST_TRACKS.GET_SIZE(RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(rail_system.All_Stations,i).Incoming)'Image);
+        8:  113:         for income in 1..  Stations.LIST_TRACKS.GET_SIZE(RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(rail_system.All_Stations,i).Incoming) loop
+       48:  114:            Print("      Track id: "& Stations.LIST_TRACKS.GET_ELEMENT(RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(rail_system.All_Stations,i).Incoming, income).ID'Image&
+       32:  115:                    "  Between: "&Stations.LIST_TRACKS.GET_ELEMENT(RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(rail_system.All_Stations,i).Incoming, income).Origin'Image&
+       48:  116:                    " and "&Stations.LIST_TRACKS.GET_ELEMENT(RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(rail_system.All_Stations,i).Incoming, income).Destination'Image);
+       16:  117:         end loop;
+        8:  118:         print("");
+        8:  119:         print("    outgoing tracks size: "&  Stations.LIST_TRACKS.GET_SIZE(RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(rail_system.All_Stations,i).Outgoing)'Image);
+        8:  120:         for outgo in 1..  Stations.LIST_TRACKS.GET_SIZE(RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(rail_system.All_Stations,i).Outgoing) loop
+       48:  121:            Print("      Track id: "& Stations.LIST_TRACKS.GET_ELEMENT(RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(rail_system.All_Stations,i).Outgoing, outgo).ID'Image&
+       32:  122:                    "  Between: "&Stations.LIST_TRACKS.GET_ELEMENT(RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(rail_system.All_Stations,i).Outgoing, outgo).Origin'Image&
+       48:  123:                    " and "&Stations.LIST_TRACKS.GET_ELEMENT(RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID(rail_system.All_Stations,i).Outgoing, outgo).Destination'Image);
+       16:  124:         end loop;
+        8:  125:         print("-------------------------------------------------------------");
+        8:  126:         print("=============================================================");
+        8:  127:      end loop;
+        -:  128:
+        -:  129:
+        -:  130:      --prepare train to start
+        -:  131:
+        -:  132:      --parameter: rail system, train, From, To, Start run time at 8am
+        -:  133:      --set TrainA from Wellington to Upper Hutt
+        1:  134:      RailSystems.prepareTrain(rail_system, trainA, Types.Wellington, Types.UpperHutt, TYPES.S8);
+        -:  135:      --set TrainB from Wellington to Johnsonville
+        1:  136:      RailSystems.prepareTrain(rail_system, trainB, Types.Wellington, Types.Johnsonville, TYPES.S8);
+        -:  137:      --set TrainC from Upper Hutt to Wellington
+        1:  138:      RailSystems.prepareTrain(rail_system, trainC, Types.UpperHutt, Types.Wellington, TYPES.S8);
+        1:  139:      RailSystems.dfs_station_reachability_by_train(r_system => rail_system,
+        -:  140:                                                    train    => trainA);
+        1:  141:      if trainA.isReachable = true then
+        -:  142:
+        -:  143:         --Train A start run;
+        1:  144:         Print("Train A start Run: From Wellington to Upper Hutt");
+        1:  145:         RailSystems.go(rail_system, trainA,10);
+        1:  146:         Print("");
+        1:  147:         Print("");
+        1:  148:         Print("");
+        -:  149:      end if;
+        1:  150:      RailSystems.resetIsReachable(rail_system);
+        1:  151:      RailSystems.dfs_station_reachability_by_train(r_system => rail_system,
+        -:  152:                                                    train    => trainB);
+        1:  153:      if trainB.isReachable = true then
+        -:  154:
+        1:  155:         Print("Train B start Run: From Wellington to Johnsonville");
+        1:  156:         RailSystems.go(rail_system, trainB,10);
+        1:  157:         Print("");
+        1:  158:         Print("");
+        1:  159:         Print("");
+        -:  160:      end if;
+        1:  161:      RailSystems.resetIsReachable(rail_system);
+        1:  162:      RailSystems.dfs_station_reachability_by_train(r_system => rail_system,
+        -:  163:                                                    train    => trainC);
+        1:  164:      if trainC.isReachable = True then
+        1:  165:         Print("test Collide, - Train 3 stopped at the station 4 to avoid collide, Train 1 on the track 9 (Lower hutt to Petone track)");
+        1:  166:         Print("Train C start Run: From Upper hutt to Wellington");
+        1:  167:         RailSystems.go(rail_system, trainC,10);
+        1:  168:         Print("");
+        1:  169:         Print("");
+        1:  170:         Print("");
+        -:  171:      end if;
+        1:  172:      RailSystems.resetIsReachable(rail_system);
+        -:  173:
+        -:  174:   end if;
+        -:  175:
+        -:  176:
+        -:  177:
+        -:  178:
+        1:  179:end Main;

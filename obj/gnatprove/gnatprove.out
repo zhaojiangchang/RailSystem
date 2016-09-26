@@ -1,0 +1,93 @@
+Summary of SPARK analysis
+=========================
+
+----------------------------------------------------------------------------------------------------------
+SPARK Analysis results        Total         Flow   Interval   CodePeer      Provers   Justified   Unproved
+----------------------------------------------------------------------------------------------------------
+Data Dependencies                 .            .          .          .            .           .          .
+Flow Dependencies                 .            .          .          .            .           .          .
+Initialization                  399          399          .          .            .           .          .
+Non-Aliasing                      .            .          .          .            .           .          .
+Run-time Checks                  67            .          .          .    67 (CVC4)           .          .
+Assertions                        6            .          .          .     6 (CVC4)           .          .
+Functional Contracts             17            .          .          .    17 (CVC4)           .          .
+LSP Verification                  .            .          .          .            .           .          .
+----------------------------------------------------------------------------------------------------------
+Total                           489    399 (82%)          .          .     90 (18%)           .          .
+
+
+Analyzed 7 units
+in unit main, 0 subprograms and packages out of 1 analyzed
+  Main at main.adb:8 skipped
+in unit railsystems, 37 subprograms and packages out of 37 analyzed
+  RailSystems at railsystems.ads:8 flow analyzed (0 errors and 0 warnings) and proved (2 checks)
+  RailSystems.Init at railsystems.ads:38 flow analyzed (0 errors and 0 warnings) and proved (0 checks)
+  RailSystems.LIST_STATIONS at railsystems.ads:23 flow analyzed (0 errors and 0 warnings) and proved (0 checks)
+  RailSystems.LIST_STATIONS.APPEND at list.ads:65, instantiated at railsystems.ads:23 flow analyzed (0 errors and 0 warnings) and proved (3 checks)
+  RailSystems.LIST_STATIONS.CONTAINS at list.ads:49, instantiated at railsystems.ads:23 flow analyzed (0 errors and 0 warnings) and proved (5 checks)
+  RailSystems.LIST_STATIONS.DELETE_LAST at list.ads:63, instantiated at railsystems.ads:23 flow analyzed (0 errors and 0 warnings) and proved (1 checks)
+  RailSystems.LIST_STATIONS.FULL at list.ads:61, instantiated at railsystems.ads:23 flow analyzed (0 errors and 0 warnings) and proved (1 checks)
+  RailSystems.LIST_STATIONS.GET_ELEMENT at list.ads:56, instantiated at railsystems.ads:23 flow analyzed (0 errors and 0 warnings) and proved (2 checks)
+  RailSystems.LIST_STATIONS.GET_ELEMENT_BY_ID at list.ads:59, instantiated at railsystems.ads:23 flow analyzed (0 errors and 0 warnings) and proved (3 checks)
+  RailSystems.LIST_STATIONS.GET_SIZE at list.ads:53, instantiated at railsystems.ads:23 flow analyzed (0 errors and 0 warnings) and proved (1 checks)
+  RailSystems.LIST_STATIONS.Init at list.ads:94, instantiated at railsystems.ads:23 flow analyzed (0 errors and 0 warnings) and proved (0 checks)
+  RailSystems.LIST_STATIONS.REPLACE_BY_ID at list.ads:90, instantiated at railsystems.ads:23 flow analyzed (0 errors and 0 warnings) and proved (2 checks)
+  RailSystems.LIST_TRAINS at railsystems.ads:16 flow analyzed (0 errors and 0 warnings) and proved (0 checks)
+  RailSystems.LIST_TRAINS.APPEND at list.ads:65, instantiated at railsystems.ads:16 flow analyzed (0 errors and 0 warnings) and proved (3 checks)
+  RailSystems.LIST_TRAINS.CONTAINS at list.ads:49, instantiated at railsystems.ads:16 flow analyzed (0 errors and 0 warnings) and proved (5 checks)
+  RailSystems.LIST_TRAINS.DELETE_LAST at list.ads:63, instantiated at railsystems.ads:16 flow analyzed (0 errors and 0 warnings) and proved (1 checks)
+  RailSystems.LIST_TRAINS.FULL at list.ads:61, instantiated at railsystems.ads:16 flow analyzed (0 errors and 0 warnings) and proved (1 checks)
+  RailSystems.LIST_TRAINS.GET_ELEMENT at list.ads:56, instantiated at railsystems.ads:16 flow analyzed (0 errors and 0 warnings) and proved (2 checks)
+  RailSystems.LIST_TRAINS.GET_ELEMENT_BY_ID at list.ads:59, instantiated at railsystems.ads:16 flow analyzed (0 errors and 0 warnings) and proved (5 checks)
+  RailSystems.LIST_TRAINS.GET_SIZE at list.ads:53, instantiated at railsystems.ads:16 flow analyzed (0 errors and 0 warnings) and proved (1 checks)
+  RailSystems.LIST_TRAINS.Init at list.ads:94, instantiated at railsystems.ads:16 flow analyzed (0 errors and 0 warnings) and proved (0 checks)
+  RailSystems.LIST_TRAINS.REPLACE_BY_ID at list.ads:90, instantiated at railsystems.ads:16 flow analyzed (0 errors and 0 warnings) and proved (2 checks)
+  RailSystems.addIncomingOutgoingTracksForEachStation at railsystems.ads:211 flow analyzed (0 errors and 0 warnings) and proved (1 checks)
+  RailSystems.addStation at railsystems.ads:71 flow analyzed (0 errors and 0 warnings) and proved (0 checks)
+  RailSystems.addTrack at railsystems.ads:48 flow analyzed (0 errors and 0 warnings) and proved (0 checks)
+  RailSystems.addTrain at railsystems.ads:39 flow analyzed (0 errors and 0 warnings) and proved (2 checks)
+  RailSystems.dfs_station_reachability_by_stations at railsystems.ads:165 flow analyzed (0 errors and 0 warnings) and proved (3 checks)
+  RailSystems.dfs_station_reachability_by_train at railsystems.ads:140 flow analyzed (0 errors and 0 warnings) and proved (3 checks)
+  RailSystems.getStationByName at railsystems.ads:188 flow analyzed (0 errors and 0 warnings) and proved (0 checks)
+  RailSystems.getTrackByName at railsystems.ads:190 flow analyzed (0 errors and 0 warnings) and proved (0 checks)
+  RailSystems.getTrainById at railsystems.ads:195 flow analyzed (0 errors and 0 warnings) and proved (2 checks)
+  RailSystems.go at railsystems.ads:89 flow analyzed (0 errors and 0 warnings) and proved (13 checks)
+  RailSystems.prepareTrain at railsystems.ads:121 flow analyzed (0 errors and 0 warnings) and proved (4 checks)
+  RailSystems.replaceStation at railsystems.ads:199 flow analyzed (0 errors and 0 warnings) and proved (0 checks)
+  RailSystems.replaceTrack at railsystems.ads:207 flow analyzed (0 errors and 0 warnings) and proved (0 checks)
+  RailSystems.replaceTrain at railsystems.ads:203 flow analyzed (0 errors and 0 warnings) and proved (0 checks)
+  RailSystems.resetIsReachable at railsystems.ads:213 flow analyzed (0 errors and 0 warnings) and proved (4 checks)
+in unit sprint, 0 subprograms and packages out of 5 analyzed
+  sPrint at sprint.ads:2 skipped
+  sPrint.Print at sprint.ads:3 skipped
+  sPrint.Print_Natural at sprint.ads:4 skipped
+  sPrint.Print_Station_Locations at sprint.ads:6 skipped
+  sPrint.Print_Train_State at sprint.ads:5 skipped
+in unit stations, 11 subprograms and packages out of 11 analyzed
+  Stations at stations.ads:4 flow analyzed (0 errors and 0 warnings) and proved (0 checks)
+  Stations.LIST_TRACKS at stations.ads:10 flow analyzed (0 errors and 0 warnings) and proved (0 checks)
+  Stations.LIST_TRACKS.APPEND at list.ads:65, instantiated at stations.ads:10 flow analyzed (0 errors and 0 warnings) and proved (3 checks)
+  Stations.LIST_TRACKS.CONTAINS at list.ads:49, instantiated at stations.ads:10 flow analyzed (0 errors and 0 warnings) and proved (5 checks)
+  Stations.LIST_TRACKS.DELETE_LAST at list.ads:63, instantiated at stations.ads:10 flow analyzed (0 errors and 0 warnings) and proved (1 checks)
+  Stations.LIST_TRACKS.FULL at list.ads:61, instantiated at stations.ads:10 flow analyzed (0 errors and 0 warnings) and proved (1 checks)
+  Stations.LIST_TRACKS.GET_ELEMENT at list.ads:56, instantiated at stations.ads:10 flow analyzed (0 errors and 0 warnings) and proved (2 checks)
+  Stations.LIST_TRACKS.GET_ELEMENT_BY_ID at list.ads:59, instantiated at stations.ads:10 flow analyzed (0 errors and 0 warnings) and proved (3 checks)
+  Stations.LIST_TRACKS.GET_SIZE at list.ads:53, instantiated at stations.ads:10 flow analyzed (0 errors and 0 warnings) and proved (1 checks)
+  Stations.LIST_TRACKS.Init at list.ads:94, instantiated at stations.ads:10 flow analyzed (0 errors and 0 warnings) and proved (0 checks)
+  Stations.LIST_TRACKS.REPLACE_BY_ID at list.ads:90, instantiated at stations.ads:10 flow analyzed (0 errors and 0 warnings) and proved (2 checks)
+in unit tracks, 1 subprograms and packages out of 1 analyzed
+  Tracks at tracks.ads:3 flow analyzed (0 errors and 0 warnings) and proved (0 checks)
+in unit trains, 1 subprograms and packages out of 1 analyzed
+  Trains at trains.ads:4 flow analyzed (0 errors and 0 warnings) and proved (0 checks)
+in unit types, 0 subprograms and packages out of 11 analyzed
+  TYPES at types.ads:2 skipped
+  TYPES.LIST_OD at types.ads:21 skipped
+  TYPES.LIST_OD.APPEND at list.ads:65, instantiated at types.ads:21 skipped
+  TYPES.LIST_OD.CONTAINS at list.ads:49, instantiated at types.ads:21 skipped
+  TYPES.LIST_OD.DELETE_LAST at list.ads:63, instantiated at types.ads:21 skipped
+  TYPES.LIST_OD.FULL at list.ads:61, instantiated at types.ads:21 skipped
+  TYPES.LIST_OD.GET_ELEMENT at list.ads:56, instantiated at types.ads:21 skipped
+  TYPES.LIST_OD.GET_ELEMENT_BY_ID at list.ads:59, instantiated at types.ads:21 skipped
+  TYPES.LIST_OD.GET_SIZE at list.ads:53, instantiated at types.ads:21 skipped
+  TYPES.LIST_OD.Init at list.ads:94, instantiated at types.ads:21 skipped
+  TYPES.LIST_OD.REPLACE_BY_ID at list.ads:90, instantiated at types.ads:21 skipped
